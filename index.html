@@ -4,8 +4,6 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#101D34">
-  <meta name="description" content="LDR.world — Le portail de Lucullus-les-Deux-Rives, son histoire, ses territoires, ses habitants et ses institutions.">
   <title>LDR.world — Lucullus-les-Deux-Rives</title>
   <style>
     :root {
@@ -136,64 +134,6 @@
       margin-top: 60px;
     }
 
-    /* Présentation des contenus synchronisés depuis Notion */
-    .notion-content {
-      padding: 12px 0 35px;
-    }
-    .notion-content h2 {
-      margin: 30px 0 14px;
-      font-size: 27px;
-    }
-    .notion-content h3 {
-      margin: 22px 0 10px;
-      font-size: 21px;
-    }
-    .notion-content p,
-    .notion-content li {
-      color: #D8E5F4;
-      line-height: 1.8;
-    }
-    .notion-content ul {
-      padding-left: 24px;
-    }
-    .notion-content hr {
-      border: 0;
-      border-top: 1px solid #3B5577;
-      margin: 25px 0;
-    }
-    .notion-section {
-      background: #1B3050;
-      border: 1px solid #3B5577;
-      border-radius: 15px;
-      padding: 22px;
-      margin: 15px 0;
-    }
-    .notion-section summary {
-      cursor: pointer;
-      font-weight: 800;
-      font-size: 19px;
-      color: white;
-    }
-    .notion-section[open] summary {
-      margin-bottom: 20px;
-    }
-    .notion-nested {
-      margin-left: 15px;
-      padding-left: 15px;
-      border-left: 2px solid #3B5577;
-    }
-    .notion-caption {
-      color: #B8CCE5;
-      font-style: italic;
-      font-size: 13px;
-    }
-    .notion-note {
-      padding: 12px 15px;
-      border-left: 3px solid #A8C9F2;
-      background: #223D60;
-      border-radius: 5px;
-    }
-
     @media(max-width: 800px) {
       .grid { grid-template-columns: repeat(2, 1fr); }
       .header-inner { flex-direction: column; padding: 18px 0; }
@@ -208,12 +148,166 @@
       .unit { font-size: 9px; letter-spacing: 0; }
       .grid { gap: 10px; }
       .card { padding: 16px; min-height: 165px; }
-      .notion-section { padding: 15px; }
+    }
+
+    /* Encyclopédie Notion */
+
+    .notion-content {
+      padding: 16px 0 45px;
+      max-width: 100%;
+    }
+    .notion-content h2 {
+      font-size: clamp(23px, 3vw, 30px);
+      margin: 30px 0 14px;
+    }
+    .notion-content h3 {
+      font-size: 21px;
+      margin: 24px 0 10px;
+    }
+    .notion-content p,
+    .notion-content li {
+      color: #dce7f5;
+      line-height: 1.8;
+      white-space: pre-wrap;
+    }
+    .notion-content ul,
+    .notion-content ol {
+      padding-left: 25px;
+    }
+    .notion-content a {
+      color: #aed8ff;
+      text-decoration: underline;
+    }
+    .notion-content hr {
+      border: 0;
+      border-top: 1px solid #49617c;
+      margin: 28px 0;
+    }
+    .notion-content blockquote,
+    .notion-note {
+      border-left: 4px solid #a8c9f2;
+      background: #1b3050;
+      padding: 14px 18px;
+      border-radius: 8px;
+    }
+    .notion-columns {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+    }
+    .notion-nested {
+      padding-left: 15px;
+      border-left: 2px solid #385477;
+    }
+    .notion-figure {
+      margin: 23px 0;
+    }
+    .notion-figure img {
+      display: block;
+      max-width: 100%;
+      max-height: 620px;
+      width: auto;
+      height: auto;
+      border-radius: 12px;
+    }
+    .notion-figure figcaption {
+      color: #b8cce5;
+      margin-top: 8px;
+      font-size: 13px;
+    }
+    .notion-table-wrap {
+      overflow-x: auto;
+      margin: 22px 0;
+      border-radius: 12px;
+      border: 1px solid #3b5577;
+    }
+    .notion-table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 420px;
+    }
+    .notion-table th,
+    .notion-table td {
+      padding: 13px 15px;
+      text-align: left;
+      border-bottom: 1px solid #3b5577;
+      vertical-align: top;
+    }
+    .notion-table th {
+      background: #27456b;
+    }
+    .notion-table tr:nth-child(even) td {
+      background: #1b3050;
+    }
+    .notion-code {
+      background: #071327;
+      padding: 17px;
+      border-radius: 10px;
+      overflow-x: auto;
+      white-space: pre-wrap;
+    }
+    .notion-check {
+      margin: 10px 0;
+      color: #dce7f5;
+    }
+    .encyclopedia-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 15px;
+      margin: 20px 0 40px;
+    }
+    .encyclopedia-card {
+      display: block;
+      background: var(--sky);
+      color: var(--ink);
+      padding: 21px;
+      border-radius: 13px;
+      font-weight: 800;
+      transition: transform .2s;
+    }
+    .encyclopedia-card:hover {
+      transform: translateY(-3px);
+      background: white;
+    }
+    .encyclopedia-card small {
+      display: block;
+      margin-top: 9px;
+      font-weight: 500;
+      color: #506782;
+    }
+    .encyclopedia-back {
+      display: inline-block;
+      margin: 28px 0 8px;
+      color: #b8cce5;
+    }
+    .encyclopedia-search {
+      width: 100%;
+      max-width: 560px;
+      padding: 16px;
+      border-radius: 10px;
+      border: 1px solid #637c9e;
+      background: white;
+      color: #142d4c;
+      font: inherit;
+    }
+    .encyclopedia-results {
+      margin-top: 16px;
+    }
+    .encyclopedia-status {
+      color: #b8cce5;
+      padding: 18px 0;
+    }
+    .notion-list {
+      margin: 10px 0;
+    }
+    @media(max-width: 600px) {
+      .notion-columns { display: block; }
+      .notion-figure img { width: 100%; }
     }
   </style>
 </head>
-<body>
 
+<body>
 <header>
   <div class="container header-inner">
     <a class="brand" href="#accueil">LDR<span>.world</span></a>
@@ -243,10 +337,22 @@
           <h2>🗳️ Cap sur les élections 2027</h2>
           <p>34 circonscriptions · 34 Délégués des Rives</p>
           <div class="clock">
-            <div class="clock-card"><div class="number" id="days">--</div><div class="unit">JOURS</div></div>
-            <div class="clock-card"><div class="number" id="hours">--</div><div class="unit">HEURES</div></div>
-            <div class="clock-card"><div class="number" id="minutes">--</div><div class="unit">MINUTES</div></div>
-            <div class="clock-card"><div class="number" id="seconds">--</div><div class="unit">SECONDES</div></div>
+            <div class="clock-card">
+              <div class="number" id="days">--</div>
+              <div class="unit">JOURS</div>
+            </div>
+            <div class="clock-card">
+              <div class="number" id="hours">--</div>
+              <div class="unit">HEURES</div>
+            </div>
+            <div class="clock-card">
+              <div class="number" id="minutes">--</div>
+              <div class="unit">MINUTES</div>
+            </div>
+            <div class="clock-card">
+              <div class="number" id="seconds">--</div>
+              <div class="unit">SECONDES</div>
+            </div>
           </div>
           <div class="dates">
             <p>📅 <strong>Premier tour :</strong> 7 février 2027</p>
@@ -263,14 +369,46 @@
         <h2>🧭 Explorer la Principauté</h2>
         <p>Parcourez les rubriques de notre territoire.</p>
         <div class="grid">
-          <a class="card" href="#geographie"><div class="emoji">🗺️</div><h3>Géographie</h3><p>Les 35 secteurs de la métropole.</p></a>
-          <a class="card" href="#histoire"><div class="emoji">📜</div><h3>Histoire</h3><p>Les siècles d'histoire de Lucullus.</p></a>
-          <a class="card" href="#transports"><div class="emoji">🚇</div><h3>Transports</h3><p>Réseaux TRM et SNCL.</p></a>
-          <a class="card" href="#institutions"><div class="emoji">🏛️</div><h3>Institutions</h3><p>La vie politique et communale.</p></a>
-          <a class="card" href="#personnages"><div class="emoji">👥</div><h3>Personnages</h3><p>Souverains, habitants et figures historiques.</p></a>
-          <a class="card" href="#elections"><div class="emoji">🗳️</div><h3>Élections</h3><p>Le scrutin parlementaire de 2027.</p></a>
-          <a class="card" href="#economie"><div class="emoji">💼</div><h3>Économie</h3><p>Entreprises et activités.</p></a>
-          <a class="card" href="#urbanisme"><div class="emoji">🏗️</div><h3>Urbanisme</h3><p>Les grands projets de demain.</p></a>
+          <a class="card" href="#geographie">
+            <div class="emoji">🗺️</div>
+            <h3>Géographie</h3>
+            <p>Les 35 secteurs de la métropole.</p>
+          </a>
+          <a class="card" href="#histoire">
+            <div class="emoji">📜</div>
+            <h3>Histoire</h3>
+            <p>Les siècles d'histoire de Lucullus.</p>
+          </a>
+          <a class="card" href="#transports">
+            <div class="emoji">🚇</div>
+            <h3>Transports</h3>
+            <p>Réseaux TRM et SNCL.</p>
+          </a>
+          <a class="card" href="#institutions">
+            <div class="emoji">🏛️</div>
+            <h3>Institutions</h3>
+            <p>La vie politique et communale.</p>
+          </a>
+          <a class="card" href="#personnages">
+            <div class="emoji">👥</div>
+            <h3>Personnages</h3>
+            <p>Souverains, habitants et figures historiques.</p>
+          </a>
+          <a class="card" href="#elections">
+            <div class="emoji">🗳️</div>
+            <h3>Élections</h3>
+            <p>Le scrutin parlementaire de 2027.</p>
+          </a>
+          <a class="card" href="#economie">
+            <div class="emoji">💼</div>
+            <h3>Économie</h3>
+            <p>Entreprises et activités.</p>
+          </a>
+          <a class="card" href="#urbanisme">
+            <div class="emoji">🏗️</div>
+            <h3>Urbanisme</h3>
+            <p>Les grands projets de demain.</p>
+          </a>
         </div>
       </section>
     </div>
@@ -278,59 +416,96 @@
 
   <div class="page" id="geographie">
     <div class="container">
-      <div class="page-title"><div class="eyebrow">Le territoire</div><h1>🗺️ Géographie</h1><p>35 secteurs répertoriés, dont 34 circonscriptions parlementaires et le village autonome de Vert-Bois-Rives.</p></div>
-      <div class="content-card"><h3>Le Cœur de Lucullus</h3><p>Centre-Ville, mairie, Château du Lucullus, Nouvelle Amsterdam et gare de Lucetelle.</p></div>
-      <div class="content-card"><h3>Le Vieux Lucullus</h3><p>Vieille Ville, Aqueduc, Opéra, Béré et Loubars.</p></div>
-      <div class="content-card"><h3>Les Monts du Lucullus</h3><p>Quartier Campagne, Montagne Lucullus et Halles Bouzin.</p></div>
-      <p>D'autres fiches géographiques seront progressivement intégrées ici.</p>
+      <div class="page-title">
+        <div class="eyebrow">Le territoire</div>
+        <h1>🗺️ Géographie</h1>
+        <p>35 secteurs répertoriés, dont 34 circonscriptions parlementaires et le village autonome de Vert-Bois-Rives.</p>
+      </div>
+      <div class="content-card">
+        <h3>Le Cœur de Lucullus</h3>
+        <p>Centre-Ville, mairie, Château du Lucullus, Nouvelle Amsterdam et gare de Lucetelle.</p>
+      </div>
     </div>
   </div>
 
   <div class="page" id="histoire">
     <div class="container">
-      <div class="page-title"><div class="eyebrow">Mémoire de la Principauté</div><h1>📜 Histoire et culture</h1></div>
-      <div class="content-card"><h3>1098 — La fondation du royaume</h3><p>Baboush Ier fonde le royaume des Deux Rives.</p></div>
-      <div class="content-card"><h3>1221–1252 — Le règne de Baboush IV</h3><p>Une période d'expansion et de rapprochement avec les peuples voisins.</p></div>
-      <div class="content-card"><h3>1871 — La révolution communale</h3><p>Une étape décisive dans la naissance de la Principauté populaire.</p></div>
-      <p>Les histoires de Kerlwenn, Bab Al Baboush, Ryogan et Vert-Bois-Rives seront ajoutées progressivement.</p>
+      <div class="page-title">
+        <div class="eyebrow">Mémoire de la Principauté</div>
+        <h1>📜 Histoire et culture</h1>
+      </div>
     </div>
   </div>
 
   <div class="page" id="elections">
     <div class="container">
-      <div class="page-title"><div class="eyebrow">Parlement communal</div><h1>🗳️ Élections 2027</h1><p>Premier tour le 7 février, second tour le 14 février 2027.</p></div>
-      <div class="content-card"><h3>34 sièges</h3><p>Chaque circonscription élit un Délégué des Rives.</p></div>
-      <div class="content-card"><h3>La campagne électorale</h3><p>Les candidats sont en campagne. Aucun résultat officiel n'a encore été proclamé.</p></div>
+      <div class="page-title">
+        <div class="eyebrow">Parlement communal</div>
+        <h1>🗳️ Élections 2027</h1>
+        <p>Premier tour le 7 février, second tour le 14 février 2027.</p>
+      </div>
+      <div class="content-card">
+        <h3>La campagne électorale</h3>
+        <p>Les candidats sont en campagne. Aucun résultat officiel n'a encore été proclamé.</p>
+      </div>
     </div>
   </div>
 
   <div class="page" id="personnages">
     <div class="container">
-      <div class="page-title"><div class="eyebrow">Les habitants</div><h1>👥 Personnalités</h1></div>
-      <div class="content-card"><h3>La dynastie baboushide</h3><p>De Baboush Ier à Baboush VIII, découvrez les figures de la Principauté.</p></div>
-      <div class="content-card"><h3>Les grandes figures historiques</h3><p>Explorateurs, souverains, personnages politiques et habitants remarquables.</p></div>
+      <div class="page-title">
+        <div class="eyebrow">Les habitants</div>
+        <h1>👥 Personnalités</h1>
+      </div>
     </div>
   </div>
 
   <div class="page" id="transports">
-    <div class="container"><div class="page-title"><h1>🚇 Transports</h1><p>Le réseau TRM, les gares et les liaisons de la SNCL.</p></div></div>
+    <div class="container">
+      <div class="page-title">
+        <h1>🚇 Transports</h1>
+        <p>Le réseau TRM, les gares et les liaisons de la SNCL.</p>
+      </div>
+    </div>
   </div>
+
   <div class="page" id="institutions">
-    <div class="container"><div class="page-title"><h1>🏛️ Institutions</h1><p>La Constitution, les institutions et le Parlement communal.</p></div></div>
+    <div class="container">
+      <div class="page-title">
+        <h1>🏛️ Institutions</h1>
+        <p>La Constitution, les institutions et le Parlement communal.</p>
+      </div>
+    </div>
   </div>
+
   <div class="page" id="economie">
-    <div class="container"><div class="page-title"><h1>💼 Économie</h1><p>Les entreprises et les activités de Lucullus-les-Deux-Rives.</p></div></div>
+    <div class="container">
+      <div class="page-title">
+        <h1>💼 Économie</h1>
+        <p>Les entreprises et les activités de Lucullus-les-Deux-Rives.</p>
+      </div>
+    </div>
   </div>
+
   <div class="page" id="urbanisme">
-    <div class="container"><div class="page-title"><h1>🏗️ Projets et urbanisme</h1><p>Les grands chantiers et les futurs quartiers de la métropole.</p></div></div>
+    <div class="container">
+      <div class="page-title">
+        <h1>🏗️ Projets et urbanisme</h1>
+        <p>Les grands chantiers et les futurs quartiers de la métropole.</p>
+      </div>
+    </div>
   </div>
 </main>
 
 <footer>
-  <div class="container">© LDR.world — Lucullus-les-Deux-Rives · Portail de la Principauté populaire indépendante</div>
+  <div class="container">
+    © LDR.world — Lucullus-les-Deux-Rives · Portail de la Principauté populaire indépendante
+  </div>
 </footer>
 
 <script>
+  // Compte à rebours des élections parlementaires.
+
   const first = new Date("2027-02-07T00:00:00+01:00").getTime();
   const second = new Date("2027-02-14T00:00:00+01:00").getTime();
 
@@ -360,6 +535,7 @@
   function navigate() {
     const id = decodeURIComponent(location.hash.slice(1)) || "accueil";
     const target = document.getElementById(id);
+
     document.querySelectorAll(".page").forEach(page => {
       page.classList.toggle(
         "active",
@@ -370,6 +546,7 @@
         )
       );
     });
+
     window.scrollTo(0, 0);
   }
 
@@ -380,169 +557,665 @@
 </script>
 
 <script>
-  // Association des pages Notion aux rubriques de LDR.world.
-  const notionSections = {
-    geographie: ["géographie de la métropole"],
-    histoire: ["histoire et culture"],
-    transports: ["transports"],
-    institutions: ["institutions et politique"],
-    personnages: ["personnalités et habitants"],
-    elections: ["élections"],
-    economie: ["économie et entreprises"],
-    urbanisme: ["projets & urbanisme", "projets", "urbanisme"]
+  // Identifiants des grandes rubriques Notion.
+
+  const SECTION_IDS = {
+    geographie: "41b9b1f3-b04a-81c1-a142-d7cebf788f93",
+    histoire: "41b9b1f3-b04a-8122-ae28-e2911a35313e",
+    transports: "41b9b1f3-b04a-814f-8ff3-f8027f008eba",
+    institutions: "41b9b1f3-b04a-81ea-b256-db6bb20a15c8",
+    elections: "41b9b1f3-b04a-8148-b43d-d25dbeb7e6b0",
+    personnages: "41b9b1f3-b04a-8124-8471-d4dfd68246d5",
+    economie: "41b9b1f3-b04a-81be-b763-f7c784618382",
+    urbanisme: "41b9b1f3-b04a-8193-9f78-ec1b66abd127"
   };
 
-  function normalizeTitle(text) {
-    return (text || "")
-      .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "")
-      .toLowerCase();
+  const notionIndex = new Map();
+  const notionParents = new Map();
+  let notionRoot = null;
+
+  // Création sécurisée des éléments HTML.
+
+  function el(tag, cls, txt) {
+    const node = document.createElement(tag);
+    if (cls) node.className = cls;
+    if (txt !== undefined) node.textContent = txt;
+    return node;
   }
 
-  function renderNotionBlocks(blocks, container) {
+  function cleanId(value) {
+    return String(value || "").replace(/-/g, "").toLowerCase();
+  }
+
+  function findPage(id) {
+    return notionIndex.get(cleanId(id));
+  }
+
+  function pageHref(page) {
+    return "#fiche/" + cleanId(page.id);
+  }
+
+  function notionInternalHref(href) {
+    if (!href) return null;
+
+    const matched = href.match(/([0-9a-f]{32})(?:[/?#]|$)/i);
+
+    if (matched && notionIndex.has(matched[1].toLowerCase())) {
+      return "#fiche/" + matched[1].toLowerCase();
+    }
+
+    return null;
+  }
+
+  // Textes enrichis : gras, italique, liens et soulignement.
+
+  function appendRich(parent, segments, fallback) {
+    if (!Array.isArray(segments) || segments.length === 0) {
+      parent.textContent = fallback || "";
+      return;
+    }
+
+    for (const segment of segments) {
+      let node = document.createTextNode(segment.text || "");
+
+      if (segment.code) {
+        const tag = el("code");
+        tag.append(node);
+        node = tag;
+      }
+
+      if (segment.bold) {
+        const tag = el("strong");
+        tag.append(node);
+        node = tag;
+      }
+
+      if (segment.italic) {
+        const tag = el("em");
+        tag.append(node);
+        node = tag;
+      }
+
+      if (segment.underline) {
+        const tag = el("u");
+        tag.append(node);
+        node = tag;
+      }
+
+      if (segment.strikethrough) {
+        const tag = el("s");
+        tag.append(node);
+        node = tag;
+      }
+
+      if (segment.href) {
+        const internal = notionInternalHref(segment.href);
+        let safe = internal;
+
+        if (!safe) {
+          try {
+            const u = new URL(segment.href, location.href);
+
+            if (u.protocol === "https:" || u.protocol === "http:") {
+              safe = u.href;
+            }
+          } catch (_) {}
+        }
+
+        if (safe) {
+          const tag = el("a");
+          tag.href = safe;
+
+          if (!internal) {
+            tag.target = "_blank";
+            tag.rel = "noopener noreferrer";
+          }
+
+          tag.append(node);
+          node = tag;
+        }
+      }
+
+      parent.appendChild(node);
+    }
+  }
+
+  // Affichage des tableaux Notion.
+
+  function renderTable(block, parent) {
+    const wrap = el("div", "notion-table-wrap");
+    const table = el("table", "notion-table");
+
+    (block.children || []).forEach((row, index) => {
+      if (row.type !== "table_row") return;
+
+      const tr = el("tr");
+
+      (row.cells || []).forEach(cell => {
+        const tag =
+          index === 0 && block.has_column_header ? "th" : "td";
+
+        const td = el(tag);
+        appendRich(td, cell);
+        tr.appendChild(td);
+      });
+
+      table.appendChild(tr);
+    });
+
+    wrap.appendChild(table);
+    parent.appendChild(wrap);
+  }
+
+  // Affichage des blocs Notion.
+
+  function renderBlocks(blocks, parent, depth = 0) {
+    if (depth > 30) return;
+
+    let activeList = null;
+    let listType = null;
+
     for (const block of blocks || []) {
-      let element = null;
       const type = block.type;
-      const text = block.text || "";
 
-      if (type === "child_page") continue;
+      if (type === "child_page" || type === "child_database") {
+        continue;
+      }
 
-      if (type === "heading_1" || type === "heading_2") {
-        element = document.createElement("h2");
-      } else if (type === "heading_3") {
-        element = document.createElement("h3");
-      } else if (
+      if (
         type === "bulleted_list_item" ||
         type === "numbered_list_item"
       ) {
-        element = document.createElement("p");
-        element.textContent =
-          (type === "bulleted_list_item" ? "• " : "– ") + text;
-      } else if (type === "divider") {
-        element = document.createElement("hr");
-      } else if (type === "quote" || type === "callout") {
-        element = document.createElement("p");
-        element.className = "notion-note";
-      } else if (type === "image") {
+        const wanted =
+          type === "bulleted_list_item" ? "ul" : "ol";
+
+        if (!activeList || listType !== wanted) {
+          activeList = el(wanted, "notion-list");
+          parent.appendChild(activeList);
+          listType = wanted;
+        }
+
+        const li = el("li");
+        appendRich(li, block.rich_text, block.text);
+        activeList.appendChild(li);
+
+        if (block.children?.length) {
+          renderBlocks(block.children, li, depth + 1);
+        }
+
+        continue;
+      }
+
+      activeList = null;
+      listType = null;
+
+      if (type === "divider") {
+        parent.appendChild(el("hr"));
+        continue;
+      }
+
+      if (type === "table") {
+        renderTable(block, parent);
+        continue;
+      }
+
+      if (type === "column_list") {
+        const grid = el("div", "notion-columns");
+
+        for (const column of block.children || []) {
+          const child = el("div");
+          renderBlocks(column.children, child, depth + 1);
+          grid.appendChild(child);
+        }
+
+        parent.appendChild(grid);
+        continue;
+      }
+
+      if (type === "column") {
+        renderBlocks(block.children, parent, depth + 1);
+        continue;
+      }
+
+      // Images Minecraft téléchargées depuis Notion.
+
+      if (type === "image") {
+        const figure = el("figure", "notion-figure");
+
+        if (block.src && /^\/assets\/notion\//.test(block.src)) {
+          const img = el("img");
+
+          img.src = block.src;
+          img.alt =
+            block.caption || "Illustration de Lucullus-les-Deux-Rives";
+          img.loading = "lazy";
+
+          figure.appendChild(img);
+        }
+
         if (block.caption) {
-          element = document.createElement("p");
-          element.className = "notion-caption";
-          element.textContent = "📷 " + block.caption;
+          figure.appendChild(
+            el("figcaption", "", block.caption)
+          );
         }
-      } else if (text.trim()) {
-        element = document.createElement("p");
+
+        if (figure.childNodes.length) {
+          parent.appendChild(figure);
+        }
+
+        continue;
       }
 
-      if (element) {
-        if (element.tagName !== "HR" && !element.textContent) {
-          element.textContent = text;
+      // Autres médias : PDF, vidéo, fichiers et audio.
+
+      if (["file", "pdf", "video", "audio"].includes(type)) {
+        if (block.src && /^\/assets\/notion\//.test(block.src)) {
+          const link = el(
+            "a",
+            "",
+            block.caption || "Ouvrir le média"
+          );
+
+          link.href = block.src;
+          link.target = "_blank";
+          link.rel = "noopener";
+
+          parent.appendChild(el("p")).appendChild(link);
         }
-        container.appendChild(element);
+
+        continue;
       }
 
-      if (block.children && block.children.length) {
-        const nested = document.createElement("div");
-        nested.className = "notion-nested";
-        renderNotionBlocks(block.children, nested);
-        if (nested.childNodes.length) {
-          container.appendChild(nested);
+      if (type === "bookmark" || type === "embed") {
+        if (block.url) {
+          try {
+            const u = new URL(block.url);
+
+            if (["https:", "http:"].includes(u.protocol)) {
+              const a = el("a", "", block.url);
+              a.href = u.href;
+              a.target = "_blank";
+              a.rel = "noopener noreferrer";
+
+              parent.appendChild(el("p")).appendChild(a);
+            }
+          } catch (_) {}
+        }
+
+        continue;
+      }
+
+      if (type === "link_to_page") {
+        const ref = block.link_to_page || {};
+        const id = ref.page_id || ref.database_id;
+        const page = findPage(id);
+
+        if (page) {
+          const link = el("a", "", page.title);
+          link.href = pageHref(page);
+
+          parent.appendChild(el("p")).appendChild(link);
+        }
+
+        continue;
+      }
+
+      let node = null;
+
+      if (type === "heading_1") {
+        node = el("h2");
+      } else if (type === "heading_2") {
+        node = el("h2");
+      } else if (type === "heading_3") {
+        node = el("h3");
+      } else if (type === "quote") {
+        node = el("blockquote");
+      } else if (type === "callout") {
+        node = el("div", "notion-note");
+      } else if (type === "code") {
+        node = el("pre", "notion-code");
+      } else if (type === "to_do") {
+        node = el("div", "notion-check");
+
+        node.appendChild(
+          document.createTextNode(
+            block.checked ? "☑ " : "☐ "
+          )
+        );
+      } else if (
+        (block.text || "").trim() ||
+        block.rich_text?.length
+      ) {
+        node = el("p");
+      }
+
+      if (node) {
+        appendRich(node, block.rich_text, block.text);
+        parent.appendChild(node);
+      }
+
+      if (block.children?.length) {
+        const holder = el("div", "notion-nested");
+
+        renderBlocks(
+          block.children,
+          holder,
+          depth + 1
+        );
+
+        if (holder.childNodes.length) {
+          parent.appendChild(holder);
         }
       }
     }
   }
 
-  function renderNotionPage(page, container, depth = 0) {
-    if (depth > 15) return;
+  // Cartes de navigation entre les sous-pages.
 
-    const section = document.createElement("div");
-    section.className = "notion-content";
+  function addSubpageCards(page, parent) {
+    if (!page.subpages?.length) return;
 
-    renderNotionBlocks(page.blocks, section);
+    const title = el("h2", "", "Explorer les fiches");
+    parent.appendChild(title);
+
+    const grid = el("div", "encyclopedia-grid");
+
+    for (const child of page.subpages) {
+      const a = el(
+        "a",
+        "encyclopedia-card",
+        child.title || "Fiche sans titre"
+      );
+
+      a.href = pageHref(child);
+
+      if (child.subpages?.length) {
+        a.appendChild(
+          el(
+            "small",
+            "",
+            child.subpages.length + " sous-fiches"
+          )
+        );
+      }
+
+      grid.appendChild(a);
+    }
+
+    parent.appendChild(grid);
+  }
+
+  // Indexation des pages pour la navigation interne.
+
+  function buildIndex(page, parent = null) {
+    notionIndex.set(cleanId(page.id), page);
+
+    if (parent) {
+      notionParents.set(
+        cleanId(page.id),
+        cleanId(parent.id)
+      );
+    }
 
     for (const child of page.subpages || []) {
-      const details = document.createElement("details");
-      details.className = "notion-section";
-
-      const summary = document.createElement("summary");
-      summary.textContent = child.title || "Fiche sans titre";
-
-      details.appendChild(summary);
-      renderNotionPage(child, details, depth + 1);
-      section.appendChild(details);
+      buildIndex(child, page);
     }
-
-    container.appendChild(section);
   }
 
-  async function loadNotionContent() {
+  // Remplissage des grandes rubriques.
+
+  function showPage(id, sectionId) {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+
+    const container = section.querySelector(".container");
+    if (!container) return;
+
+    const title = container.querySelector(".page-title");
+    if (!title) return;
+
+    const page = findPage(id);
+    if (!page) return;
+
+    container.replaceChildren(title);
+
+    const content = el("div", "notion-content");
+
+    renderBlocks(page.blocks, content);
+    addSubpageCards(page, content);
+
+    container.appendChild(content);
+  }
+
+  // Déterminer la rubrique d'origine d'une fiche.
+
+  function sectionForPage(id) {
+    let cursor = cleanId(id);
+
+    for (let i = 0; i < 30; i++) {
+      for (const [name, sid] of Object.entries(SECTION_IDS)) {
+        if (cursor === cleanId(sid)) {
+          return name;
+        }
+      }
+
+      cursor = notionParents.get(cursor);
+
+      if (!cursor) break;
+    }
+
+    return "accueil";
+  }
+
+  // Affichage individuel d'une fiche Notion.
+
+  function showDetail(page) {
+    let detail = document.getElementById("fiche");
+
+    if (!detail) {
+      detail = el("div", "page");
+      detail.id = "fiche";
+
+      detail.appendChild(el("div", "container"));
+      document.querySelector("main").appendChild(detail);
+    }
+
+    const box = detail.querySelector(".container");
+    box.replaceChildren();
+
+    const sectionName = sectionForPage(page.id);
+
+    const back = el(
+      "a",
+      "encyclopedia-back",
+      "← Retour à " +
+        (sectionName === "accueil" ? "l'accueil" : sectionName)
+    );
+
+    back.href = "#" + sectionName;
+    box.appendChild(back);
+
+    box.appendChild(
+      el("h1", "", page.title || "Fiche")
+    );
+
+    const body = el("article", "notion-content");
+
+    renderBlocks(page.blocks, body);
+    addSubpageCards(page, body);
+
+    box.appendChild(body);
+  }
+
+  // Navigation vers une fiche sans quitter LDR.world.
+
+  function routeNotion() {
+    const hash = decodeURIComponent(location.hash.slice(1));
+
+    if (!hash.startsWith("fiche/")) {
+      return false;
+    }
+
+    const id = hash.slice(6);
+    const page = findPage(id);
+
+    if (!page) {
+      return false;
+    }
+
+    showDetail(page);
+
+    document.querySelectorAll(".page").forEach(p => {
+      p.classList.toggle("active", p.id === "fiche");
+    });
+
+    window.scrollTo(0, 0);
+
+    return true;
+  }
+
+  window.addEventListener("hashchange", () => {
+    routeNotion();
+  });
+
+  // Recherche dans les titres des pages Notion.
+
+  function setupSearch(root) {
+    const landing = document.querySelector(
+      "#accueil > .container"
+    );
+
+    const area = el("section");
+
+    area.appendChild(
+      el("h2", "", "🔎 Rechercher dans l'encyclopédie")
+    );
+
+    area.appendChild(
+      el(
+        "p",
+        "",
+        "Retrouvez une ville, une station, un personnage ou une chronique."
+      )
+    );
+
+    const input = el("input", "encyclopedia-search");
+    input.type = "search";
+    input.placeholder = "Ex. Kerlwenn, TBL, Baboush…";
+
+    input.setAttribute(
+      "aria-label",
+      "Rechercher une fiche"
+    );
+
+    const results = el("div", "encyclopedia-results");
+
+    area.append(input, results);
+    landing.appendChild(area);
+
+    input.addEventListener("input", () => {
+      const query = input.value
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLowerCase()
+        .trim();
+
+      results.replaceChildren();
+
+      if (query.length < 2) {
+        return;
+      }
+
+      const matches = [...notionIndex.values()]
+        .filter(page =>
+          (page.title || "")
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "")
+            .toLowerCase()
+            .includes(query)
+        )
+        .slice(0, 30);
+
+      if (!matches.length) {
+        results.appendChild(
+          el("p", "", "Aucune fiche trouvée.")
+        );
+        return;
+      }
+
+      const grid = el("div", "encyclopedia-grid");
+
+      for (const page of matches) {
+        const a = el(
+          "a",
+          "encyclopedia-card",
+          page.title
+        );
+
+        a.href = pageHref(page);
+        grid.appendChild(a);
+      }
+
+      results.appendChild(grid);
+    });
+  }
+
+  // Chargement automatique des données de Notion.
+
+  async function startEncyclopedia() {
     try {
-      const response = await fetch("./data/notion.json", {
-        cache: "no-store"
-      });
+      const response = await fetch(
+        "/data/notion.json",
+        { cache: "no-store" }
+      );
 
       if (!response.ok) {
         throw new Error(
-          "JSON Notion indisponible : " + response.status
+          "Erreur HTTP " + response.status
         );
       }
 
       const data = await response.json();
 
-      if (!data.root || !Array.isArray(data.root.subpages)) {
-        throw new Error("Structure Notion invalide");
+      if (
+        !data.root ||
+        !Array.isArray(data.root.subpages)
+      ) {
+        throw new Error(
+          "Format des données Notion incorrect"
+        );
       }
 
-      let updated = 0;
+      notionRoot = data.root;
+      buildIndex(notionRoot);
 
-      for (const [id, names] of Object.entries(notionSections)) {
-        const page = data.root.subpages.find(item =>
-          names.some(name =>
-            normalizeTitle(item.title).includes(
-              normalizeTitle(name)
-            )
-          )
-        );
+      for (const [section, id] of Object.entries(SECTION_IDS)) {
+        showPage(id, section);
+      }
 
-        if (!page) {
-          console.warn(
-            "LDR.world : rubrique introuvable dans Notion :",
-            id
-          );
-          continue;
-        }
+      setupSearch(notionRoot);
 
-        const container = document.querySelector(
-          "#" + id + " > .container"
-        );
-        const header = container?.querySelector(".page-title");
-
-        if (!container || !header) continue;
-
-        // Préparer les contenus avant de retirer les textes provisoires.
-        const newContent = document.createDocumentFragment();
-        renderNotionPage(page, newContent);
-
-        // Garder le titre de rubrique et afficher les données Notion.
-        container.replaceChildren(header, newContent);
-        updated++;
+      if (routeNotion()) {
+        return;
       }
 
       console.info(
         "LDR.world :",
-        updated,
-        "rubriques chargées depuis Notion."
+        notionIndex.size,
+        "pages chargées,",
+        data.statistics?.images,
+        "médias dans l'export."
       );
 
     } catch (error) {
-      // En cas de panne, les textes provisoires restent visibles.
       console.error(
-        "LDR.world : échec du chargement Notion",
+        "LDR.world : synchronisation indisponible",
         error
       );
     }
   }
 
-  loadNotionContent();
+  startEncyclopedia();
 </script>
 
 </body>
