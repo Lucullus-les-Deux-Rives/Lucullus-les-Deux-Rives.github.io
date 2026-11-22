@@ -4,6 +4,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101D34">
+  <meta name="description" content="LDR.world — Le portail de Lucullus-les-Deux-Rives, son histoire, ses territoires, ses habitants et ses institutions.">
   <title>LDR.world — Lucullus-les-Deux-Rives</title>
   <style>
     :root {
@@ -134,6 +136,64 @@
       margin-top: 60px;
     }
 
+    /* Présentation des contenus synchronisés depuis Notion */
+    .notion-content {
+      padding: 12px 0 35px;
+    }
+    .notion-content h2 {
+      margin: 30px 0 14px;
+      font-size: 27px;
+    }
+    .notion-content h3 {
+      margin: 22px 0 10px;
+      font-size: 21px;
+    }
+    .notion-content p,
+    .notion-content li {
+      color: #D8E5F4;
+      line-height: 1.8;
+    }
+    .notion-content ul {
+      padding-left: 24px;
+    }
+    .notion-content hr {
+      border: 0;
+      border-top: 1px solid #3B5577;
+      margin: 25px 0;
+    }
+    .notion-section {
+      background: #1B3050;
+      border: 1px solid #3B5577;
+      border-radius: 15px;
+      padding: 22px;
+      margin: 15px 0;
+    }
+    .notion-section summary {
+      cursor: pointer;
+      font-weight: 800;
+      font-size: 19px;
+      color: white;
+    }
+    .notion-section[open] summary {
+      margin-bottom: 20px;
+    }
+    .notion-nested {
+      margin-left: 15px;
+      padding-left: 15px;
+      border-left: 2px solid #3B5577;
+    }
+    .notion-caption {
+      color: #B8CCE5;
+      font-style: italic;
+      font-size: 13px;
+    }
+    .notion-note {
+      padding: 12px 15px;
+      border-left: 3px solid #A8C9F2;
+      background: #223D60;
+      border-radius: 5px;
+    }
+
     @media(max-width: 800px) {
       .grid { grid-template-columns: repeat(2, 1fr); }
       .header-inner { flex-direction: column; padding: 18px 0; }
@@ -148,6 +208,7 @@
       .unit { font-size: 9px; letter-spacing: 0; }
       .grid { gap: 10px; }
       .card { padding: 16px; min-height: 165px; }
+      .notion-section { padding: 15px; }
     }
   </style>
 </head>
@@ -300,7 +361,14 @@
     const id = decodeURIComponent(location.hash.slice(1)) || "accueil";
     const target = document.getElementById(id);
     document.querySelectorAll(".page").forEach(page => {
-      page.classList.toggle("active", page === (target?.classList.contains("page") ? target : document.getElementById("accueil")));
+      page.classList.toggle(
+        "active",
+        page === (
+          target?.classList.contains("page")
+            ? target
+            : document.getElementById("accueil")
+        )
+      );
     });
     window.scrollTo(0, 0);
   }
@@ -310,6 +378,172 @@
   countdown();
   setInterval(countdown, 1000);
 </script>
+
+<script>
+  // Association des pages Notion aux rubriques de LDR.world.
+  const notionSections = {
+    geographie: ["géographie de la métropole"],
+    histoire: ["histoire et culture"],
+    transports: ["transports"],
+    institutions: ["institutions et politique"],
+    personnages: ["personnalités et habitants"],
+    elections: ["élections"],
+    economie: ["économie et entreprises"],
+    urbanisme: ["projets & urbanisme", "projets", "urbanisme"]
+  };
+
+  function normalizeTitle(text) {
+    return (text || "")
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
+  }
+
+  function renderNotionBlocks(blocks, container) {
+    for (const block of blocks || []) {
+      let element = null;
+      const type = block.type;
+      const text = block.text || "";
+
+      if (type === "child_page") continue;
+
+      if (type === "heading_1" || type === "heading_2") {
+        element = document.createElement("h2");
+      } else if (type === "heading_3") {
+        element = document.createElement("h3");
+      } else if (
+        type === "bulleted_list_item" ||
+        type === "numbered_list_item"
+      ) {
+        element = document.createElement("p");
+        element.textContent =
+          (type === "bulleted_list_item" ? "• " : "– ") + text;
+      } else if (type === "divider") {
+        element = document.createElement("hr");
+      } else if (type === "quote" || type === "callout") {
+        element = document.createElement("p");
+        element.className = "notion-note";
+      } else if (type === "image") {
+        if (block.caption) {
+          element = document.createElement("p");
+          element.className = "notion-caption";
+          element.textContent = "📷 " + block.caption;
+        }
+      } else if (text.trim()) {
+        element = document.createElement("p");
+      }
+
+      if (element) {
+        if (element.tagName !== "HR" && !element.textContent) {
+          element.textContent = text;
+        }
+        container.appendChild(element);
+      }
+
+      if (block.children && block.children.length) {
+        const nested = document.createElement("div");
+        nested.className = "notion-nested";
+        renderNotionBlocks(block.children, nested);
+        if (nested.childNodes.length) {
+          container.appendChild(nested);
+        }
+      }
+    }
+  }
+
+  function renderNotionPage(page, container, depth = 0) {
+    if (depth > 15) return;
+
+    const section = document.createElement("div");
+    section.className = "notion-content";
+
+    renderNotionBlocks(page.blocks, section);
+
+    for (const child of page.subpages || []) {
+      const details = document.createElement("details");
+      details.className = "notion-section";
+
+      const summary = document.createElement("summary");
+      summary.textContent = child.title || "Fiche sans titre";
+
+      details.appendChild(summary);
+      renderNotionPage(child, details, depth + 1);
+      section.appendChild(details);
+    }
+
+    container.appendChild(section);
+  }
+
+  async function loadNotionContent() {
+    try {
+      const response = await fetch("./data/notion.json", {
+        cache: "no-store"
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          "JSON Notion indisponible : " + response.status
+        );
+      }
+
+      const data = await response.json();
+
+      if (!data.root || !Array.isArray(data.root.subpages)) {
+        throw new Error("Structure Notion invalide");
+      }
+
+      let updated = 0;
+
+      for (const [id, names] of Object.entries(notionSections)) {
+        const page = data.root.subpages.find(item =>
+          names.some(name =>
+            normalizeTitle(item.title).includes(
+              normalizeTitle(name)
+            )
+          )
+        );
+
+        if (!page) {
+          console.warn(
+            "LDR.world : rubrique introuvable dans Notion :",
+            id
+          );
+          continue;
+        }
+
+        const container = document.querySelector(
+          "#" + id + " > .container"
+        );
+        const header = container?.querySelector(".page-title");
+
+        if (!container || !header) continue;
+
+        // Préparer les contenus avant de retirer les textes provisoires.
+        const newContent = document.createDocumentFragment();
+        renderNotionPage(page, newContent);
+
+        // Garder le titre de rubrique et afficher les données Notion.
+        container.replaceChildren(header, newContent);
+        updated++;
+      }
+
+      console.info(
+        "LDR.world :",
+        updated,
+        "rubriques chargées depuis Notion."
+      );
+
+    } catch (error) {
+      // En cas de panne, les textes provisoires restent visibles.
+      console.error(
+        "LDR.world : échec du chargement Notion",
+        error
+      );
+    }
+  }
+
+  loadNotionContent();
+</script>
+
 </body>
 </html>
-
