@@ -1,17 +1,42 @@
 
 {
+  "site": "LDR.world",
+  "version": "2.0",
   "pages": {
-    "41b9b1f3-b04a-8183-b2d4-ddf5fa2bd732": [
-      {
-        "file": "territoires/coeur-de-lucullus.jpg",
-        "caption": "Vue du Cœur de Lucullus"
-      }
-    ],
-    "41b9b1f3-b04a-81e7-9199-d9ec56ea912f": [
-      {
-        "file": "territoires/vert-bois-rives.jpg",
-        "caption": "Le village autonome de Vert-Bois-Rives"
-      }
-    ]
-  }
+    "41b9b1f3-b04a-8103-b749-f86b0c758a2a": {
+      "title": "LDR.world — Lucullus-les-Deux-Rives",
+      "cover": "territoires/BANNIÈRE LDR.jpg",
+      "gallery": []
+    },
+    "41f9b1f3-b04a-812a-8d1c-fd49b062b05a": {
+      "title": "Histoire Générale de Ryogan et du Pays de Boto",
+      "cover": "territoires/Boto, cité japonaise au coucher du soleil.png",
+      "gallery": []
+    },
+    "41f9b1f3-b04a-81c5-9dd1-e611ba1c8360": {
+      "title": "Histoire Générale de Bab Al Baboush",
+      "cover": "territoires/Marché de Bab Al Babouche.png",
+      "gallery": []
+    },
+    "41b9b1f3-b04a-8183-b2d4-ddf5fa2bd732": {
+      "title": "01 — Le Cœur de Lucullus",
+      "cover": null,
+      "gallery": []
+    },
+    "41b9b1f3-b04a-81e7-9199-d9ec56ea912f": {
+      "title": "35 — Vert-Bois-Rives",
+      "cover": null,
+      "gallery": []
+    }
+  },
+  "unassigned": [
+    {
+      "file": "territoires/bannière MGL.jpg",
+      "description": "Bannière MGL — page à déterminer"
+    },
+    {
+      "file": "territoires/bannière ldr v2.jpg",
+      "description": "Deuxième bannière LDR — variante de couverture"
+    }
+  ]
 }
