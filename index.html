@@ -1,1 +1,315 @@
 
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LDR.world — Lucullus-les-Deux-Rives</title>
+  <style>
+    :root {
+      --navy: #101D34;
+      --navy-light: #203C65;
+      --sky: #E9F1FC;
+      --ink: #142D4C;
+      --muted: #B8CCE5;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: var(--navy);
+      color: white;
+    }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1200px; margin: auto; padding: 0 25px; }
+
+    header {
+      background: #142540;
+      border-bottom: 1px solid #39516e;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      min-height: 75px;
+    }
+    .brand { font-size: 25px; font-weight: 900; }
+    .brand span { color: #A8C9F2; }
+    nav { display: flex; gap: 20px; flex-wrap: wrap; }
+    nav a { color: #D7E4F3; font-size: 13px; font-weight: 600; }
+    nav a:hover { color: white; text-decoration: underline; }
+
+    .hero { padding: 75px 0 45px; }
+    .eyebrow {
+      letter-spacing: 3px;
+      color: #B0C9E8;
+      text-transform: uppercase;
+      font-weight: 800;
+      font-size: 12px;
+    }
+    h1 { font-size: clamp(38px, 7vw, 72px); margin: 20px 0; }
+    h2 { font-size: clamp(27px, 4vw, 38px); margin: 0 0 15px; }
+    h3 { margin: 0 0 10px; }
+    p { color: #D2E0F0; line-height: 1.7; }
+    .hero p { font-size: 19px; max-width: 700px; }
+    .button {
+      display: inline-block;
+      background: var(--sky);
+      color: var(--ink);
+      border-radius: 10px;
+      padding: 14px 22px;
+      font-weight: 800;
+      margin-top: 15px;
+    }
+    .button:hover { background: white; }
+
+    section { padding: 45px 0; }
+    .panel {
+      background: linear-gradient(135deg, #142540, #203C65);
+      border: 1px solid #3B5577;
+      border-radius: 20px;
+      padding: 30px;
+    }
+    .clock {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin: 30px 0;
+    }
+    .clock-card {
+      background: var(--sky);
+      color: var(--ink);
+      padding: 25px 8px;
+      text-align: center;
+      border-radius: 15px;
+    }
+    .number { font-size: clamp(28px, 6vw, 62px); font-weight: 900; }
+    .unit { font-size: 12px; font-weight: 800; letter-spacing: 2px; }
+    .dates { border-top: 1px solid #526C8B; padding-top: 20px; }
+    .dates p { margin: 7px 0; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+    .card {
+      display: block;
+      border: 0;
+      text-align: left;
+      background: var(--sky);
+      color: var(--ink);
+      padding: 24px;
+      border-radius: 15px;
+      min-height: 190px;
+      transition: transform .2s, background .2s;
+    }
+    .card:hover { transform: translateY(-5px); background: white; }
+    .card .emoji { font-size: 32px; margin-bottom: 20px; }
+    .card h3 { font-size: 19px; }
+    .card p { color: #506782; font-size: 13px; margin: 0; }
+
+    .page { display: none; min-height: 60vh; }
+    .page.active { display: block; }
+    .page-title { padding: 70px 0 25px; }
+    .content-card {
+      background: #1B3050;
+      border: 1px solid #3C5576;
+      padding: 24px;
+      border-radius: 14px;
+      margin: 14px 0;
+    }
+    footer {
+      border-top: 1px solid #344966;
+      padding: 30px 0;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 60px;
+    }
+
+    @media(max-width: 800px) {
+      .grid { grid-template-columns: repeat(2, 1fr); }
+      .header-inner { flex-direction: column; padding: 18px 0; }
+      nav { justify-content: center; }
+      .hero { padding-top: 40px; }
+    }
+    @media(max-width: 450px) {
+      .container { padding: 0 15px; }
+      .panel { padding: 16px; }
+      .clock { gap: 6px; }
+      .clock-card { padding: 15px 3px; }
+      .unit { font-size: 9px; letter-spacing: 0; }
+      .grid { gap: 10px; }
+      .card { padding: 16px; min-height: 165px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container header-inner">
+    <a class="brand" href="#accueil">LDR<span>.world</span></a>
+    <nav aria-label="Navigation principale">
+      <a href="#accueil">Accueil</a>
+      <a href="#geographie">Géographie</a>
+      <a href="#histoire">Histoire</a>
+      <a href="#elections">Élections</a>
+      <a href="#personnages">Personnages</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="page active" id="accueil">
+    <div class="container">
+      <div class="hero">
+        <div class="eyebrow">Principauté populaire indépendante</div>
+        <h1>Bienvenue à<br>Lucullus-les-Deux-Rives</h1>
+        <p>Une principauté, mille histoires, deux rives. Découvrez les territoires, les habitants et les institutions de notre métropole.</p>
+        <a class="button" href="#geographie">Découvrir la Principauté →</a>
+      </div>
+
+      <section>
+        <div class="panel">
+          <div class="eyebrow">Parlement communal</div>
+          <h2>🗳️ Cap sur les élections 2027</h2>
+          <p>34 circonscriptions · 34 Délégués des Rives</p>
+          <div class="clock">
+            <div class="clock-card"><div class="number" id="days">--</div><div class="unit">JOURS</div></div>
+            <div class="clock-card"><div class="number" id="hours">--</div><div class="unit">HEURES</div></div>
+            <div class="clock-card"><div class="number" id="minutes">--</div><div class="unit">MINUTES</div></div>
+            <div class="clock-card"><div class="number" id="seconds">--</div><div class="unit">SECONDES</div></div>
+          </div>
+          <div class="dates">
+            <p>📅 <strong>Premier tour :</strong> 7 février 2027</p>
+            <p>🗳️ <strong>Second tour :</strong> 14 février 2027</p>
+            <p id="countdown-status">Temps restant avant le premier tour.</p>
+            <p>Les habitants des 34 circonscriptions éliront chacun un Délégué des Rives. La campagne est en cours et aucun résultat n'est encore proclamé.</p>
+          </div>
+          <a class="button" href="#elections">Découvrir les élections →</a>
+        </div>
+      </section>
+
+      <section>
+        <div class="eyebrow">LDR.world · Découvrir</div>
+        <h2>🧭 Explorer la Principauté</h2>
+        <p>Parcourez les rubriques de notre territoire.</p>
+        <div class="grid">
+          <a class="card" href="#geographie"><div class="emoji">🗺️</div><h3>Géographie</h3><p>Les 35 secteurs de la métropole.</p></a>
+          <a class="card" href="#histoire"><div class="emoji">📜</div><h3>Histoire</h3><p>Les siècles d'histoire de Lucullus.</p></a>
+          <a class="card" href="#transports"><div class="emoji">🚇</div><h3>Transports</h3><p>Réseaux TRM et SNCL.</p></a>
+          <a class="card" href="#institutions"><div class="emoji">🏛️</div><h3>Institutions</h3><p>La vie politique et communale.</p></a>
+          <a class="card" href="#personnages"><div class="emoji">👥</div><h3>Personnages</h3><p>Souverains, habitants et figures historiques.</p></a>
+          <a class="card" href="#elections"><div class="emoji">🗳️</div><h3>Élections</h3><p>Le scrutin parlementaire de 2027.</p></a>
+          <a class="card" href="#economie"><div class="emoji">💼</div><h3>Économie</h3><p>Entreprises et activités.</p></a>
+          <a class="card" href="#urbanisme"><div class="emoji">🏗️</div><h3>Urbanisme</h3><p>Les grands projets de demain.</p></a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="page" id="geographie">
+    <div class="container">
+      <div class="page-title"><div class="eyebrow">Le territoire</div><h1>🗺️ Géographie</h1><p>35 secteurs répertoriés, dont 34 circonscriptions parlementaires et le village autonome de Vert-Bois-Rives.</p></div>
+      <div class="content-card"><h3>Le Cœur de Lucullus</h3><p>Centre-Ville, mairie, Château du Lucullus, Nouvelle Amsterdam et gare de Lucetelle.</p></div>
+      <div class="content-card"><h3>Le Vieux Lucullus</h3><p>Vieille Ville, Aqueduc, Opéra, Béré et Loubars.</p></div>
+      <div class="content-card"><h3>Les Monts du Lucullus</h3><p>Quartier Campagne, Montagne Lucullus et Halles Bouzin.</p></div>
+      <p>D'autres fiches géographiques seront progressivement intégrées ici.</p>
+    </div>
+  </div>
+
+  <div class="page" id="histoire">
+    <div class="container">
+      <div class="page-title"><div class="eyebrow">Mémoire de la Principauté</div><h1>📜 Histoire et culture</h1></div>
+      <div class="content-card"><h3>1098 — La fondation du royaume</h3><p>Baboush Ier fonde le royaume des Deux Rives.</p></div>
+      <div class="content-card"><h3>1221–1252 — Le règne de Baboush IV</h3><p>Une période d'expansion et de rapprochement avec les peuples voisins.</p></div>
+      <div class="content-card"><h3>1871 — La révolution communale</h3><p>Une étape décisive dans la naissance de la Principauté populaire.</p></div>
+      <p>Les histoires de Kerlwenn, Bab Al Baboush, Ryogan et Vert-Bois-Rives seront ajoutées progressivement.</p>
+    </div>
+  </div>
+
+  <div class="page" id="elections">
+    <div class="container">
+      <div class="page-title"><div class="eyebrow">Parlement communal</div><h1>🗳️ Élections 2027</h1><p>Premier tour le 7 février, second tour le 14 février 2027.</p></div>
+      <div class="content-card"><h3>34 sièges</h3><p>Chaque circonscription élit un Délégué des Rives.</p></div>
+      <div class="content-card"><h3>La campagne électorale</h3><p>Les candidats sont en campagne. Aucun résultat officiel n'a encore été proclamé.</p></div>
+    </div>
+  </div>
+
+  <div class="page" id="personnages">
+    <div class="container">
+      <div class="page-title"><div class="eyebrow">Les habitants</div><h1>👥 Personnalités</h1></div>
+      <div class="content-card"><h3>La dynastie baboushide</h3><p>De Baboush Ier à Baboush VIII, découvrez les figures de la Principauté.</p></div>
+      <div class="content-card"><h3>Les grandes figures historiques</h3><p>Explorateurs, souverains, personnages politiques et habitants remarquables.</p></div>
+    </div>
+  </div>
+
+  <div class="page" id="transports">
+    <div class="container"><div class="page-title"><h1>🚇 Transports</h1><p>Le réseau TRM, les gares et les liaisons de la SNCL.</p></div></div>
+  </div>
+  <div class="page" id="institutions">
+    <div class="container"><div class="page-title"><h1>🏛️ Institutions</h1><p>La Constitution, les institutions et le Parlement communal.</p></div></div>
+  </div>
+  <div class="page" id="economie">
+    <div class="container"><div class="page-title"><h1>💼 Économie</h1><p>Les entreprises et les activités de Lucullus-les-Deux-Rives.</p></div></div>
+  </div>
+  <div class="page" id="urbanisme">
+    <div class="container"><div class="page-title"><h1>🏗️ Projets et urbanisme</h1><p>Les grands chantiers et les futurs quartiers de la métropole.</p></div></div>
+  </div>
+</main>
+
+<footer>
+  <div class="container">© LDR.world — Lucullus-les-Deux-Rives · Portail de la Principauté populaire indépendante</div>
+</footer>
+
+<script>
+  const first = new Date("2027-02-07T00:00:00+01:00").getTime();
+  const second = new Date("2027-02-14T00:00:00+01:00").getTime();
+
+  function countdown() {
+    const now = Date.now();
+    const target = now < first ? first : second;
+    const remaining = Math.max(0, Math.floor((target - now) / 1000));
+
+    const values = [
+      Math.floor(remaining / 86400),
+      Math.floor((remaining % 86400) / 3600),
+      Math.floor((remaining % 3600) / 60),
+      remaining % 60
+    ];
+
+    ["days", "hours", "minutes", "seconds"].forEach((id, i) => {
+      document.getElementById(id).textContent =
+        String(values[i]).padStart(i === 0 ? 1 : 2, "0");
+    });
+
+    document.getElementById("countdown-status").textContent =
+      now >= second ? "Les deux dates du scrutin sont passées." :
+      now >= first ? "Temps restant avant le second tour." :
+      "Temps restant avant le premier tour.";
+  }
+
+  function navigate() {
+    const id = decodeURIComponent(location.hash.slice(1)) || "accueil";
+    const target = document.getElementById(id);
+    document.querySelectorAll(".page").forEach(page => {
+      page.classList.toggle("active", page === (target?.classList.contains("page") ? target : document.getElementById("accueil")));
+    });
+    window.scrollTo(0, 0);
+  }
+
+  window.addEventListener("hashchange", navigate);
+  navigate();
+  countdown();
+  setInterval(countdown, 1000);
+</script>
+</body>
+</html>
+
