@@ -5,664 +5,346 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#101D34">
-
 <title>LDR.world — Lucullus-les-Deux-Rives</title>
 
 <style>
-
-/* ==========================================
-   IDENTITÉ GRAPHIQUE LDR.WORLD
-========================================== */
-
 :root {
-  --navy: #101D34;
-  --navy2: #142540;
-  --blue: #203C65;
-  --sky: #E9F1FC;
-  --ink: #142D4C;
-  --muted: #B8CCE5;
-  --line: #3B5577;
+  --navy:#101D34;
+  --navy2:#142540;
+  --blue:#203C65;
+  --sky:#E9F1FC;
+  --ink:#142D4C;
+  --muted:#B8CCE5;
+  --line:#3B5577;
 }
-
-* {
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
 body {
-  margin: 0;
-  background: var(--navy);
-  color: white;
-  font-family: Inter, Arial, sans-serif;
+  margin:0;
+  background:var(--navy);
+  color:white;
+  font-family:Inter,Arial,sans-serif;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-button,
-input {
-  font: inherit;
-}
-
+a { color:inherit; text-decoration:none; }
+button,input { font:inherit; }
 .container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 0 25px;
+  max-width:1200px;
+  margin:auto;
+  padding:0 25px;
 }
-
-/* ==========================================
-   EN-TÊTE ET NAVIGATION
-========================================== */
-
 header {
-  position: sticky;
-  top: 0;
-  z-index: 20;
-  background: var(--navy2);
-  border-bottom: 1px solid #39516E;
+  position:sticky;
+  top:0;
+  z-index:20;
+  background:var(--navy2);
+  border-bottom:1px solid #39516E;
 }
-
 .header-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 20px;
-  min-height: 75px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  min-height:75px;
 }
-
-.brand {
-  font-size: 25px;
-  font-weight: 900;
-}
-
-.brand span {
-  color: #A8C9F2;
-}
-
-nav {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
+.brand { font-size:25px; font-weight:900; }
+.brand span { color:#A8C9F2; }
+nav { display:flex; gap:18px; flex-wrap:wrap; }
 nav a {
-  font-size: 13px;
-  font-weight: 700;
-  color: #D7E4F3;
+  font-size:13px;
+  font-weight:700;
+  color:#D7E4F3;
 }
-
-nav a:hover {
-  color: white;
-  text-decoration: underline;
-}
-
-/* ==========================================
-   TYPOGRAPHIE
-========================================== */
-
-h1 {
-  font-size: clamp(34px, 6vw, 66px);
-  line-height: 1.1;
-}
-
-h2 {
-  font-size: clamp(26px, 3vw, 36px);
-}
-
-h3 {
-  font-size: 21px;
-}
-
-p {
-  color: #D2E0F0;
-  line-height: 1.75;
-}
-
+nav a:hover { color:white; text-decoration:underline; }
+h1 { font-size:clamp(34px,6vw,66px); line-height:1.1; }
+h2 { font-size:clamp(26px,3vw,36px); }
+h3 { font-size:21px; }
+p { color:#D2E0F0; line-height:1.75; }
 .eyebrow {
-  color: #B0C9E8;
-  text-transform: uppercase;
-  letter-spacing: 2.5px;
-  font-size: 12px;
-  font-weight: 800;
+  color:#B0C9E8;
+  text-transform:uppercase;
+  letter-spacing:2.5px;
+  font-size:12px;
+  font-weight:800;
 }
-
-/* ==========================================
-   PAGES ET SECTIONS
-========================================== */
-
-.page {
-  display: none;
-  min-height: 60vh;
-}
-
-.page.active {
-  display: block;
-}
-
-.hero {
-  padding: 55px 0 35px;
-}
-
-.hero h1 {
-  margin: 25px 0;
-}
-
-.hero > p {
-  font-size: 19px;
-  max-width: 760px;
-}
-
-section {
-  padding: 35px 0;
-}
-
-.page-title {
-  padding: 55px 0 20px;
-}
-
-.page-title h1 {
-  margin: 18px 0;
-}
-
-.page-title p {
-  max-width: 850px;
-}
-
+.page { display:none; min-height:60vh; }
+.page.active { display:block; }
+.hero { padding:55px 0 35px; }
+.hero h1 { margin:25px 0; }
+.hero>p { font-size:19px; max-width:760px; }
+section { padding:35px 0; }
+.page-title { padding:55px 0 20px; }
+.page-title h1 { margin:18px 0; }
+.page-title p { max-width:850px; }
 .button {
-  display: inline-block;
-  background: var(--sky);
-  color: var(--ink);
-  padding: 14px 22px;
-  border-radius: 10px;
-  font-weight: 800;
-  margin-top: 15px;
+  display:inline-block;
+  background:var(--sky);
+  color:var(--ink);
+  padding:14px 22px;
+  border-radius:10px;
+  font-weight:800;
+  margin-top:15px;
 }
-
-.button:hover {
-  background: white;
-}
-
-/* ==========================================
-   ÉLECTIONS ET COMPTE À REBOURS
-========================================== */
+.button:hover { background:white; }
 
 .panel {
-  background: linear-gradient(135deg, #142540, #203C65);
-  border: 1px solid var(--line);
-  border-radius: 20px;
-  padding: 30px;
+  background:linear-gradient(135deg,#142540,#203C65);
+  border:1px solid var(--line);
+  border-radius:20px;
+  padding:30px;
 }
-
 .clock {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 14px;
-  margin: 28px 0;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:14px;
+  margin:28px 0;
 }
-
 .clock-card {
-  background: var(--sky);
-  color: var(--ink);
-  border-radius: 15px;
-  text-align: center;
-  padding: 25px 8px;
+  background:var(--sky);
+  color:var(--ink);
+  border-radius:15px;
+  text-align:center;
+  padding:25px 8px;
 }
-
 .number {
-  font-size: clamp(27px, 5vw, 60px);
-  font-weight: 900;
+  font-size:clamp(27px,5vw,60px);
+  font-weight:900;
 }
-
 .unit {
-  font-size: 12px;
-  font-weight: 800;
-  letter-spacing: 2px;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:2px;
 }
-
 .dates {
-  border-top: 1px solid #526C8B;
-  padding-top: 20px;
+  border-top:1px solid #526C8B;
+  padding-top:20px;
 }
-
-.dates p {
-  margin: 8px 0;
-}
-
-/* ==========================================
-   CARTES DE L'ACCUEIL
-========================================== */
+.dates p { margin:8px 0; }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-  margin-top: 28px;
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:16px;
+  margin-top:28px;
 }
-
-.card,
-.encyclopedia-card {
-  display: block;
-  background: var(--sky);
-  color: var(--ink);
-  border-radius: 15px;
-  padding: 23px;
-  transition: transform .2s, background .2s;
+.card,.encyclopedia-card {
+  display:block;
+  background:var(--sky);
+  color:var(--ink);
+  border-radius:15px;
+  padding:23px;
+  transition:transform .2s,background .2s;
 }
-
-.card {
-  min-height: 185px;
+.card { min-height:185px; }
+.card:hover,.encyclopedia-card:hover {
+  transform:translateY(-4px);
+  background:white;
 }
-
-.card:hover,
-.encyclopedia-card:hover {
-  transform: translateY(-4px);
-  background: white;
-}
-
-.card .emoji {
-  font-size: 32px;
-  margin-bottom: 18px;
-}
-
-.card h3 {
-  font-size: 19px;
-  margin: 0 0 9px;
-}
-
-.card p {
-  font-size: 13px;
-  color: #506782;
-  margin: 0;
-}
-
-/* ==========================================
-   BANNIÈRES
-========================================== */
+.card .emoji { font-size:32px; margin-bottom:18px; }
+.card h3 { font-size:19px; margin:0 0 9px; }
+.card p { font-size:13px; color:#506782; margin:0; }
 
 .ldr-cover {
-  width: 100%;
-  height: clamp(210px, 32vw, 430px);
-  display: block;
-  object-fit: cover;
-  object-position: center;
-  border-radius: 18px;
-  margin: 10px 0 28px;
+  width:100%;
+  height:clamp(210px,32vw,430px);
+  display:block;
+  object-fit:cover;
+  border-radius:18px;
+  margin:10px 0 28px;
 }
+.hero .ldr-cover { margin:0 0 35px; }
 
-.hero .ldr-cover {
-  margin: 0 0 35px;
+.notion-content { padding:15px 0 40px; line-height:1.8; }
+.notion-content h2 { font-size:27px; margin:35px 0 12px; }
+.notion-content h3 { font-size:21px; margin:26px 0 10px; }
+.notion-content p,.notion-content li {
+  color:#DCE7F5;
+  white-space:pre-wrap;
+  line-height:1.8;
 }
-
-/* ==========================================
-   CONTENU DES FICHES NOTION
-========================================== */
-
-.notion-content {
-  padding: 15px 0 40px;
-  line-height: 1.8;
-}
-
-.notion-content h2 {
-  font-size: 27px;
-  margin: 35px 0 12px;
-}
-
-.notion-content h3 {
-  font-size: 21px;
-  margin: 26px 0 10px;
-}
-
-.notion-content p,
-.notion-content li {
-  color: #DCE7F5;
-  white-space: pre-wrap;
-  line-height: 1.8;
-}
-
 .notion-content a {
-  color: #AED8FF;
-  text-decoration: underline;
+  color:#AED8FF;
+  text-decoration:underline;
 }
-
-.notion-content ul,
-.notion-content ol {
-  padding-left: 25px;
-}
-
+.notion-content ul,.notion-content ol { padding-left:25px; }
 .notion-content hr {
-  border: 0;
-  border-top: 1px solid #49617C;
-  margin: 28px 0;
+  border:0;
+  border-top:1px solid #49617C;
+  margin:28px 0;
 }
-
-.notion-content blockquote,
-.notion-note {
-  background: #1B3050;
-  border-left: 4px solid #A8C9F2;
-  border-radius: 8px;
-  padding: 15px 18px;
+.notion-content blockquote,.notion-note {
+  background:#1B3050;
+  border-left:4px solid #A8C9F2;
+  border-radius:8px;
+  padding:15px 18px;
 }
-
 .notion-columns {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fit,
-    minmax(230px, 1fr)
-  );
-  gap: 18px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:18px;
 }
-
 .notion-nested {
-  border-left: 2px solid #385477;
-  padding-left: 15px;
+  border-left:2px solid #385477;
+  padding-left:15px;
 }
-
-.notion-figure {
-  margin: 24px 0;
-}
-
+.notion-figure { margin:24px 0; }
 .notion-figure img {
-  display: block;
-  max-width: 100%;
-  max-height: 650px;
-  height: auto;
-  border-radius: 12px;
+  display:block;
+  max-width:100%;
+  max-height:650px;
+  height:auto;
+  border-radius:12px;
 }
-
 .notion-figure figcaption {
-  margin-top: 8px;
-  font-size: 13px;
-  color: var(--muted);
+  margin-top:8px;
+  font-size:13px;
+  color:var(--muted);
 }
-
 .notion-table-wrap {
-  overflow-x: auto;
-  margin: 22px 0;
-  border: 1px solid var(--line);
-  border-radius: 12px;
+  overflow-x:auto;
+  margin:22px 0;
+  border:1px solid var(--line);
+  border-radius:12px;
 }
-
 .notion-table {
-  border-collapse: collapse;
-  width: 100%;
-  min-width: 420px;
+  border-collapse:collapse;
+  width:100%;
+  min-width:420px;
 }
-
-.notion-table th,
-.notion-table td {
-  padding: 12px 15px;
-  border-bottom: 1px solid var(--line);
-  text-align: left;
-  vertical-align: top;
+.notion-table th,.notion-table td {
+  padding:12px 15px;
+  border-bottom:1px solid var(--line);
+  text-align:left;
+  vertical-align:top;
 }
-
-.notion-table th {
-  background: #27456B;
-}
-
-.notion-table tr:nth-child(even) td {
-  background: #1B3050;
-}
-
+.notion-table th { background:#27456B; }
+.notion-table tr:nth-child(even) td { background:#1B3050; }
 .notion-code {
-  padding: 17px;
-  background: #071327;
-  border-radius: 10px;
-  overflow: auto;
-  white-space: pre-wrap;
+  padding:17px;
+  background:#071327;
+  border-radius:10px;
+  overflow:auto;
+  white-space:pre-wrap;
 }
+.notion-check { margin:10px 0; }
 
-.notion-check {
-  margin: 10px 0;
+/* CARTES HARMONISÉES DE L'ENCYCLOPÉDIE */
+.notion-link-grid,.encyclopedia-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(235px,1fr));
+  gap:16px;
+  margin:25px 0 35px;
 }
-
-/* ==========================================
-   NOUVEAU : CARTES DES LIENS NOTION
-========================================== */
-
-.notion-link-grid {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(240px, 1fr)
-  );
-  gap: 16px;
-  margin: 25px 0 35px;
-}
-
 .notion-content a.notion-link-card {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 15px;
-  min-height: 112px;
-  padding: 23px;
-
-  background: var(--sky);
-  color: var(--ink) !important;
-
-  border: 1px solid transparent;
-  border-radius: 15px;
-
-  font-size: 17px;
-  font-weight: 800;
-  line-height: 1.4;
-  text-decoration: none !important;
-
-  overflow-wrap: anywhere;
-  transition:
-    transform .2s,
-    background .2s,
-    box-shadow .2s;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  min-height:112px;
+  padding:23px;
+  background:var(--sky);
+  color:var(--ink)!important;
+  border-radius:15px;
+  font-size:17px;
+  font-weight:800;
+  line-height:1.4;
+  text-decoration:none!important;
+  overflow-wrap:anywhere;
+  transition:transform .2s,background .2s;
 }
-
 .notion-content a.notion-link-card:hover {
-  background: white;
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px #00000025;
+  background:white;
+  transform:translateY(-4px);
 }
-
 .notion-content a.notion-link-card::after {
-  content: "↗";
-  color: #506782;
-  font-size: 23px;
-  flex-shrink: 0;
+  content:"↗";
+  color:#506782;
+  font-size:23px;
+  flex-shrink:0;
 }
-
-.notion-content a.notion-link-card:focus-visible,
-.encyclopedia-card:focus-visible {
-  outline: 3px solid #85C7FF;
-  outline-offset: 3px;
-}
-
-/* ==========================================
-   GRILLES DE FICHES
-========================================== */
-
-.encyclopedia-grid {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(235px, 1fr)
-  );
-  gap: 15px;
-  margin: 22px 0 40px;
-}
-
-.encyclopedia-card {
-  font-weight: 800;
-}
-
+.encyclopedia-card { font-weight:800; }
 .encyclopedia-card small {
-  display: block;
-  margin-top: 9px;
-  font-weight: 500;
-  color: #506782;
+  display:block;
+  margin-top:9px;
+  font-weight:500;
+  color:#506782;
 }
-
 .encyclopedia-back {
-  display: inline-block;
-  margin: 30px 0 10px;
-  color: var(--muted);
+  display:inline-block;
+  margin:30px 0 10px;
+  color:var(--muted);
 }
-
 .encyclopedia-search {
-  width: 100%;
-  max-width: 600px;
-  padding: 16px;
-  border-radius: 10px;
-  border: 1px solid #637C9E;
-  background: white;
-  color: var(--ink);
+  width:100%;
+  max-width:600px;
+  padding:16px;
+  border-radius:10px;
+  border:1px solid #637C9E;
+  background:white;
+  color:var(--ink);
 }
+.status { color:var(--muted); padding:15px 0; }
 
-.status {
-  color: var(--muted);
-  padding: 15px 0;
-}
-
-/* ==========================================
-   GALERIES PHOTOGRAPHIQUES
-========================================== */
-
-.ldr-gallery {
-  margin: 35px 0;
-}
-
+.ldr-gallery { margin:35px 0; }
 .ldr-gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(250px, 1fr)
-  );
-  gap: 18px;
-  margin-top: 20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+  gap:18px;
+  margin-top:20px;
 }
-
 .ldr-gallery-photo {
-  margin: 0;
-  background: #1B3050;
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  overflow: hidden;
+  margin:0;
+  background:#1B3050;
+  border:1px solid var(--line);
+  border-radius:14px;
+  overflow:hidden;
 }
-
 .ldr-gallery-photo img {
-  display: block;
-  width: 100%;
-  height: 230px;
-  object-fit: cover;
+  display:block;
+  width:100%;
+  height:230px;
+  object-fit:cover;
 }
-
 .ldr-gallery-photo figcaption {
-  padding: 12px 15px;
-  font-size: 13px;
-  line-height: 1.5;
-  color: #D8E5F4;
+  padding:12px 15px;
+  font-size:13px;
+  line-height:1.5;
+  color:#D8E5F4;
 }
-
-/* ==========================================
-   PIED DE PAGE
-========================================== */
-
 footer {
-  border-top: 1px solid #344966;
-  padding: 30px 0;
-  margin-top: 60px;
-  color: var(--muted);
-  font-size: 13px;
+  border-top:1px solid #344966;
+  padding:30px 0;
+  margin-top:60px;
+  color:var(--muted);
+  font-size:13px;
 }
-
-/* ==========================================
-   RESPONSIVE
-========================================== */
-
-@media (max-width: 800px) {
-  .grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .header-inner {
-    flex-direction: column;
-    padding: 17px 0;
-  }
-
-  nav {
-    justify-content: center;
-  }
-
-  .clock {
-    gap: 8px;
-  }
-
-  .hero {
-    padding-top: 35px;
+@media(max-width:800px) {
+  .grid { grid-template-columns:repeat(2,1fr); }
+  .header-inner { flex-direction:column; padding:17px 0; }
+  nav { justify-content:center; }
+  .clock { gap:8px; }
+}
+@media(max-width:600px) {
+  .notion-link-grid,.encyclopedia-grid {
+    grid-template-columns:1fr;
   }
 }
-
-@media (max-width: 600px) {
-  .notion-link-grid {
-    grid-template-columns: 1fr;
-  }
+@media(max-width:450px) {
+  .container { padding:0 15px; }
+  .panel { padding:16px; }
+  .clock-card { padding:15px 3px; }
+  .unit { font-size:9px; letter-spacing:0; }
+  .card { padding:16px; min-height:165px; }
+  .grid { gap:10px; }
+  .notion-columns { display:block; }
+  .ldr-gallery-photo img { height:auto; }
 }
-
-@media (max-width: 450px) {
-  .container {
-    padding: 0 15px;
-  }
-
-  .panel {
-    padding: 16px;
-  }
-
-  .clock-card {
-    padding: 15px 3px;
-  }
-
-  .unit {
-    font-size: 9px;
-    letter-spacing: 0;
-  }
-
-  .card {
-    padding: 16px;
-    min-height: 165px;
-  }
-
-  .grid {
-    gap: 10px;
-  }
-
-  .notion-columns {
-    display: block;
-  }
-
-  .ldr-gallery-photo img {
-    height: auto;
-  }
-}
-
 </style>
 </head>
 
 <body>
-
-<!-- ========================================
-     HEADER
-========================================= -->
-
 <header>
   <div class="container header-inner">
-
-    <a class="brand" href="#accueil">
-      LDR<span>.world</span>
-    </a>
-
+    <a class="brand" href="#accueil">LDR<span>.world</span></a>
     <nav aria-label="Navigation principale">
       <a href="#accueil">Accueil</a>
       <a href="#geographie">Géographie</a>
@@ -671,1372 +353,517 @@ footer {
       <a href="#elections">Élections</a>
       <a href="#personnages">Personnages</a>
     </nav>
-
   </div>
 </header>
 
 <main>
-
-<!-- ========================================
-     ACCUEIL
-========================================= -->
-
 <div class="page active" id="accueil">
-<div class="container">
-
-  <div class="hero" id="hero-accueil">
-
-    <div class="eyebrow">
-      Principauté populaire indépendante
+  <div class="container">
+    <div class="hero" id="hero-accueil">
+      <div class="eyebrow">Principauté populaire indépendante</div>
+      <h1>Bienvenue à<br>Lucullus-les-Deux-Rives</h1>
+      <p>Une principauté, mille histoires, deux rives. Découvrez les territoires, les habitants et les institutions de notre métropole.</p>
+      <a class="button" href="#geographie">Découvrir la Principauté →</a>
     </div>
 
-    <h1>
-      Bienvenue à<br>
-      Lucullus-les-Deux-Rives
-    </h1>
+    <section>
+      <div class="panel">
+        <div class="eyebrow">Parlement communal</div>
+        <h2>🗳️ Cap sur les élections 2027</h2>
+        <p>34 circonscriptions · 34 Délégués des Rives</p>
+        <div class="clock">
+          <div class="clock-card"><div class="number" id="days">--</div><div class="unit">JOURS</div></div>
+          <div class="clock-card"><div class="number" id="hours">--</div><div class="unit">HEURES</div></div>
+          <div class="clock-card"><div class="number" id="minutes">--</div><div class="unit">MINUTES</div></div>
+          <div class="clock-card"><div class="number" id="seconds">--</div><div class="unit">SECONDES</div></div>
+        </div>
+        <div class="dates">
+          <p>📅 <strong>Premier tour :</strong> 7 février 2027</p>
+          <p>🗳️ <strong>Second tour :</strong> 14 février 2027</p>
+          <p id="countdown-status">Temps restant avant le premier tour.</p>
+          <p>Les habitants des 34 circonscriptions éliront chacun un Délégué des Rives. La campagne est en cours et aucun résultat n'est encore proclamé.</p>
+        </div>
+        <a class="button" href="#elections">Découvrir les élections →</a>
+      </div>
+    </section>
 
-    <p>
-      Une principauté, mille histoires, deux rives.
-      Découvrez les territoires, les habitants
-      et les institutions de notre métropole.
-    </p>
+    <section>
+      <div class="eyebrow">LDR.world · Découvrir</div>
+      <h2>🧭 Explorer la Principauté</h2>
+      <p>Parcourez les rubriques de notre territoire.</p>
+      <div class="grid">
+        <a class="card" href="#geographie"><div class="emoji">🗺️</div><h3>Géographie</h3><p>Les territoires de la métropole.</p></a>
+        <a class="card" href="#histoire"><div class="emoji">📜</div><h3>Histoire</h3><p>Les siècles d'histoire de Lucullus.</p></a>
+        <a class="card" href="#transports"><div class="emoji">🚇</div><h3>Transports</h3><p>Réseaux TRM, métro, TBL et SNCL.</p></a>
+        <a class="card" href="#institutions"><div class="emoji">🏛️</div><h3>Institutions</h3><p>La vie politique et communale.</p></a>
+        <a class="card" href="#personnages"><div class="emoji">👥</div><h3>Personnages</h3><p>Souverains, habitants et figures historiques.</p></a>
+        <a class="card" href="#elections"><div class="emoji">🗳️</div><h3>Élections</h3><p>Le scrutin parlementaire de 2027.</p></a>
+        <a class="card" href="#economie"><div class="emoji">💼</div><h3>Économie</h3><p>Entreprises et activités.</p></a>
+        <a class="card" href="#urbanisme"><div class="emoji">🏗️</div><h3>Urbanisme</h3><p>Les grands projets de demain.</p></a>
+      </div>
+    </section>
 
-    <a class="button" href="#geographie">
-      Découvrir la Principauté →
-    </a>
-
+    <section id="recherche">
+      <h2>🔎 Rechercher dans l'encyclopédie</h2>
+      <p>Retrouvez une ville, une station, un personnage ou une chronique.</p>
+      <input id="search-input" class="encyclopedia-search" type="search" placeholder="Ex. La Linea, TRM, Baboush…" aria-label="Rechercher une fiche">
+      <div id="search-results"></div>
+    </section>
   </div>
-
-  <!-- ÉLECTIONS -->
-
-  <section>
-
-    <div class="panel">
-
-      <div class="eyebrow">
-        Parlement communal
-      </div>
-
-      <h2>🗳️ Cap sur les élections 2027</h2>
-
-      <p>
-        34 circonscriptions · 34 Délégués des Rives
-      </p>
-
-      <div class="clock">
-
-        <div class="clock-card">
-          <div class="number" id="days">--</div>
-          <div class="unit">JOURS</div>
-        </div>
-
-        <div class="clock-card">
-          <div class="number" id="hours">--</div>
-          <div class="unit">HEURES</div>
-        </div>
-
-        <div class="clock-card">
-          <div class="number" id="minutes">--</div>
-          <div class="unit">MINUTES</div>
-        </div>
-
-        <div class="clock-card">
-          <div class="number" id="seconds">--</div>
-          <div class="unit">SECONDES</div>
-        </div>
-
-      </div>
-
-      <div class="dates">
-
-        <p>
-          📅 <strong>Premier tour :</strong>
-          7 février 2027
-        </p>
-
-        <p>
-          🗳️ <strong>Second tour :</strong>
-          14 février 2027
-        </p>
-
-        <p id="countdown-status">
-          Temps restant avant le premier tour.
-        </p>
-
-        <p>
-          Les habitants des 34 circonscriptions
-          éliront chacun un Délégué des Rives.
-          La campagne est en cours et aucun résultat
-          n'est encore proclamé.
-        </p>
-
-      </div>
-
-      <a class="button" href="#elections">
-        Découvrir les élections →
-      </a>
-
-    </div>
-
-  </section>
-
-  <!-- RUBRIQUES -->
-
-  <section>
-
-    <div class="eyebrow">
-      LDR.world · Découvrir
-    </div>
-
-    <h2>🧭 Explorer la Principauté</h2>
-
-    <p>
-      Parcourez les rubriques de notre territoire.
-    </p>
-
-    <div class="grid">
-
-      <a class="card" href="#geographie">
-        <div class="emoji">🗺️</div>
-        <h3>Géographie</h3>
-        <p>Les territoires de la métropole.</p>
-      </a>
-
-      <a class="card" href="#histoire">
-        <div class="emoji">📜</div>
-        <h3>Histoire</h3>
-        <p>Les siècles d'histoire de Lucullus.</p>
-      </a>
-
-      <a class="card" href="#transports">
-        <div class="emoji">🚇</div>
-        <h3>Transports</h3>
-        <p>Réseaux TRM, métro, TBL et SNCL.</p>
-      </a>
-
-      <a class="card" href="#institutions">
-        <div class="emoji">🏛️</div>
-        <h3>Institutions</h3>
-        <p>La vie politique et communale.</p>
-      </a>
-
-      <a class="card" href="#personnages">
-        <div class="emoji">👥</div>
-        <h3>Personnages</h3>
-        <p>Souverains, habitants et figures historiques.</p>
-      </a>
-
-      <a class="card" href="#elections">
-        <div class="emoji">🗳️</div>
-        <h3>Élections</h3>
-        <p>Le scrutin parlementaire de 2027.</p>
-      </a>
-
-      <a class="card" href="#economie">
-        <div class="emoji">💼</div>
-        <h3>Économie</h3>
-        <p>Entreprises et activités.</p>
-      </a>
-
-      <a class="card" href="#urbanisme">
-        <div class="emoji">🏗️</div>
-        <h3>Urbanisme</h3>
-        <p>Les grands projets de demain.</p>
-      </a>
-
-    </div>
-
-  </section>
-
-  <!-- RECHERCHE -->
-
-  <section id="recherche">
-
-    <h2>🔎 Rechercher dans l'encyclopédie</h2>
-
-    <p>
-      Retrouvez une ville, une station,
-      un personnage ou une chronique.
-    </p>
-
-    <input
-      id="search-input"
-      class="encyclopedia-search"
-      type="search"
-      placeholder="Ex. La Linea, TRM, Baboush…"
-      aria-label="Rechercher une fiche"
-    >
-
-    <div id="search-results"></div>
-
-  </section>
-
 </div>
-</div>
-
-<!-- ========================================
-     GÉOGRAPHIE
-========================================= -->
 
 <div class="page" id="geographie">
   <div class="container">
-
     <div class="page-title">
       <div class="eyebrow">Le territoire</div>
       <h1>🗺️ Géographie</h1>
-      <p>
-        Découvrez les secteurs, les quartiers,
-        les villages et les différentes régions
-        de Lucullus-les-Deux-Rives.
-      </p>
+      <p>Découvrez les secteurs, les quartiers, les villages et les différentes régions de Lucullus-les-Deux-Rives.</p>
     </div>
-
-    <div class="status">
-      Chargement des territoires…
-    </div>
-
+    <div class="status">Chargement des territoires…</div>
   </div>
 </div>
-
-<!-- ========================================
-     HISTOIRE
-========================================= -->
 
 <div class="page" id="histoire">
   <div class="container">
-
     <div class="page-title">
-      <div class="eyebrow">
-        Mémoire de la Principauté
-      </div>
+      <div class="eyebrow">Mémoire de la Principauté</div>
       <h1>📜 Histoire et culture</h1>
     </div>
-
-    <div class="status">
-      Chargement des chroniques…
-    </div>
-
+    <div class="status">Chargement des chroniques…</div>
   </div>
 </div>
-
-<!-- ========================================
-     TRANSPORTS
-========================================= -->
 
 <div class="page" id="transports">
   <div class="container">
-
     <div class="page-title">
       <h1>🚇 Transports</h1>
-      <p>
-        Métro TRM, TBL, stations, correspondances
-        et réseau ferroviaire SNCL.
-      </p>
+      <p>Métro TRM, TBL, stations, correspondances et réseau ferroviaire SNCL.</p>
     </div>
-
-    <div class="status">
-      Chargement du réseau…
-    </div>
-
+    <div class="status">Chargement du réseau…</div>
   </div>
 </div>
-
-<!-- ========================================
-     INSTITUTIONS
-========================================= -->
 
 <div class="page" id="institutions">
-  <div class="container">
-    <div class="page-title">
-      <h1>🏛️ Institutions</h1>
-    </div>
-  </div>
+  <div class="container"><div class="page-title"><h1>🏛️ Institutions</h1></div></div>
 </div>
-
-<!-- ========================================
-     ÉLECTIONS
-========================================= -->
-
 <div class="page" id="elections">
   <div class="container">
-
     <div class="page-title">
-
-      <div class="eyebrow">
-        Parlement communal
-      </div>
-
+      <div class="eyebrow">Parlement communal</div>
       <h1>🗳️ Élections 2027</h1>
-
-      <p>
-        Premier tour le 7 février,
-        second tour le 14 février 2027.
-      </p>
-
-      <p>
-        Aucun résultat officiel n'est
-        encore proclamé.
-      </p>
-
+      <p>Premier tour le 7 février, second tour le 14 février 2027.</p>
+      <p>Aucun résultat officiel n'est encore proclamé.</p>
     </div>
-
   </div>
 </div>
-
-<!-- ========================================
-     PERSONNAGES
-========================================= -->
-
 <div class="page" id="personnages">
-  <div class="container">
-    <div class="page-title">
-      <h1>👥 Personnalités et habitants</h1>
-    </div>
-  </div>
+  <div class="container"><div class="page-title"><h1>👥 Personnalités et habitants</h1></div></div>
 </div>
-
-<!-- ========================================
-     ÉCONOMIE
-========================================= -->
-
 <div class="page" id="economie">
-  <div class="container">
-    <div class="page-title">
-      <h1>💼 Économie</h1>
-    </div>
-  </div>
+  <div class="container"><div class="page-title"><h1>💼 Économie</h1></div></div>
 </div>
-
-<!-- ========================================
-     URBANISME
-========================================= -->
-
 <div class="page" id="urbanisme">
-  <div class="container">
-    <div class="page-title">
-      <h1>🏗️ Projets et urbanisme</h1>
-    </div>
-  </div>
+  <div class="container"><div class="page-title"><h1>🏗️ Projets et urbanisme</h1></div></div>
 </div>
-
-<!-- ========================================
-     FICHES DÉTAILLÉES
-========================================= -->
-
 <div class="page" id="fiche">
   <div class="container" id="fiche-contenu"></div>
 </div>
-
 </main>
 
 <footer>
-  <div class="container">
-    © LDR.world — Lucullus-les-Deux-Rives ·
-    Portail de la Principauté populaire indépendante
-  </div>
+  <div class="container">© LDR.world — Lucullus-les-Deux-Rives · Portail de la Principauté populaire indépendante</div>
 </footer>
 
 <script>
-
-/* ==========================================
-   CONFIGURATION
-========================================== */
-
-const ROOT_ID =
-  "41b9b1f3-b04a-8103-b749-f86b0c758a2a";
-
-const SECTION_IDS = {
-  geographie: "41b9b1f3-b04a-81c1-a142-d7cebf788f93",
-  histoire: "41b9b1f3-b04a-8122-ae28-e2911a35313e",
-  transports: "41b9b1f3-b04a-814f-8ff3-f8027f008eba",
-  institutions: "41b9b1f3-b04a-81ea-b256-db6bb20a15c8",
-  elections: "41b9b1f3-b04a-8148-b43d-d25dbeb7e6b0",
-  personnages: "41b9b1f3-b04a-8124-8471-d4dfd68246d5",
-  economie: "41b9b1f3-b04a-81be-b763-f7c784618382",
-  urbanisme: "41b9b1f3-b04a-8193-9f78-ec1b66abd127"
+/* CONFIGURATION */
+const ROOT_ID="41b9b1f3-b04a-8103-b749-f86b0c758a2a";
+const SECTION_IDS={
+  geographie:"41b9b1f3-b04a-81c1-a142-d7cebf788f93",
+  histoire:"41b9b1f3-b04a-8122-ae28-e2911a35313e",
+  transports:"41b9b1f3-b04a-814f-8ff3-f8027f008eba",
+  institutions:"41b9b1f3-b04a-81ea-b256-db6bb20a15c8",
+  elections:"41b9b1f3-b04a-8148-b43d-d25dbeb7e6b0",
+  personnages:"41b9b1f3-b04a-8124-8471-d4dfd68246d5",
+  economie:"41b9b1f3-b04a-81be-b763-f7c784618382",
+  urbanisme:"41b9b1f3-b04a-8193-9f78-ec1b66abd127"
 };
+const pages=new Map();
+const parents=new Map();
+let catalogue={};
 
-const pages = new Map();
-const parents = new Map();
-
-let catalogue = {};
-
-/* ==========================================
-   OUTILS
-========================================== */
-
-function el(tag, className, text) {
-  const element = document.createElement(tag);
-
-  if (className) {
-    element.className = className;
-  }
-
-  if (text !== undefined) {
-    element.textContent = text;
-  }
-
+function el(tag,className,text) {
+  const element=document.createElement(tag);
+  if(className) element.className=className;
+  if(text!==undefined) element.textContent=text;
   return element;
 }
-
 function cleanId(id) {
-  return String(id || "")
-    .replace(/-/g, "")
-    .toLowerCase();
+  return String(id||"").replace(/-/g,"").toLowerCase();
 }
-
-function getPage(id) {
-  return pages.get(cleanId(id));
-}
-
-function ficheLink(page) {
-  return "#fiche/" + cleanId(page.id);
-}
-
+function getPage(id) { return pages.get(cleanId(id)); }
+function ficheLink(page) { return "#fiche/"+cleanId(page.id); }
 function safeImagePath(filename) {
-  if (typeof filename !== "string") {
-    return null;
-  }
-
-  const parts = filename.split("/");
-
-  if (parts.some(part =>
-    !part ||
-    part === "." ||
-    part === ".." ||
-    part.includes("\\")
-  )) {
-    return null;
-  }
-
-  return "/images/" +
-    parts.map(encodeURIComponent).join("/");
+  if(typeof filename!=="string") return null;
+  const parts=filename.split("/");
+  if(parts.some(part=>!part||part==="."||part===".."||part.includes("\\"))) return null;
+  return "/images/"+parts.map(encodeURIComponent).join("/");
 }
-
 function getImageConfig(page) {
-  if (!page) {
-    return null;
-  }
-
-  return (
-    catalogue[page.id] ||
-    catalogue[cleanId(page.id)] ||
-    null
-  );
+  if(!page) return null;
+  return catalogue[page.id]||catalogue[cleanId(page.id)]||null;
 }
-
 function safeExternalUrl(value) {
   try {
-    const url = new URL(value);
-
-    if (
-      url.protocol === "http:" ||
-      url.protocol === "https:"
-    ) {
-      return url.href;
-    }
-  } catch (error) {}
-
+    const url=new URL(value);
+    if(url.protocol==="http:"||url.protocol==="https:") return url.href;
+  } catch(error) {}
   return null;
 }
 
-/* ==========================================
-   CATALOGUE D'IMAGES
-========================================== */
-
+/* IMAGES */
 async function loadCatalogue() {
   try {
-    const response = await fetch(
-      "/images/catalogue.json",
-      { cache: "no-store" }
-    );
-
-    if (!response.ok) {
-      throw new Error("Catalogue indisponible");
-    }
-
-    const data = await response.json();
-
-    catalogue = data.pages || {};
-
-    console.info(
-      "Photothèque LDR.world chargée"
-    );
-
-  } catch (error) {
-    console.warn(
-      "Catalogue d'images :",
-      error
-    );
-
-    catalogue = {};
+    const response=await fetch("/images/catalogue.json",{cache:"no-store"});
+    if(!response.ok) throw new Error("Catalogue indisponible");
+    const data=await response.json();
+    catalogue=data.pages||{};
+  } catch(error) {
+    console.warn("Catalogue d'images :",error);
+    catalogue={};
   }
 }
-
-/* ==========================================
-   BANNIÈRES
-========================================== */
-
 function createCover(page) {
-  const config = getImageConfig(page);
-
-  if (!config || !config.cover) {
-    return null;
-  }
-
-  const url = safeImagePath(config.cover);
-
-  if (!url) {
-    return null;
-  }
-
-  const image = el("img", "ldr-cover");
-
-  image.src = url;
-  image.alt = "Bannière de " + page.title;
-  image.loading = "lazy";
-
-  image.onerror = function() {
-    image.remove();
-  };
-
+  const config=getImageConfig(page);
+  if(!config?.cover) return null;
+  const url=safeImagePath(config.cover);
+  if(!url) return null;
+  const image=el("img","ldr-cover");
+  image.src=url;
+  image.alt="Bannière de "+page.title;
+  image.loading="lazy";
+  image.onerror=()=>image.remove();
   return image;
 }
-
-function addCover(page, container) {
-  const image = createCover(page);
-
-  if (image) {
-    container.appendChild(image);
-  }
+function addCover(page,container) {
+  const image=createCover(page);
+  if(image) container.appendChild(image);
 }
-
-/* ==========================================
-   GALERIES PHOTOGRAPHIQUES
-========================================== */
-
-function addGallery(page, container) {
-  const config = getImageConfig(page);
-
-  if (
-    !config ||
-    !Array.isArray(config.gallery) ||
-    !config.gallery.length
-  ) {
-    return;
-  }
-
-  const section = el(
-    "section",
-    "ldr-gallery"
-  );
-
-  section.appendChild(
-    el(
-      "h2",
-      "",
-      "📷 Galerie photographique"
-    )
-  );
-
-  const grid = el(
-    "div",
-    "ldr-gallery-grid"
-  );
-
-  for (const photo of config.gallery) {
-    if (
-      !photo ||
-      typeof photo !== "object"
-    ) {
-      continue;
-    }
-
-    const url = safeImagePath(photo.file);
-
-    if (!url) {
-      continue;
-    }
-
-    const figure = el(
-      "figure",
-      "ldr-gallery-photo"
-    );
-
-    const image = el("img");
-
-    image.src = url;
-    image.alt = photo.caption || page.title;
-    image.loading = "lazy";
-
-    image.onerror = function() {
-      figure.remove();
-    };
-
+function addGallery(page,container) {
+  const config=getImageConfig(page);
+  if(!Array.isArray(config?.gallery)||!config.gallery.length) return;
+  const section=el("section","ldr-gallery");
+  section.appendChild(el("h2","","📷 Galerie photographique"));
+  const grid=el("div","ldr-gallery-grid");
+  for(const photo of config.gallery) {
+    if(!photo||typeof photo!=="object") continue;
+    const url=safeImagePath(photo.file);
+    if(!url) continue;
+    const figure=el("figure","ldr-gallery-photo");
+    const image=el("img");
+    image.src=url;
+    image.alt=photo.caption||page.title;
+    image.loading="lazy";
+    image.onerror=()=>figure.remove();
     figure.appendChild(image);
-
-    if (photo.caption) {
-      figure.appendChild(
-        el(
-          "figcaption",
-          "",
-          photo.caption
-        )
-      );
-    }
-
+    if(photo.caption) figure.appendChild(el("figcaption","",photo.caption));
     grid.appendChild(figure);
   }
-
-  if (grid.childNodes.length) {
+  if(grid.childNodes.length) {
     section.appendChild(grid);
     container.appendChild(section);
   }
 }
 
-/* ==========================================
-   COMPTE À REBOURS ÉLECTORAL
-========================================== */
-
-const first = new Date(
-  "2027-02-07T00:00:00+01:00"
-).getTime();
-
-const second = new Date(
-  "2027-02-14T00:00:00+01:00"
-).getTime();
-
+/* COMPTE À REBOURS */
+const first=new Date("2027-02-07T00:00:00+01:00").getTime();
+const second=new Date("2027-02-14T00:00:00+01:00").getTime();
 function countdown() {
-  const now = Date.now();
-
-  const target =
-    now < first ? first : second;
-
-  const remaining = Math.max(
-    0,
-    Math.floor((target - now) / 1000)
-  );
-
-  const values = [
-    Math.floor(remaining / 86400),
-    Math.floor((remaining % 86400) / 3600),
-    Math.floor((remaining % 3600) / 60),
-    remaining % 60
+  const now=Date.now();
+  const target=now<first?first:second;
+  const remaining=Math.max(0,Math.floor((target-now)/1000));
+  const values=[
+    Math.floor(remaining/86400),
+    Math.floor((remaining%86400)/3600),
+    Math.floor((remaining%3600)/60),
+    remaining%60
   ];
-
-  [
-    "days",
-    "hours",
-    "minutes",
-    "seconds"
-  ].forEach((id, i) => {
-
-    const target = document.getElementById(id);
-
-    if (target) {
-      target.textContent = String(
-        values[i]
-      ).padStart(i === 0 ? 1 : 2, "0");
-    }
-
+  ["days","hours","minutes","seconds"].forEach((id,i)=>{
+    const node=document.getElementById(id);
+    if(node) node.textContent=String(values[i]).padStart(i===0?1:2,"0");
   });
-
-  const status = document.getElementById(
-    "countdown-status"
-  );
-
-  if (status) {
-    status.textContent =
-      now >= second
-        ? "Les deux dates du scrutin sont passées."
-        : now >= first
-          ? "Temps restant avant le second tour."
-          : "Temps restant avant le premier tour.";
-  }
+  const status=document.getElementById("countdown-status");
+  if(status) status.textContent=
+    now>=second?"Les deux dates du scrutin sont passées.":
+    now>=first?"Temps restant avant le second tour.":
+    "Temps restant avant le premier tour.";
 }
-
 countdown();
+setInterval(countdown,1000);
 
-setInterval(countdown, 1000);
-
-/* ==========================================
-   INDEX DES PAGES NOTION
-========================================== */
-
-function buildIndex(page, parent = null) {
-  if (!page || !page.id) {
-    return;
-  }
-
-  pages.set(cleanId(page.id), page);
-
-  if (parent) {
-    parents.set(
-      cleanId(page.id),
-      cleanId(parent.id)
-    );
-  }
-
-  for (const child of page.subpages || []) {
-    buildIndex(child, page);
-  }
+/* INDEX NOTION */
+function buildIndex(page,parent=null) {
+  if(!page?.id) return;
+  pages.set(cleanId(page.id),page);
+  if(parent) parents.set(cleanId(page.id),cleanId(parent.id));
+  for(const child of page.subpages||[]) buildIndex(child,page);
 }
-
-/* ==========================================
-   LIENS INTERNES NOTION
-========================================== */
-
 function internalLink(href) {
-  if (!href) {
-    return null;
-  }
-
-  const match = String(href).match(
+  if(!href) return null;
+  const match=String(href).match(
     /([0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12})/i
   );
-
-  if (!match) {
-    return null;
-  }
-
-  const page = getPage(match[1]);
-
-  if (page) {
-    return ficheLink(page);
-  }
-
-  return null;
+  if(!match) return null;
+  const page=getPage(match[1]);
+  return page?ficheLink(page):null;
 }
 
-/* ==========================================
-   TEXTES RICHES NOTION
-========================================== */
-
-function renderRich(
-  target,
-  segments,
-  fallback = ""
-) {
-  if (
-    !Array.isArray(segments) ||
-    segments.length === 0
-  ) {
-    target.textContent = fallback || "";
+/* TEXTE ENRICHI */
+function renderRich(target,segments,fallback="") {
+  if(!Array.isArray(segments)||!segments.length) {
+    target.textContent=fallback||"";
     return;
   }
-
-  for (const segment of segments) {
-    let node = document.createTextNode(
-      segment.text || ""
-    );
-
-    const styles = [
-      ["code", "code"],
-      ["bold", "strong"],
-      ["italic", "em"],
-      ["underline", "u"],
-      ["strikethrough", "s"]
-    ];
-
-    for (const [property, tag] of styles) {
-      if (segment[property]) {
-        const wrapper = el(tag);
+  for(const segment of segments) {
+    let node=document.createTextNode(segment.text||"");
+    for(const [property,tag] of [
+      ["code","code"],["bold","strong"],["italic","em"],
+      ["underline","u"],["strikethrough","s"]
+    ]) {
+      if(segment[property]) {
+        const wrapper=el(tag);
         wrapper.appendChild(node);
-        node = wrapper;
+        node=wrapper;
       }
     }
-
-    if (segment.href) {
-      const internal = internalLink(
-        segment.href
-      );
-
-      const external = safeExternalUrl(
-        segment.href
-      );
-
-      const destination =
-        internal || external;
-
-      if (destination) {
-        const a = el("a");
-        a.href = destination;
-
-        if (!internal) {
-          a.target = "_blank";
-          a.rel = "noopener noreferrer";
+    if(segment.href) {
+      const internal=internalLink(segment.href);
+      const destination=internal||safeExternalUrl(segment.href);
+      if(destination) {
+        const a=el("a");
+        a.href=destination;
+        if(!internal) {
+          a.target="_blank";
+          a.rel="noopener noreferrer";
         }
-
         a.appendChild(node);
-        node = a;
+        node=a;
       }
     }
-
     target.appendChild(node);
   }
 }
 
-/* ==========================================
-   TABLEAUX NOTION
-========================================== */
-
-function renderTable(block, parent) {
-  const wrapper = el(
-    "div",
-    "notion-table-wrap"
-  );
-
-  const table = el(
-    "table",
-    "notion-table"
-  );
-
-  for (
-    const [index, row]
-    of (block.children || []).entries()
-  ) {
-    if (row.type !== "table_row") {
-      continue;
-    }
-
-    const tr = el("tr");
-
-    for (const cell of row.cells || []) {
-      const tag =
-        index === 0 &&
-        block.has_column_header
-          ? "th"
-          : "td";
-
-      const td = el(tag);
-
-      renderRich(td, cell);
-
+/* TABLEAUX */
+function renderTable(block,parent) {
+  const wrapper=el("div","notion-table-wrap");
+  const table=el("table","notion-table");
+  for(const [index,row] of (block.children||[]).entries()) {
+    if(row.type!=="table_row") continue;
+    const tr=el("tr");
+    for(const cell of row.cells||[]) {
+      const td=el(index===0&&block.has_column_header?"th":"td");
+      renderRich(td,cell);
       tr.appendChild(td);
     }
-
     table.appendChild(tr);
   }
-
   wrapper.appendChild(table);
   parent.appendChild(wrapper);
 }
 
-/* ==========================================
-   RENDU DES BLOCS NOTION
-========================================== */
+/* BLOCS NOTION */
+function renderBlocks(blocks,parent,depth=0) {
+  if(depth>30) return;
+  let list=null;
+  let listType=null;
 
-function renderBlocks(
-  blocks,
-  parent,
-  depth = 0
-) {
-  if (depth > 30) {
-    return;
-  }
+  for(const block of blocks||[]) {
+    const type=block.type;
+    const text=block.text||"";
 
-  let list = null;
-  let listType = null;
+    if(type==="child_page"||type==="child_database") continue;
 
-  for (const block of blocks || []) {
-    const type = block.type;
-    const text = block.text || "";
-
-    if (
-      type === "child_page" ||
-      type === "child_database"
-    ) {
-      continue;
-    }
-
-    /* LISTES */
-
-    if (
-      type === "bulleted_list_item" ||
-      type === "numbered_list_item"
-    ) {
-      const wanted =
-        type === "bulleted_list_item"
-          ? "ul"
-          : "ol";
-
-      if (!list || listType !== wanted) {
-        list = el(wanted);
-        listType = wanted;
+    if(type==="bulleted_list_item"||type==="numbered_list_item") {
+      const wanted=type==="bulleted_list_item"?"ul":"ol";
+      if(!list||listType!==wanted) {
+        list=el(wanted);
+        listType=wanted;
         parent.appendChild(list);
       }
-
-      const li = el("li");
-
-      renderRich(
-        li,
-        block.rich_text,
-        text
-      );
-
+      const li=el("li");
+      renderRich(li,block.rich_text,text);
       list.appendChild(li);
-
-      if (block.children?.length) {
-        renderBlocks(
-          block.children,
-          li,
-          depth + 1
-        );
-      }
-
+      if(block.children?.length) renderBlocks(block.children,li,depth+1);
       continue;
     }
+    list=null;
+    listType=null;
 
-    list = null;
-    listType = null;
-
-    /* SÉPARATEUR */
-
-    if (type === "divider") {
+    if(type==="divider") {
       parent.appendChild(el("hr"));
       continue;
     }
-
-    /* TABLEAU */
-
-    if (type === "table") {
-      renderTable(block, parent);
+    if(type==="table") {
+      renderTable(block,parent);
       continue;
     }
-
-    /* COLONNES */
-
-    if (type === "column_list") {
-      const grid = el(
-        "div",
-        "notion-columns"
-      );
-
-      for (
-        const column of block.children || []
-      ) {
-        const div = el("div");
-
-        renderBlocks(
-          column.children,
-          div,
-          depth + 1
-        );
-
+    if(type==="column_list") {
+      const grid=el("div","notion-columns");
+      for(const column of block.children||[]) {
+        const div=el("div");
+        renderBlocks(column.children,div,depth+1);
         grid.appendChild(div);
       }
-
       parent.appendChild(grid);
       continue;
     }
-
-    if (type === "column") {
-      renderBlocks(
-        block.children,
-        parent,
-        depth + 1
-      );
-
+    if(type==="column") {
+      renderBlocks(block.children,parent,depth+1);
       continue;
     }
-
-    /* IMAGE NOTION */
-
-    if (type === "image") {
-      const figure = el(
-        "figure",
-        "notion-figure"
-      );
-
-      if (
-        typeof block.src === "string" &&
-        block.src.startsWith("/assets/notion/")
-      ) {
-        const img = el("img");
-
-        img.src = block.src;
-        img.alt =
-          block.caption ||
-          "Illustration LDR.world";
-
-        img.loading = "lazy";
-
-        img.onerror = () => figure.remove();
-
+    if(type==="image") {
+      const figure=el("figure","notion-figure");
+      if(typeof block.src==="string"&&block.src.startsWith("/assets/notion/")) {
+        const img=el("img");
+        img.src=block.src;
+        img.alt=block.caption||"Illustration LDR.world";
+        img.loading="lazy";
+        img.onerror=()=>figure.remove();
         figure.appendChild(img);
       }
-
-      if (block.caption) {
-        figure.appendChild(
-          el(
-            "figcaption",
-            "",
-            block.caption
-          )
-        );
+      if(block.caption) figure.appendChild(el("figcaption","",block.caption));
+      if(figure.childNodes.length) parent.appendChild(figure);
+      continue;
+    }
+    if(["file","pdf","video","audio"].includes(type)) {
+      if(typeof block.src==="string"&&block.src.startsWith("/assets/notion/")) {
+        const link=el("a","",block.caption||"Ouvrir le média");
+        link.href=block.src;
+        link.target="_blank";
+        link.rel="noopener noreferrer";
+        parent.appendChild(el("p")).appendChild(link);
       }
-
-      if (figure.childNodes.length) {
-        parent.appendChild(figure);
+      continue;
+    }
+    if(type==="bookmark"||type==="embed") {
+      const href=safeExternalUrl(block.url);
+      if(href) {
+        const link=el("a","",block.url);
+        link.href=href;
+        link.target="_blank";
+        link.rel="noopener noreferrer";
+        parent.appendChild(el("p")).appendChild(link);
       }
-
+      continue;
+    }
+    if(type==="link_to_page") {
+      const ref=block.link_to_page||{};
+      const page=getPage(ref.page_id||ref.database_id);
+      if(page) {
+        const link=el("a","",page.title);
+        link.href=ficheLink(page);
+        parent.appendChild(el("p")).appendChild(link);
+      }
       continue;
     }
 
-    /* MÉDIAS */
-
-    if (
-      [
-        "file",
-        "pdf",
-        "video",
-        "audio"
-      ].includes(type)
-    ) {
-      if (
-        typeof block.src === "string" &&
-        block.src.startsWith("/assets/notion/")
-      ) {
-        const link = el(
-          "a",
-          "",
-          block.caption || "Ouvrir le média"
-        );
-
-        link.href = block.src;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-
-        parent.appendChild(
-          el("p")
-        ).appendChild(link);
-      }
-
-      continue;
+    let node=null;
+    if(type==="heading_1"||type==="heading_2") node=el("h2");
+    else if(type==="heading_3") node=el("h3");
+    else if(type==="quote") node=el("blockquote");
+    else if(type==="callout") node=el("div","notion-note");
+    else if(type==="code") node=el("pre","notion-code");
+    else if(type==="to_do") {
+      node=el("div","notion-check");
+      node.appendChild(document.createTextNode(block.checked?"☑ ":"☐ "));
     }
+    else if(text.trim()||block.rich_text?.length) node=el("p");
 
-    /* LIENS EXTERNES */
-
-    if (
-      type === "bookmark" ||
-      type === "embed"
-    ) {
-      const href = safeExternalUrl(
-        block.url
-      );
-
-      if (href) {
-        const link = el(
-          "a",
-          "",
-          block.url
-        );
-
-        link.href = href;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
-
-        parent.appendChild(
-          el("p")
-        ).appendChild(link);
-      }
-
-      continue;
-    }
-
-    /* LIENS VERS AUTRES PAGES NOTION */
-
-    if (type === "link_to_page") {
-      const ref =
-        block.link_to_page || {};
-
-      const page = getPage(
-        ref.page_id || ref.database_id
-      );
-
-      if (page) {
-        const link = el(
-          "a",
-          "",
-          page.title
-        );
-
-        link.href = ficheLink(page);
-
-        parent.appendChild(
-          el("p")
-        ).appendChild(link);
-      }
-
-      continue;
-    }
-
-    /* TEXTES */
-
-    let node = null;
-
-    if (
-      type === "heading_1" ||
-      type === "heading_2"
-    ) {
-      node = el("h2");
-    } else if (
-      type === "heading_3"
-    ) {
-      node = el("h3");
-    } else if (
-      type === "quote"
-    ) {
-      node = el("blockquote");
-    } else if (
-      type === "callout"
-    ) {
-      node = el(
-        "div",
-        "notion-note"
-      );
-    } else if (
-      type === "code"
-    ) {
-      node = el(
-        "pre",
-        "notion-code"
-      );
-    } else if (
-      type === "to_do"
-    ) {
-      node = el(
-        "div",
-        "notion-check"
-      );
-
-      node.appendChild(
-        document.createTextNode(
-          block.checked
-            ? "☑ "
-            : "☐ "
-        )
-      );
-    } else if (
-      text.trim() ||
-      block.rich_text?.length
-    ) {
-      node = el("p");
-    }
-
-    if (node) {
-      const holder = el("span");
-
-      renderRich(
-        holder,
-        block.rich_text,
-        text
-      );
-
-      while (holder.firstChild) {
-        node.appendChild(
-          holder.firstChild
-        );
-      }
-
+    if(node) {
+      const holder=el("span");
+      renderRich(holder,block.rich_text,text);
+      while(holder.firstChild) node.appendChild(holder.firstChild);
       parent.appendChild(node);
     }
-
-    /* BLOCS IMBRIQUÉS */
-
-    if (block.children?.length) {
-      const nested = el(
-        "div",
-        "notion-nested"
-      );
-
-      renderBlocks(
-        block.children,
-        nested,
-        depth + 1
-      );
-
-      if (nested.childNodes.length) {
-        parent.appendChild(nested);
-      }
+    if(block.children?.length) {
+      const nested=el("div","notion-nested");
+      renderBlocks(block.children,nested,depth+1);
+      if(nested.childNodes.length) parent.appendChild(nested);
     }
   }
 }
 
-/* ==========================================
-   NOUVEAU : HARMONISER LES LIENS EN CARTES
-========================================== */
-
-/*
-  Cette fonction transforme les liens
-  internes vers les fiches LDR en cartes.
-
-  Elle reconnaît :
-  - les paragraphes contenant un seul lien ;
-  - les listes composées uniquement de liens ;
-  - les sous-sections Notion.
-
-  Les paragraphes classiques et les
-  liens externes restent inchangés.
-*/
-
+/* CARTES CLIQUABLES POUR LES LIENS NOTION */
 function getSinglePageLink(element) {
-  if (!element) {
-    return null;
-  }
+  if(!element||!["P","LI"].includes(element.tagName)) return null;
 
-  const tag = element.tagName;
+  const links=element.querySelectorAll("a");
+  if(links.length!==1) return null;
+  const link=links[0];
 
-  if (tag !== "P" && tag !== "LI") {
-    return null;
-  }
+  if(!link.getAttribute("href")?.startsWith("#fiche/")) return null;
 
-  if (element.children.length !== 1) {
-    return null;
-  }
+  // Le paragraphe ou la liste doit contenir uniquement ce lien.
+  if(element.textContent.trim()!==link.textContent.trim()) return null;
 
-  const link = element.firstElementChild;
-
-  if (!link || link.tagName !== "A") {
-    return null;
-  }
-
-  if (
-    !link.getAttribute("href")
-      ?.startsWith("#fiche/")
-  ) {
-    return null;
-  }
-
-  if (
-    element.textContent.trim() !==
-    link.textContent.trim()
-  ) {
-    return null;
-  }
+  // Évite de transformer un paragraphe contenant d'autres éléments.
+  if(element.querySelectorAll("p,li,ul,ol").length) return null;
 
   return link;
 }
 
 function makeLinkCard(link) {
-  link.classList.add(
-    "notion-link-card"
-  );
-
+  link.classList.add("notion-link-card");
   return link;
 }
 
 function beautifyNotionLinks(root) {
+  // IMPORTANT :
+  // Ne pas utiliser child.isConnected ici.
+  // Les éléments sont traités avant d'être insérés dans la page.
 
-  /*
-    Première passe :
-    Transformer les listes Notion
-    composées de liens vers des fiches.
-  */
+  // Transformer les listes dont chaque élément est un lien interne.
+  for(const list of Array.from(root.querySelectorAll("ul,ol"))) {
+    const items=Array.from(list.children);
+    if(!items.length||!items.every(item=>getSinglePageLink(item))) continue;
 
-  const lists = Array.from(
-    root.querySelectorAll("ul, ol")
-  );
-
-  for (const list of lists) {
-    const items = Array.from(
-      list.children
-    );
-
-    if (!items.length) {
-      continue;
+    const grid=el("div","notion-link-grid");
+    for(const item of items) {
+      grid.appendChild(makeLinkCard(getSinglePageLink(item)));
     }
-
-    if (
-      !items.every(item =>
-        getSinglePageLink(item)
-      )
-    ) {
-      continue;
-    }
-
-    const grid = el(
-      "div",
-      "notion-link-grid"
-    );
-
-    for (const item of items) {
-      const link = getSinglePageLink(
-        item
-      );
-
-      grid.appendChild(
-        makeLinkCard(link)
-      );
-    }
-
     list.replaceWith(grid);
   }
 
-  /*
-    Deuxième passe :
-    Transformer les paragraphes
-    contenant uniquement un lien.
-  */
-
+  // Transformer les paragraphes contenant un seul lien interne.
   function processContainer(container) {
-    if (
-      container.classList?.contains(
-        "notion-link-grid"
-      )
-    ) {
-      return;
-    }
+    if(container.classList?.contains("notion-link-grid")) return;
 
-    const children = Array.from(
-      container.children
-    );
+    const children=Array.from(container.children);
+    let grid=null;
 
-    let grid = null;
+    for(const child of children) {
+      // L'élément peut avoir été déplacé dans une grille.
+      if(child.parentElement!==container) continue;
 
-    for (const child of children) {
-      if (!child.isConnected) {
-        continue;
-      }
-
-      if (child.tagName === "P") {
-        const link = getSinglePageLink(
-          child
-        );
-
-        if (link) {
-          if (!grid) {
-            grid = el(
-              "div",
-              "notion-link-grid"
-            );
-
-            container.insertBefore(
-              grid,
-              child
-            );
+      if(child.tagName==="P") {
+        const link=getSinglePageLink(child);
+        if(link) {
+          if(!grid) {
+            grid=el("div","notion-link-grid");
+            container.insertBefore(grid,child);
           }
-
-          grid.appendChild(
-            makeLinkCard(link)
-          );
-
+          grid.appendChild(makeLinkCard(link));
           child.remove();
           continue;
         }
       }
 
-      grid = null;
+      grid=null;
 
-      if (
+      if(
         child.children.length &&
-        child.tagName !== "A" &&
-        child.tagName !== "TABLE" &&
-        child.tagName !== "UL" &&
-        child.tagName !== "OL" &&
-        !child.classList.contains(
-          "notion-link-grid"
-        )
+        !["A","TABLE","UL","OL"].includes(child.tagName) &&
+        !child.classList.contains("notion-link-grid")
       ) {
         processContainer(child);
       }
@@ -2046,466 +873,175 @@ function beautifyNotionLinks(root) {
   processContainer(root);
 }
 
-/* ==========================================
-   SOUS-PAGES
-========================================== */
+/* SOUS-PAGES */
+function addSubpages(page,container) {
+  if(!page.subpages?.length) return;
+  container.appendChild(el("h2","","Explorer les fiches"));
+  const grid=el("div","encyclopedia-grid");
 
-function addSubpages(page, container) {
-  if (!page.subpages?.length) {
-    return;
-  }
-
-  container.appendChild(
-    el(
-      "h2",
-      "",
-      "Explorer les fiches"
-    )
-  );
-
-  const grid = el(
-    "div",
-    "encyclopedia-grid"
-  );
-
-  for (const child of page.subpages) {
-    const a = el(
-      "a",
-      "encyclopedia-card",
-      child.title || "Fiche sans titre"
-    );
-
-    a.href = ficheLink(child);
-
-    if (child.subpages?.length) {
-      a.appendChild(
-        el(
-          "small",
-          "",
-          child.subpages.length +
-          " sous-fiches"
-        )
-      );
+  for(const child of page.subpages) {
+    const a=el("a","encyclopedia-card",child.title||"Fiche sans titre");
+    a.href=ficheLink(child);
+    if(child.subpages?.length) {
+      a.appendChild(el("small","",child.subpages.length+" sous-fiches"));
     }
-
     grid.appendChild(a);
   }
-
   container.appendChild(grid);
 }
 
-/* ==========================================
-   RUBRIQUES PRINCIPALES
-========================================== */
+/* RUBRIQUES */
+function renderSection(id,sectionId) {
+  const page=getPage(id);
+  const section=document.getElementById(sectionId);
+  if(!page||!section) return;
 
-function renderSection(id, sectionId) {
-  const page = getPage(id);
-
-  const section = document.getElementById(
-    sectionId
-  );
-
-  if (!page || !section) {
-    return;
-  }
-
-  const container = section.querySelector(
-    ".container"
-  );
-
-  const heading = container.querySelector(
-    ".page-title"
-  );
-
+  const container=section.querySelector(".container");
+  const heading=container.querySelector(".page-title");
   container.replaceChildren(heading);
+  addCover(page,container);
 
-  /* Bannière de rubrique */
-
-  addCover(page, container);
-
-  const article = el(
-    "article",
-    "notion-content"
-  );
-
-  /* Texte et blocs Notion */
-
-  renderBlocks(
-    page.blocks,
-    article
-  );
-
-  /* NOUVEAUTÉ :
-     Uniformisation des liens
-     de toutes les rubriques
-     avec les cartes d'accueil.
-  */
-
+  const article=el("article","notion-content");
+  renderBlocks(page.blocks,article);
   beautifyNotionLinks(article);
-
-  /* Galeries et sous-pages */
-
-  addGallery(
-    page,
-    article
-  );
-
-  addSubpages(
-    page,
-    article
-  );
-
+  addGallery(page,article);
+  addSubpages(page,article);
   container.appendChild(article);
 }
-
-/* ==========================================
-   RECONNAÎTRE LA RUBRIQUE D'UNE FICHE
-========================================== */
-
 function findSection(id) {
-  let current = cleanId(id);
-
-  for (let i = 0; i < 30; i++) {
-    for (
-      const [key, value]
-      of Object.entries(SECTION_IDS)
-    ) {
-      if (
-        current === cleanId(value)
-      ) {
-        return key;
-      }
+  let current=cleanId(id);
+  for(let i=0;i<30;i++) {
+    for(const [key,value] of Object.entries(SECTION_IDS)) {
+      if(current===cleanId(value)) return key;
     }
-
-    current = parents.get(current);
-
-    if (!current) {
-      break;
-    }
+    current=parents.get(current);
+    if(!current) break;
   }
-
   return "accueil";
 }
 
-/* ==========================================
-   AFFICHAGE D'UNE FICHE DÉTAILLÉE
-========================================== */
-
+/* FICHES DÉTAILLÉES */
 function renderDetail(page) {
-  const box = document.getElementById(
-    "fiche-contenu"
-  );
-
+  const box=document.getElementById("fiche-contenu");
   box.replaceChildren();
 
-  const section = findSection(
-    page.id
-  );
-
-  const back = el(
-    "a",
-    "encyclopedia-back",
-    "← Retour à " +
-    (
-      section === "accueil"
-        ? "l'accueil"
-        : section
-    )
-  );
-
-  back.href = "#" + section;
-
+  const section=findSection(page.id);
+  const back=el("a","encyclopedia-back",
+    "← Retour à "+(section==="accueil"?"l'accueil":section));
+  back.href="#"+section;
   box.appendChild(back);
 
-  /* Bannière de la fiche */
+  addCover(page,box);
+  box.appendChild(el("h1","",page.title||"Fiche"));
 
-  addCover(page, box);
-
-  /* Titre */
-
-  box.appendChild(
-    el(
-      "h1",
-      "",
-      page.title || "Fiche"
-    )
-  );
-
-  const article = el(
-    "article",
-    "notion-content"
-  );
-
-  /* Contenu */
-
-  renderBlocks(
-    page.blocks,
-    article
-  );
-
-  /* Cartes pour les liens internes */
-
+  const article=el("article","notion-content");
+  renderBlocks(page.blocks,article);
   beautifyNotionLinks(article);
-
-  /* Photographies */
-
-  addGallery(
-    page,
-    article
-  );
-
-  /* Sous-fiches */
-
-  addSubpages(
-    page,
-    article
-  );
-
+  addGallery(page,article);
+  addSubpages(page,article);
   box.appendChild(article);
 }
 
-/* ==========================================
-   NAVIGATION
-========================================== */
-
+/* NAVIGATION */
 function navigate() {
-  let hash = "accueil";
-
+  let hash="accueil";
   try {
-    hash = decodeURIComponent(
-      location.hash.slice(1)
-    ) || "accueil";
-  } catch (error) {
-    hash = "accueil";
+    hash=decodeURIComponent(location.hash.slice(1))||"accueil";
+  } catch(error) {
+    hash="accueil";
   }
 
-  let active = "accueil";
-
-  if (hash.startsWith("fiche/")) {
-    const page = getPage(
-      hash.slice(6)
-    );
-
-    if (page) {
+  let active="accueil";
+  if(hash.startsWith("fiche/")) {
+    const page=getPage(hash.slice(6));
+    if(page) {
       renderDetail(page);
-      active = "fiche";
+      active="fiche";
     }
-
   } else {
-    const target = document.getElementById(
-      hash
-    );
-
-    if (
-      target &&
-      target.classList.contains("page")
-    ) {
-      active = hash;
-    }
+    const target=document.getElementById(hash);
+    if(target?.classList.contains("page")) active=hash;
   }
 
-  document.querySelectorAll(
-    ".page"
-  ).forEach(page => {
-    page.classList.toggle(
-      "active",
-      page.id === active
-    );
+  document.querySelectorAll(".page").forEach(page=>{
+    page.classList.toggle("active",page.id===active);
   });
-
-  window.scrollTo(0, 0);
+  window.scrollTo(0,0);
 }
+window.addEventListener("hashchange",navigate);
 
-window.addEventListener(
-  "hashchange",
-  navigate
-);
-
-/* ==========================================
-   RECHERCHE
-========================================== */
-
+/* RECHERCHE */
 function normalize(value) {
-  return String(value || "")
+  return String(value||"")
     .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[\u0300-\u036f]/g,"")
     .toLowerCase();
 }
-
 function setupSearch() {
-  const input = document.getElementById(
-    "search-input"
-  );
+  const input=document.getElementById("search-input");
+  const results=document.getElementById("search-results");
 
-  const results = document.getElementById(
-    "search-results"
-  );
+  input.addEventListener("input",()=>{
+    results.replaceChildren();
+    const query=normalize(input.value.trim());
+    if(query.length<2) return;
 
-  input.addEventListener(
-    "input",
-    () => {
-      results.replaceChildren();
+    const matches=[...pages.values()]
+      .filter(page=>normalize(page.title).includes(query))
+      .slice(0,30);
 
-      const query = normalize(
-        input.value.trim()
-      );
-
-      if (query.length < 2) {
-        return;
-      }
-
-      const matches = [
-        ...pages.values()
-      ]
-        .filter(page =>
-          normalize(page.title)
-            .includes(query)
-        )
-        .slice(0, 30);
-
-      if (!matches.length) {
-        results.appendChild(
-          el(
-            "p",
-            "",
-            "Aucune fiche trouvée."
-          )
-        );
-
-        return;
-      }
-
-      const grid = el(
-        "div",
-        "encyclopedia-grid"
-      );
-
-      for (const page of matches) {
-        const link = el(
-          "a",
-          "encyclopedia-card",
-          page.title
-        );
-
-        link.href = ficheLink(page);
-
-        grid.appendChild(link);
-      }
-
-      results.appendChild(grid);
+    if(!matches.length) {
+      results.appendChild(el("p","","Aucune fiche trouvée."));
+      return;
     }
-  );
+
+    const grid=el("div","encyclopedia-grid");
+    for(const page of matches) {
+      const link=el("a","encyclopedia-card",page.title);
+      link.href=ficheLink(page);
+      grid.appendChild(link);
+    }
+    results.appendChild(grid);
+  });
 }
 
-/* ==========================================
-   DÉMARRAGE DE LDR.WORLD
-========================================== */
-
+/* CHARGEMENT DES DONNÉES */
 async function startEncyclopedia() {
   try {
+    const response=await fetch("/data/notion.json",{cache:"no-store"});
+    if(!response.ok) throw new Error("Données Notion indisponibles");
 
-    /* Charger les données Notion */
-
-    const response = await fetch(
-      "/data/notion.json",
-      { cache: "no-store" }
-    );
-
-    if (!response.ok) {
-      throw new Error(
-        "Données Notion indisponibles"
-      );
+    const data=await response.json();
+    if(!data.root||!Array.isArray(data.root.subpages)) {
+      throw new Error("Structure Notion incorrecte");
     }
-
-    const data = await response.json();
-
-    if (
-      !data.root ||
-      !Array.isArray(
-        data.root.subpages
-      )
-    ) {
-      throw new Error(
-        "Structure Notion incorrecte"
-      );
-    }
-
-    /* Indexer toutes les fiches */
 
     buildIndex(data.root);
-
-    /* Charger les images GitHub */
-
     await loadCatalogue();
 
-    /* Bannière d'accueil */
+    const hero=document.getElementById("hero-accueil");
+    const cover=createCover(data.root);
+    if(cover) hero.insertBefore(cover,hero.firstChild);
 
-    const hero = document.getElementById(
-      "hero-accueil"
-    );
-
-    const homeCover = createCover(
-      data.root
-    );
-
-    if (homeCover) {
-      hero.insertBefore(
-        homeCover,
-        hero.firstChild
-      );
+    for(const [section,id] of Object.entries(SECTION_IDS)) {
+      renderSection(id,section);
     }
-
-    /* Remplir les rubriques */
-
-    for (
-      const [section, id]
-      of Object.entries(SECTION_IDS)
-    ) {
-      renderSection(
-        id,
-        section
-      );
-    }
-
-    /* Activer la recherche */
 
     setupSearch();
-
-    /* Afficher la bonne page */
-
     navigate();
 
-    console.info(
-      "LDR.world chargé :",
-      pages.size,
-      "pages Notion."
-    );
-
-  } catch (error) {
-
-    console.error(
-      "Erreur LDR.world :",
-      error
-    );
-
-    document.querySelectorAll(
-      ".status"
-    ).forEach(node => {
-      node.textContent =
-        "Impossible de charger les contenus Notion pour le moment.";
+    console.info("LDR.world chargé :",pages.size,"pages Notion");
+  } catch(error) {
+    console.error("Erreur LDR.world :",error);
+    document.querySelectorAll(".status").forEach(node=>{
+      node.textContent="Impossible de charger les contenus Notion pour le moment.";
     });
-
     navigate();
   }
 }
 
-/* LANCEMENT */
-
 navigate();
-
 startEncyclopedia();
-
 </script>
-
 </body>
 </html>
