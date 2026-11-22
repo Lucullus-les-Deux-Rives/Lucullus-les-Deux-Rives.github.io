@@ -23,6 +23,36 @@
       "cover": null,
       "gallery": []
     },
+    "41b9b1f3-b04a-8188-96da-ed1f87ebc3b3": {
+      "title": "02 — Le Vieux Lucullus",
+      "cover": null,
+      "gallery": []
+    },
+    "41b9b1f3-b04a-8166-b15d-f9e635068387": {
+      "title": "03 — Les Monts du Lucullus",
+      "cover": null,
+      "gallery": []
+    },
+    "41b9b1f3-b04a-8126-a0c1-d658f15dad13": {
+      "title": "04 — Les Hauts de Lucetelle",
+      "cover": null,
+      "gallery": []
+    },
+    "41b9b1f3-b04a-816d-ba92-c367b752780d": {
+      "title": "05 — Le Sultanat de Baboush",
+      "cover": null,
+      "gallery": []
+    },
+    "41b9b1f3-b04a-8145-8939-f74e2370825d": {
+      "title": "14 — La Linea",
+      "cover": null,
+      "gallery": []
+    },
+    "41b9b1f3-b04a-8197-a149-d9d3fadf2a18": {
+      "title": "19 — Les Trois Orients",
+      "cover": null,
+      "gallery": []
+    },
     "41b9b1f3-b04a-81e7-9199-d9ec56ea912f": {
       "title": "35 — Vert-Bois-Rives",
       "cover": null,
@@ -32,11 +62,11 @@
   "unassigned": [
     {
       "file": "territoires/bannière MGL.jpg",
-      "description": "Bannière MGL — page à déterminer"
+      "description": "Bannière MGL — destination à confirmer"
     },
     {
       "file": "territoires/bannière ldr v2.jpg",
-      "description": "Deuxième bannière LDR — variante de couverture"
+      "description": "Bannière alternative de Lucullus-les-Deux-Rives"
     }
   ]
 }
