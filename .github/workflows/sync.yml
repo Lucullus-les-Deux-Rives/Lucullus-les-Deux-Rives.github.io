@@ -18,6 +18,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
   pages: write
   id-token: write
 
@@ -98,6 +99,34 @@ jobs:
         with:
           path: "_site"
 
+      - name: Attendre la disponibilite de l'archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_ID: ${{ github.run_id }}
+        shell: bash
+        run: |
+          for tentative in $(seq 1 18); do
+            echo "Verification de l'archive : $tentative/18"
+
+            ARTIFACT_ID=$(gh api \
+              "repos/$GH_REPO/actions/runs/$RUN_ID/artifacts" \
+              --jq '.artifacts[] | select(.name == "github-pages" and .expired == false) | .id' \
+              2>/dev/null | head -n 1) || true
+
+            if [ -n "$ARTIFACT_ID" ]; then
+              echo "Archive disponible : $ARTIFACT_ID"
+              exit 0
+            fi
+
+            sleep 10
+          done
+
+          echo "::error::Archive github-pages introuvable"
+          exit 1
+
       - name: Publier LDR.world
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
