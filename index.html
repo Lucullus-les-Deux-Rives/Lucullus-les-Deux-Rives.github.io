@@ -1046,6 +1046,49 @@ footer {
   }
 }
 
+
+/* ========================================
+   NOUVELLE NAVIGATION LDR.WORLD — 2026
+   ======================================== */
+header { overflow: visible; }
+.header-inner { max-width: 1580px; gap: 22px; }
+.ldr-nav { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:clamp(7px,1.1vw,17px); }
+.ldr-nav > a, .ldr-nav > .nav-menu > summary, .nav-search-button { white-space:nowrap; font-size:13px; font-weight:800; color:#D7E4F3; }
+.nav-menu { position:relative; }
+.nav-menu > summary { cursor:pointer; list-style:none; padding:12px 2px; }
+.nav-menu > summary::-webkit-details-marker { display:none; }
+.nav-menu > summary::after { content:"⌄"; display:inline-block; margin-left:5px; color:#A8C9F2; }
+.nav-menu[open] > summary, .nav-menu > summary:hover { color:#FFF; }
+.nav-menu[open] > summary::after { transform:rotate(180deg); }
+.nav-submenu { position:absolute; top:100%; left:-12px; z-index:60; width:max-content; min-width:250px; max-width:min(330px, 90vw); display:flex; flex-direction:column; padding:10px; background:#192F50; border:1px solid #526E91; border-radius:13px; box-shadow:0 16px 38px #0008; }
+.nav-submenu a { padding:12px 13px; font-size:13px; line-height:1.35; border-radius:8px; font-weight:650; white-space:normal; }
+.nav-submenu a:hover, .nav-submenu a:focus-visible { color:#142D4C; text-decoration:none; background:#E9F1FC; }
+.nav-search-button { display:inline-flex; gap:6px; align-items:center; border:1px solid #506889; padding:9px 12px; border-radius:9px; background:transparent; cursor:pointer; }
+.nav-search-button:hover, .nav-search-button[aria-expanded="true"] { background:#28476D; color:white; }
+.ldr-nav .nav-featured { display:inline-flex; align-items:center; padding:11px 15px; border-radius:10px; background:#E9F1FC; color:#142D4C; font-weight:900; }
+.ldr-nav .nav-featured:hover { color:#142D4C; background:#FFF; text-decoration:none; }
+.site-search-panel[hidden] { display:none; }
+.site-search-panel { position:absolute; top:100%; width:100%; z-index:55; padding:20px 0 28px; background:#142540; border-bottom:1px solid #526E91; box-shadow:0 22px 40px #0008; max-height:min(78vh,780px); overflow-y:auto; }
+.site-search-inner { max-width:1150px; }
+.site-search-heading { display:flex; align-items:center; justify-content:space-between; margin-bottom:13px; gap:12px; }
+.site-search-heading label { font-size:19px; font-weight:800; }
+#close-site-search { background:transparent; color:#FFF; border:1px solid #526E91; padding:8px 11px; border-radius:8px; cursor:pointer; }
+#site-search-input { width:100%; font-size:17px; background:#FFF; color:#142D4C; border:0; outline-offset:3px; border-radius:11px; padding:17px; }
+.site-search-filters { display:flex; flex-wrap:wrap; gap:8px; margin:15px 0; }
+.site-search-filters button { border:1px solid #537194; color:#DCE7F5; background:transparent; border-radius:99px; padding:7px 12px; font:inherit; font-size:12px; font-weight:700; cursor:pointer; }
+.site-search-filters button.active, .site-search-filters button:hover { background:#E9F1FC; color:#142D4C; }
+.site-search-results { display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:11px; }
+.site-search-result { display:flex; flex-direction:column; gap:5px; background:#203C65; border:1px solid #47648A; border-radius:11px; padding:14px; }
+.site-search-result:hover { background:#2B4A72; text-decoration:none; }
+.site-search-result small { font-size:11px; color:#B8CCE5; }
+.site-search-result strong { color:#FFF; font-size:14px; }
+.site-search-result span { color:#D3E0F1; font-size:12px; line-height:1.45; }
+.site-search-empty { grid-column:1/-1; margin:0; }
+@media(max-width:1120px) { .header-inner { flex-direction:column; padding:15px 0; } .ldr-nav { justify-content:center; } }
+@media(max-width:680px) { .ldr-nav { gap:9px 13px; } .ldr-nav .nav-featured { padding:9px 12px; } .nav-search-button span { display:none; } .nav-submenu { position:fixed; top:auto; left:4vw; right:4vw; width:92vw; max-width:none; max-height:62dvh; overflow-y:auto; } .site-search-panel { max-height:calc(100dvh - 135px); } }
+.nav-menu > summary:focus-visible, .nav-search-button:focus-visible, .ldr-nav .nav-featured:focus-visible { outline:3px solid #85C7FF; outline-offset:3px; }
+@media (prefers-reduced-motion: reduce) { .nav-submenu, .site-search-panel { scroll-behavior:auto; } }
+
 </style>
 </head>
 
@@ -1110,15 +1153,93 @@ footer {
       LDR<span>.world</span>
     </a>
 
-    <nav aria-label="Navigation principale">
-      <a href="#accueil">Accueil</a>
-      <a href="#geographie">Géographie</a>
-      <a href="#histoire">Histoire</a>
-      <a href="#transports">Transports</a>
-      <a href="#elections">Élections</a>
-      <a href="#personnages">Personnages</a>
+    <nav class="ldr-nav" aria-label="Navigation principale">
+      <a class="nav-home" href="#accueil">Accueil</a>
+
+      <details class="nav-menu">
+        <summary>Découvrir</summary>
+        <div class="nav-submenu">
+          <a href="#fiche/4229b1f3b04a81c5b0d8fc41f7340733">🧭 Vue d'ensemble</a>
+          <a href="#geographie">🗺️ Territoires & géographie</a>
+          <a href="#fiche/4229b1f3b04a817cb406ed854612c0c2">📍 Lieux remarquables</a>
+          <a href="#fiche/4229b1f3b04a81ebb5edf3940f56deed">🌳 Nature & paysages</a>
+          <a href="#fiche/4229b1f3b04a816a8f34f4ee4187dfe5">🗺️ Cartes de la Principauté</a>
+        </div>
+      </details>
+
+      <details class="nav-menu">
+        <summary>Histoire</summary>
+        <div class="nav-submenu">
+          <a href="#histoire">📜 Histoire générale & locale</a>
+          <a href="#fiche/4229b1f3b04a81eabd9bf07346cbaffc">🏰 Lieux historiques</a>
+          <a href="#fiche/4229b1f3b04a81f79aa8d47c9b0fa1de">⏳ Chronologie & événements historiques</a>
+          <a href="#fiche/4229b1f3b04a817cb348ea4a14c6b465">🎭 Culture & traditions</a>
+        </div>
+      </details>
+
+      <details class="nav-menu">
+        <summary>Société</summary>
+        <div class="nav-submenu">
+          <a href="#fiche/4229b1f3b04a813eaba6f419f6107f32">🏛️ Vue d'ensemble</a>
+          <a href="#institutions">⚖️ Institutions & politique</a>
+          <a href="#economie">💼 Économie & entreprises</a>
+          <a href="#urbanisme">🏗️ Urbanisme & projets</a>
+          <a href="#fiche/4229b1f3b04a814992fccff9b5511918">🏡 Vie quotidienne</a>
+        </div>
+      </details>
+
+      <details class="nav-menu">
+        <summary>Transports</summary>
+        <div class="nav-submenu">
+          <a href="#transports">🚉 Vue d'ensemble & plans</a>
+          <a href="#fiche/4229b1f3b04a81af930efbf359d3fe79">🚇 TRM : Métro & VAL</a>
+          <a href="#fiche/4229b1f3b04a81ce88bde0bf9296f68c">🚆 SNCL : TBL & trains</a>
+          <a href="#fiche/4229b1f3b04a8134b9dffd2869be2680">🚠 Autres mobilités</a>
+        </div>
+      </details>
+
+      <details class="nav-menu">
+        <summary>Personnages</summary>
+        <div class="nav-submenu">
+          <a href="#personnages">👥 Répertoire des personnages</a>
+          <a href="#fiche/4219b1f3b04a8186843dd8e12032e2a8">📜 Figures historiques</a>
+        </div>
+      </details>
+
+      <details class="nav-menu">
+        <summary>Agenda</summary>
+        <div class="nav-submenu">
+          <a href="#fiche/4229b1f3b04a8113a56ac6a79355624f">📅 Agenda & événements</a>
+          <a href="#fiche/4229b1f3b04a81c69c99d69b90828e39">🗓️ À venir</a>
+          <a href="#elections">🗳️ À la une : Élections 2027</a>
+          <a href="#fiche/4229b1f3b04a8148a2ebd422ce561715">🗃️ Archives</a>
+        </div>
+      </details>
+
+      <button class="nav-search-button" id="open-site-search" type="button" aria-expanded="false" aria-controls="site-search-panel" aria-label="Rechercher">⌕ <span>Rechercher</span></button>
+      <a class="nav-featured" href="#elections" title="Événement à la une — Élections parlementaires 2027">🗳️ Élections 2027</a>
     </nav>
 
+  </div>
+
+  <div class="site-search-panel" id="site-search-panel" hidden>
+    <div class="container site-search-inner">
+      <div class="site-search-heading">
+        <label for="site-search-input">Rechercher dans toute l'encyclopédie</label>
+        <button type="button" id="close-site-search" aria-label="Fermer la recherche">✕</button>
+      </div>
+      <input id="site-search-input" type="search" autocomplete="off" placeholder="Ville, quartier, lieu, personnage, histoire…" aria-label="Recherche globale">
+      <div class="site-search-filters" role="group" aria-label="Filtrer les résultats">
+        <button type="button" data-search-section="tout" class="active">Tout</button>
+        <button type="button" data-search-section="geographie">Géographie</button>
+        <button type="button" data-search-section="histoire">Histoire</button>
+        <button type="button" data-search-section="transports">Transports</button>
+        <button type="button" data-search-section="institutions">Société</button>
+        <button type="button" data-search-section="personnages">Personnages</button>
+        <button type="button" data-search-section="elections">Événements</button>
+      </div>
+      <div id="site-search-results" class="site-search-results" aria-live="polite"></div>
+    </div>
   </div>
 </header>
 
@@ -1256,7 +1377,7 @@ footer {
         <a class="card" href="#transports">
           <div class="emoji">🚇</div>
           <h3>Transports</h3>
-          <p>Réseaux TRM, métro, TBL et SNCL.</p>
+          <p>TRM (métro & VAL), SNCL (TBL & trains).</p>
         </a>
 
         <a class="card" href="#institutions">
@@ -2475,55 +2596,142 @@ function normalize(value) {
 }
 
 function setupSearch() {
-  const input = document.getElementById(
-    "search-input"
-  );
+  const input = document.getElementById("search-input");
+  const results = document.getElementById("search-results");
+  const globalInput = document.getElementById("site-search-input");
+  const globalResults = document.getElementById("site-search-results");
+  const panel = document.getElementById("site-search-panel");
+  const toggle = document.getElementById("open-site-search");
+  const close = document.getElementById("close-site-search");
+  let sectionFilter = "tout";
 
-  const results = document.getElementById(
-    "search-results"
-  );
+  // Indexe titres, contenu Notion et sous-rubrique — sans modifier les données.
+  function blockText(blocks, depth = 0) {
+    if (depth > 8 || !Array.isArray(blocks)) return "";
+    return blocks.map(block => {
+      const content = [block.text || "",
+        ...(block.rich_text || []).map(x => x.text || "")].join(" ");
+      return content + " " + blockText(block.children, depth + 1);
+    }).join(" ");
+  }
 
-  input.addEventListener("input", () => {
-    results.replaceChildren();
+  const entries = [...pages.values()].map(page => ({
+    page,
+    section: findSection(page.id),
+    searchable: normalize(page.title + " " + blockText(page.blocks))
+  }));
 
-    const query = normalize(
-      input.value.trim()
-    );
+  const categories = {
+    accueil:"Découvrir", geographie:"Géographie", histoire:"Histoire",
+    transports:"Transports", institutions:"Société", economie:"Société",
+    urbanisme:"Société", personnages:"Personnages", elections:"Événements"
+  };
+  const discoverIds = ["4229b1f3b04a81c5b0d8fc41f7340733", "4229b1f3b04a817cb406ed854612c0c2", "4229b1f3b04a81ebb5edf3940f56deed", "4229b1f3b04a816a8f34f4ee4187dfe5"];
+  const societyIds = ["4229b1f3b04a813eaba6f419f6107f32", "4229b1f3b04a814992fccff9b5511918"];
+  const eventsIds = ["4229b1f3b04a8113a56ac6a79355624f", "4229b1f3b04a81c69c99d69b90828e39", "4229b1f3b04a8148a2ebd422ce561715"];
 
-    if (query.length < 2) {
-      return;
+  function searchSection(entry) {
+    const id = cleanId(entry.page.id);
+    function belongsTo(groupIds) {
+      let current = id;
+      for (let n = 0; n < 25 && current; n++) {
+        if (groupIds.includes(current)) return true;
+        current = parents.get(current);
+      }
+      return false;
     }
+    if (belongsTo(discoverIds)) return "geographie";
+    if (belongsTo(societyIds)) return "institutions";
+    if (belongsTo(eventsIds)) return "elections";
+    if (["economie", "urbanisme"].includes(entry.section)) return "institutions";
+    return entry.section;
+  }
 
-    const matches = [...pages.values()]
-      .filter(page =>
-        normalize(page.title).includes(query)
-      )
-      .slice(0, 30);
+  function getMatches(value, filter = "tout") {
+    const q = normalize(value.trim());
+    if (q.length < 2) return [];
+    const words = q.split(/\s+/).filter(Boolean);
+    return entries.filter(entry =>
+      (filter === "tout" || searchSection(entry) === filter) &&
+      words.every(word => entry.searchable.includes(word))
+    ).sort((a,b) => {
+      const at = normalize(a.page.title), bt = normalize(b.page.title);
+      const ar = at === q ? 0 : at.startsWith(q) ? 1 : at.includes(q) ? 2 : 3;
+      const br = bt === q ? 0 : bt.startsWith(q) ? 1 : bt.includes(q) ? 2 : 3;
+      return ar - br || at.localeCompare(bt, "fr");
+    }).slice(0, 40);
+  }
 
+  function renderMatches(target, matches, global) {
+    target.replaceChildren();
     if (!matches.length) {
-      results.appendChild(
-        el("p", "", "Aucune fiche trouvée.")
-      );
+      target.appendChild(el("p", "site-search-empty", "Aucune fiche trouvée pour cette recherche."));
       return;
     }
-
-    const grid = el(
-      "div",
-      "encyclopedia-grid"
-    );
-
-    for (const page of matches) {
-      const link = el(
-        "a",
-        "encyclopedia-card",
-        page.title
-      );
-
-      link.href = ficheLink(page);
-      grid.appendChild(link);
+    const grid = global ? target : el("div", "encyclopedia-grid");
+    for (const entry of matches) {
+      const a = el("a", global ? "site-search-result" : "encyclopedia-card");
+      a.href = ficheLink(entry.page);
+      if (global) {
+        a.appendChild(el("small", "", categories[searchSection(entry)] || "Encyclopédie"));
+        a.appendChild(el("strong", "", entry.page.title));
+        a.appendChild(el("span", "", "Consulter la fiche →"));
+        a.addEventListener("click", () => setPanel(false));
+      } else {
+        a.textContent = entry.page.title;
+      }
+      grid.appendChild(a);
     }
+    if (!global) target.appendChild(grid);
+  }
 
-    results.appendChild(grid);
+  if (input && results) input.addEventListener("input", () => {
+    if (input.value.trim().length < 2) return results.replaceChildren();
+    renderMatches(results, getMatches(input.value), false);
+  });
+
+  function setPanel(open) {
+    panel.hidden = !open;
+    toggle.setAttribute("aria-expanded", String(open));
+    if (open) { globalInput.focus(); if (globalInput.value.trim().length >= 2) renderMatches(globalResults, getMatches(globalInput.value, sectionFilter), true); }
+  }
+  toggle.addEventListener("click", () => setPanel(panel.hidden));
+  close.addEventListener("click", () => setPanel(false));
+  globalInput.addEventListener("input", () => {
+    if (globalInput.value.trim().length < 2) return globalResults.replaceChildren();
+    renderMatches(globalResults, getMatches(globalInput.value, sectionFilter), true);
+  });
+  document.querySelectorAll("[data-search-section]").forEach(button => {
+    button.addEventListener("click", () => {
+      sectionFilter = button.dataset.searchSection;
+      document.querySelectorAll("[data-search-section]").forEach(other => other.classList.toggle("active", other === button));
+      if (globalInput.value.trim().length >= 2) renderMatches(globalResults, getMatches(globalInput.value, sectionFilter), true);
+    });
+  });
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !panel.hidden) setPanel(false);
+    if ((event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+      event.preventDefault(); setPanel(true);
+    }
+  });
+  // Un seul menu déroulant ouvert à la fois.
+  document.querySelectorAll(".nav-menu").forEach(currentMenu => {
+    currentMenu.addEventListener("toggle", () => {
+      if (currentMenu.open) {
+        document.querySelectorAll(".nav-menu").forEach(other => {
+          if (other !== currentMenu) other.open = false;
+        });
+      }
+    });
+  });
+  // Ferme les menus déroulants une fois une rubrique choisie.
+  document.querySelectorAll(".nav-submenu a").forEach(link => link.addEventListener("click", () => {
+    document.querySelectorAll(".nav-menu").forEach(menu => menu.open = false);
+  }));
+  document.addEventListener("click", event => {
+    document.querySelectorAll(".nav-menu[open]").forEach(menu => {
+      if (!menu.contains(event.target)) menu.open = false;
+    });
   });
 }
 
