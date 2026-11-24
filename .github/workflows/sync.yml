@@ -19,23 +19,26 @@ on:
 permissions:
   contents: read
   actions: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: ldr-world-pages
   cancel-in-progress: false
 
 jobs:
+
+  # ========================================
+  # JOB 1 - SYNCHRONISATION NOTION
+  # ========================================
+
   synchroniser:
-    name: Synchroniser et publier LDR.world
+    name: Synchroniser Notion et preparer LDR.world
+
     runs-on: ubuntu-latest
 
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+    timeout-minutes: 30
 
     steps:
+
       - name: Recuperer le depot
         uses: actions/checkout@v4
 
@@ -47,86 +50,104 @@ jobs:
       - name: Recuperer les donnees Notion
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-        run: python scripts/sync_notion.py
+        run: |
+          python scripts/sync_notion.py
 
       - name: Preparer les fichiers LDR.world
         shell: bash
         run: |
           set -e
 
+          echo "Preparation de LDR.world"
+
           mkdir -p _site
 
-          echo "Preparation de l'accueil..."
+          echo "Copie de l'accueil"
           cp index.html _site/index.html
 
-          echo "Preparation des images GitHub..."
+          echo "Copie des images"
           if [ -d "images" ]; then
             cp -R images _site/images
           fi
 
-          echo "Preparation des donnees Notion..."
+          echo "Verification des donnees Notion"
           if [ ! -f "data/notion.json" ]; then
-            echo "::error::Le fichier data/notion.json est absent"
+            echo "::error::data/notion.json est introuvable"
             exit 1
           fi
+
+          echo "Copie des donnees Notion"
           cp -R data _site/data
 
-          echo "Preparation des medias Notion..."
+          echo "Copie des medias Notion"
           if [ -d "assets" ]; then
             cp -R assets _site/assets
           fi
 
           touch _site/.nojekyll
 
-          echo "Verification des fichiers..."
+          echo "Verification des fichiers"
           test -f _site/index.html
           test -f _site/data/notion.json
           test -f _site/images/catalogue.json
 
-          echo "Verification du catalogue JSON..."
-          python -m json.tool _site/images/catalogue.json > /dev/null
+          python -m json.tool \
+            _site/data/notion.json > /dev/null
 
-          echo "Fichiers prets :"
+          python -m json.tool \
+            _site/images/catalogue.json > /dev/null
+
+          echo "Taille du site"
           du -sh _site
+
+          echo "Nombre de fichiers"
           find _site -type f | wc -l
+
+          echo "Preparation terminee"
 
       - name: Configurer GitHub Pages
         uses: actions/configure-pages@v5
 
       - name: Envoyer le site vers GitHub Pages
-        id: upload
         uses: actions/upload-pages-artifact@v4
         with:
           path: "_site"
+          name: github-pages
 
-      - name: Attendre la disponibilite de l'archive
-        env:
-          GH_TOKEN: ${{ github.token }}
-          GH_REPO: ${{ github.repository }}
-          RUN_ID: ${{ github.run_id }}
-        shell: bash
-        run: |
-          for tentative in $(seq 1 18); do
-            echo "Verification de l'archive : $tentative/18"
+  # ========================================
+  # JOB 2 - PUBLICATION GITHUB PAGES
+  # ========================================
 
-            ARTIFACT_ID=$(gh api \
-              "repos/$GH_REPO/actions/runs/$RUN_ID/artifacts" \
-              --jq '.artifacts[] | select(.name == "github-pages" and .expired == false) | .id' \
-              2>/dev/null | head -n 1) || true
+  publier:
+    name: Publier LDR.world
 
-            if [ -n "$ARTIFACT_ID" ]; then
-              echo "Archive disponible : $ARTIFACT_ID"
-              exit 0
-            fi
+    runs-on: ubuntu-latest
 
-            sleep 10
-          done
+    needs: synchroniser
 
-          echo "::error::Archive github-pages introuvable"
-          exit 1
+    if: github.ref == 'refs/heads/main'
+
+    permissions:
+      contents: read
+      actions: read
+      pages: write
+      id-token: write
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    timeout-minutes: 15
+
+    steps:
 
       - name: Publier LDR.world
         id: deployment
         uses: actions/deploy-pages@v4
         with:
           artifact_name: github-pages
+
+      - name: Publication terminee
+        run: |
+          echo "LDR.world a ete publie"
+          echo "https://lucullus-les-deux-rives.github.io/"
