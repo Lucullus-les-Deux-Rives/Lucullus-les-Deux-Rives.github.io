@@ -920,6 +920,132 @@ footer {
   }
 }
 
+
+/* ========================================
+   CHARTE EDITORIALE LDR.WORLD
+   Récits, tableaux et programmes électoraux
+======================================== */
+
+/* Les chroniques et paragraphes de fond sont justifiés.
+   Les titres, listes, tableaux et légendes restent alignés à gauche. */
+.notion-content > p,
+.notion-content .notion-nested p,
+.notion-content .notion-columns p,
+.notion-content > blockquote {
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  line-height: 1.9;
+  overflow-wrap: break-word;
+}
+
+.notion-content h2,
+.notion-content h3,
+.notion-content li,
+.notion-content figcaption,
+.notion-content .notion-table th,
+.notion-content .notion-table td {
+  text-align: left;
+}
+
+/* Un tableau cohérent d'une rubrique à l'autre. */
+.notion-table-wrap {
+  border: 1px solid #476484;
+  border-radius: 14px;
+  overflow-x: auto;
+  margin: 24px 0 32px;
+  background: #172B48;
+}
+
+.notion-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.notion-table th {
+  background: #29486F;
+  color: #FFF;
+  font-weight: 800;
+}
+
+.notion-table td {
+  color: #E4EDF8;
+  line-height: 1.65;
+}
+
+.notion-table tr:nth-child(even) td {
+  background: #1B3050;
+}
+
+.notion-table tr:hover td,
+.notion-table tr:nth-child(even):hover td {
+  background: #29415F;
+}
+
+/* Liens présents dans les tableaux : petites pastilles cliquables. */
+.notion-content .notion-table td a {
+  display: inline-block;
+  padding: 8px 13px;
+  margin: 4px 2px 4px 0;
+  border-radius: 8px;
+  background: #E9F1FC;
+  color: #142D4C !important;
+  font-size: 13px;
+  font-weight: 800;
+  line-height: 1.4;
+  text-decoration: none !important;
+  transition: transform .2s ease, background .2s ease;
+}
+
+.notion-content .notion-table td a:hover {
+  background: #FFF;
+  transform: translateY(-2px);
+}
+
+/* Le lien « Programme » reste identifiable, même hors d'un tableau. */
+.notion-content a.programme-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  max-width: 100%;
+  margin: 5px 2px 5px 0;
+  padding: 9px 15px;
+  border-radius: 9px;
+  background: #E9F1FC;
+  color: #142D4C !important;
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none !important;
+  transition: background .2s ease, transform .2s ease;
+}
+
+.notion-content a.programme-link:hover {
+  background: #FFF;
+  transform: translateY(-2px);
+}
+
+.notion-content a.programme-link:focus-visible,
+.notion-content .notion-table td a:focus-visible {
+  outline: 3px solid #85C7FF;
+  outline-offset: 3px;
+}
+
+/* En petit écran, l'alignement à gauche évite les blancs dans le texte. */
+@media (max-width: 600px) {
+  .notion-content > p,
+  .notion-content .notion-nested p,
+  .notion-content .notion-columns p,
+  .notion-content > blockquote {
+    text-align: left;
+    hyphens: none;
+    -webkit-hyphens: none;
+  }
+}
+
 </style>
 </head>
 
@@ -1697,6 +1823,11 @@ function renderRich(target, segments, fallback = "") {
       if (destination) {
         const a = el("a");
         a.href = destination;
+
+        // Les programmes liés depuis Notion deviennent des boutons.
+        if (/^(?:📄\s*)?programme$/i.test(String(segment.text || "").trim())) {
+          a.classList.add("programme-link");
+        }
 
         if (!internal) {
           a.target = "_blank";
