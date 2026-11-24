@@ -1047,6 +1047,51 @@ footer {
 }
 
 
+
+/* ========================================
+   AGENDA — CALENDRIER ET FÊTES
+======================================== */
+.agenda-container { padding-top: 25px; padding-bottom: 70px; }
+.agenda-upcoming-section, .agenda-calendar-section { margin-top: 28px; padding: clamp(17px,3.2vw,34px); background:#F5F8FC; color:#142D4C; border:1px solid #D6E0ED; border-radius:19px; box-shadow:0 12px 28px #111D3420; }
+.agenda-section-top { display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:16px; margin-bottom:22px; }
+.agenda-section-top h2 { margin:0 0 6px; color:#142D4C; font-size:clamp(20px,3vw,28px); }
+.agenda-section-top p { margin:0; color:#52647A; }
+.agenda-notion-link { display:inline-flex; align-items:center; border-radius:9px; padding:10px 15px; text-decoration:none; color:#FFF!important; background:#203C65; font-size:13px; font-weight:800; }
+.agenda-notion-link:hover { background:#355985; text-decoration:none; }
+.agenda-upcoming-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:14px; }
+.agenda-event-card { display:flex; align-items:flex-start; gap:13px; padding:16px; background:#FFF; border:1px solid #D9E3EF; border-radius:13px; text-decoration:none!important; color:#142D4C!important; transition:transform .2s ease,border-color .2s ease; }
+.agenda-event-card:hover { border-color:#6A91C0; transform:translateY(-2px); }
+.agenda-event-date { min-width:53px; background:#E8EFF9; border-radius:10px; padding:8px 6px; text-align:center; }
+.agenda-event-date strong { display:block; font-size:24px; line-height:1.2; }
+.agenda-event-date span { display:block; font-size:11px; font-weight:800; text-transform:uppercase; }
+.agenda-event-info { min-width:0; display:flex; flex-direction:column; gap:5px; }
+.agenda-event-info strong { font-size:15px; line-height:1.4; }
+.agenda-event-info small { font-size:12px; color:#5A6D82; line-height:1.45; }
+.agenda-calendar-controls { display:flex; align-items:center; gap:12px; }
+.agenda-calendar-controls button { height:42px; width:42px; border-radius:9px; font-size:25px; font-weight:700; border:1px solid #BDD0E5; background:white; color:#142D4C; cursor:pointer; }
+.agenda-calendar-controls button:hover { background:#E8EFF9; }
+.agenda-calendar-controls strong { display:block; min-width:140px; text-align:center; text-transform:capitalize; }
+.agenda-calendar-grid { display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:6px; }
+.agenda-weekday { padding:9px 3px; font-size:12px; font-weight:800; text-align:center; color:#52647A; }
+.agenda-day { border:1px solid #E1E8F1; min-height:68px; border-radius:9px; padding:8px; background:white; color:#233B59; text-align:left; font-size:14px; cursor:pointer; display:flex; flex-direction:column; justify-content:space-between; align-items:flex-start; }
+.agenda-day:hover,.agenda-day:focus-visible { border-color:#5C86BB; outline:1px solid #5C86BB; }
+.agenda-day[data-event="true"] { background:#E8F0FB; border-color:#A5BFE1; font-weight:900; }
+.agenda-day[data-selected="true"] { background:#203C65; color:#FFF; }
+.agenda-day-dot { background:#4677B5; height:7px; width:7px; border-radius:99px; }
+.agenda-day[data-selected="true"] .agenda-day-dot { background:#FFF; }
+.agenda-day-empty { background:transparent; border:0; min-height:68px; }
+#agenda-month-events-heading { margin:25px 0 13px; color:#142D4C; }
+.agenda-month-events { display:grid; gap:9px; }
+.agenda-month-events a { display:flex; flex-wrap:wrap; gap:12px; align-items:baseline; padding:13px 15px; background:white; color:#142D4C; border:1px solid #D9E3EF; border-radius:9px; text-decoration:none; }
+.agenda-month-events a:hover { border-color:#6A91C0; text-decoration:none; }
+.agenda-month-events time { color:#3B628D; font-weight:900; white-space:nowrap; }
+.agenda-month-events span { font-weight:800; }
+.agenda-month-events small { margin-left:auto; color:#62758A; }
+.agenda-no-events { margin:5px 0; color:#52647A; }
+.agenda-footer-note { font-size:13px; color:#B8CCE5; line-height:1.6; margin:22px 3px; }
+@media(max-width:650px) { .agenda-day,.agenda-day-empty { min-height:47px; padding:6px; } .agenda-day { font-size:12px; } .agenda-calendar-grid { gap:3px; } .agenda-calendar-controls strong { min-width:120px; } .agenda-month-events small { margin-left:0; } }
+@media(prefers-reduced-motion:reduce) { .agenda-event-card { transition:none; } }
+
 /* ========================================
    NOUVELLE NAVIGATION LDR.WORLD — 2026
    ======================================== */
@@ -1209,8 +1254,8 @@ header { overflow: visible; }
       <details class="nav-menu">
         <summary>Agenda</summary>
         <div class="nav-submenu">
-          <a href="#fiche/4229b1f3b04a8113a56ac6a79355624f">📅 Agenda & événements</a>
-          <a href="#fiche/4229b1f3b04a81c69c99d69b90828e39">🗓️ À venir</a>
+          <a href="#agenda">📅 Agenda & événements</a>
+          <a href="#agenda">🗓️ À venir & calendrier</a>
           <a href="#elections">🗳️ À la une : Élections 2027</a>
           <a href="#fiche/4229b1f3b04a8148a2ebd422ce561715">🗃️ Archives</a>
         </div>
@@ -1392,6 +1437,12 @@ header { overflow: visible; }
           <p>Souverains, habitants et figures historiques.</p>
         </a>
 
+        <a class="card" href="#agenda">
+          <div class="emoji">📅</div>
+          <h3>Agenda</h3>
+          <p>Fêtes, commémorations et événements.</p>
+        </a>
+
         <a class="card" href="#elections">
           <div class="emoji">🗳️</div>
           <h3>Élections</h3>
@@ -1559,6 +1610,44 @@ header { overflow: visible; }
     <div class="page-title">
       <h1>🏗️ Projets et urbanisme</h1>
     </div>
+  </div>
+</div>
+
+<!-- ========================================
+     AGENDA & ÉVÉNEMENTS — LDR 2027
+======================================== -->
+
+<div class="page" id="agenda">
+  <div class="container agenda-container">
+    <div class="page-title">
+      <div class="eyebrow">La vie de la Principauté</div>
+      <h1>📅 Agenda & événements</h1>
+      <p>Fêtes locales, commémorations, grands rendez-vous et traditions des Deux Rives.</p>
+    </div>
+
+    <section class="agenda-upcoming-section" aria-labelledby="agenda-upcoming-title">
+      <div class="agenda-section-top">
+        <div><h2 id="agenda-upcoming-title">Événements à venir</h2><p>Les prochains rendez-vous du calendrier officiel.</p></div>
+        <a class="agenda-notion-link" href="https://app.notion.com/p/4229b1f3b04a8139ad6cd34545381e02" target="_blank" rel="noopener noreferrer">Voir l'agenda Notion ↗</a>
+      </div>
+      <div class="agenda-upcoming-grid" id="agenda-upcoming-list"></div>
+    </section>
+
+    <section class="agenda-calendar-section" aria-labelledby="agenda-calendar-title">
+      <div class="agenda-section-top">
+        <div><h2 id="agenda-calendar-title">Calendrier de la Principauté</h2><p>Parcourez les mois et sélectionnez un jour pour retrouver ses événements.</p></div>
+        <div class="agenda-calendar-controls">
+          <button type="button" id="agenda-prev" aria-label="Mois précédent">‹</button>
+          <strong id="agenda-month-label" aria-live="polite"></strong>
+          <button type="button" id="agenda-next" aria-label="Mois suivant">›</button>
+        </div>
+      </div>
+      <div class="agenda-calendar-grid" id="agenda-calendar-grid" role="grid" aria-label="Calendrier mensuel"></div>
+      <h3 id="agenda-month-events-heading">Événements du mois</h3>
+      <div id="agenda-month-events" class="agenda-month-events"></div>
+    </section>
+
+    <p class="agenda-footer-note">Les dates correspondent aux éditions 2027 enregistrées dans Notion. Les fêtes annuelles sont indiquées comme telles dans leur fiche ; les éditions suivantes seront ajoutées à l'agenda officiel.</p>
   </div>
 </div>
 
@@ -2849,11 +2938,137 @@ async function startEncyclopedia() {
   }
 }
 
+
+/* ========================================
+   AGENDA OFFICIEL — ÉDITIONS 2027
+   Les données reprennent les fiches confirmées dans Notion.
+======================================== */
+const LDR_AGENDA = [
+  {date:"2027-01-01",title:"Jour de l’An",place:"Toute la Principauté",id:"4229b1f3b04a8147831eccb9ba25b4f3",kind:"Fête"},
+  {date:"2027-01-23",title:"Fête des Trappeurs et de la Source",place:"Ruffiac-le-Château",id:"4229b1f3b04a8105be67cf7327bf674d",kind:"Fête"},
+  {date:"2027-02-07",title:"Élections parlementaires — 1er tour",place:"Principauté",id:"4229b1f3b04a81908e29fe104c43bc31",kind:"Élections"},
+  {date:"2027-02-14",title:"Élections parlementaires — 2nd tour",place:"Principauté",id:"4229b1f3b04a819692d4e35a159d0b4e",kind:"Élections"},
+  {date:"2027-03-13",title:"La Jean-Guile",place:"Chong-Chong",id:"4229b1f3b04a8176b3cbc59212a7c246",kind:"Fête"},
+  {date:"2027-06-12",title:"Fêtes historiques de Ryogan",place:"Ryogan",id:"4229b1f3b04a81378146e2018c37f5dc",kind:"Fête"},
+  {date:"2027-07-17",title:"Fête nationale de la Principauté",place:"Lucullus-les-Deux-Rives",id:"4229b1f3b04a810abd0ee7a8040b560c",kind:"Fête nationale"},
+  {date:"2027-08-07",title:"Festival de l'Hermine et des Voiles",place:"Kerlwenn",id:"4229b1f3b04a81afb86fff43f576adc0",kind:"Festival"},
+  {date:"2027-08-28",title:"Commémoration de la Grande Marche",place:"Saint-David",id:"4229b1f3b04a8149a0f2cc8f3c122d54",kind:"Commémoration"},
+  {date:"2027-09-18",title:"Fête de la fondation de Bab Al Baboush",place:"Bab Al Baboush",id:"4229b1f3b04a81a9ae54de49fe9303f5",kind:"Fête"},
+  {date:"2027-10-09",title:"Nuit des Étoiles d'Or",place:"Astéroïde City",id:"4229b1f3b04a81cab0b4ee84a1e960b4",kind:"Fête"},
+  {date:"2027-12-25",title:"Noël",place:"Toute la Principauté",id:"4229b1f3b04a8158964dd948498fc2bd",kind:"Fête"}
+];
+
+const AGENDA_MONTHS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
+const agendaState = { year: 2027, month: 0, day: null };
+
+function agendaNotionLink(entry) {
+  return "https://app.notion.com/p/" + entry.id;
+}
+function agendaDisplayDate(value) {
+  const [y,m,d] = value.split("-").map(Number);
+  return new Date(y,m-1,d);
+}
+function agendaEventCard(entry) {
+  const link = document.createElement("a");
+  link.className = "agenda-event-card";
+  link.href = agendaNotionLink(entry);
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  const dayBox = document.createElement("div");
+  dayBox.className = "agenda-event-date";
+  const date = agendaDisplayDate(entry.date);
+  const strong = document.createElement("strong");
+  strong.textContent = String(date.getDate());
+  const month = document.createElement("span");
+  month.textContent = AGENDA_MONTHS[date.getMonth()].slice(0,4);
+  dayBox.append(strong,month);
+  const info = document.createElement("div");
+  info.className = "agenda-event-info";
+  const title = document.createElement("strong");
+  title.textContent = entry.title;
+  const place = document.createElement("small");
+  place.textContent = entry.place + " · " + entry.kind;
+  info.append(title,place);
+  link.append(dayBox,info);
+  return link;
+}
+function initAgenda() {
+  const upcoming = document.getElementById("agenda-upcoming-list");
+  const grid = document.getElementById("agenda-calendar-grid");
+  const monthly = document.getElementById("agenda-month-events");
+  const label = document.getElementById("agenda-month-label");
+  if (!upcoming || !grid || !monthly || !label) return;
+
+  const now = new Date();
+  const today = new Date(now.getFullYear(),now.getMonth(),now.getDate());
+  const todayIso = [today.getFullYear(),String(today.getMonth()+1).padStart(2,"0"),String(today.getDate()).padStart(2,"0")].join("-");
+  const available = LDR_AGENDA.filter(e => e.date >= todayIso);
+  const nextEntries = available.slice(0,4);
+  upcoming.replaceChildren();
+  if (nextEntries.length) nextEntries.forEach(e => upcoming.appendChild(agendaEventCard(e)));
+  else {
+    const p = document.createElement("p");
+    p.className = "agenda-no-events";
+    p.textContent = "Aucun autre événement programmé dans le calendrier 2027.";
+    upcoming.appendChild(p);
+  }
+  if (today.getFullYear() === 2027) agendaState.month = today.getMonth();
+
+  function renderMonth() {
+    const year = agendaState.year, month = agendaState.month;
+    label.textContent = AGENDA_MONTHS[month].replace(/^./,c=>c.toUpperCase()) + " " + year;
+    grid.replaceChildren();
+    ["Lun","Mar","Mer","Jeu","Ven","Sam","Dim"].forEach(w=>{
+      const cell = document.createElement("div"); cell.className="agenda-weekday"; cell.textContent=w; grid.appendChild(cell);
+    });
+    const offset = (new Date(year,month,1).getDay()+6)%7;
+    const max = new Date(year,month+1,0).getDate();
+    for(let i=0;i<offset;i++) {
+      const empty=document.createElement("div");empty.className="agenda-day-empty";grid.appendChild(empty);
+    }
+    for(let day=1;day<=max;day++) {
+      const iso=[year,String(month+1).padStart(2,"0"),String(day).padStart(2,"0")].join("-");
+      const has = LDR_AGENDA.some(e=>e.date===iso);
+      const b=document.createElement("button");
+      b.type="button";b.className="agenda-day";b.textContent=String(day);
+      b.dataset.event=String(has);
+      b.dataset.selected=String(agendaState.day===day);
+      b.setAttribute("aria-label",`${day} ${AGENDA_MONTHS[month]} ${year}${has ? ", événement" : ""}`);
+      if(has) { const dot=document.createElement("span");dot.className="agenda-day-dot";b.appendChild(dot); }
+      b.addEventListener("click",()=>{ agendaState.day = agendaState.day===day ? null : day;renderMonth(); });
+      grid.appendChild(b);
+    }
+    const selected = LDR_AGENDA.filter(e=>{
+      const date=agendaDisplayDate(e.date);
+      return date.getFullYear()===year && date.getMonth()===month && (agendaState.day===null || date.getDate()===agendaState.day);
+    });
+    monthly.replaceChildren();
+    const heading=document.getElementById("agenda-month-events-heading");
+    heading.textContent=agendaState.day===null ? "Événements de " + AGENDA_MONTHS[month] : `Événements du ${agendaState.day} ${AGENDA_MONTHS[month]}`;
+    if(!selected.length) {const p=document.createElement("p");p.className="agenda-no-events";p.textContent="Aucun événement enregistré pour cette période.";monthly.appendChild(p);}
+    selected.forEach(e=>{
+      const a=document.createElement("a");a.href=agendaNotionLink(e);a.target="_blank";a.rel="noopener noreferrer";
+      const time=document.createElement("time");time.dateTime=e.date;time.textContent=agendaDisplayDate(e.date).getDate()+" "+AGENDA_MONTHS[month];
+      const title=document.createElement("span");title.textContent=e.title;
+      const place=document.createElement("small");place.textContent=e.place;
+      a.append(time,title,place);monthly.appendChild(a);
+    });
+  }
+  function moveMonth(delta) {
+    const d = new Date(agendaState.year,agendaState.month+delta,1);
+    agendaState.year = d.getFullYear();agendaState.month=d.getMonth();agendaState.day=null;renderMonth();
+  }
+  document.getElementById("agenda-prev").addEventListener("click",()=>moveMonth(-1));
+  document.getElementById("agenda-next").addEventListener("click",()=>moveMonth(1));
+  renderMonth();
+}
+
 /* ========================================
    LANCEMENT
 ======================================== */
 
 initPortail();
+initAgenda();
 navigate();
 startEncyclopedia();
 
