@@ -1606,7 +1606,7 @@ header { overflow: visible; }
 </div>
 
 <!-- ========================================
-     AGENDA & ÉVÉNEMENTS — LDR 2027
+     AGENDA & ÉVÉNEMENTS — LDR 2026–2027
 ======================================== -->
 
 <div class="page" id="agenda">
@@ -1639,7 +1639,7 @@ header { overflow: visible; }
       <div id="agenda-month-events" class="agenda-month-events"></div>
     </section>
 
-    <p class="agenda-footer-note">Les dates correspondent aux éditions 2027 enregistrées dans Notion. Les fêtes annuelles sont indiquées comme telles dans leur fiche ; les éditions suivantes seront ajoutées à l'agenda officiel.</p>
+    <p class="agenda-footer-note">Le calendrier affiche les dates enregistrées dans Notion, à partir de décembre 2026. Les éditions suivantes des fêtes annuelles seront ajoutées au calendrier officiel.</p>
   </div>
 </div>
 
@@ -2932,10 +2932,11 @@ async function startEncyclopedia() {
 
 
 /* ========================================
-   AGENDA OFFICIEL — ÉDITIONS 2027
+   AGENDA OFFICIEL — 2026–2027
    Les données reprennent les fiches confirmées dans Notion.
 ======================================== */
 const LDR_AGENDA = [
+  {date:"2026-12-25",title:"Noël",place:"Toute la Principauté",id:"4229b1f3b04a8158964dd948498fc2bd",kind:"Fête"},
   {date:"2027-01-01",title:"Jour de l’An",place:"Toute la Principauté",id:"4229b1f3b04a8147831eccb9ba25b4f3",kind:"Fête"},
   {date:"2027-01-23",title:"Fête des Trappeurs et de la Source",place:"Ruffiac-le-Château",id:"4229b1f3b04a8105be67cf7327bf674d",kind:"Fête"},
   {date:"2027-02-07",title:"Élections parlementaires — 1er tour",place:"Principauté",id:"4229b1f3b04a81908e29fe104c43bc31",kind:"Élections"},
@@ -2946,12 +2947,11 @@ const LDR_AGENDA = [
   {date:"2027-08-07",title:"Festival de l'Hermine et des Voiles",place:"Kerlwenn",id:"4229b1f3b04a81afb86fff43f576adc0",kind:"Festival"},
   {date:"2027-08-28",title:"Commémoration de la Grande Marche",place:"Saint-David",id:"4229b1f3b04a8149a0f2cc8f3c122d54",kind:"Commémoration"},
   {date:"2027-09-18",title:"Fête de la fondation de Bab Al Baboush",place:"Bab Al Baboush",id:"4229b1f3b04a81a9ae54de49fe9303f5",kind:"Fête"},
-  {date:"2027-10-09",title:"Nuit des Étoiles d'Or",place:"Astéroïde City",id:"4229b1f3b04a81cab0b4ee84a1e960b4",kind:"Fête"},
-  {date:"2027-12-25",title:"Noël",place:"Toute la Principauté",id:"4229b1f3b04a8158964dd948498fc2bd",kind:"Fête"}
+  {date:"2027-10-09",title:"Nuit des Étoiles d'Or",place:"Astéroïde City",id:"4229b1f3b04a81cab0b4ee84a1e960b4",kind:"Fête"}
 ];
 
 const AGENDA_MONTHS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
-const agendaState = { year: 2027, month: 0, day: null };
+const agendaState = { year: 2026, month: 11, day: null };
 
 function agendaNotionLink(entry) {
   return "https://app.notion.com/p/" + entry.id;
@@ -2972,7 +2972,7 @@ function agendaEventCard(entry) {
   const strong = document.createElement("strong");
   strong.textContent = String(date.getDate());
   const month = document.createElement("span");
-  month.textContent = AGENDA_MONTHS[date.getMonth()].slice(0,4);
+  month.textContent = AGENDA_MONTHS[date.getMonth()].slice(0,4) + " " + date.getFullYear();
   dayBox.append(strong,month);
   const info = document.createElement("div");
   info.className = "agenda-event-info";
@@ -3001,10 +3001,13 @@ function initAgenda() {
   else {
     const p = document.createElement("p");
     p.className = "agenda-no-events";
-    p.textContent = "Aucun autre événement programmé dans le calendrier 2027.";
+    p.textContent = "Aucun autre événement programmé dans le calendrier.";
     upcoming.appendChild(p);
   }
-  if (today.getFullYear() === 2027) agendaState.month = today.getMonth();
+  if (today.getFullYear() >= 2026 && today.getFullYear() <= 2027) {
+    agendaState.year = today.getFullYear();
+    agendaState.month = today.getMonth();
+  }
 
   function renderMonth() {
     const year = agendaState.year, month = agendaState.month;
