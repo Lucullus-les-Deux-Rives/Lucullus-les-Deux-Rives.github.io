@@ -2998,18 +2998,192 @@ async function startEncyclopedia() {
    Les données reprennent les fiches confirmées dans Notion.
 ======================================== */
 const LDR_AGENDA = [
-  {date:"2026-12-25",title:"Noël",place:"Toute la Principauté",id:"4229b1f3b04a8158964dd948498fc2bd",kind:"Fête"},
-  {date:"2027-01-01",title:"Jour de l’An",place:"Toute la Principauté",id:"4229b1f3b04a8147831eccb9ba25b4f3",kind:"Fête"},
-  {date:"2027-01-23",title:"Fête des Trappeurs et de la Source",place:"Ruffiac-le-Château",id:"4229b1f3b04a8105be67cf7327bf674d",kind:"Fête"},
-  {date:"2027-02-07",title:"Élections parlementaires — 1er tour",place:"Principauté",id:"4229b1f3b04a81908e29fe104c43bc31",kind:"Élections"},
-  {date:"2027-02-14",title:"Élections parlementaires — 2nd tour",place:"Principauté",id:"4229b1f3b04a819692d4e35a159d0b4e",kind:"Élections"},
-  {date:"2027-03-13",title:"La Jean-Guile",place:"Chong-Chong",id:"4229b1f3b04a8176b3cbc59212a7c246",kind:"Fête"},
-  {date:"2027-06-12",title:"Fêtes historiques de Ryogan",place:"Ryogan",id:"4229b1f3b04a81378146e2018c37f5dc",kind:"Fête"},
-  {date:"2027-07-17",title:"Fête nationale de la Principauté",place:"Lucullus-les-Deux-Rives",id:"4229b1f3b04a810abd0ee7a8040b560c",kind:"Fête nationale"},
-  {date:"2027-08-07",title:"Festival de l'Hermine et des Voiles",place:"Kerlwenn",id:"4229b1f3b04a81afb86fff43f576adc0",kind:"Festival"},
-  {date:"2027-08-28",title:"Commémoration de la Grande Marche",place:"Saint-David",id:"4229b1f3b04a8149a0f2cc8f3c122d54",kind:"Commémoration"},
-  {date:"2027-09-18",title:"Fête de la fondation de Bab Al Baboush",place:"Bab Al Baboush",id:"4229b1f3b04a81a9ae54de49fe9303f5",kind:"Fête"},
-  {date:"2027-10-09",title:"Nuit des Étoiles d'Or",place:"Astéroïde City",id:"4229b1f3b04a81cab0b4ee84a1e960b4",kind:"Fête"}
+ 
+const LDR_AGENDA = [
+  {
+    date: "2026-12-06",
+    title: "La Grande Grasse Matinée de Baboush V",
+    place: "Toute la Principauté",
+    id: "4239b1f3b04a81fa9179f7e459397cd3",
+    kind: "Fête"
+  },
+  {
+    date: "2026-12-25",
+    title: "Noël",
+    place: "Toute la Principauté",
+    id: "4229b1f3b04a8158964dd948498fc2bd",
+    kind: "Fête"
+  },
+  {
+    date: "2027-01-01",
+    title: "Jour de l’An",
+    place: "Toute la Principauté",
+    id: "4229b1f3b04a8147831eccb9ba25b4f3",
+    kind: "Fête"
+  },
+  {
+    date: "2027-01-23",
+    title: "Fête des Trappeurs et de la Source",
+    place: "Ruffiac-le-Château",
+    id: "4229b1f3b04a8105be67cf7327bf674d",
+    kind: "Fête"
+  },
+  {
+    date: "2027-02-07",
+    title: "Élections parlementaires — 1er tour",
+    place: "Toute la Principauté",
+    id: "4229b1f3b04a81908e29fe104c43bc31",
+    kind: "Élections"
+  },
+  {
+    date: "2027-02-14",
+    title: "Élections parlementaires — 2nd tour",
+    place: "Toute la Principauté",
+    id: "4229b1f3b04a819692d4e35a159d0b4e",
+    kind: "Élections"
+  },
+  {
+    date: "2027-03-13",
+    title: "La Jean-Guile",
+    place: "Chong-Chong",
+    id: "4229b1f3b04a8176b3cbc59212a7c246",
+    kind: "Fête"
+  },
+  {
+    date: "2027-05-01",
+    title: "La Journée de Baboush IV",
+    place: "Château du Lucullus et Bab Al Baboush",
+    id: "4239b1f3b04a81f5a0b4eaf9379c5dbb",
+    kind: "Commémoration"
+  },
+  {
+    date: "2027-05-08",
+    title: "La Grande Tablée du Clément",
+    place: "Grand Clément",
+    id: "4239b1f3b04a818eb966ed9f805830ee",
+    kind: "Fête"
+  },
+  {
+    date: "2027-05-15",
+    title: "Le Bal des Gougouttes",
+    place: "Les Gougouttes",
+    id: "4239b1f3b04a819388d8d9779952dd22",
+    kind: "Fête"
+  },
+  {
+    date: "2027-06-05",
+    title: "Le Festival des Trois Orients",
+    place: "Chong-Chong, Ryogan et Tibébé",
+    id: "4239b1f3b04a81fb9746d57828b0ba66",
+    kind: "Festival"
+  },
+  {
+    date: "2027-06-12",
+    title: "Fêtes historiques de Ryogan",
+    place: "Ryogan",
+    id: "4229b1f3b04a81378146e2018c37f5dc",
+    kind: "Fête"
+  },
+  {
+    date: "2027-06-20",
+    title: "La Course des Chaises",
+    place: "Centre-Ville",
+    id: "4239b1f3b04a81c78072ec4dd04d5367",
+    kind: "Fête"
+  },
+  {
+    date: "2027-06-26",
+    title: "La Guerre du Cochonnet",
+    place: "Les Bénédictins et Marcel Pagnol",
+    id: "4239b1f3b04a817bbafbe2334015df4d",
+    kind: "Fête"
+  },
+  {
+    date: "2027-07-03",
+    title: "La Parade des Pistouilles",
+    place: "Les Pistouilles",
+    id: "4239b1f3b04a818584c2d26dddd74a1d",
+    kind: "Festival"
+  },
+  {
+    date: "2027-07-10",
+    title: "La Grande Trempette des Bénédictins",
+    place: "Piscine Carlo Ancelotti",
+    id: "4239b1f3b04a8112af9def7e97d67d7c",
+    kind: "Fête"
+  },
+  {
+    date: "2027-07-17",
+    title: "Fête nationale de la Principauté",
+    place: "Lucullus-les-Deux-Rives",
+    id: "4229b1f3b04a810abd0ee7a8040b560c",
+    kind: "Fête nationale"
+  },
+  {
+    date: "2027-08-07",
+    title: "Festival de l'Hermine et des Voiles",
+    place: "Kerlwenn",
+    id: "4229b1f3b04a81afb86fff43f576adc0",
+    kind: "Festival"
+  },
+  {
+    date: "2027-08-14",
+    title: "La Sardinade des Caillettes",
+    place: "Les Caillettes",
+    id: "4239b1f3b04a8142bafce37d5a31bbc4",
+    kind: "Fête"
+  },
+  {
+    date: "2027-08-28",
+    title: "Commémoration de la Grande Marche",
+    place: "Saint-David",
+    id: "4229b1f3b04a8149a0f2cc8f3c122d54",
+    kind: "Commémoration"
+  },
+  {
+    date: "2027-09-04",
+    title: "La Nuit des Marchands",
+    place: "Bab Al Baboush",
+    id: "4239b1f3b04a8165b369dc50879dc34b",
+    kind: "Festival"
+  },
+  {
+    date: "2027-09-18",
+    title: "Fête de la fondation de Bab Al Baboush",
+    place: "Bab Al Baboush",
+    id: "4229b1f3b04a81a9ae54de49fe9303f5",
+    kind: "Commémoration"
+  },
+  {
+    date: "2027-09-25",
+    title: "La Fête du Grand Canal",
+    place: "Fleuve Lucullus et canaux de la ville",
+    id: "4239b1f3b04a81e893ede668bcad8887",
+    kind: "Festival"
+  },
+  {
+    date: "2027-10-09",
+    title: "Nuit des Étoiles d'Or",
+    place: "Astéroïde City",
+    id: "4229b1f3b04a81cab0b4ee84a1e960b4",
+    kind: "Fête"
+  },
+  {
+    date: "2027-10-23",
+    title: "Le Carnaval des Turluthes",
+    place: "Les Turluthes",
+    id: "4239b1f3b04a810a97d8e3474a672c3b",
+    kind: "Festival"
+  },
+  {
+    date: "2027-11-13",
+    title: "La Fête du Grand Froid",
+    place: "Pateograd et Stakhanov",
+    id: "4239b1f3b04a81258a3eee7e36e4360a",
+    kind: "Fête"
+  }
+];
+
 ];
 
 const AGENDA_MONTHS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
