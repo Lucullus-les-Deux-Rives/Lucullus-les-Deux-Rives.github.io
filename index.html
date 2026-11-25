@@ -2475,8 +2475,64 @@ function beautifyNotionLinks(root) {
    SOUS-PAGES
 ======================================== */
 
-function addSubpages(page, container) {
-  if (!page.subpages?.length) {
+function renderProjectBlocks(page, container) {
+  const statuses = new Set([
+    "En cours",
+    "Non débuté",
+    "En pause",
+    "Proposition de campagne"
+  ]);
+  const rendered = new Set();
+  let status = "";
+  let blocks = [];
+  let grid = null;
+
+  for (const block of page.blocks || []) {
+    if (/^heading_[123]$/.test(block.type)) {
+      status = block.text?.trim().normalize("NFC");
+    }
+
+    if (block.type !== "child_page" || !statuses.has(status)) {
+      blocks.push(block);
+      grid = null;
+      continue;
+    }
+
+    const id = cleanId(block.page_id || block.id);
+    if (!/^[0-9a-f]{32}$/.test(id) || rendered.has(id)) {
+      continue;
+    }
+
+    if (!grid) {
+      renderBlocks(blocks, container);
+      blocks = [];
+      grid = el("div", "notion-link-grid");
+      container.appendChild(grid);
+    }
+
+    const project = getPage(id);
+    const link = el("a", "", project?.title || block.title || "Fiche sans titre");
+    link.href = project ? ficheLink(project) : "https://www.notion.so/" + id;
+    grid.appendChild(makeLinkCard(link));
+    rendered.add(id);
+  }
+
+  renderBlocks(blocks, container);
+  return rendered;
+}
+
+function addSubpages(page, container, excluded = new Set()) {
+  const seen = new Set(excluded);
+  const subpages = (page.subpages || []).filter(child => {
+    const id = cleanId(child.id);
+    if (seen.has(id)) {
+      return false;
+    }
+    seen.add(id);
+    return true;
+  });
+
+  if (!subpages.length) {
     return;
   }
 
@@ -2489,7 +2545,7 @@ function addSubpages(page, container) {
     "encyclopedia-grid"
   );
 
-  for (const child of page.subpages) {
+  for (const child of subpages) {
     const a = el(
       "a",
       "encyclopedia-card",
@@ -2538,10 +2594,16 @@ function renderSection(id, sectionId) {
     "notion-content"
   );
 
-  renderBlocks(page.blocks, article);
+  let renderedProjects;
+  if (sectionId === "urbanisme") {
+    renderedProjects = renderProjectBlocks(page, article);
+  } else {
+    renderBlocks(page.blocks, article);
+  }
+
   beautifyNotionLinks(article);
   addGallery(page, article);
-  addSubpages(page, article);
+  addSubpages(page, article, renderedProjects);
 
   container.appendChild(article);
 }
