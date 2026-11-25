@@ -1134,6 +1134,17 @@ header { overflow: visible; }
 .nav-menu > summary:focus-visible, .nav-search-button:focus-visible, .ldr-nav .nav-featured:focus-visible { outline:3px solid #85C7FF; outline-offset:3px; }
 @media (prefers-reduced-motion: reduce) { .nav-submenu, .site-search-panel { scroll-behavior:auto; } }
 
+
+
+/* Palmarès des compétitions : archives éditoriales */
+.palmares-table-scroll { overflow-x:auto; border:1px solid #D9E3EF; border-radius:12px; background:#FFF; }
+.palmares-table { width:100%; border-collapse:collapse; min-width:700px; color:#142D4C; }
+.palmares-table th,.palmares-table td { padding:14px 16px; border-bottom:1px solid #DFE7F1; text-align:left; line-height:1.5; }
+.palmares-table th { background:#E6EFF9; font-weight:900; }
+.palmares-table tr:last-child td { border-bottom:0; }
+.palmares-table td a { color:#203C65; font-weight:800; text-decoration:underline; }
+.palmares-pending { font-weight:800; color:#6B527E; }
+.palmares-note { margin:16px 0 0; color:#52647A; font-size:13px; }
 </style>
 </head>
 
@@ -1639,7 +1650,31 @@ header { overflow: visible; }
       <div id="agenda-month-events" class="agenda-month-events"></div>
     </section>
 
-    <p class="agenda-footer-note">Le calendrier affiche les dates enregistrées dans Notion, à partir de décembre 2026. Les éditions suivantes des fêtes annuelles seront ajoutées au calendrier officiel.</p>
+
+    <section class="agenda-calendar-section" aria-labelledby="palmares-title" id="palmares-competitions">
+      <div class="agenda-section-top">
+        <div>
+          <h2 id="palmares-title">🏆 Palmarès des compétitions — Archives 2026</h2>
+          <p>Les vainqueurs restent à déterminer dans les archives officielles de la Principauté.</p>
+        </div>
+      </div>
+      <div class="palmares-table-scroll">
+        <table class="palmares-table">
+          <thead><tr><th>Compétition</th><th>Édition 2026</th><th>Vainqueur</th><th>Distinction</th></tr></thead>
+          <tbody>
+            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a812f9418df87190c2a36" target="_blank" rel="noopener noreferrer">Olympiades des Deux Rives</a></td><td>100e, exclusivement sportive</td><td><span class="palmares-pending">À confirmer</span></td><td>Grand Écu des Deux Rives</td></tr>
+            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a8106a294df02d8321033" target="_blank" rel="noopener noreferrer">Guerre des Marmites</a></td><td>27 février 2026</td><td><span class="palmares-pending">À confirmer</span></td><td>Louche d’Or</td></tr>
+            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a81f6a1a0ff4e8e96468c" target="_blank" rel="noopener noreferrer">Course des Chaises</a></td><td>20 juin 2026</td><td><span class="palmares-pending">À confirmer</span></td><td>À documenter</td></tr>
+            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a817b9761f1f44e259d0b" target="_blank" rel="noopener noreferrer">Guerre du Cochonnet</a></td><td>26 juin 2026</td><td><span class="palmares-pending">À confirmer</span></td><td>À documenter</td></tr>
+            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a81989791cf9816b21eda" target="_blank" rel="noopener noreferrer">Grand Défi de la Butte</a></td><td>24 juillet 2026</td><td><span class="palmares-pending">À confirmer</span></td><td>À documenter</td></tr>
+            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a810ab164dbcc13f270c9" target="_blank" rel="noopener noreferrer">Grand Défilé des Travailleurs — Concours des fanfares</a></td><td>20 novembre 2026</td><td><span class="palmares-pending">À confirmer</span></td><td>Marteau d’Honneur</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="palmares-note">Les résultats proposés précédemment (Centre-Ville, Little Italy, Marcel Pagnol, Grand Clément, Butte Jambon et Stakhanov) ne sont pas inscrits comme des résultats officiels tant qu’ils ne sont pas validés. En 2027, les Olympiades introduisent pour la première fois les épreuves intellectuelles.</p>
+    </section>
+
+    <p class="agenda-footer-note">Le calendrier rassemble les 38 fêtes annuelles de 2026 et de 2027, ainsi que les deux tours des élections parlementaires de 2027. Chaque occurrence renvoie à sa fiche Notion. Les années ultérieures nécessitent une actualisation de cette page.</p>
   </div>
 </div>
 
@@ -2999,186 +3034,550 @@ async function startEncyclopedia() {
 ======================================== */
 const LDR_AGENDA = [
   {
-    date: "2026-12-06",
-    title: "La Grande Grasse Matinée de Baboush V",
-    place: "Toute la Principauté",
-    id: "4239b1f3b04a81fa9179f7e459397cd3",
-    kind: "Fête"
+    "date": "2026-01-01",
+    "title": "Jour de l’An",
+    "place": "Toute la Principauté",
+    "id": "4239b1f3b04a8165a2a7dc05796dc16a",
+    "kind": "Fête"
   },
   {
-    date: "2026-12-25",
-    title: "Noël",
-    place: "Toute la Principauté",
-    id: "4229b1f3b04a8158964dd948498fc2bd",
-    kind: "Fête"
+    "date": "2026-01-23",
+    "title": "Fête des Trappeurs et de la Source",
+    "place": "Ruffiac-le-Château",
+    "id": "4239b1f3b04a81edb2f5e4f91f27df13",
+    "kind": "Fête"
   },
   {
-    date: "2027-01-01",
-    title: "Jour de l’An",
-    place: "Toute la Principauté",
-    id: "4229b1f3b04a8147831eccb9ba25b4f3",
-    kind: "Fête"
+    "date": "2026-02-14",
+    "title": "La Festa dei Due Cuori",
+    "place": "Little Italy — Bella Riva, lac des Amoureux",
+    "id": "4239b1f3b04a81c58c78fa289cac80ad",
+    "kind": "Fête"
   },
   {
-    date: "2027-01-23",
-    title: "Fête des Trappeurs et de la Source",
-    place: "Ruffiac-le-Château",
-    id: "4229b1f3b04a8105be67cf7327bf674d",
-    kind: "Fête"
+    "date": "2026-02-20",
+    "title": "Les Olympiades des Deux Rives — 100e édition",
+    "place": "Quartier organisateur itinérant — à déterminer",
+    "id": "4239b1f3b04a812f9418df87190c2a36",
+    "kind": "Festival"
   },
   {
-    date: "2027-02-07",
-    title: "Élections parlementaires — 1er tour",
-    place: "Toute la Principauté",
-    id: "4229b1f3b04a81908e29fe104c43bc31",
-    kind: "Élections"
+    "date": "2026-02-27",
+    "title": "La Guerre des Marmites",
+    "place": "Quartier organisateur itinérant — à déterminer",
+    "id": "4239b1f3b04a8106a294df02d8321033",
+    "kind": "Festival"
   },
   {
-    date: "2027-02-14",
-    title: "Élections parlementaires — 2nd tour",
-    place: "Toute la Principauté",
-    id: "4229b1f3b04a819692d4e35a159d0b4e",
-    kind: "Élections"
+    "date": "2026-03-06",
+    "title": "La Nuit des Messages Perdus",
+    "place": "Quartier hôte itinérant — organisé par LucuPoste",
+    "id": "4239b1f3b04a816cabcbea008b1d0a6f",
+    "kind": "Fête"
   },
   {
-    date: "2027-03-13",
-    title: "La Jean-Guile",
-    place: "Chong-Chong",
-    id: "4229b1f3b04a8176b3cbc59212a7c246",
-    kind: "Fête"
+    "date": "2026-03-13",
+    "title": "La Jean-Guile",
+    "place": "Quartier de Chong-Chong",
+    "id": "4239b1f3b04a81f8ab5cc0c435292695",
+    "kind": "Fête"
   },
   {
-    date: "2027-05-01",
-    title: "La Journée de Baboush IV",
-    place: "Château du Lucullus et Bab Al Baboush",
-    id: "4239b1f3b04a81f5a0b4eaf9379c5dbb",
-    kind: "Commémoration"
+    "date": "2026-04-10",
+    "title": "La Festa dos Azulejos",
+    "place": "Azulejos",
+    "id": "4239b1f3b04a81a98382c3c222c2e0e3",
+    "kind": "Fête"
   },
   {
-    date: "2027-05-08",
-    title: "La Grande Tablée du Clément",
-    place: "Grand Clément",
-    id: "4239b1f3b04a818eb966ed9f805830ee",
-    kind: "Fête"
+    "date": "2026-04-11",
+    "title": "La Fiera di a Triade",
+    "place": "Les trois villages de la Triade corse, dont Bona Furtuna",
+    "id": "4239b1f3b04a81dbb6bdda51c8e228e9",
+    "kind": "Fête"
   },
   {
-    date: "2027-05-15",
-    title: "Le Bal des Gougouttes",
-    place: "Les Gougouttes",
-    id: "4239b1f3b04a819388d8d9779952dd22",
-    kind: "Fête"
+    "date": "2026-05-01",
+    "title": "La Journée de Baboush IV",
+    "place": "Château du Lucullus et Bab Al Baboush",
+    "id": "4239b1f3b04a811e80fbcbeef4792d3d",
+    "kind": "Commémoration"
   },
   {
-    date: "2027-06-05",
-    title: "Le Festival des Trois Orients",
-    place: "Chong-Chong, Ryogan et Tibébé",
-    id: "4239b1f3b04a81fb9746d57828b0ba66",
-    kind: "Festival"
+    "date": "2026-05-08",
+    "title": "La Grande Tablée du Clément",
+    "place": "Grand Clément, Lucullus-les-Deux-Rives",
+    "id": "4239b1f3b04a81a1bccec0151d77cf28",
+    "kind": "Fête"
   },
   {
-    date: "2027-06-12",
-    title: "Fêtes historiques de Ryogan",
-    place: "Ryogan",
-    id: "4229b1f3b04a81378146e2018c37f5dc",
-    kind: "Fête"
+    "date": "2026-05-15",
+    "title": "Le Bal des Gougouttes",
+    "place": "Gougouttes, Les Hauts de Lucetelle",
+    "id": "4239b1f3b04a81a2adbfe3e70e9e9489",
+    "kind": "Fête"
   },
   {
-    date: "2027-06-20",
-    title: "La Course des Chaises",
-    place: "Centre-Ville",
-    id: "4239b1f3b04a81c78072ec4dd04d5367",
-    kind: "Fête"
+    "date": "2026-05-22",
+    "title": "Le Festival des Cent Parapluies",
+    "place": "Nouvelle Amsterdam",
+    "id": "4239b1f3b04a81e794e5dd5be0e209d8",
+    "kind": "Festival"
   },
   {
-    date: "2027-06-26",
-    title: "La Guerre du Cochonnet",
-    place: "Les Bénédictins et Marcel Pagnol",
-    id: "4239b1f3b04a817bbafbe2334015df4d",
-    kind: "Fête"
+    "date": "2026-06-05",
+    "title": "Le Festival des Trois Orients",
+    "place": "Chong-Chong, Ryogan et Tibébé",
+    "id": "4239b1f3b04a813dbaefdd0c093fdccf",
+    "kind": "Festival"
   },
   {
-    date: "2027-07-03",
-    title: "La Parade des Pistouilles",
-    place: "Les Pistouilles",
-    id: "4239b1f3b04a818584c2d26dddd74a1d",
-    kind: "Festival"
+    "date": "2026-06-12",
+    "title": "Fêtes historiques de Ryogan",
+    "place": "Ryogan",
+    "id": "4239b1f3b04a819c9aa3e5870106cdd3",
+    "kind": "Fête"
   },
   {
-    date: "2027-07-10",
-    title: "La Grande Trempette des Bénédictins",
-    place: "Piscine Carlo Ancelotti",
-    id: "4239b1f3b04a8112af9def7e97d67d7c",
-    kind: "Fête"
+    "date": "2026-06-20",
+    "title": "La Course des Chaises",
+    "place": "Centre-Ville de Lucullus-les-Deux-Rives",
+    "id": "4239b1f3b04a81f6a1a0ff4e8e96468c",
+    "kind": "Fête"
   },
   {
-    date: "2027-07-17",
-    title: "Fête nationale de la Principauté",
-    place: "Lucullus-les-Deux-Rives",
-    id: "4229b1f3b04a810abd0ee7a8040b560c",
-    kind: "Fête nationale"
+    "date": "2026-06-26",
+    "title": "La Guerre du Cochonnet",
+    "place": "Boulodromes Marius-Boulegan (Marcel Pagnol) et Fernand-Boulegan (Les Bénédictins)",
+    "id": "4239b1f3b04a817b9761f1f44e259d0b",
+    "kind": "Fête"
   },
   {
-    date: "2027-08-07",
-    title: "Festival de l'Hermine et des Voiles",
-    place: "Kerlwenn",
-    id: "4229b1f3b04a81afb86fff43f576adc0",
-    kind: "Festival"
+    "date": "2026-07-03",
+    "title": "La Parade des Pistouilles",
+    "place": "Les Pistouilles, Le Cœur de Lucullus",
+    "id": "4239b1f3b04a8120a017dcd7d9fc849e",
+    "kind": "Festival"
   },
   {
-    date: "2027-08-14",
-    title: "La Sardinade des Caillettes",
-    place: "Les Caillettes",
-    id: "4239b1f3b04a8142bafce37d5a31bbc4",
-    kind: "Fête"
+    "date": "2026-07-10",
+    "title": "La Grande Trempette des Bénédictins",
+    "place": "Piscine Carlo Ancelotti, Les Bénédictins",
+    "id": "4239b1f3b04a819397d8d0b6c3ac8371",
+    "kind": "Fête"
   },
   {
-    date: "2027-08-28",
-    title: "Commémoration de la Grande Marche",
-    place: "Saint-David",
-    id: "4229b1f3b04a8149a0f2cc8f3c122d54",
-    kind: "Commémoration"
+    "date": "2026-07-17",
+    "title": "Fête nationale de la Principauté",
+    "place": "Lucullus-les-Deux-Rives",
+    "id": "4239b1f3b04a81bd912cf37475cc7241",
+    "kind": "Fête nationale"
   },
   {
-    date: "2027-09-04",
-    title: "La Nuit des Marchands",
-    place: "Bab Al Baboush",
-    id: "4239b1f3b04a8165b369dc50879dc34b",
-    kind: "Festival"
+    "date": "2026-07-24",
+    "title": "Le Grand Défi de la Butte",
+    "place": "Butte Jambon",
+    "id": "4239b1f3b04a81989791cf9816b21eda",
+    "kind": "Fête"
   },
   {
-    date: "2027-09-18",
-    title: "Fête de la fondation de Bab Al Baboush",
-    place: "Bab Al Baboush",
-    id: "4229b1f3b04a81a9ae54de49fe9303f5",
-    kind: "Commémoration"
+    "date": "2026-08-07",
+    "title": "Festival de l'Hermine et des Voiles",
+    "place": "Kerlwenn",
+    "id": "4239b1f3b04a81c9b39fcd2b4172d7cc",
+    "kind": "Festival"
   },
   {
-    date: "2027-09-25",
-    title: "La Fête du Grand Canal",
-    place: "Fleuve Lucullus et canaux de la ville",
-    id: "4239b1f3b04a81e893ede668bcad8887",
-    kind: "Festival"
+    "date": "2026-08-14",
+    "title": "La Sardinade des Caillettes",
+    "place": "Les Caillettes, littoral de Lucullus",
+    "id": "4239b1f3b04a8184a62fe08175f66035",
+    "kind": "Fête"
   },
   {
-    date: "2027-10-09",
-    title: "Nuit des Étoiles d'Or",
-    place: "Astéroïde City",
-    id: "4229b1f3b04a81cab0b4ee84a1e960b4",
-    kind: "Fête"
+    "date": "2026-08-28",
+    "title": "Commémoration de la Grande Marche",
+    "place": "Saint-David",
+    "id": "4239b1f3b04a816285a2ebb9c62cb1b5",
+    "kind": "Commémoration"
   },
   {
-    date: "2027-10-23",
-    title: "Le Carnaval des Turluthes",
-    place: "Les Turluthes",
-    id: "4239b1f3b04a810a97d8e3474a672c3b",
-    kind: "Festival"
+    "date": "2026-09-04",
+    "title": "La Nuit des Marchands",
+    "place": "Souks de Bab Al Baboush",
+    "id": "4239b1f3b04a8185a5c3d47b722d717c",
+    "kind": "Festival"
   },
   {
-    date: "2027-11-13",
-    title: "La Fête du Grand Froid",
-    place: "Pateograd et Stakhanov",
-    id: "4239b1f3b04a81258a3eee7e36e4360a",
-    kind: "Fête"
+    "date": "2026-09-11",
+    "title": "La Journée des Inventeurs",
+    "place": "Duché de Malmizer",
+    "id": "4239b1f3b04a816dbd47d72d0099f934",
+    "kind": "Fête"
+  },
+  {
+    "date": "2026-09-18",
+    "title": "Fête de la fondation de Bab Al Baboush",
+    "place": "Bab Al Baboush",
+    "id": "4239b1f3b04a81169cdfe5325d529cb6",
+    "kind": "Commémoration"
+  },
+  {
+    "date": "2026-09-25",
+    "title": "La Fête du Grand Canal",
+    "place": "Lucullus-les-Deux-Rives — ensemble du fleuve et des canaux de la ville",
+    "id": "4239b1f3b04a810b817ac820d2ead62c",
+    "kind": "Festival"
+  },
+  {
+    "date": "2026-10-09",
+    "title": "Nuit des Étoiles d'Or",
+    "place": "Astéroïde City",
+    "id": "4239b1f3b04a8165a867eb841b829015",
+    "kind": "Fête"
+  },
+  {
+    "date": "2026-10-16",
+    "title": "La Nuit des Brumes",
+    "place": "Château du Lucullus",
+    "id": "4239b1f3b04a81a6aed6e849d0b88d0e",
+    "kind": "Fête"
+  },
+  {
+    "date": "2026-10-23",
+    "title": "Le Carnaval des Turluthes",
+    "place": "Les Turluthes, Le Cœur de Lucullus",
+    "id": "4239b1f3b04a81de8b28db766fca55ce",
+    "kind": "Festival"
+  },
+  {
+    "date": "2026-11-06",
+    "title": "Les Treize Coups de Pateograd",
+    "place": "Pateograd",
+    "id": "4239b1f3b04a81d69d27e019e7b7bb50",
+    "kind": "Fête"
+  },
+  {
+    "date": "2026-11-13",
+    "title": "La Fête du Grand Froid",
+    "place": "Pateograd et Stakhanov",
+    "id": "4239b1f3b04a81409700f7ad22c89a52",
+    "kind": "Fête"
+  },
+  {
+    "date": "2026-11-20",
+    "title": "Le Grand Défilé des Travailleurs",
+    "place": "Pateograd et Stakhanov",
+    "id": "4239b1f3b04a810ab164dbcc13f270c9",
+    "kind": "Fête"
+  },
+  {
+    "date": "2026-12-06",
+    "title": "La Grande Grasse Matinée de Baboush V",
+    "place": "Toute la Principauté, particulièrement le Domaine Princier",
+    "id": "4239b1f3b04a81fa9179f7e459397cd3",
+    "kind": "Fête"
+  },
+  {
+    "date": "2026-12-11",
+    "title": "La Nuit des Cadeaux Anonymes",
+    "place": "Toute la Principauté",
+    "id": "4239b1f3b04a81d7a65bfdbace7e0e8a",
+    "kind": "Fête"
+  },
+  {
+    "date": "2026-12-18",
+    "title": "Le Marché des Sept Cloches",
+    "place": "Bourg Lucullus",
+    "id": "4239b1f3b04a8150b213c1571ac699ea",
+    "kind": "Fête"
+  },
+  {
+    "date": "2026-12-25",
+    "title": "Noël",
+    "place": "Toute la Principauté",
+    "id": "4229b1f3b04a8158964dd948498fc2bd",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-01-01",
+    "title": "Jour de l’An",
+    "place": "Toute la Principauté",
+    "id": "4229b1f3b04a8147831eccb9ba25b4f3",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-01-23",
+    "title": "Fête des Trappeurs et de la Source",
+    "place": "Ruffiac-le-Château",
+    "id": "4229b1f3b04a8105be67cf7327bf674d",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-02-07",
+    "title": "Élections parlementaires — 1er tour",
+    "place": "Principauté de Lucullus-les-Deux-Rives",
+    "id": "4229b1f3b04a81908e29fe104c43bc31",
+    "kind": "Élections"
+  },
+  {
+    "date": "2027-02-14",
+    "title": "La Festa dei Due Cuori",
+    "place": "Little Italy — Bella Riva, lac des Amoureux",
+    "id": "4239b1f3b04a810c9d98e34ade71bb65",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-02-14",
+    "title": "Élections parlementaires — 2nd tour",
+    "place": "Principauté de Lucullus-les-Deux-Rives",
+    "id": "4229b1f3b04a819692d4e35a159d0b4e",
+    "kind": "Élections"
+  },
+  {
+    "date": "2027-02-20",
+    "title": "Les Olympiades des Deux Rives — 101e édition",
+    "place": "Quartier organisateur itinérant — à déterminer",
+    "id": "4239b1f3b04a81f2826ae6b759aba93b",
+    "kind": "Festival"
+  },
+  {
+    "date": "2027-02-27",
+    "title": "La Guerre des Marmites",
+    "place": "Quartier organisateur itinérant — à déterminer",
+    "id": "4239b1f3b04a8117bcdbefd200b75b45",
+    "kind": "Festival"
+  },
+  {
+    "date": "2027-03-06",
+    "title": "La Nuit des Messages Perdus",
+    "place": "Quartier hôte itinérant — organisé par LucuPoste",
+    "id": "4239b1f3b04a8184b22afbe702d078b8",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-03-13",
+    "title": "La Jean-Guile",
+    "place": "Quartier de Chong-Chong",
+    "id": "4229b1f3b04a8176b3cbc59212a7c246",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-04-10",
+    "title": "La Festa dos Azulejos",
+    "place": "Azulejos",
+    "id": "4239b1f3b04a81b2b73cc564d32db7d4",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-04-11",
+    "title": "La Fiera di a Triade",
+    "place": "Les trois villages de la Triade corse, dont Bona Furtuna",
+    "id": "4239b1f3b04a8182aaefcf871caf531f",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-05-01",
+    "title": "La Journée de Baboush IV",
+    "place": "Château du Lucullus et Bab Al Baboush",
+    "id": "4239b1f3b04a81f5a0b4eaf9379c5dbb",
+    "kind": "Commémoration"
+  },
+  {
+    "date": "2027-05-08",
+    "title": "La Grande Tablée du Clément",
+    "place": "Grand Clément, Lucullus-les-Deux-Rives",
+    "id": "4239b1f3b04a818eb966ed9f805830ee",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-05-15",
+    "title": "Le Bal des Gougouttes",
+    "place": "Gougouttes, Les Hauts de Lucetelle",
+    "id": "4239b1f3b04a819388d8d9779952dd22",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-05-22",
+    "title": "Le Festival des Cent Parapluies",
+    "place": "Nouvelle Amsterdam",
+    "id": "4239b1f3b04a8108b90bc47655c6abd0",
+    "kind": "Festival"
+  },
+  {
+    "date": "2027-06-05",
+    "title": "Le Festival des Trois Orients",
+    "place": "Chong-Chong, Ryogan et Tibébé",
+    "id": "4239b1f3b04a81fb9746d57828b0ba66",
+    "kind": "Festival"
+  },
+  {
+    "date": "2027-06-12",
+    "title": "Fêtes historiques de Ryogan",
+    "place": "Ryogan",
+    "id": "4229b1f3b04a81378146e2018c37f5dc",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-06-20",
+    "title": "La Course des Chaises",
+    "place": "Centre-Ville de Lucullus-les-Deux-Rives",
+    "id": "4239b1f3b04a81c78072ec4dd04d5367",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-06-26",
+    "title": "La Guerre du Cochonnet",
+    "place": "Boulodromes Marius-Boulegan (Marcel Pagnol) et Fernand-Boulegan (Les Bénédictins)",
+    "id": "4239b1f3b04a817bbafbe2334015df4d",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-07-03",
+    "title": "La Parade des Pistouilles",
+    "place": "Les Pistouilles, Le Cœur de Lucullus",
+    "id": "4239b1f3b04a818584c2d26dddd74a1d",
+    "kind": "Festival"
+  },
+  {
+    "date": "2027-07-10",
+    "title": "La Grande Trempette des Bénédictins",
+    "place": "Piscine Carlo Ancelotti, Les Bénédictins",
+    "id": "4239b1f3b04a8112af9def7e97d67d7c",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-07-17",
+    "title": "Fête nationale de la Principauté",
+    "place": "Lucullus-les-Deux-Rives",
+    "id": "4229b1f3b04a810abd0ee7a8040b560c",
+    "kind": "Fête nationale"
+  },
+  {
+    "date": "2027-07-24",
+    "title": "Le Grand Défi de la Butte",
+    "place": "Butte Jambon",
+    "id": "4239b1f3b04a818abd0ada769be6692c",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-08-07",
+    "title": "Festival de l'Hermine et des Voiles",
+    "place": "Kerlwenn",
+    "id": "4229b1f3b04a81afb86fff43f576adc0",
+    "kind": "Festival"
+  },
+  {
+    "date": "2027-08-14",
+    "title": "La Sardinade des Caillettes",
+    "place": "Les Caillettes, littoral de Lucullus",
+    "id": "4239b1f3b04a8142bafce37d5a31bbc4",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-08-28",
+    "title": "Commémoration de la Grande Marche",
+    "place": "Saint-David",
+    "id": "4229b1f3b04a8149a0f2cc8f3c122d54",
+    "kind": "Commémoration"
+  },
+  {
+    "date": "2027-09-04",
+    "title": "La Nuit des Marchands",
+    "place": "Souks de Bab Al Baboush",
+    "id": "4239b1f3b04a8165b369dc50879dc34b",
+    "kind": "Festival"
+  },
+  {
+    "date": "2027-09-11",
+    "title": "La Journée des Inventeurs",
+    "place": "Duché de Malmizer",
+    "id": "4239b1f3b04a81c0aa39c6b6dd6fbe18",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-09-18",
+    "title": "Fête de la fondation de Bab Al Baboush",
+    "place": "Bab Al Baboush",
+    "id": "4229b1f3b04a81a9ae54de49fe9303f5",
+    "kind": "Commémoration"
+  },
+  {
+    "date": "2027-09-25",
+    "title": "La Fête du Grand Canal",
+    "place": "Lucullus-les-Deux-Rives — ensemble du fleuve et des canaux de la ville",
+    "id": "4239b1f3b04a81e893ede668bcad8887",
+    "kind": "Festival"
+  },
+  {
+    "date": "2027-10-09",
+    "title": "Nuit des Étoiles d'Or",
+    "place": "Astéroïde City",
+    "id": "4229b1f3b04a81cab0b4ee84a1e960b4",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-10-16",
+    "title": "La Nuit des Brumes",
+    "place": "Château du Lucullus",
+    "id": "4239b1f3b04a813ca462f12530e6a350",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-10-23",
+    "title": "Le Carnaval des Turluthes",
+    "place": "Les Turluthes, Le Cœur de Lucullus",
+    "id": "4239b1f3b04a810a97d8e3474a672c3b",
+    "kind": "Festival"
+  },
+  {
+    "date": "2027-11-06",
+    "title": "Les Treize Coups de Pateograd",
+    "place": "Pateograd",
+    "id": "4239b1f3b04a8111b42bca9b2729e634",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-11-13",
+    "title": "La Fête du Grand Froid",
+    "place": "Pateograd et Stakhanov",
+    "id": "4239b1f3b04a81258a3eee7e36e4360a",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-11-20",
+    "title": "Le Grand Défilé des Travailleurs",
+    "place": "Pateograd et Stakhanov",
+    "id": "4239b1f3b04a81fd83d5f9d91363d369",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-12-06",
+    "title": "La Grande Grasse Matinée de Baboush V",
+    "place": "Toute la Principauté, particulièrement le Domaine Princier",
+    "id": "4239b1f3b04a81f4938cc229f6be6e81",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-12-11",
+    "title": "La Nuit des Cadeaux Anonymes",
+    "place": "Toute la Principauté",
+    "id": "4239b1f3b04a817db7b7c5dcb36267c5",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-12-18",
+    "title": "Le Marché des Sept Cloches",
+    "place": "Bourg Lucullus",
+    "id": "4239b1f3b04a81ef95d8d46dac70b363",
+    "kind": "Fête"
+  },
+  {
+    "date": "2027-12-25",
+    "title": "Noël",
+    "place": "Toute la Principauté",
+    "id": "4239b1f3b04a81118ffdfb524d43020e",
+    "kind": "Fête"
   }
 ];
 
