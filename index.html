@@ -2998,8 +2998,6 @@ async function startEncyclopedia() {
    Les données reprennent les fiches confirmées dans Notion.
 ======================================== */
 const LDR_AGENDA = [
- 
-const LDR_AGENDA = [
   {
     date: "2026-12-06",
     title: "La Grande Grasse Matinée de Baboush V",
@@ -3184,8 +3182,6 @@ const LDR_AGENDA = [
   }
 ];
 
-];
-
 const AGENDA_MONTHS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
 const agendaState = { year: 2026, month: 11, day: null };
 
@@ -3303,6 +3299,122 @@ initAgenda();
 navigate();
 startEncyclopedia();
 
+</script>
+
+<!-- ========================================
+     BOUTON RETOUR EN HAUT — LDR.WORLD
+======================================== -->
+
+<style>
+  #retour-en-haut {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 100;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 55px;
+    height: 55px;
+
+    border: none;
+    border-radius: 15px;
+
+    background: #E9F1FC;
+    color: #142D4C;
+
+    font-size: 28px;
+    font-weight: 800;
+    cursor: pointer;
+
+    box-shadow: 0 6px 20px rgba(0, 0, 0, .3);
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(15px);
+
+    transition:
+      opacity .3s ease,
+      visibility .3s ease,
+      transform .3s ease;
+  }
+
+  #retour-en-haut.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  #retour-en-haut:hover {
+    background: #FFFFFF;
+    transform: translateY(-5px);
+  }
+
+  body.portail-actif #retour-en-haut {
+    display: none;
+  }
+
+  @media (max-width: 600px) {
+    #retour-en-haut {
+      bottom: 18px;
+      right: 18px;
+      width: 48px;
+      height: 48px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #retour-en-haut {
+      transition: none;
+    }
+  }
+</style>
+
+<button
+  id="retour-en-haut"
+  type="button"
+  aria-label="Retour en haut de la page"
+  title="Retour en haut"
+>
+  ↑
+</button>
+
+<script>
+(function () {
+  const bouton = document.getElementById("retour-en-haut");
+
+  if (!bouton) return;
+
+  function actualiserBouton() {
+    bouton.classList.toggle(
+      "visible",
+      window.scrollY > 400
+    );
+  }
+
+  window.addEventListener(
+    "scroll",
+    actualiserBouton,
+    { passive: true }
+  );
+
+  bouton.addEventListener("click", function () {
+    const reduireMouvement = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+
+    window.scrollTo({
+      top: 0,
+      behavior: reduireMouvement ? "auto" : "smooth"
+    });
+  });
+
+  actualiserBouton();
+})();
 </script>
 
 </body>
