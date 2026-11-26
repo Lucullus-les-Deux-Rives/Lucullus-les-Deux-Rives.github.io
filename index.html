@@ -2758,9 +2758,9 @@ function addSubpages(page, container, excluded = new Set()) {
     return;
   }
 
-  container.appendChild(
-    el("h2", "", "Explorer les fiches")
-  );
+  if (cleanId(page.id) !== cleanId(SECTION_IDS.geographie)) {
+    container.appendChild(el("h2", "", "Explorer les fiches"));
+  }
 
   const grid = el(
     "div",
@@ -2796,11 +2796,16 @@ function addSubpages(page, container, excluded = new Set()) {
    RUBRIQUES
 ======================================== */
 
-function removeOutdatedGeographyNotice(root) {
-  const obsoleteNotice = /^(?:les\s+)?premiers programmes publies(?:\s*[—–-].*)?[.!…\s]*$/i;
-  root.querySelectorAll("p,h2,h3,h4,h5,li,blockquote,.notion-note,.notion-check,figcaption").forEach(node => {
-    const text = normalize(node.textContent).replace(/\s+/g, " ").trim();
-    if (obsoleteNotice.test(text)) node.remove();
+function geographyBlocks(blocks = []) {
+  let inElectoralArchive = false;
+  return blocks.filter(block => {
+    const label = normalize(block.text).trim();
+    if (block.type.startsWith("heading_")) {
+      inElectoralArchive = /^reperes documentaires\s*[—–-]\s*circonscriptions 1 a 8$/.test(label);
+    }
+    return !inElectoralArchive &&
+      !(block.type === "callout" && label === "ouvrir la carte en grand") &&
+      !/^(?:les\s+)?premiers programmes publies(?:\s*[—–-].*)?[.!…\s]*$/.test(label);
   });
 }
 
@@ -2882,11 +2887,8 @@ function renderSection(id, sectionId) {
   if (sectionId === "urbanisme") {
     renderedProjects = renderProjectBlocks(page, article);
   } else {
-    renderBlocks(page.blocks, article);
-  }
-
-  if (sectionId === "geographie") {
-    removeOutdatedGeographyNotice(article);
+    const blocks = sectionId === "geographie" ? geographyBlocks(page.blocks) : page.blocks;
+    renderBlocks(blocks, article);
   }
   beautifyNotionLinks(article);
   addGallery(page, article);
