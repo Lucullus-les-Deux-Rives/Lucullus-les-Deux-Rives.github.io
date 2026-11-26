@@ -1190,12 +1190,19 @@ header { overflow: visible; }
   .grouped-content { margin-top: 2rem; }
   @media (max-width: 700px) { .directory-filter { grid-template-columns: 1fr; } }
   .metropolis-map { position: relative; width: 100%; overflow: hidden; border-radius: inherit; }
-  .metropolis-map > img { display: block; width: 100%; height: auto; }
+  .metropolis-map > img { display: block; width: 100%; height: auto; max-height: none; }
+  .notion-figure:not(.capital-map) > .metropolis-map { max-width: 528px; margin-inline: auto; }
+  .capital-map > .metropolis-map { max-width: 986px; margin-inline: auto; }
   .metropolis-zone { position: absolute; inset: 0; width: 100%; height: 100%; border: none; padding: 0; border-radius: 0; background: rgba(105,201,255,.14); cursor: pointer; }
   .metropolis-zone:hover, .metropolis-zone:focus-visible { background: rgba(130,220,255,.48); }
   .metropolis-zone[aria-pressed="true"] { background: rgba(69,190,255,.51); }
   .metropolis-marker { position: absolute; z-index: 2; transform: translate(-50%,-50%); pointer-events: none; padding: .15rem .38rem; border-radius: .28rem; background: #112642; color: #fff; font-size: clamp(.46rem, .83vw, .78rem); font-weight: 750; line-height: 1.2; white-space: nowrap; }
   .metropolis-marker.is-selected { background: #dff5ff; color: #102642; }
+  .capital-map .metropolis-marker:not(.is-selected) { visibility: hidden; }
+  .capital-map .metropolis-marker.is-selected { font-size: .8rem; }
+  .capital-map .metropolis-zone { background: transparent; }
+  .capital-map .metropolis-zone:hover, .capital-map .metropolis-zone:focus-visible { background: rgba(130,220,255,.40); }
+  .capital-map .metropolis-zone[aria-pressed="true"] { background: rgba(69,190,255,.51); }
   .metropolis-controls { margin: 1rem 0; padding: 1rem; border: 1px solid #416287; background: #152944; border-radius: .8rem; }
   .metropolis-controls label { display: block; font-weight: 750; margin-bottom: .35rem; }
   .metropolis-controls select { width: 100%; max-width: 28rem; min-height: 2.7rem; background: #e9f3ff; color: #122944; border: 1px solid #8aaacf; border-radius: .4rem; padding: .4rem .6rem; font: inherit; }
@@ -2216,7 +2223,34 @@ const METROPOLIS_ZONES = [
   ["El Camino", "Marches d’El Camino", "41b9b1f3b04a81f88dc7cf910cceac14", "Les Marches d’El Camino", [2554,3330], "2302,3315 2325,3253 2370,3218 2430,3207 2506,3187 2587,3191 2650,3170 2725,3120 2793,3075 2850,3060 2856,3160 2854,3400 2839,3468 2793,3526 2737,3544 2480,3538 2424,3535 2385,3487 2334,3418 2309,3382"]
 ];
 
-function addMetropolisSelector(image) {
+const CAPITAL_ZONES = [
+  ["1 — Le Cœur de Lucullus","Circonscription n° 1","41b9b1f3-b04a-8183-b2d4-ddf5fa2bd732","Le Cœur de Lucullus",[1755,927],"1746,745 1795,750 1807,832 1835,865 1857,909 1870,964 1894,977 1921,1011 1949,1036 2020,1032 2029,1066 2028,1109 1985,1119 1923,1121 1888,1131 1784,1137 1707,1135 1689,1123 1668,1062 1679,1022 1660,1001 1654,987 1659,948 1653,881 1589,871 1576,865 1563,845 1562,821 1563,815 1583,811 1592,793 1599,789 1644,777 1703,775 1734,748"],
+  ["2 — Le Vieux Lucullus","Circonscription n° 2","41b9b1f3-b04a-8188-96da-ed1f87ebc3b3","Le Vieux Lucullus",[1572,973],"1533,853 1553,855 1589,885 1601,906 1633,933 1645,958 1647,994 1638,1055 1649,1141 1643,1180 1636,1184 1642,1236 1626,1248 1608,1245 1586,1220 1562,1212 1555,1140 1549,1119 1524,1107 1478,1068 1463,1048 1454,1024 1452,1000 1462,932 1462,876 1479,860 1517,859"],
+  ["3 — Les Monts du Lucullus","Circonscription n° 3","41b9b1f3-b04a-8166-b15d-f9e635068387","Les Monts du Lucullus",[1588,686],"1542,560 1562,564 1599,600 1607,614 1616,617 1630,634 1640,639 1661,638 1685,630 1746,632 1777,623 1791,614 1799,596 1812,582 1841,569 1862,581 1869,601 1861,623 1845,644 1829,677 1820,724 1809,739 1734,735 1722,740 1693,768 1649,767 1606,775 1585,786 1570,805 1554,809 1554,831 1549,844 1520,845 1516,825 1517,709 1522,679 1522,626 1514,590 1524,571"],
+  ["4 — Les Hauts de Lucetelle","Circonscription n° 4","41b9b1f3-b04a-8126-a0c1-d658f15dad13","Les Hauts de Lucetelle",[1824,1234],"1840,1146 1929,1146 1951,1154 1973,1182 1999,1186 2009,1192 2051,1239 2097,1254 2110,1264 2115,1291 2113,1322 2097,1327 2000,1327 1952,1335 1937,1342 1903,1373 1870,1383 1801,1387 1764,1383 1741,1374 1727,1361 1724,1351 1697,1329 1678,1291 1662,1243 1667,1223 1668,1168 1675,1158 1686,1153"],
+  ["5 — Le Sultanat de Baboush","Circonscription n° 5","41b9b1f3-b04a-816d-ba92-c367b752780d","Le Sultanat de Baboush",[1595,1335],"1595,1246 1614,1260 1651,1265 1669,1322 1702,1362 1704,1378 1700,1388 1672,1411 1650,1413 1594,1402 1557,1400 1539,1392 1532,1381 1531,1329 1523,1297 1522,1269 1530,1262 1575,1263"],
+  ["6 — Le Domaine Princier","Circonscription n° 6","41b9b1f3-b04a-81bf-b8be-cc8530bd2025","Le Domaine Princier",[1410,1186],"1364,1048 1412,1048 1436,1056 1460,1085 1528,1123 1542,1142 1548,1159 1550,1206 1559,1218 1579,1230 1582,1241 1569,1256 1537,1251 1516,1258 1511,1278 1510,1323 1457,1317 1268,1310 1243,1306 1236,1300 1229,1227 1232,1164 1249,1151 1273,1144 1280,1136 1284,1082 1300,1059"],
+  ["7 — Les Bas-Faubourgs","Circonscription n° 7","41b9b1f3-b04a-81d7-8be4-c295e6bda588","Les Bas-Faubourgs",[1366,978],"1418,804 1446,806 1455,812 1453,946 1445,966 1431,982 1423,1021 1412,1032 1358,1034 1336,1046 1295,1054 1288,1047 1288,1033 1255,1021 1258,1008 1287,989 1329,985 1329,964 1334,952 1349,939 1377,946 1397,964 1403,964 1393,949 1358,933 1388,933 1424,925 1431,906 1432,870 1435,901 1421,946 1422,970 1408,972 1402,965 1402,974 1408,978 1424,976 1428,971 1425,954 1439,907 1439,876 1427,853 1406,848 1396,834 1401,814"],
+  ["8 — Les Terrasses des Oliviers","Circonscription n° 8","41b9b1f3-b04a-81d7-b5ca-d56cae1f0220","Les Terrasses des Oliviers",[1307,850],"1353,741 1365,743 1369,777 1390,810 1392,852 1420,860 1425,869 1427,898 1422,919 1384,928 1328,931 1325,924 1309,917 1255,919 1237,913 1218,893 1219,871 1211,853 1220,850 1183,843 1174,827 1175,815 1220,815 1265,791 1315,776 1335,748"],
+  ["9 — Les Rives de Santa Maria","Circonscription n° 9","41b9b1f3-b04a-819d-a18e-c91e818a30b3","Les Rives de Santa Maria",[1430,719],"1475,590 1496,594 1505,602 1516,637 1507,728 1514,760 1513,845 1505,851 1462,853 1458,804 1435,794 1392,797 1379,776 1372,735 1351,733 1334,738 1319,754 1306,753 1299,747 1293,678 1295,672 1308,666 1404,671 1446,664 1453,598 1457,593"],
+  ["10 — Le Bassin de Pateograd","Circonscription n° 10","41b9b1f3-b04a-8163-950d-fe3772816fcc","Le Bassin de Pateograd",[1909,843],"1865,673 1922,678 1952,686 1995,706 2022,710 2030,733 2031,752 2028,760 2015,770 2015,811 2035,827 2040,839 2040,859 2029,890 2029,922 2043,938 2050,961 2051,992 2043,1009 2004,1019 1941,1015 1916,994 1880,949 1865,917 1852,872 1829,839 1813,781 1817,752 1834,704 1843,689"],
+  ["11 — Les Terres Perdues","Circonscription n° 11","41b9b1f3-b04a-81f0-b8dd-edd3b95f0351","Les Terres Perdues",[1040,1350],"1180,1161 1207,1164 1217,1222 1223,1315 1232,1332 1269,1366 1278,1383 1284,1427 1279,1476 1227,1488 1179,1485 1152,1494 1102,1497 1000,1487 897,1494 852,1493 830,1487 824,1468 823,1431 832,1393 818,1342 813,1292 814,1213 819,1204 852,1196 1026,1194 1070,1186 1134,1166"],
+  ["12 — La Côte de la Mer Jaune","Circonscription n° 12","41b9b1f3-b04a-8185-becb-d2893c42b8a1","La Côte de la Mer Jaune",[1033,1591],"1244,1497 1272,1498 1278,1506 1290,1508 1294,1515 1299,1568 1289,1678 840,1678 811,1673 794,1664 778,1646 769,1625 763,1577 767,1554 805,1537 824,1521 847,1513 950,1498 1096,1502 1109,1509 1137,1509"],
+  ["13 — Le Grand Frigo","Circonscription n° 13","41b9b1f3-b04a-819f-9315-d55fc7eeae95","Le Grand Frigo",[1451,1525],"1424,1327 1450,1329 1477,1342 1494,1357 1508,1378 1546,1409 1584,1417 1642,1418 1660,1424 1664,1461 1657,1481 1616,1481 1581,1495 1592,1531 1594,1591 1582,1654 1575,1667 1562,1677 1536,1681 1332,1681 1306,1667 1304,1533 1290,1488 1292,1438 1300,1404 1319,1372 1346,1349"],
+  ["14 — La Linea","Circonscription n° 14","41b9b1f3-b04a-8145-8939-f74e2370825d","La Linea",[1172,1750],"788,1686 1575,1686 1575,1816 788,1816"],
+  ["15 — Le Grand Quartier des Savoirs","Circonscription n° 15","41b9b1f3-b04a-8135-9fe2-d47c02c912fc","Le Grand Quartier des Savoirs",[2203,921],"2396,537 2404,537 2414,545 2421,563 2413,661 2413,757 2439,769 2438,832 2434,841 2421,850 2353,866 2323,867 2316,904 2328,1091 2337,1103 2375,1109 2376,1151 2364,1169 2338,1179 2341,1251 2334,1278 2314,1310 2280,1344 2259,1356 2198,1354 2184,1347 2161,1324 2153,1297 2114,1260 2113,1253 2099,1249 2024,1191 1992,1175 1986,1165 1987,1146 1994,1130 2032,1123 2044,1028 2054,1017 2059,1001 2056,931 2044,912 2049,845 2042,719 2046,712 2106,703 2120,689 2156,669 2186,640 2232,630 2275,614 2319,587 2356,573 2378,547"],
+  ["16 — Les Coteaux de Bourgnes","Circonscription n° 16","41b9b1f3-b04a-8133-872c-ff07db42294c","Les Coteaux de Bourgnes",[2064,1439],"2074,1339 2134,1345 2169,1392 2162,1414 2177,1420 2183,1428 2180,1441 2140,1503 2122,1552 2111,1565 2093,1574 2063,1569 2030,1545 2020,1519 2009,1515 2004,1507 2000,1472 1993,1453 1950,1436 1940,1417 1944,1378 1954,1365 1972,1360 1990,1362 2001,1350 2017,1344"],
+  ["17 — Le Duché de Malmizer","Circonscription n° 17","41b9b1f3-b04a-8174-a0c7-d8783c769f7e","Le Duché de Malmizer",[2122,532],"2294,302 2312,303 2319,311 2331,381 2372,397 2371,422 2362,443 2364,506 2356,527 2342,544 2199,618 2102,682 2070,695 1980,691 1944,674 1923,674 1867,662 1870,627 1884,617 1890,605 1897,524 1893,519 1894,507 1902,499 1916,498 1929,486 1954,486 1960,473 1959,423 1973,387 1981,310 2027,309 2053,314 2071,391 2083,417 2085,411 2105,414 2111,406 2133,400 2220,406 2273,403 2272,331 2279,312"],
+  ["18 — La Côte des Caillettes","Circonscription n° 18","41b9b1f3-b04a-818f-a3c2-f5c76b40b514","La Côte des Caillettes",[2243,199],"2259,53 2293,54 2328,63 2345,118 2374,120 2451,113 2503,138 2551,146 2558,183 2560,238 2592,303 2596,323 2593,349 2433,347 2409,356 2382,381 2369,383 2348,367 2323,302 2309,295 2294,295 2278,303 2266,318 2251,376 2245,384 2130,390 2102,399 2085,394 2077,380 2079,345 2075,335 2062,323 2056,305 2034,299 2031,291 2054,245 2088,206 2102,180 2130,81 2143,66 2157,59 2253,59"],
+  ["19 — Les Trois Orients","Circonscription n° 19","41b9b1f3-b04a-8197-a149-d9d3fadf2a18","Les Trois Orients",[1783,416],"1946,174 1967,176 1980,187 1997,224 2000,254 1993,278 1980,287 1973,301 1970,349 1962,377 1925,428 1928,479 1916,490 1903,491 1890,501 1883,517 1882,538 1872,551 1808,571 1769,611 1745,619 1652,621 1635,611 1578,557 1559,548 1542,549 1525,558 1501,589 1488,585 1449,588 1431,578 1427,552 1396,523 1394,513 1460,414 1472,360 1484,344 1505,340 1538,313 1558,308 1576,317 1623,366 1632,371 1652,372 1692,346 1729,341 1730,337 1760,339 1767,299 1774,293 1801,300 1817,322 1822,322 1815,301 1814,278 1818,263 1833,240 1888,191"],
+  ["20 — Les Hautes Collines","Circonscription n° 20","41b9b1f3-b04a-81ee-ba6f-f3c81094d676","Les Hautes Collines",[1047,633],"1028,453 1049,455 1094,471 1145,477 1168,486 1184,509 1182,552 1206,568 1225,602 1251,602 1265,608 1271,619 1270,630 1236,665 1220,725 1211,739 1185,761 1123,795 1083,806 1031,810 866,805 842,781 835,766 836,756 788,709 749,683 744,652 752,614 795,568 821,530 844,510 954,498 981,486 1013,459"],
+  ["21 — La Vallée de la Chantillonne","Circonscription n° 21","41b9b1f3-b04a-8134-a02b-f653aa7b608d","La Vallée de la Chantillonne",[1289,432],"1398,219 1419,224 1434,239 1448,290 1445,351 1434,415 1386,506 1389,524 1438,607 1435,642 1426,655 1414,659 1296,657 1290,648 1286,609 1267,592 1239,591 1234,586 1224,562 1201,537 1193,498 1173,478 1140,461 1075,442 1049,438 1003,442 1005,396 1015,373 1043,344 1100,303 1135,289 1289,262 1341,235"],
+  ["22 — Les Terres du Bout du Monde","Circonscription n° 22","41b9b1f3-b04a-81b5-a101-ee56488f0b3b","Les Terres du Bout du Monde",[1598,153],"1502,42 1563,43 1611,54 1659,54 1681,62 1694,78 1710,142 1729,167 1752,186 1776,222 1789,251 1794,283 1767,289 1754,309 1730,327 1667,346 1625,345 1591,308 1571,300 1532,305 1495,329 1473,331 1458,302 1452,257 1443,241 1441,214 1413,208 1397,188 1400,106 1411,72 1426,57 1450,48"],
+  ["23 — La Grande Plaine","Circonscription n° 23","41b9b1f3-b04a-81e1-b73a-d8bee4a11f9b","La Grande Plaine",[812,1047],"644,759 654,765 664,785 687,802 718,805 795,791 816,792 836,799 870,827 898,836 1011,830 1062,839 1096,827 1117,829 1134,841 1143,864 1143,977 1131,997 1098,1020 1076,1043 1075,1059 1092,1082 1091,1115 1081,1136 1049,1159 1051,1167 1044,1176 1009,1186 931,1176 862,1177 831,1183 805,1197 798,1277 814,1403 810,1472 817,1511 801,1519 791,1531 761,1539 699,1575 634,1579 578,1590 495,1585 448,1560 401,1509 377,1495 346,1493 307,1503 281,1503 253,1496 257,1426 241,1392 234,1349 227,1340 203,1332 171,1332 114,1343 84,1343 62,1334 59,1316 67,1293 81,1276 135,1249 200,1241 321,1240 374,1276 432,1326 463,1333 515,1354 569,1366 605,1366 642,1357 654,1335 647,1091 634,1070 638,1024 611,973 609,950 620,789 629,768"],
+  ["24 — Les Terres du Passage","Circonscription n° 24","41b9b1f3-b04a-8102-884c-fd296c0a958b","Les Terres du Passage",[2519,912],"2500,568 2523,570 2530,612 2549,659 2549,679 2567,721 2611,803 2656,868 2697,916 2710,944 2710,996 2700,1023 2647,1071 2618,1120 2591,1134 2517,1134 2447,1126 2434,1121 2406,1096 2383,1091 2351,1092 2346,1085 2339,983 2342,913 2352,897 2415,884 2437,873 2447,860 2454,821 2454,786 2447,758 2425,715 2420,687 2422,661 2434,628 2459,593 2479,576"]
+];
+
+function addTerritoryMap(image, {zones, selectId, selectLabel, width, height}) {
   const figure = image.closest("figure");
   if (!figure) return;
   const map = el("div", "metropolis-map");
@@ -2224,8 +2258,8 @@ function addMetropolisSelector(image) {
   map.appendChild(image);
 
   const controls = el("div", "metropolis-controls");
-  const label = el("label", "", "Ville ou territoire");
-  label.htmlFor = "metropolis-zone";
+  const label = el("label", "", selectLabel);
+  label.htmlFor = selectId;
   const select = el("select");
   select.id = label.htmlFor;
   const empty = el("option", "", "Choisir sur la carte ou dans la liste");
@@ -2245,7 +2279,7 @@ function addMetropolisSelector(image) {
     });
     panel.replaceChildren();
     if (index === null) return;
-    const [name, territory, id, linkLabel, , , imagePage] = METROPOLIS_ZONES[index];
+    const [name, territory, id, linkLabel, , , imagePage] = zones[index];
     const detail = el("div");
     detail.append(el("h3", "", name), el("p", "", territory));
     if (getPage(id)) {
@@ -2253,7 +2287,10 @@ function addMetropolisSelector(image) {
       link.href = "#fiche/" + id;
       detail.appendChild(link);
     }
-    if (index === 0) {
+    if (zones === METROPOLIS_ZONES && index === 0) {
+      const mapLink = el("a", "", "Carte des circonscriptions de LDR");
+      mapLink.href = "#geographie-circonscriptions";
+      detail.appendChild(mapLink);
       const districts = el("a", "", "Tous les quartiers de la capitale");
       districts.href = "#geographie-territoires";
       districts.addEventListener("click", () => {
@@ -2279,7 +2316,7 @@ function addMetropolisSelector(image) {
     }
   }
 
-  for (const [index, [name, , , , [x, y], points]] of METROPOLIS_ZONES.entries()) {
+  for (const [index, [name, , , , [x, y], points]] of zones.entries()) {
     const option = el("option", "", name);
     option.value = String(index);
     select.appendChild(option);
@@ -2290,12 +2327,12 @@ function addMetropolisSelector(image) {
     button.setAttribute("aria-pressed", "false");
     button.style.clipPath = "polygon(" + points.split(" ").map(pair => {
       const [px, py] = pair.split(",").map(Number);
-      return (px / 28.8).toFixed(3) + "% " + (py / 35.49).toFixed(3) + "%";
+      return (px * 100 / width).toFixed(3) + "% " + (py * 100 / height).toFixed(3) + "%";
     }).join(", ") + ")";
-    const marker = el("span", "metropolis-marker", name);
+    const marker = el("span", "metropolis-marker", zones === CAPITAL_ZONES ? String(index + 1) : name);
     marker.setAttribute("aria-hidden", "true");
-    marker.style.left = x / 28.8 + "%";
-    marker.style.top = y / 35.49 + "%";
+    marker.style.left = x * 100 / width + "%";
+    marker.style.top = y * 100 / height + "%";
     button.addEventListener("click", () => {
       choose(index);
       panel.scrollIntoView({block: "nearest"});
@@ -2322,7 +2359,30 @@ function addZoomableGeoMap(article){
   const btn=el('button','map-zoom-action','🔎 Agrandir et zoomer sur la carte');btn.type='button';
   btn.addEventListener('click',()=>window.ldrOpenMap(image.currentSrc||image.src));
   image.closest('figure').insertAdjacentElement('afterend',btn);
-  if (image.getAttribute("src")?.endsWith("/2b8c50483add1473b8e0.png")) addMetropolisSelector(image);
+  if (image.getAttribute("src")?.endsWith("/2b8c50483add1473b8e0.png")) {
+    addTerritoryMap(image, {
+      zones: METROPOLIS_ZONES, selectId: "metropolis-zone", selectLabel: "Ville ou territoire",
+      width: 2880, height: 3549
+    });
+  }
+
+  const section = sectionContent(article, "geographie-circonscriptions", "Les 24 circonscriptions de Lucullus-les-Deux-Rives");
+  const caption = btn.nextElementSibling;
+  const mapEnd = caption?.matches("p") && caption.firstElementChild?.matches("em") ? caption : btn;
+  mapEnd.after(section);
+  const capitalMap = el("figure", "notion-figure capital-map");
+  const capitalImage = el("img");
+  capitalImage.src = "/images/carte-circonscriptions-ldr.svg";
+  capitalImage.alt = "Carte de Lucullus-les-Deux-Rives avec les limites des circonscriptions 1 à 24";
+  capitalImage.width = 2820;
+  capitalImage.height = 1860;
+  capitalImage.loading = "lazy";
+  capitalMap.appendChild(capitalImage);
+  section.appendChild(capitalMap);
+  addTerritoryMap(capitalImage, {
+    zones: CAPITAL_ZONES, selectId: "capital-zone", selectLabel: "Circonscription",
+    width: 2820, height: 1860
+  });
 }
 
 /* ========================================
@@ -3005,6 +3065,9 @@ function addGeographyGuides(article) {
     return [section];
   });
 
+  const districtShortcut = el("a", "", "Carte des circonscriptions de LDR");
+  districtShortcut.href = "#geographie-circonscriptions";
+  links.prepend(districtShortcut);
   const directory = article.querySelector(".encyclopedia-grid");
   if (directory) {
     directory.id = "geographie-territoires";
@@ -3413,7 +3476,7 @@ function navigate() {
   if (Object.hasOwn(legacySocietySections, hash)) hash = legacySocietySections[hash];
   let active='accueil';
   const anchorSections=['agenda-a-venir','agenda-calendrier','agenda-traditions','palmares-competitions'];
-  const geographyAnchors = ['geographie-territoires', ...GEOGRAPHY_GUIDES.map(([anchor]) => anchor)];
+  const geographyAnchors = ['geographie-circonscriptions', 'geographie-territoires', ...GEOGRAPHY_GUIDES.map(([anchor]) => anchor)];
   if(hash.startsWith('agenda/fete/')) {
     active='agenda';
     renderAgendaEventDetail(hash.slice('agenda/fete/'.length));
