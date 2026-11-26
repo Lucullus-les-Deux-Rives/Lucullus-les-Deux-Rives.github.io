@@ -5,11 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#101D34">
 
-<title>LDR.world — Lucullus-les-Deux-Rives</title>
+<title>LDR.world â€” Lucullus-les-Deux-Rives</title>
 
 <style>
 /* ========================================
-   IDENTITÉ GRAPHIQUE
+   IDENTITÃ‰ GRAPHIQUE
 ======================================== */
 
 :root {
@@ -54,7 +54,7 @@ input {
 }
 
 /* ========================================
-   ÉCRAN D'ENTRÉE LDR.WORLD
+   Ã‰CRAN D'ENTRÃ‰E LDR.WORLD
 ======================================== */
 
 body.portail-actif {
@@ -349,7 +349,7 @@ section {
 }
 
 /* ========================================
-   ÉLECTIONS
+   Ã‰LECTIONS
 ======================================== */
 
 .panel {
@@ -442,7 +442,7 @@ section {
 }
 
 /* ========================================
-   BANNIÈRES
+   BANNIÃˆRES
 ======================================== */
 
 .ldr-cover {
@@ -840,7 +840,7 @@ footer {
 
 /* ========================================
    BANDEAU PANORAMIQUE DE L'ACCUEIL
-   Photo en arrière-plan, texte au premier plan
+   Photo en arriÃ¨re-plan, texte au premier plan
 ======================================== */
 
 #hero-accueil {
@@ -860,7 +860,7 @@ footer {
   background: #142540;
 }
 
-/* Uniquement le fond est flouté : le texte reste net. */
+/* Uniquement le fond est floutÃ© : le texte reste net. */
 #hero-accueil::before {
   content: "";
   position: absolute;
@@ -904,7 +904,7 @@ footer {
   color: #142d4c;
 }
 
-/* On évite d'afficher une seconde bannière issue du catalogue. */
+/* On Ã©vite d'afficher une seconde banniÃ¨re issue du catalogue. */
 #hero-accueil > .ldr-cover { display: none; }
 
 @media (max-width: 650px) {
@@ -923,11 +923,11 @@ footer {
 
 /* ========================================
    CHARTE EDITORIALE LDR.WORLD
-   Récits, tableaux et programmes électoraux
+   RÃ©cits, tableaux et programmes Ã©lectoraux
 ======================================== */
 
-/* Les chroniques et paragraphes de fond sont justifiés.
-   Les titres, listes, tableaux et légendes restent alignés à gauche. */
+/* Les chroniques et paragraphes de fond sont justifiÃ©s.
+   Les titres, listes, tableaux et lÃ©gendes restent alignÃ©s Ã  gauche. */
 .notion-content > p,
 .notion-content .notion-nested p,
 .notion-content .notion-columns p,
@@ -949,7 +949,7 @@ footer {
   text-align: left;
 }
 
-/* Un tableau cohérent d'une rubrique à l'autre. */
+/* Un tableau cohÃ©rent d'une rubrique Ã  l'autre. */
 .notion-table-wrap {
   border: 1px solid #476484;
   border-radius: 14px;
@@ -983,7 +983,7 @@ footer {
   background: #29415F;
 }
 
-/* Liens présents dans les tableaux : petites pastilles cliquables. */
+/* Liens prÃ©sents dans les tableaux : petites pastilles cliquables. */
 .notion-content .notion-table td a {
   display: inline-block;
   padding: 8px 13px;
@@ -1003,7 +1003,7 @@ footer {
   transform: translateY(-2px);
 }
 
-/* Le lien « Programme » reste identifiable, même hors d'un tableau. */
+/* Le lien Â« Programme Â» reste identifiable, mÃªme hors d'un tableau. */
 .notion-content a.programme-link {
   display: inline-flex;
   align-items: center;
@@ -1034,7 +1034,7 @@ footer {
   outline-offset: 3px;
 }
 
-/* En petit écran, l'alignement à gauche évite les blancs dans le texte. */
+/* En petit Ã©cran, l'alignement Ã  gauche Ã©vite les blancs dans le texte. */
 @media (max-width: 600px) {
   .notion-content > p,
   .notion-content .notion-nested p,
@@ -1049,7 +1049,7 @@ footer {
 
 
 /* ========================================
-   AGENDA — CALENDRIER ET FÊTES
+   AGENDA â€” CALENDRIER ET FÃŠTES
 ======================================== */
 .agenda-container { padding-top: 25px; padding-bottom: 70px; }
 .agenda-upcoming-section, .agenda-calendar-section { margin-top: 28px; padding: clamp(17px,3.2vw,34px); background:#F5F8FC; color:#142D4C; border:1px solid #D6E0ED; border-radius:19px; box-shadow:0 12px 28px #111D3420; }
@@ -1093,19 +1093,21 @@ footer {
 @media(prefers-reduced-motion:reduce) { .agenda-event-card { transition:none; } }
 
 /* ========================================
-   NOUVELLE NAVIGATION LDR.WORLD — 2026
+   NOUVELLE NAVIGATION LDR.WORLD â€” 2026
    ======================================== */
 header { overflow: visible; }
 .header-inner { max-width: 1580px; gap: 22px; }
 .ldr-nav { display:flex; align-items:center; justify-content:flex-end; flex-wrap:wrap; gap:clamp(7px,1.1vw,17px); }
 .ldr-nav > a, .ldr-nav > .nav-menu > summary, .nav-search-button { white-space:nowrap; font-size:13px; font-weight:800; color:#D7E4F3; }
 .nav-menu { position:relative; }
+#agenda-calendar-title, #palmares-competitions, #circonscriptions, .programme-anchor, .project-status { scroll-margin-top: 145px; }
 .nav-menu > summary { cursor:pointer; list-style:none; padding:12px 2px; }
 .nav-menu > summary::-webkit-details-marker { display:none; }
-.nav-menu > summary::after { content:"⌄"; display:inline-block; margin-left:5px; color:#A8C9F2; }
+.nav-menu > summary::after { content:"âŒ„"; display:inline-block; margin-left:5px; color:#A8C9F2; }
 .nav-menu[open] > summary, .nav-menu > summary:hover { color:#FFF; }
 .nav-menu[open] > summary::after { transform:rotate(180deg); }
 .nav-submenu { position:absolute; top:100%; left:-12px; z-index:60; width:max-content; min-width:250px; max-width:min(330px, 90vw); display:flex; flex-direction:column; padding:10px; background:#192F50; border:1px solid #526E91; border-radius:13px; box-shadow:0 16px 38px #0008; }
+.nav-menu:last-child .nav-submenu { left:auto; right:0; }
 .nav-submenu a { padding:12px 13px; font-size:13px; line-height:1.35; border-radius:8px; font-weight:650; white-space:normal; }
 .nav-submenu a:hover, .nav-submenu a:focus-visible { color:#142D4C; text-decoration:none; background:#E9F1FC; }
 .nav-search-button { display:inline-flex; gap:6px; align-items:center; border:1px solid #506889; padding:9px 12px; border-radius:9px; background:transparent; cursor:pointer; }
@@ -1130,13 +1132,13 @@ header { overflow: visible; }
 .site-search-result span { color:#D3E0F1; font-size:12px; line-height:1.45; }
 .site-search-empty { grid-column:1/-1; margin:0; }
 @media(max-width:1120px) { .header-inner { flex-direction:column; padding:15px 0; } .ldr-nav { justify-content:center; } }
-@media(max-width:680px) { .ldr-nav { gap:9px 13px; } .ldr-nav .nav-featured { padding:9px 12px; } .nav-search-button span { display:none; } .nav-submenu { position:fixed; top:auto; left:4vw; right:4vw; width:92vw; max-width:none; max-height:62dvh; overflow-y:auto; } .site-search-panel { max-height:calc(100dvh - 135px); } }
+@media(max-width:680px) { .nav-menu:last-child .nav-submenu { left:4vw; right:4vw; } .ldr-nav { gap:9px 13px; } .ldr-nav .nav-featured { padding:9px 12px; } .nav-search-button span { display:none; } .nav-submenu { position:fixed; top:auto; left:4vw; right:4vw; width:92vw; max-width:none; max-height:62dvh; overflow-y:auto; } .site-search-panel { max-height:calc(100dvh - 135px); } }
 .nav-menu > summary:focus-visible, .nav-search-button:focus-visible, .ldr-nav .nav-featured:focus-visible { outline:3px solid #85C7FF; outline-offset:3px; }
 @media (prefers-reduced-motion: reduce) { .nav-submenu, .site-search-panel { scroll-behavior:auto; } }
 
 
 
-/* Palmarès des compétitions : archives éditoriales */
+/* PalmarÃ¨s des compÃ©titions : archives Ã©ditoriales */
 .palmares-table-scroll { overflow-x:auto; border:1px solid #D9E3EF; border-radius:12px; background:#FFF; }
 .palmares-table { width:100%; border-collapse:collapse; min-width:700px; color:#142D4C; }
 .palmares-table th,.palmares-table td { padding:14px 16px; border-bottom:1px solid #DFE7F1; text-align:left; line-height:1.5; }
@@ -1151,11 +1153,11 @@ header { overflow: visible; }
 <body class="portail-actif">
 
 <!-- ========================================
-     ÉCRAN D'ENTRÉE
+     Ã‰CRAN D'ENTRÃ‰E
 ======================================== -->
 
 <div id="portail-ldr" role="dialog" aria-modal="true"
-     aria-label="Entrée dans Lucullus-les-Deux-Rives">
+     aria-label="EntrÃ©e dans Lucullus-les-Deux-Rives">
 
   <div class="portail-contenu">
 
@@ -1166,11 +1168,11 @@ header { overflow: visible; }
         alt="Blason de Lucullus-les-Deux-Rives"
         onerror="this.style.display='none';this.parentElement.classList.add('sans-logo')"
       >
-      <span class="portail-logo-secours" aria-hidden="true">🛡️</span>
+      <span class="portail-logo-secours" aria-hidden="true">ðŸ›¡ï¸</span>
     </div>
 
     <div class="portail-surtitre">
-      Principauté populaire indépendante
+      PrincipautÃ© populaire indÃ©pendante
     </div>
 
     <h1 class="portail-titre">
@@ -1178,7 +1180,7 @@ header { overflow: visible; }
     </h1>
 
     <p class="portail-devise">
-      Une principauté, mille histoires, deux rives.
+      Une principautÃ©, mille histoires, deux rives.
     </p>
 
     <button
@@ -1187,12 +1189,12 @@ header { overflow: visible; }
       id="entrer-ldr"
       autofocus
     >
-      ENTRER DANS LA PRINCIPAUTÉ
-      <span aria-hidden="true">→</span>
+      ENTRER DANS LA PRINCIPAUTÃ‰
+      <span aria-hidden="true">â†’</span>
     </button>
 
     <div class="portail-bas">
-      LDR.WORLD · PORTAIL OFFICIEL
+      LDR.WORLD Â· PORTAIL OFFICIEL
     </div>
 
   </div>
@@ -1213,59 +1215,76 @@ header { overflow: visible; }
       <a class="nav-home" href="#accueil">Accueil</a>
 
       <details class="nav-menu">
-        <summary>Découvrir</summary>
+        <summary>DÃ©couvrir</summary>
         <div class="nav-submenu">
-          <a href="#fiche/4229b1f3b04a81c5b0d8fc41f7340733">🧭 Vue d'ensemble</a>
-          <a href="#geographie">🗺️ Territoires & géographie</a>
-          <a href="#fiche/4229b1f3b04a817cb406ed854612c0c2">📍 Lieux remarquables</a>
-          <a href="#fiche/4229b1f3b04a81ebb5edf3940f56deed">🌳 Nature & paysages</a>
-          <a href="#fiche/4229b1f3b04a816a8f34f4ee4187dfe5">🗺️ Cartes de la Principauté</a>
+          <a href="#fiche/4229b1f3b04a81c5b0d8fc41f7340733">ðŸ§­ Vue d'ensemble</a>
+          <a href="#geographie">ðŸ—ºï¸ Territoires & gÃ©ographie</a>
+          <a href="#fiche/4229b1f3b04a817cb406ed854612c0c2">ðŸ“ Lieux remarquables</a>
+          <a href="#fiche/4229b1f3b04a81ebb5edf3940f56deed">ðŸŒ³ Nature & paysages</a>
+          <a href="#fiche/4229b1f3b04a816a8f34f4ee4187dfe5">ðŸ—ºï¸ Cartes de la PrincipautÃ©</a>
         </div>
       </details>
 
       <details class="nav-menu">
         <summary>Histoire</summary>
         <div class="nav-submenu">
-          <a href="#histoire">📜 Histoire générale & locale</a>
-          <a href="#fiche/4229b1f3b04a81eabd9bf07346cbaffc">🏰 Lieux historiques</a>
-          <a href="#fiche/4229b1f3b04a81f79aa8d47c9b0fa1de">⏳ Chronologie & événements historiques</a>
-          <a href="#fiche/4229b1f3b04a817cb348ea4a14c6b465">🎭 Culture & traditions</a>
+          <a href="#histoire">ðŸ“œ Histoire gÃ©nÃ©rale & locale</a>
+          <a href="#fiche/4229b1f3b04a81eabd9bf07346cbaffc">ðŸ° Lieux historiques</a>
+          <a href="#fiche/4229b1f3b04a81f79aa8d47c9b0fa1de">â³ Chronologie & Ã©vÃ©nements historiques</a>
+          <a href="#fiche/4229b1f3b04a817cb348ea4a14c6b465">ðŸŽ­ Culture & traditions</a>
         </div>
       </details>
 
       <details class="nav-menu">
-        <summary>Société</summary>
+        <summary>SociÃ©tÃ©</summary>
         <div class="nav-submenu">
-          <a href="#fiche/4229b1f3b04a813eaba6f419f6107f32">🏛️ Vue d'ensemble</a>
-          <a href="#institutions">⚖️ Institutions & politique</a>
-          <a href="#economie">💼 Économie & entreprises</a>
-          <a href="#urbanisme">🏗️ Urbanisme & projets</a>
-          <a href="#fiche/4229b1f3b04a814992fccff9b5511918">🏡 Vie quotidienne</a>
+          <a href="#fiche/4229b1f3b04a813eaba6f419f6107f32">ðŸ›ï¸ Vue d'ensemble</a>
+          <a href="#institutions">âš–ï¸ Institutions & politique</a>
+          <a href="#economie">ðŸ’¼ Ã‰conomie & entreprises</a>
+          <a href="#urbanisme">ðŸ—ï¸ Urbanisme & projets</a>
+          <a href="#urbanisme/projets-en-cours">Chantiers en cours</a>
+          <a href="#urbanisme/projets-proposition-de-campagne">Propositions de campagne</a>
+          <a href="#fiche/4229b1f3b04a814992fccff9b5511918">ðŸ¡ Vie quotidienne</a>
         </div>
       </details>
 
       <details class="nav-menu">
         <summary>Transports</summary>
         <div class="nav-submenu">
-          <a href="#transports">🚉 Vue d'ensemble & plans</a>
-          <a href="#fiche/4229b1f3b04a81af930efbf359d3fe79">🚇 TRM : Métro & VAL</a>
-          <a href="#fiche/4229b1f3b04a81ce88bde0bf9296f68c">🚆 SNCL : TBL & trains</a>
-          <a href="#fiche/4229b1f3b04a8134b9dffd2869be2680">🚠 Autres mobilités</a>
+          <a href="#transports">ðŸš‰ Vue d'ensemble & plans</a>
+          <a href="#fiche/4229b1f3b04a81af930efbf359d3fe79">ðŸš‡ TRM : MÃ©tro & VAL</a>
+          <a href="#fiche/4229b1f3b04a81ce88bde0bf9296f68c">ðŸš† SNCL : TBL & trains</a>
+          <a href="#fiche/4229b1f3b04a8134b9dffd2869be2680">ðŸš  Autres mobilitÃ©s</a>
         </div>
       </details>
 
       <details class="nav-menu">
         <summary>Personnages</summary>
         <div class="nav-submenu">
-          <a href="#personnages">👥 Répertoire des personnages</a>
-          <a href="#fiche/4219b1f3b04a8186843dd8e12032e2a8">📜 Figures historiques</a>
+          <a href="#personnages">ðŸ‘¥ RÃ©pertoire des personnages</a>
+          <a href="#fiche/4219b1f3b04a8186843dd8e12032e2a8">ðŸ“œ Figures historiques</a>
         </div>
       </details>
 
-      <a class="nav-home" href="#agenda">📅 Agenda & événements</a>
+      <details class="nav-menu">
+        <summary>Agenda</summary>
+        <div class="nav-submenu">
+          <a href="#agenda">Ã‰vÃ©nements Ã  venir</a>
+          <a href="#agenda/agenda-calendar-title">Calendrier</a>
+          <a href="#agenda/palmares-competitions">PalmarÃ¨s 2026</a>
+          <a href="#fiche/4229b1f3b04a8113a56ac6a79355624f">Dossiers et archives</a>
+        </div>
+      </details>
 
-      <button class="nav-search-button" id="open-site-search" type="button" aria-expanded="false" aria-controls="site-search-panel" aria-label="Rechercher">⌕ <span>Rechercher</span></button>
-      <a class="nav-featured" href="#elections" title="Événement à la une — Élections parlementaires 2027">🗳️ Élections 2027</a>
+      <button class="nav-search-button" id="open-site-search" type="button" aria-expanded="false" aria-controls="site-search-panel" aria-label="Rechercher">âŒ• <span>Rechercher</span></button>
+      <details class="nav-menu">
+        <summary>Ã‰lections 2027</summary>
+        <div class="nav-submenu">
+          <a href="#elections">Scrutin, candidatures et programmes</a>
+          <a href="#elections/circonscriptions">Circonscriptions</a>
+          <a href="#agenda/agenda-calendar-title">Calendrier officiel</a>
+        </div>
+      </details>
     </nav>
 
   </div>
@@ -1273,18 +1292,19 @@ header { overflow: visible; }
   <div class="site-search-panel" id="site-search-panel" hidden>
     <div class="container site-search-inner">
       <div class="site-search-heading">
-        <label for="site-search-input">Rechercher dans toute l'encyclopédie</label>
-        <button type="button" id="close-site-search" aria-label="Fermer la recherche">✕</button>
+        <label for="site-search-input">Rechercher dans toute l'encyclopÃ©die</label>
+        <button type="button" id="close-site-search" aria-label="Fermer la recherche">âœ•</button>
       </div>
-      <input id="site-search-input" type="search" autocomplete="off" placeholder="Ville, quartier, lieu, personnage, histoire…" aria-label="Recherche globale">
-      <div class="site-search-filters" role="group" aria-label="Filtrer les résultats">
+      <input id="site-search-input" type="search" autocomplete="off" placeholder="Ville, quartier, lieu, personnage, histoireâ€¦" aria-label="Recherche globale">
+      <div class="site-search-filters" role="group" aria-label="Filtrer les rÃ©sultats">
         <button type="button" data-search-section="tout" class="active">Tout</button>
-        <button type="button" data-search-section="geographie">Géographie</button>
+        <button type="button" data-search-section="geographie">GÃ©ographie</button>
         <button type="button" data-search-section="histoire">Histoire</button>
         <button type="button" data-search-section="transports">Transports</button>
-        <button type="button" data-search-section="institutions">Société</button>
+        <button type="button" data-search-section="institutions">SociÃ©tÃ©</button>
         <button type="button" data-search-section="personnages">Personnages</button>
-        <button type="button" data-search-section="elections">Événements</button>
+        <button type="button" data-search-section="agenda">Agenda</button>
+        <button type="button" data-search-section="elections">Ã‰lections</button>
       </div>
       <div id="site-search-results" class="site-search-results" aria-live="polite"></div>
     </div>
@@ -1303,27 +1323,27 @@ header { overflow: visible; }
     <div class="hero" id="hero-accueil">
 
       <div class="eyebrow">
-        Principauté populaire indépendante
+        PrincipautÃ© populaire indÃ©pendante
       </div>
 
       <h1>
-        Bienvenue à<br>
+        Bienvenue Ã <br>
         Lucullus-les-Deux-Rives
       </h1>
 
       <p>
-        Une principauté, mille histoires, deux rives.
-        Découvrez les territoires, les habitants
-        et les institutions de notre métropole.
+        Une principautÃ©, mille histoires, deux rives.
+        DÃ©couvrez les territoires, les habitants
+        et les institutions de notre mÃ©tropole.
       </p>
 
       <a class="button" href="#geographie">
-        Découvrir la Principauté →
+        DÃ©couvrir la PrincipautÃ© â†’
       </a>
 
     </div>
 
-    <!-- ÉLECTIONS -->
+    <!-- Ã‰LECTIONS -->
 
     <section>
       <div class="panel">
@@ -1332,10 +1352,10 @@ header { overflow: visible; }
           Parlement communal
         </div>
 
-        <h2>🗳️ Cap sur les élections 2027</h2>
+        <h2>ðŸ—³ï¸ Cap sur les Ã©lections 2027</h2>
 
         <p>
-          34 circonscriptions · 34 Délégués des Rives
+          34 circonscriptions Â· 34 DÃ©lÃ©guÃ©s des Rives
         </p>
 
         <div class="clock">
@@ -1365,13 +1385,13 @@ header { overflow: visible; }
         <div class="dates">
 
           <p>
-            📅 <strong>Premier tour :</strong>
-            7 février 2027
+            ðŸ“… <strong>Premier tour :</strong>
+            7 fÃ©vrier 2027
           </p>
 
           <p>
-            🗳️ <strong>Second tour :</strong>
-            14 février 2027
+            ðŸ—³ï¸ <strong>Second tour :</strong>
+            14 fÃ©vrier 2027
           </p>
 
           <p id="countdown-status">
@@ -1380,15 +1400,15 @@ header { overflow: visible; }
 
           <p>
             Les habitants des 34 circonscriptions
-            éliront chacun un Délégué des Rives.
-            La campagne est en cours et aucun résultat
-            n'est encore proclamé.
+            Ã©liront chacun un DÃ©lÃ©guÃ© des Rives.
+            La campagne est en cours et aucun rÃ©sultat
+            n'est encore proclamÃ©.
           </p>
 
         </div>
 
         <a class="button" href="#elections">
-          Découvrir les élections →
+          DÃ©couvrir les Ã©lections â†’
         </a>
 
       </div>
@@ -1399,10 +1419,10 @@ header { overflow: visible; }
     <section>
 
       <div class="eyebrow">
-        LDR.world · Découvrir
+        LDR.world Â· DÃ©couvrir
       </div>
 
-      <h2>🧭 Explorer la Principauté</h2>
+      <h2>ðŸ§­ Explorer la PrincipautÃ©</h2>
 
       <p>
         Parcourez les rubriques de notre territoire.
@@ -1411,55 +1431,55 @@ header { overflow: visible; }
       <div class="grid">
 
         <a class="card" href="#geographie">
-          <div class="emoji">🗺️</div>
-          <h3>Géographie</h3>
-          <p>Les territoires de la métropole.</p>
+          <div class="emoji">ðŸ—ºï¸</div>
+          <h3>GÃ©ographie</h3>
+          <p>Les territoires de la mÃ©tropole.</p>
         </a>
 
         <a class="card" href="#histoire">
-          <div class="emoji">📜</div>
+          <div class="emoji">ðŸ“œ</div>
           <h3>Histoire</h3>
-          <p>Les siècles d'histoire de Lucullus.</p>
+          <p>Les siÃ¨cles d'histoire de Lucullus.</p>
         </a>
 
         <a class="card" href="#transports">
-          <div class="emoji">🚇</div>
+          <div class="emoji">ðŸš‡</div>
           <h3>Transports</h3>
-          <p>TRM (métro & VAL), SNCL (TBL & trains).</p>
+          <p>TRM (mÃ©tro & VAL), SNCL (TBL & trains).</p>
         </a>
 
         <a class="card" href="#institutions">
-          <div class="emoji">🏛️</div>
+          <div class="emoji">ðŸ›ï¸</div>
           <h3>Institutions</h3>
           <p>La vie politique et communale.</p>
         </a>
 
         <a class="card" href="#personnages">
-          <div class="emoji">👥</div>
+          <div class="emoji">ðŸ‘¥</div>
           <h3>Personnages</h3>
           <p>Souverains, habitants et figures historiques.</p>
         </a>
 
         <a class="card" href="#agenda">
-          <div class="emoji">📅</div>
+          <div class="emoji">ðŸ“…</div>
           <h3>Agenda</h3>
-          <p>Fêtes, commémorations et événements.</p>
+          <p>FÃªtes, commÃ©morations et Ã©vÃ©nements.</p>
         </a>
 
         <a class="card" href="#elections">
-          <div class="emoji">🗳️</div>
-          <h3>Élections</h3>
+          <div class="emoji">ðŸ—³ï¸</div>
+          <h3>Ã‰lections</h3>
           <p>Le scrutin parlementaire de 2027.</p>
         </a>
 
         <a class="card" href="#economie">
-          <div class="emoji">💼</div>
-          <h3>Économie</h3>
-          <p>Entreprises et activités.</p>
+          <div class="emoji">ðŸ’¼</div>
+          <h3>Ã‰conomie</h3>
+          <p>Entreprises et activitÃ©s.</p>
         </a>
 
         <a class="card" href="#urbanisme">
-          <div class="emoji">🏗️</div>
+          <div class="emoji">ðŸ—ï¸</div>
           <h3>Urbanisme</h3>
           <p>Les grands projets de demain.</p>
         </a>
@@ -1471,7 +1491,7 @@ header { overflow: visible; }
 
     <section id="recherche">
 
-      <h2>🔎 Rechercher dans l'encyclopédie</h2>
+      <h2>ðŸ”Ž Rechercher dans l'encyclopÃ©die</h2>
 
       <p>
         Retrouvez une ville, une station,
@@ -1482,7 +1502,7 @@ header { overflow: visible; }
         id="search-input"
         class="encyclopedia-search"
         type="search"
-        placeholder="Ex. La Linea, TRM, Baboush…"
+        placeholder="Ex. La Linea, TRM, Baboushâ€¦"
         aria-label="Rechercher une fiche"
       >
 
@@ -1494,7 +1514,7 @@ header { overflow: visible; }
 </div>
 
 <!-- ========================================
-     GÉOGRAPHIE
+     GÃ‰OGRAPHIE
 ======================================== -->
 
 <div class="page" id="geographie">
@@ -1502,17 +1522,17 @@ header { overflow: visible; }
 
     <div class="page-title">
       <div class="eyebrow">Le territoire</div>
-      <h1>🗺️ Géographie</h1>
+      <h1>ðŸ—ºï¸ GÃ©ographie</h1>
 
       <p>
-        Découvrez les secteurs, les quartiers,
-        les villages et les différentes régions
+        DÃ©couvrez les secteurs, les quartiers,
+        les villages et les diffÃ©rentes rÃ©gions
         de Lucullus-les-Deux-Rives.
       </p>
     </div>
 
     <div class="status">
-      Chargement des territoires…
+      Chargement des territoiresâ€¦
     </div>
 
   </div>
@@ -1527,13 +1547,13 @@ header { overflow: visible; }
 
     <div class="page-title">
       <div class="eyebrow">
-        Mémoire de la Principauté
+        MÃ©moire de la PrincipautÃ©
       </div>
-      <h1>📜 Histoire et culture</h1>
+      <h1>ðŸ“œ Histoire et culture</h1>
     </div>
 
     <div class="status">
-      Chargement des chroniques…
+      Chargement des chroniquesâ€¦
     </div>
 
   </div>
@@ -1547,16 +1567,16 @@ header { overflow: visible; }
   <div class="container">
 
     <div class="page-title">
-      <h1>🚇 Transports</h1>
+      <h1>ðŸš‡ Transports</h1>
 
       <p>
-        Métro TRM, TBL, stations, correspondances
-        et réseau ferroviaire SNCL.
+        MÃ©tro TRM, TBL, stations, correspondances
+        et rÃ©seau ferroviaire SNCL.
       </p>
     </div>
 
     <div class="status">
-      Chargement du réseau…
+      Chargement du rÃ©seauâ€¦
     </div>
 
   </div>
@@ -1569,7 +1589,7 @@ header { overflow: visible; }
 <div class="page" id="institutions">
   <div class="container">
     <div class="page-title">
-      <h1>🏛️ Institutions</h1>
+      <h1>ðŸ›ï¸ Institutions</h1>
     </div>
   </div>
 </div>
@@ -1578,15 +1598,15 @@ header { overflow: visible; }
   <div class="container">
     <div class="page-title">
       <div class="eyebrow">Parlement communal</div>
-      <h1>🗳️ Élections 2027</h1>
+      <h1>ðŸ—³ï¸ Ã‰lections 2027</h1>
 
       <p>
-        Premier tour le 7 février,
-        second tour le 14 février 2027.
+        Premier tour le 7 fÃ©vrier,
+        second tour le 14 fÃ©vrier 2027.
       </p>
 
       <p>
-        Aucun résultat officiel n'est encore proclamé.
+        Aucun rÃ©sultat officiel n'est encore proclamÃ©.
       </p>
     </div>
   </div>
@@ -1595,7 +1615,7 @@ header { overflow: visible; }
 <div class="page" id="personnages">
   <div class="container">
     <div class="page-title">
-      <h1>👥 Personnalités et habitants</h1>
+      <h1>ðŸ‘¥ PersonnalitÃ©s et habitants</h1>
     </div>
   </div>
 </div>
@@ -1603,7 +1623,7 @@ header { overflow: visible; }
 <div class="page" id="economie">
   <div class="container">
     <div class="page-title">
-      <h1>💼 Économie</h1>
+      <h1>ðŸ’¼ Ã‰conomie</h1>
     </div>
   </div>
 </div>
@@ -1611,42 +1631,43 @@ header { overflow: visible; }
 <div class="page" id="urbanisme">
   <div class="container">
     <div class="page-title">
-      <h1>🏗️ Projets et urbanisme</h1>
+      <h1>ðŸ—ï¸ Projets et urbanisme</h1>
     </div>
   </div>
 </div>
 
 <!-- ========================================
-     AGENDA & ÉVÉNEMENTS — LDR 2026–2027
+     AGENDA & Ã‰VÃ‰NEMENTS â€” LDR 2026â€“2027
 ======================================== -->
 
 <div class="page" id="agenda">
   <div class="container agenda-container">
     <div class="page-title">
-      <div class="eyebrow">La vie de la Principauté</div>
-      <h1>📅 Agenda & événements</h1>
-      <p>Fêtes locales, commémorations, grands rendez-vous et traditions des Deux Rives.</p>
+      <div class="eyebrow">La vie de la PrincipautÃ©</div>
+      <h1>ðŸ“… Agenda & Ã©vÃ©nements</h1>
+      <p>FÃªtes locales, commÃ©morations, grands rendez-vous et traditions des Deux Rives.</p>
     </div>
 
     <section class="agenda-upcoming-section" aria-labelledby="agenda-upcoming-title">
       <div class="agenda-section-top">
-        <div><h2 id="agenda-upcoming-title">Événements à venir</h2><p>Les prochains rendez-vous du calendrier officiel.</p></div>
-        <a class="agenda-notion-link" href="https://app.notion.com/p/4229b1f3b04a8139ad6cd34545381e02" target="_blank" rel="noopener noreferrer">Voir l'agenda Notion ↗</a>
+        <div><h2 id="agenda-upcoming-title">Ã‰vÃ©nements Ã  venir</h2><p>Les prochains rendez-vous du calendrier officiel.</p></div>
+        <a class="agenda-notion-link" href="https://app.notion.com/p/4229b1f3b04a8139ad6cd34545381e02" target="_blank" rel="noopener noreferrer">Source du calendrier dans Notion â†—</a>
       </div>
       <div class="agenda-upcoming-grid" id="agenda-upcoming-list"></div>
     </section>
 
     <section class="agenda-calendar-section" aria-labelledby="agenda-calendar-title">
       <div class="agenda-section-top">
-        <div><h2 id="agenda-calendar-title">Calendrier de la Principauté</h2><p>Parcourez les mois et sélectionnez un jour pour retrouver ses événements.</p></div>
+        <div><h2 id="agenda-calendar-title">Calendrier de la PrincipautÃ©</h2><p>Parcourez les mois et sÃ©lectionnez un jour pour retrouver ses Ã©vÃ©nements.</p></div>
         <div class="agenda-calendar-controls">
-          <button type="button" id="agenda-prev" aria-label="Mois précédent">‹</button>
+          <select id="agenda-year" aria-label="AnnÃ©e du calendrier"></select>
+          <button type="button" id="agenda-prev" aria-label="Mois prÃ©cÃ©dent">â€¹</button>
           <strong id="agenda-month-label" aria-live="polite"></strong>
-          <button type="button" id="agenda-next" aria-label="Mois suivant">›</button>
+          <button type="button" id="agenda-next" aria-label="Mois suivant">â€º</button>
         </div>
       </div>
-      <div class="agenda-calendar-grid" id="agenda-calendar-grid" role="grid" aria-label="Calendrier mensuel"></div>
-      <h3 id="agenda-month-events-heading">Événements du mois</h3>
+      <div class="agenda-calendar-grid" id="agenda-calendar-grid" role="group" aria-label="Calendrier mensuel"></div>
+      <h3 id="agenda-month-events-heading">Ã‰vÃ©nements du mois</h3>
       <div id="agenda-month-events" class="agenda-month-events"></div>
     </section>
 
@@ -1654,32 +1675,32 @@ header { overflow: visible; }
     <section class="agenda-calendar-section" aria-labelledby="palmares-title" id="palmares-competitions">
       <div class="agenda-section-top">
         <div>
-          <h2 id="palmares-title">🏆 Palmarès des compétitions — Archives 2026</h2>
-          <p>Les vainqueurs restent à déterminer dans les archives officielles de la Principauté.</p>
+          <h2 id="palmares-title">ðŸ† PalmarÃ¨s des compÃ©titions â€” Archives 2026</h2>
+          <p>Les vainqueurs restent Ã  dÃ©terminer dans les archives officielles de la PrincipautÃ©.</p>
         </div>
       </div>
       <div class="palmares-table-scroll">
         <table class="palmares-table">
-          <thead><tr><th>Compétition</th><th>Édition 2026</th><th>Vainqueur</th><th>Distinction</th></tr></thead>
+          <thead><tr><th>CompÃ©tition</th><th>Ã‰dition 2026</th><th>Vainqueur</th><th>Distinction</th></tr></thead>
           <tbody>
-            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a812f9418df87190c2a36" target="_blank" rel="noopener noreferrer">Olympiades des Deux Rives</a></td><td>100e, exclusivement sportive</td><td><span class="palmares-pending">À confirmer</span></td><td>Grand Écu des Deux Rives</td></tr>
-            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a8106a294df02d8321033" target="_blank" rel="noopener noreferrer">Guerre des Marmites</a></td><td>27 février 2026</td><td><span class="palmares-pending">À confirmer</span></td><td>Louche d’Or</td></tr>
-            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a81f6a1a0ff4e8e96468c" target="_blank" rel="noopener noreferrer">Course des Chaises</a></td><td>20 juin 2026</td><td><span class="palmares-pending">À confirmer</span></td><td>À documenter</td></tr>
-            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a817b9761f1f44e259d0b" target="_blank" rel="noopener noreferrer">Guerre du Cochonnet</a></td><td>26 juin 2026</td><td><span class="palmares-pending">À confirmer</span></td><td>À documenter</td></tr>
-            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a81989791cf9816b21eda" target="_blank" rel="noopener noreferrer">Grand Défi de la Butte</a></td><td>24 juillet 2026</td><td><span class="palmares-pending">À confirmer</span></td><td>À documenter</td></tr>
-            <tr><td><a href="https://app.notion.com/p/4239b1f3b04a810ab164dbcc13f270c9" target="_blank" rel="noopener noreferrer">Grand Défilé des Travailleurs — Concours des fanfares</a></td><td>20 novembre 2026</td><td><span class="palmares-pending">À confirmer</span></td><td>Marteau d’Honneur</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a812f9418df87190c2a36">Olympiades des Deux Rives</a></td><td>100e, exclusivement sportive</td><td><span class="palmares-pending">Ã€ confirmer</span></td><td>Grand Ã‰cu des Deux Rives</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a8106a294df02d8321033">Guerre des Marmites</a></td><td>27 fÃ©vrier 2026</td><td><span class="palmares-pending">Ã€ confirmer</span></td><td>Louche dâ€™Or</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a81f6a1a0ff4e8e96468c">Course des Chaises</a></td><td>20 juin 2026</td><td><span class="palmares-pending">Ã€ confirmer</span></td><td>Ã€ documenter</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a817b9761f1f44e259d0b">Guerre du Cochonnet</a></td><td>26 juin 2026</td><td><span class="palmares-pending">Ã€ confirmer</span></td><td>Ã€ documenter</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a81989791cf9816b21eda">Grand DÃ©fi de la Butte</a></td><td>24 juillet 2026</td><td><span class="palmares-pending">Ã€ confirmer</span></td><td>Ã€ documenter</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a810ab164dbcc13f270c9">Grand DÃ©filÃ© des Travailleurs â€” Concours des fanfares</a></td><td>20 novembre 2026</td><td><span class="palmares-pending">Ã€ confirmer</span></td><td>Marteau dâ€™Honneur</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="palmares-note">Les résultats proposés précédemment (Centre-Ville, Little Italy, Marcel Pagnol, Grand Clément, Butte Jambon et Stakhanov) ne sont pas inscrits comme des résultats officiels tant qu’ils ne sont pas validés. En 2027, les Olympiades introduisent pour la première fois les épreuves intellectuelles.</p>
+      <p class="palmares-note">Les rÃ©sultats proposÃ©s prÃ©cÃ©demment (Centre-Ville, Little Italy, Marcel Pagnol, Grand ClÃ©ment, Butte Jambon et Stakhanov) ne sont pas inscrits comme des rÃ©sultats officiels tant quâ€™ils ne sont pas validÃ©s. En 2027, les Olympiades introduisent pour la premiÃ¨re fois les Ã©preuves intellectuelles.</p>
     </section>
 
-    <p class="agenda-footer-note">Le calendrier rassemble les 38 fêtes annuelles de 2026 et de 2027, ainsi que les deux tours des élections parlementaires de 2027. Chaque occurrence renvoie à sa fiche Notion. Les années ultérieures nécessitent une actualisation de cette page.</p>
+    <p class="agenda-footer-note" id="agenda-status" role="status"></p>
   </div>
 </div>
 
 <!-- ========================================
-     FICHE DÉTAILLÉE
+     FICHE DÃ‰TAILLÃ‰E
 ======================================== -->
 
 <div class="page" id="fiche">
@@ -1690,8 +1711,8 @@ header { overflow: visible; }
 
 <footer>
   <div class="container">
-    © LDR.world — Lucullus-les-Deux-Rives ·
-    Portail de la Principauté populaire indépendante
+    Â© LDR.world â€” Lucullus-les-Deux-Rives Â·
+    Portail de la PrincipautÃ© populaire indÃ©pendante
   </div>
 </footer>
 
@@ -1715,7 +1736,33 @@ const SECTION_IDS = {
   urbanisme: "41b9b1f3-b04a-8193-9f78-ec1b66abd127"
 };
 
+const HUB_IDS = {
+  "4229b1f3b04a81c5b0d8fc41f7340733": "geographie",
+  "4229b1f3b04a817cb406ed854612c0c2": "geographie",
+  "4229b1f3b04a81ebb5edf3940f56deed": "geographie",
+  "4229b1f3b04a816a8f34f4ee4187dfe5": "geographie",
+  "4229b1f3b04a813eaba6f419f6107f32": "institutions",
+  "4229b1f3b04a814992fccff9b5511918": "institutions",
+  "4229b1f3b04a8113a56ac6a79355624f": "agenda",
+  "4229b1f3b04a81eabd9bf07346cbaffc": "histoire",
+  "4229b1f3b04a81f79aa8d47c9b0fa1de": "histoire",
+  "4229b1f3b04a817cb348ea4a14c6b465": "histoire",
+  "4219b1f3b04a8186843dd8e12032e2a8": "personnages"
+};
+
+const FORMER_PROGRAMME_LINKS = {
+  "4229b1f3b04a81aaa858cab1cc8cd37a": ["41b9b1f3b04a8166b15df9e635068387", "elise-des-cimes"],
+  "4229b1f3b04a81e88bfdca23b0d4e226": ["41b9b1f3b04a8126a0c1d658f15dad13", "gus-petit"],
+  "4229b1f3b04a8122a7d5c912a317707c": ["41b9b1f3b04a816dba92c367b752780d", "karim-al-baboush"],
+  "4229b1f3b04a81ddb8d2d23cceeb72f8": ["41b9b1f3b04a816dba92c367b752780d", "leila-ben-youssef"],
+  "4229b1f3b04a8148a336c777bf450f4a": ["41b9b1f3b04a81bfb8becc8530bd2025", "philippe-de-saint-frank"],
+  "4229b1f3b04a8167aff9fd653ea80d03": ["41b9b1f3b04a81bfb8becc8530bd2025", "victoire-de-thermes"],
+  "4229b1f3b04a81f3af6cfea7a0eb389a": ["41b9b1f3b04a81d78be4c295e6bda588", "fatima-benedictine"],
+  "4229b1f3b04a8130a4efe9a8f019c5b6": ["41b9b1f3b04a81d7b5cad56cae1f0220", "marius-cigalon"],
+  "4229b1f3b04a815899d5eb0ddd30d1b2": ["41b9b1f3b04a81d78be4c295e6bda588", "pateo-miette"]
+};
 const pages = new Map();
+let encyclopediaStatus = "loading";
 const parents = new Map();
 
 let catalogue = {};
@@ -1822,7 +1869,7 @@ async function loadCatalogue() {
 }
 
 /* ========================================
-   BANNIÈRES
+   BANNIÃˆRES
 ======================================== */
 
 function createCover(page) {
@@ -1840,7 +1887,7 @@ function createCover(page) {
 
   const image = el("img", "ldr-cover");
   image.src = url;
-  image.alt = "Bannière de " + page.title;
+  image.alt = "BanniÃ¨re de " + page.title;
   image.loading = "lazy";
 
   image.onerror = () => image.remove();
@@ -1873,7 +1920,7 @@ function addGallery(page, container) {
   const section = el("section", "ldr-gallery");
 
   section.appendChild(
-    el("h2", "", "📷 Galerie photographique")
+    el("h2", "", "ðŸ“· Galerie photographique")
   );
 
   const grid = el("div", "ldr-gallery-grid");
@@ -1916,7 +1963,7 @@ function addGallery(page, container) {
 }
 
 /* ========================================
-   COMPTE À REBOURS ÉLECTORAL
+   COMPTE Ã€ REBOURS Ã‰LECTORAL
 ======================================== */
 
 const first = new Date(
@@ -1968,7 +2015,7 @@ function countdown() {
   if (status) {
     status.textContent =
       now >= second
-        ? "Les deux dates du scrutin sont passées."
+        ? "Les deux dates du scrutin sont passÃ©es."
         : now >= first
           ? "Temps restant avant le second tour."
           : "Temps restant avant le premier tour.";
@@ -2005,27 +2052,49 @@ function buildIndex(page, parent = null) {
    LIENS INTERNES
 ======================================== */
 
+function siteReference(href) {
+  const safe = safeExternalUrl(href);
+  if (!safe) return null;
+  const url = new URL(safe);
+  const notion = /(?:^|\.)(?:notion\.so|notion\.site|notion\.com)$/.test(url.hostname);
+  const site = ["lucullus-les-deux-rives.github.io", "ldr.world", "www.ldr.world"].includes(url.hostname);
+  const path = notion ? url.pathname : site ? url.hash.match(/^#fiche\/([^/]+)(?:\/programme-[a-z0-9-]+)?$/)?.[1] : "";
+  const id = cleanId(path?.match(/[0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12}$/i)?.[0]);
+  return id || null;
+}
+
 function internalLink(href) {
-  if (!href) {
-    return null;
+  const id = siteReference(href);
+  if (!id) return null;
+  if (FORMER_PROGRAMME_LINKS[id]) {
+    const [district, candidate] = FORMER_PROGRAMME_LINKS[id];
+    return "#fiche/" + district + "/programme-" + candidate;
   }
+  const programme = new URL(href).hash.match(/\/programme-[a-z0-9-]+$/)?.[0];
+  if (programme) return ficheLink({ id }) + programme;
+  if (id === cleanId(ROOT_ID)) return "#accueil";
+  if (id === "4229b1f3b04a8139ad6cd34545381e02") return "#agenda/agenda-calendar-title";
+  const section = Object.keys(SECTION_IDS).find(key => cleanId(SECTION_IDS[key]) === id);
+  return section ? "#" + section : ficheLink({ id });
+}
 
-  const match = String(href).match(
-    /([0-9a-f]{8}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{4}-?[0-9a-f]{12})/i
-  );
-
-  if (!match) {
-    return null;
-  }
-
-  const page = getPage(match[1]);
-
-  return page ? ficheLink(page) : null;
+function appendNotionSource(container, url) {
+  const href = safeExternalUrl(url);
+  if (!href) return;
+  const source = el("a", "agenda-notion-link", "Source dans Notion â†—");
+  source.href = href;
+  source.target = "_blank";
+  source.rel = "noopener noreferrer";
+  container.appendChild(el("p")).appendChild(source);
 }
 
 /* ========================================
    TEXTES RICHES NOTION
 ======================================== */
+
+function programmeAnchor(candidate) {
+  return "programme-" + normalize(candidate).replace(/['â€™]/g, "").replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+}
 
 function renderRich(target, segments, fallback = "") {
   if (!Array.isArray(segments) || !segments.length) {
@@ -2033,6 +2102,7 @@ function renderRich(target, segments, fallback = "") {
     return;
   }
 
+  let previousText = "";
   for (const segment of segments) {
     let node = document.createTextNode(
       segment.text || ""
@@ -2054,15 +2124,24 @@ function renderRich(target, segments, fallback = "") {
 
     if (segment.href) {
       const internal = internalLink(segment.href);
-      const destination = internal ||
-        safeExternalUrl(segment.href);
+      let destination = internal || safeExternalUrl(segment.href);
+      const isProgramme = /^(?:ðŸ“„\s*)?programme(?:\s+pdf)?$/i.test(String(segment.text || "").trim());
+      const candidate = previousText.trim().match(/([^\n]+?)\s*\([^)]+\)$/)?.[1];
+      if (isProgramme && candidate && /^#fiche\/[^/]+$/.test(internal || "")) {
+        const district = getPage(internal.slice(7));
+        const anchor = programmeAnchor(candidate);
+        if (district?.blocks.some(block => {
+          const name = block.text?.match(/^Programme de (.+?)\s*\([^)]+\)\s*$/i)?.[1];
+          return /^heading_[123]$/.test(block.type) && name && programmeAnchor(name) === anchor;
+        })) destination += "/" + anchor;
+      }
 
       if (destination) {
         const a = el("a");
         a.href = destination;
 
-        // Les programmes liés depuis Notion deviennent des boutons.
-        if (/^(?:📄\s*)?programme$/i.test(String(segment.text || "").trim())) {
+        // Les programmes liÃ©s depuis Notion deviennent des boutons.
+        if (isProgramme) {
           a.classList.add("programme-link");
         }
 
@@ -2077,6 +2156,7 @@ function renderRich(target, segments, fallback = "") {
     }
 
     target.appendChild(node);
+    previousText += segment.text || "";
   }
 }
 
@@ -2252,7 +2332,7 @@ function renderBlocks(blocks, parent, depth = 0) {
         const link = el(
           "a",
           "",
-          block.caption || "Ouvrir le média"
+          block.caption || (block.src.endsWith(".pdf") ? "Ouvrir le PDF" : "Ouvrir le mÃ©dia")
         );
 
         link.href = block.src;
@@ -2271,14 +2351,17 @@ function renderBlocks(blocks, parent, depth = 0) {
       type === "bookmark" ||
       type === "embed"
     ) {
-      const href = safeExternalUrl(block.url);
+      const internal = internalLink(block.url);
+      const href = internal || safeExternalUrl(block.url);
 
       if (href) {
-        const link = el("a", "", block.url);
+        const link = el("a", "", getPage(siteReference(block.url))?.title || block.url);
 
         link.href = href;
-        link.target = "_blank";
-        link.rel = "noopener noreferrer";
+        if (!internal) {
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+        }
 
         parent.appendChild(
           el("p")
@@ -2295,9 +2378,10 @@ function renderBlocks(blocks, parent, depth = 0) {
         ref.page_id || ref.database_id
       );
 
-      if (page) {
-        const link = el("a", "", page.title);
-        link.href = ficheLink(page);
+      const id = cleanId(ref.page_id || ref.database_id);
+      if (/^[0-9a-f]{32}$/.test(id)) {
+        const link = el("a", "", page?.title || "Consulter la fiche liÃ©e");
+        link.href = internalLink("https://app.notion.com/p/" + id);
 
         parent.appendChild(
           el("p")
@@ -2327,7 +2411,7 @@ function renderBlocks(blocks, parent, depth = 0) {
 
       node.appendChild(
         document.createTextNode(
-          block.checked ? "☑ " : "☐ "
+          block.checked ? "â˜‘ " : "â˜ "
         )
       );
     } else if (
@@ -2335,6 +2419,12 @@ function renderBlocks(blocks, parent, depth = 0) {
       block.rich_text?.length
     ) {
       node = el("p");
+    }
+
+    const programme = text.match(/^Programme de (.+?)\s*\([^)]+\)\s*$/i)?.[1];
+    if (programme && /^heading_[123]$/.test(type) && node) {
+      node.id = programmeAnchor(programme);
+      node.classList.add("programme-anchor");
     }
 
     if (node) {
@@ -2511,11 +2601,11 @@ function beautifyNotionLinks(root) {
 ======================================== */
 
 function renderProjectBlocks(page, container) {
-  const statuses = new Set([
-    "En cours",
-    "Non débuté",
-    "En pause",
-    "Proposition de campagne"
+  const statuses = new Map([
+    ["En cours", "projets-en-cours"],
+    ["Non dÃ©butÃ©", "projets-non-debutes"],
+    ["En pause", "projets-en-pause"],
+    ["Proposition de campagne", "projets-proposition-de-campagne"]
   ]);
   const rendered = new Set();
   let status = "";
@@ -2524,7 +2614,8 @@ function renderProjectBlocks(page, container) {
 
   for (const block of page.blocks || []) {
     if (/^heading_[123]$/.test(block.type)) {
-      status = block.text?.trim().normalize("NFC");
+      const heading = block.text?.trim().normalize("NFC");
+      if (statuses.has(heading)) status = heading;
     }
 
     if (block.type !== "child_page" || !statuses.has(status)) {
@@ -2547,17 +2638,26 @@ function renderProjectBlocks(page, container) {
 
     const project = getPage(id);
     const link = el("a", "", project?.title || block.title || "Fiche sans titre");
-    link.href = project ? ficheLink(project) : "https://www.notion.so/" + id;
+    link.href = ficheLink({ id });
     grid.appendChild(makeLinkCard(link));
     rendered.add(id);
   }
 
   renderBlocks(blocks, container);
+  for (const heading of container.querySelectorAll("h2, h3")) {
+    const anchor = statuses.get(heading.textContent.trim().normalize("NFC"));
+    if (!anchor) continue;
+    heading.id = anchor;
+    heading.classList.add("project-status");
+  }
   return rendered;
 }
 
 function addSubpages(page, container, excluded = new Set()) {
   const seen = new Set(excluded);
+  for (const link of container.querySelectorAll('a.notion-link-card[href^="#fiche/"]')) {
+    seen.add(cleanId(link.getAttribute("href").slice(7)));
+  }
   const subpages = (page.subpages || []).filter(child => {
     const id = cleanId(child.id);
     if (seen.has(id)) {
@@ -2636,9 +2736,26 @@ function renderSection(id, sectionId) {
     renderBlocks(page.blocks, article);
   }
 
+  if (sectionId === "elections") {
+    const districts = getPage(SECTION_IDS.geographie)?.subpages.filter(child => /^(?:0[1-9]|[12]\d|3[0-4])\s*[â€”â€“-]/.test(child.title));
+    if (districts?.length) {
+      const index = el("section");
+      index.id = "circonscriptions";
+      index.appendChild(el("h2", "", "Circonscriptions Ã©lectorales"));
+      const grid = el("div", "encyclopedia-grid");
+      for (const district of [...districts].sort((a, b) => a.title.localeCompare(b.title, "fr"))) {
+        const link = el("a", "encyclopedia-card", district.title);
+        link.href = ficheLink(district);
+        grid.appendChild(link);
+      }
+      index.appendChild(grid);
+      article.appendChild(index);
+    }
+  }
   beautifyNotionLinks(article);
   addGallery(page, article);
   addSubpages(page, article, renderedProjects);
+  appendNotionSource(article, page.url);
 
   container.appendChild(article);
 }
@@ -2647,6 +2764,8 @@ function findSection(id) {
   let current = cleanId(id);
 
   for (let i = 0; i < 30; i++) {
+    if (agendaEntries.has(current)) return "agenda";
+    if (HUB_IDS[current]) return HUB_IDS[current];
     for (
       const [key, value]
       of Object.entries(SECTION_IDS)
@@ -2667,7 +2786,7 @@ function findSection(id) {
 }
 
 /* ========================================
-   FICHES DÉTAILLÉES
+   FICHES DÃ‰TAILLÃ‰ES
 ======================================== */
 
 function renderDetail(page) {
@@ -2678,19 +2797,16 @@ function renderDetail(page) {
   box.replaceChildren();
 
   const section = findSection(page.id);
-
-  const back = el(
-    "a",
-    "encyclopedia-back",
-    "← Retour à " +
-      (
-        section === "accueil"
-          ? "l'accueil"
-          : section
-      )
-  );
-
-  back.href = "#" + section;
+  const parent = getPage(parents.get(cleanId(page.id)));
+  const labels = {
+    accueil: "lâ€™accueil", geographie: "Territoires", histoire: "Histoire et culture",
+    transports: "Transports", institutions: "Institutions", elections: "Ã‰lections",
+    personnages: "Personnages", economie: "Ã‰conomie", urbanisme: "Projets et urbanisme", agenda: "Agenda"
+  };
+  const parentLink = parent && cleanId(parent.id) !== cleanId(ROOT_ID)
+    && section !== "agenda" ? internalLink("https://app.notion.com/p/" + cleanId(parent.id)) : null;
+  const back = el("a", "encyclopedia-back", "â† " + (parentLink ? parent.title : labels[section]));
+  back.href = parentLink || "#" + section;
   box.appendChild(back);
 
   addCover(page, box);
@@ -2704,10 +2820,21 @@ function renderDetail(page) {
     "notion-content"
   );
 
+  const event = agendaEntries.get(cleanId(page.id));
+  if (event) {
+    article.appendChild(el("p", "", agendaDisplayDate(event.date).toLocaleDateString("fr-FR", { dateStyle: "long" })));
+    article.appendChild(el("p", "", [event.place, event.kind].filter(Boolean).join(" Â· ")));
+    if (event.kind === "Ã‰lections") {
+      const link = el("a", "", "Ã‰lections parlementaires 2027");
+      link.href = "#elections";
+      article.appendChild(el("p")).appendChild(link);
+    }
+  }
   renderBlocks(page.blocks, article);
   beautifyNotionLinks(article);
   addGallery(page, article);
   addSubpages(page, article);
+  appendNotionSource(article, page.url || (event && "https://app.notion.com/p/" + event.id));
 
   box.appendChild(article);
 }
@@ -2728,22 +2855,33 @@ function navigate() {
   }
 
   let active = "accueil";
+  let anchor = null;
 
   if (hash.startsWith("fiche/")) {
-    const page = getPage(hash.slice(6));
-
+    const [, pageId, targetId] = hash.split("/");
+    const id = cleanId(pageId);
+    const page = getPage(id) || agendaEntries.get(id);
+    active = "fiche";
     if (page) {
       renderDetail(page);
-      active = "fiche";
+      if (targetId) anchor = document.getElementById(targetId);
+    } else {
+      const box = document.getElementById("fiche-contenu");
+      const loading = encyclopediaStatus === "loading" || agendaStatus === "loading";
+      const back = el("a", "encyclopedia-back", "â† Accueil");
+      back.href = "#accueil";
+      box.replaceChildren(back, el("h1", "", loading ? "Chargement de la ficheâ€¦" : "Fiche indisponible"));
+      if (!loading && /^[0-9a-f]{32}$/.test(id)) {
+        appendNotionSource(box, "https://app.notion.com/p/" + id);
+      }
     }
-
   } else {
-    const target = document.getElementById(hash);
-
-    if (
-      target?.classList.contains("page")
-    ) {
-      active = hash;
+    const [section, targetId] = hash.split("/");
+    const target = document.getElementById(section);
+    if (target?.classList.contains("page")) {
+      active = section;
+      const candidate = targetId && document.getElementById(targetId);
+      if (candidate && target.contains(candidate)) anchor = candidate;
     }
   }
 
@@ -2754,7 +2892,8 @@ function navigate() {
     );
   });
 
-  window.scrollTo(0, 0);
+  if (anchor) anchor.scrollIntoView();
+  else window.scrollTo(0, 0);
 }
 
 window.addEventListener(
@@ -2783,12 +2922,13 @@ function setupSearch() {
   const close = document.getElementById("close-site-search");
   let sectionFilter = "tout";
 
-  // Indexe titres, contenu Notion et sous-rubrique — sans modifier les données.
+  // Indexe titres, contenu Notion et sous-rubrique â€” sans modifier les donnÃ©es.
   function blockText(blocks, depth = 0) {
     if (depth > 8 || !Array.isArray(blocks)) return "";
     return blocks.map(block => {
       const content = [block.text || "",
-        ...(block.rich_text || []).map(x => x.text || "")].join(" ");
+        ...(block.rich_text || []).map(x => x.text || ""),
+        ...(block.cells || []).flat().map(x => x.text || "")].join(" ");
       return content + " " + blockText(block.children, depth + 1);
     }).join(" ");
   }
@@ -2796,13 +2936,14 @@ function setupSearch() {
   const entries = [...pages.values()].map(page => ({
     page,
     section: findSection(page.id),
-    searchable: normalize(page.title + " " + blockText(page.blocks))
+    event: agendaEntries.get(cleanId(page.id)),
+    searchable: normalize(page.title + " " + blockText(page.blocks) + " " + (agendaEntries.get(cleanId(page.id))?.date || ""))
   }));
 
   const categories = {
-    accueil:"Découvrir", geographie:"Géographie", histoire:"Histoire",
-    transports:"Transports", institutions:"Société", economie:"Société",
-    urbanisme:"Société", personnages:"Personnages", elections:"Événements"
+    accueil:"DÃ©couvrir", geographie:"GÃ©ographie", histoire:"Histoire",
+    transports:"Transports", institutions:"SociÃ©tÃ©", economie:"SociÃ©tÃ©",
+    urbanisme:"SociÃ©tÃ©", personnages:"Personnages", elections:"Ã‰lections", agenda:"Agenda"
   };
   const discoverIds = ["4229b1f3b04a81c5b0d8fc41f7340733", "4229b1f3b04a817cb406ed854612c0c2", "4229b1f3b04a81ebb5edf3940f56deed", "4229b1f3b04a816a8f34f4ee4187dfe5"];
   const societyIds = ["4229b1f3b04a813eaba6f419f6107f32", "4229b1f3b04a814992fccff9b5511918"];
@@ -2820,7 +2961,7 @@ function setupSearch() {
     }
     if (belongsTo(discoverIds)) return "geographie";
     if (belongsTo(societyIds)) return "institutions";
-    if (belongsTo(eventsIds)) return "elections";
+    if (entry.section === "agenda" || belongsTo(eventsIds)) return "agenda";
     if (["economie", "urbanisme"].includes(entry.section)) return "institutions";
     return entry.section;
   }
@@ -2843,20 +2984,21 @@ function setupSearch() {
   function renderMatches(target, matches, global) {
     target.replaceChildren();
     if (!matches.length) {
-      target.appendChild(el("p", "site-search-empty", "Aucune fiche trouvée pour cette recherche."));
+      target.appendChild(el("p", "site-search-empty", "Aucune fiche trouvÃ©e pour cette recherche."));
       return;
     }
     const grid = global ? target : el("div", "encyclopedia-grid");
     for (const entry of matches) {
       const a = el("a", global ? "site-search-result" : "encyclopedia-card");
-      a.href = ficheLink(entry.page);
+      a.href = internalLink("https://app.notion.com/p/" + cleanId(entry.page.id));
+      const title = entry.event ? entry.page.title + " â€” " + entry.event.date.slice(0, 4) : entry.page.title;
       if (global) {
-        a.appendChild(el("small", "", categories[searchSection(entry)] || "Encyclopédie"));
-        a.appendChild(el("strong", "", entry.page.title));
-        a.appendChild(el("span", "", "Consulter la fiche →"));
+        a.appendChild(el("small", "", categories[searchSection(entry)] || "EncyclopÃ©die"));
+        a.appendChild(el("strong", "", title));
+        a.appendChild(el("span", "", "Consulter la fiche â†’"));
         a.addEventListener("click", () => setPanel(false));
       } else {
-        a.textContent = entry.page.title;
+        a.textContent = title;
       }
       grid.appendChild(a);
     }
@@ -2892,7 +3034,7 @@ function setupSearch() {
       event.preventDefault(); setPanel(true);
     }
   });
-  // Un seul menu déroulant ouvert à la fois.
+  // Un seul menu dÃ©roulant ouvert Ã  la fois.
   document.querySelectorAll(".nav-menu").forEach(currentMenu => {
     currentMenu.addEventListener("toggle", () => {
       if (currentMenu.open) {
@@ -2902,10 +3044,17 @@ function setupSearch() {
       }
     });
   });
-  // Ferme les menus déroulants une fois une rubrique choisie.
+  // Ferme les menus dÃ©roulants une fois une rubrique choisie.
   document.querySelectorAll(".nav-submenu a").forEach(link => link.addEventListener("click", () => {
     document.querySelectorAll(".nav-menu").forEach(menu => menu.open = false);
   }));
+  document.addEventListener("keydown", event => {
+    if (event.key !== "Escape") return;
+    const menu = document.querySelector(".nav-menu[open]");
+    if (!menu) return;
+    menu.open = false;
+    menu.querySelector("summary").focus();
+  });
   document.addEventListener("click", event => {
     document.querySelectorAll(".nav-menu[open]").forEach(menu => {
       if (!menu.contains(event.target)) menu.open = false;
@@ -2914,7 +3063,7 @@ function setupSearch() {
 }
 
 /* ========================================
-   PORTAIL D'ENTRÉE
+   PORTAIL D'ENTRÃ‰E
 ======================================== */
 
 function initPortail() {
@@ -2938,12 +3087,7 @@ function initPortail() {
       "portail-actif"
     );
 
-    /*
-      L'entrée ouvre toujours l'accueil.
-      Les fiches restent accessibles ensuite.
-    */
-
-    if (location.hash !== "#accueil") {
+    if (!location.hash) {
       location.hash = "#accueil";
     } else {
       navigate();
@@ -2956,7 +3100,7 @@ function initPortail() {
 }
 
 /* ========================================
-   CHARGEMENT DE L'ENCYCLOPÉDIE
+   CHARGEMENT DE L'ENCYCLOPÃ‰DIE
 ======================================== */
 
 async function startEncyclopedia() {
@@ -2968,7 +3112,7 @@ async function startEncyclopedia() {
 
     if (!response.ok) {
       throw new Error(
-        "Données Notion indisponibles"
+        "DonnÃ©es Notion indisponibles"
       );
     }
 
@@ -2987,12 +3131,8 @@ async function startEncyclopedia() {
 
     await loadCatalogue();
 
-    const hero = document.getElementById(
-      "hero-accueil"
-    );
-
-    // La photo de l'accueil est gérée par le bandeau CSS.
-    // Les autres couvertures Notion restent gérées par createCover().
+    // La photo de l'accueil est gÃ©rÃ©e par le bandeau CSS.
+    // Les autres couvertures Notion restent gÃ©rÃ©es par createCover().
 
     for (
       const [section, id]
@@ -3001,16 +3141,19 @@ async function startEncyclopedia() {
       renderSection(id, section);
     }
 
+    await agendaReady;
     setupSearch();
+    encyclopediaStatus = "ready";
     navigate();
 
     console.info(
-      "LDR.world chargé :",
+      "LDR.world chargÃ© :",
       pages.size,
       "pages Notion"
     );
 
   } catch (error) {
+    encyclopediaStatus = "error";
     console.error(
       "Erreur LDR.world :",
       error
@@ -3029,564 +3172,15 @@ async function startEncyclopedia() {
 
 
 /* ========================================
-   AGENDA OFFICIEL — 2026–2027
-   Les données reprennent les fiches confirmées dans Notion.
+   AGENDA OFFICIEL â€” 2026â€“2027
+   Les donnÃ©es reprennent les fiches confirmÃ©es dans Notion.
 ======================================== */
-const LDR_AGENDA = [
-  {
-    "date": "2026-01-01",
-    "title": "Jour de l’An",
-    "place": "Toute la Principauté",
-    "id": "4239b1f3b04a8165a2a7dc05796dc16a",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-01-23",
-    "title": "Fête des Trappeurs et de la Source",
-    "place": "Ruffiac-le-Château",
-    "id": "4239b1f3b04a81edb2f5e4f91f27df13",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-02-14",
-    "title": "La Festa dei Due Cuori",
-    "place": "Little Italy — Bella Riva, lac des Amoureux",
-    "id": "4239b1f3b04a81c58c78fa289cac80ad",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-02-20",
-    "title": "Les Olympiades des Deux Rives — 100e édition",
-    "place": "Quartier organisateur itinérant — à déterminer",
-    "id": "4239b1f3b04a812f9418df87190c2a36",
-    "kind": "Festival"
-  },
-  {
-    "date": "2026-02-27",
-    "title": "La Guerre des Marmites",
-    "place": "Quartier organisateur itinérant — à déterminer",
-    "id": "4239b1f3b04a8106a294df02d8321033",
-    "kind": "Festival"
-  },
-  {
-    "date": "2026-03-06",
-    "title": "La Nuit des Messages Perdus",
-    "place": "Quartier hôte itinérant — organisé par LucuPoste",
-    "id": "4239b1f3b04a816cabcbea008b1d0a6f",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-03-13",
-    "title": "La Jean-Guile",
-    "place": "Quartier de Chong-Chong",
-    "id": "4239b1f3b04a81f8ab5cc0c435292695",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-04-10",
-    "title": "La Festa dos Azulejos",
-    "place": "Azulejos",
-    "id": "4239b1f3b04a81a98382c3c222c2e0e3",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-04-11",
-    "title": "La Fiera di a Triade",
-    "place": "Les trois villages de la Triade corse, dont Bona Furtuna",
-    "id": "4239b1f3b04a81dbb6bdda51c8e228e9",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-05-01",
-    "title": "La Journée de Baboush IV",
-    "place": "Château du Lucullus et Bab Al Baboush",
-    "id": "4239b1f3b04a811e80fbcbeef4792d3d",
-    "kind": "Commémoration"
-  },
-  {
-    "date": "2026-05-08",
-    "title": "La Grande Tablée du Clément",
-    "place": "Grand Clément, Lucullus-les-Deux-Rives",
-    "id": "4239b1f3b04a81a1bccec0151d77cf28",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-05-15",
-    "title": "Le Bal des Gougouttes",
-    "place": "Gougouttes, Les Hauts de Lucetelle",
-    "id": "4239b1f3b04a81a2adbfe3e70e9e9489",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-05-22",
-    "title": "Le Festival des Cent Parapluies",
-    "place": "Nouvelle Amsterdam",
-    "id": "4239b1f3b04a81e794e5dd5be0e209d8",
-    "kind": "Festival"
-  },
-  {
-    "date": "2026-06-05",
-    "title": "Le Festival des Trois Orients",
-    "place": "Chong-Chong, Ryogan et Tibébé",
-    "id": "4239b1f3b04a813dbaefdd0c093fdccf",
-    "kind": "Festival"
-  },
-  {
-    "date": "2026-06-12",
-    "title": "Fêtes historiques de Ryogan",
-    "place": "Ryogan",
-    "id": "4239b1f3b04a819c9aa3e5870106cdd3",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-06-20",
-    "title": "La Course des Chaises",
-    "place": "Centre-Ville de Lucullus-les-Deux-Rives",
-    "id": "4239b1f3b04a81f6a1a0ff4e8e96468c",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-06-26",
-    "title": "La Guerre du Cochonnet",
-    "place": "Boulodromes Marius-Boulegan (Marcel Pagnol) et Fernand-Boulegan (Les Bénédictins)",
-    "id": "4239b1f3b04a817b9761f1f44e259d0b",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-07-03",
-    "title": "La Parade des Pistouilles",
-    "place": "Les Pistouilles, Le Cœur de Lucullus",
-    "id": "4239b1f3b04a8120a017dcd7d9fc849e",
-    "kind": "Festival"
-  },
-  {
-    "date": "2026-07-10",
-    "title": "La Grande Trempette des Bénédictins",
-    "place": "Piscine Carlo Ancelotti, Les Bénédictins",
-    "id": "4239b1f3b04a819397d8d0b6c3ac8371",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-07-17",
-    "title": "Fête nationale de la Principauté",
-    "place": "Lucullus-les-Deux-Rives",
-    "id": "4239b1f3b04a81bd912cf37475cc7241",
-    "kind": "Fête nationale"
-  },
-  {
-    "date": "2026-07-24",
-    "title": "Le Grand Défi de la Butte",
-    "place": "Butte Jambon",
-    "id": "4239b1f3b04a81989791cf9816b21eda",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-08-07",
-    "title": "Festival de l'Hermine et des Voiles",
-    "place": "Kerlwenn",
-    "id": "4239b1f3b04a81c9b39fcd2b4172d7cc",
-    "kind": "Festival"
-  },
-  {
-    "date": "2026-08-14",
-    "title": "La Sardinade des Caillettes",
-    "place": "Les Caillettes, littoral de Lucullus",
-    "id": "4239b1f3b04a8184a62fe08175f66035",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-08-28",
-    "title": "Commémoration de la Grande Marche",
-    "place": "Saint-David",
-    "id": "4239b1f3b04a816285a2ebb9c62cb1b5",
-    "kind": "Commémoration"
-  },
-  {
-    "date": "2026-09-04",
-    "title": "La Nuit des Marchands",
-    "place": "Souks de Bab Al Baboush",
-    "id": "4239b1f3b04a8185a5c3d47b722d717c",
-    "kind": "Festival"
-  },
-  {
-    "date": "2026-09-11",
-    "title": "La Journée des Inventeurs",
-    "place": "Duché de Malmizer",
-    "id": "4239b1f3b04a816dbd47d72d0099f934",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-09-18",
-    "title": "Fête de la fondation de Bab Al Baboush",
-    "place": "Bab Al Baboush",
-    "id": "4239b1f3b04a81169cdfe5325d529cb6",
-    "kind": "Commémoration"
-  },
-  {
-    "date": "2026-09-25",
-    "title": "La Fête du Grand Canal",
-    "place": "Lucullus-les-Deux-Rives — ensemble du fleuve et des canaux de la ville",
-    "id": "4239b1f3b04a810b817ac820d2ead62c",
-    "kind": "Festival"
-  },
-  {
-    "date": "2026-10-09",
-    "title": "Nuit des Étoiles d'Or",
-    "place": "Astéroïde City",
-    "id": "4239b1f3b04a8165a867eb841b829015",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-10-16",
-    "title": "La Nuit des Brumes",
-    "place": "Château du Lucullus",
-    "id": "4239b1f3b04a81a6aed6e849d0b88d0e",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-10-23",
-    "title": "Le Carnaval des Turluthes",
-    "place": "Les Turluthes, Le Cœur de Lucullus",
-    "id": "4239b1f3b04a81de8b28db766fca55ce",
-    "kind": "Festival"
-  },
-  {
-    "date": "2026-11-06",
-    "title": "Les Treize Coups de Pateograd",
-    "place": "Pateograd",
-    "id": "4239b1f3b04a81d69d27e019e7b7bb50",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-11-13",
-    "title": "La Fête du Grand Froid",
-    "place": "Pateograd et Stakhanov",
-    "id": "4239b1f3b04a81409700f7ad22c89a52",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-11-20",
-    "title": "Le Grand Défilé des Travailleurs",
-    "place": "Pateograd et Stakhanov",
-    "id": "4239b1f3b04a810ab164dbcc13f270c9",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-12-06",
-    "title": "La Grande Grasse Matinée de Baboush V",
-    "place": "Toute la Principauté, particulièrement le Domaine Princier",
-    "id": "4239b1f3b04a81fa9179f7e459397cd3",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-12-11",
-    "title": "La Nuit des Cadeaux Anonymes",
-    "place": "Toute la Principauté",
-    "id": "4239b1f3b04a81d7a65bfdbace7e0e8a",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-12-18",
-    "title": "Le Marché des Sept Cloches",
-    "place": "Bourg Lucullus",
-    "id": "4239b1f3b04a8150b213c1571ac699ea",
-    "kind": "Fête"
-  },
-  {
-    "date": "2026-12-25",
-    "title": "Noël",
-    "place": "Toute la Principauté",
-    "id": "4229b1f3b04a8158964dd948498fc2bd",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-01-01",
-    "title": "Jour de l’An",
-    "place": "Toute la Principauté",
-    "id": "4229b1f3b04a8147831eccb9ba25b4f3",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-01-23",
-    "title": "Fête des Trappeurs et de la Source",
-    "place": "Ruffiac-le-Château",
-    "id": "4229b1f3b04a8105be67cf7327bf674d",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-02-07",
-    "title": "Élections parlementaires — 1er tour",
-    "place": "Principauté de Lucullus-les-Deux-Rives",
-    "id": "4229b1f3b04a81908e29fe104c43bc31",
-    "kind": "Élections"
-  },
-  {
-    "date": "2027-02-14",
-    "title": "La Festa dei Due Cuori",
-    "place": "Little Italy — Bella Riva, lac des Amoureux",
-    "id": "4239b1f3b04a810c9d98e34ade71bb65",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-02-14",
-    "title": "Élections parlementaires — 2nd tour",
-    "place": "Principauté de Lucullus-les-Deux-Rives",
-    "id": "4229b1f3b04a819692d4e35a159d0b4e",
-    "kind": "Élections"
-  },
-  {
-    "date": "2027-02-20",
-    "title": "Les Olympiades des Deux Rives — 101e édition",
-    "place": "Quartier organisateur itinérant — à déterminer",
-    "id": "4239b1f3b04a81f2826ae6b759aba93b",
-    "kind": "Festival"
-  },
-  {
-    "date": "2027-02-27",
-    "title": "La Guerre des Marmites",
-    "place": "Quartier organisateur itinérant — à déterminer",
-    "id": "4239b1f3b04a8117bcdbefd200b75b45",
-    "kind": "Festival"
-  },
-  {
-    "date": "2027-03-06",
-    "title": "La Nuit des Messages Perdus",
-    "place": "Quartier hôte itinérant — organisé par LucuPoste",
-    "id": "4239b1f3b04a8184b22afbe702d078b8",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-03-13",
-    "title": "La Jean-Guile",
-    "place": "Quartier de Chong-Chong",
-    "id": "4229b1f3b04a8176b3cbc59212a7c246",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-04-10",
-    "title": "La Festa dos Azulejos",
-    "place": "Azulejos",
-    "id": "4239b1f3b04a81b2b73cc564d32db7d4",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-04-11",
-    "title": "La Fiera di a Triade",
-    "place": "Les trois villages de la Triade corse, dont Bona Furtuna",
-    "id": "4239b1f3b04a8182aaefcf871caf531f",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-05-01",
-    "title": "La Journée de Baboush IV",
-    "place": "Château du Lucullus et Bab Al Baboush",
-    "id": "4239b1f3b04a81f5a0b4eaf9379c5dbb",
-    "kind": "Commémoration"
-  },
-  {
-    "date": "2027-05-08",
-    "title": "La Grande Tablée du Clément",
-    "place": "Grand Clément, Lucullus-les-Deux-Rives",
-    "id": "4239b1f3b04a818eb966ed9f805830ee",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-05-15",
-    "title": "Le Bal des Gougouttes",
-    "place": "Gougouttes, Les Hauts de Lucetelle",
-    "id": "4239b1f3b04a819388d8d9779952dd22",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-05-22",
-    "title": "Le Festival des Cent Parapluies",
-    "place": "Nouvelle Amsterdam",
-    "id": "4239b1f3b04a8108b90bc47655c6abd0",
-    "kind": "Festival"
-  },
-  {
-    "date": "2027-06-05",
-    "title": "Le Festival des Trois Orients",
-    "place": "Chong-Chong, Ryogan et Tibébé",
-    "id": "4239b1f3b04a81fb9746d57828b0ba66",
-    "kind": "Festival"
-  },
-  {
-    "date": "2027-06-12",
-    "title": "Fêtes historiques de Ryogan",
-    "place": "Ryogan",
-    "id": "4229b1f3b04a81378146e2018c37f5dc",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-06-20",
-    "title": "La Course des Chaises",
-    "place": "Centre-Ville de Lucullus-les-Deux-Rives",
-    "id": "4239b1f3b04a81c78072ec4dd04d5367",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-06-26",
-    "title": "La Guerre du Cochonnet",
-    "place": "Boulodromes Marius-Boulegan (Marcel Pagnol) et Fernand-Boulegan (Les Bénédictins)",
-    "id": "4239b1f3b04a817bbafbe2334015df4d",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-07-03",
-    "title": "La Parade des Pistouilles",
-    "place": "Les Pistouilles, Le Cœur de Lucullus",
-    "id": "4239b1f3b04a818584c2d26dddd74a1d",
-    "kind": "Festival"
-  },
-  {
-    "date": "2027-07-10",
-    "title": "La Grande Trempette des Bénédictins",
-    "place": "Piscine Carlo Ancelotti, Les Bénédictins",
-    "id": "4239b1f3b04a8112af9def7e97d67d7c",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-07-17",
-    "title": "Fête nationale de la Principauté",
-    "place": "Lucullus-les-Deux-Rives",
-    "id": "4229b1f3b04a810abd0ee7a8040b560c",
-    "kind": "Fête nationale"
-  },
-  {
-    "date": "2027-07-24",
-    "title": "Le Grand Défi de la Butte",
-    "place": "Butte Jambon",
-    "id": "4239b1f3b04a818abd0ada769be6692c",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-08-07",
-    "title": "Festival de l'Hermine et des Voiles",
-    "place": "Kerlwenn",
-    "id": "4229b1f3b04a81afb86fff43f576adc0",
-    "kind": "Festival"
-  },
-  {
-    "date": "2027-08-14",
-    "title": "La Sardinade des Caillettes",
-    "place": "Les Caillettes, littoral de Lucullus",
-    "id": "4239b1f3b04a8142bafce37d5a31bbc4",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-08-28",
-    "title": "Commémoration de la Grande Marche",
-    "place": "Saint-David",
-    "id": "4229b1f3b04a8149a0f2cc8f3c122d54",
-    "kind": "Commémoration"
-  },
-  {
-    "date": "2027-09-04",
-    "title": "La Nuit des Marchands",
-    "place": "Souks de Bab Al Baboush",
-    "id": "4239b1f3b04a8165b369dc50879dc34b",
-    "kind": "Festival"
-  },
-  {
-    "date": "2027-09-11",
-    "title": "La Journée des Inventeurs",
-    "place": "Duché de Malmizer",
-    "id": "4239b1f3b04a81c0aa39c6b6dd6fbe18",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-09-18",
-    "title": "Fête de la fondation de Bab Al Baboush",
-    "place": "Bab Al Baboush",
-    "id": "4229b1f3b04a81a9ae54de49fe9303f5",
-    "kind": "Commémoration"
-  },
-  {
-    "date": "2027-09-25",
-    "title": "La Fête du Grand Canal",
-    "place": "Lucullus-les-Deux-Rives — ensemble du fleuve et des canaux de la ville",
-    "id": "4239b1f3b04a81e893ede668bcad8887",
-    "kind": "Festival"
-  },
-  {
-    "date": "2027-10-09",
-    "title": "Nuit des Étoiles d'Or",
-    "place": "Astéroïde City",
-    "id": "4229b1f3b04a81cab0b4ee84a1e960b4",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-10-16",
-    "title": "La Nuit des Brumes",
-    "place": "Château du Lucullus",
-    "id": "4239b1f3b04a813ca462f12530e6a350",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-10-23",
-    "title": "Le Carnaval des Turluthes",
-    "place": "Les Turluthes, Le Cœur de Lucullus",
-    "id": "4239b1f3b04a810a97d8e3474a672c3b",
-    "kind": "Festival"
-  },
-  {
-    "date": "2027-11-06",
-    "title": "Les Treize Coups de Pateograd",
-    "place": "Pateograd",
-    "id": "4239b1f3b04a8111b42bca9b2729e634",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-11-13",
-    "title": "La Fête du Grand Froid",
-    "place": "Pateograd et Stakhanov",
-    "id": "4239b1f3b04a81258a3eee7e36e4360a",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-11-20",
-    "title": "Le Grand Défilé des Travailleurs",
-    "place": "Pateograd et Stakhanov",
-    "id": "4239b1f3b04a81fd83d5f9d91363d369",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-12-06",
-    "title": "La Grande Grasse Matinée de Baboush V",
-    "place": "Toute la Principauté, particulièrement le Domaine Princier",
-    "id": "4239b1f3b04a81f4938cc229f6be6e81",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-12-11",
-    "title": "La Nuit des Cadeaux Anonymes",
-    "place": "Toute la Principauté",
-    "id": "4239b1f3b04a817db7b7c5dcb36267c5",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-12-18",
-    "title": "Le Marché des Sept Cloches",
-    "place": "Bourg Lucullus",
-    "id": "4239b1f3b04a81ef95d8d46dac70b363",
-    "kind": "Fête"
-  },
-  {
-    "date": "2027-12-25",
-    "title": "Noël",
-    "place": "Toute la Principauté",
-    "id": "4239b1f3b04a81118ffdfb524d43020e",
-    "kind": "Fête"
-  }
-];
+const agendaEntries = new Map();
+let agendaStatus = "loading";
 
-const AGENDA_MONTHS = ["janvier","février","mars","avril","mai","juin","juillet","août","septembre","octobre","novembre","décembre"];
-const agendaState = { year: 2026, month: 11, day: null };
+const AGENDA_MONTHS = ["janvier","fÃ©vrier","mars","avril","mai","juin","juillet","aoÃ»t","septembre","octobre","novembre","dÃ©cembre"];
+const agendaState = { year: 2026, month: 0, day: null };
 
-function agendaNotionLink(entry) {
-  return "https://app.notion.com/p/" + entry.id;
-}
 function agendaDisplayDate(value) {
   const [y,m,d] = value.split("-").map(Number);
   return new Date(y,m-1,d);
@@ -3594,9 +3188,7 @@ function agendaDisplayDate(value) {
 function agendaEventCard(entry) {
   const link = document.createElement("a");
   link.className = "agenda-event-card";
-  link.href = agendaNotionLink(entry);
-  link.target = "_blank";
-  link.rel = "noopener noreferrer";
+  link.href = ficheLink(entry);
   const dayBox = document.createElement("div");
   dayBox.className = "agenda-event-date";
   const date = agendaDisplayDate(entry.date);
@@ -3610,12 +3202,12 @@ function agendaEventCard(entry) {
   const title = document.createElement("strong");
   title.textContent = entry.title;
   const place = document.createElement("small");
-  place.textContent = entry.place + " · " + entry.kind;
+  place.textContent = entry.place + " Â· " + entry.kind;
   info.append(title,place);
   link.append(dayBox,info);
   return link;
 }
-function initAgenda() {
+function initAgenda(entries) {
   const upcoming = document.getElementById("agenda-upcoming-list");
   const grid = document.getElementById("agenda-calendar-grid");
   const monthly = document.getElementById("agenda-month-events");
@@ -3625,23 +3217,38 @@ function initAgenda() {
   const now = new Date();
   const today = new Date(now.getFullYear(),now.getMonth(),now.getDate());
   const todayIso = [today.getFullYear(),String(today.getMonth()+1).padStart(2,"0"),String(today.getDate()).padStart(2,"0")].join("-");
-  const available = LDR_AGENDA.filter(e => e.date >= todayIso);
+  const available = entries.filter(e => (e.end || e.date) >= todayIso);
   const nextEntries = available.slice(0,4);
   upcoming.replaceChildren();
   if (nextEntries.length) nextEntries.forEach(e => upcoming.appendChild(agendaEventCard(e)));
   else {
     const p = document.createElement("p");
     p.className = "agenda-no-events";
-    p.textContent = "Aucun autre événement programmé dans le calendrier.";
+    p.textContent = "Aucun autre Ã©vÃ©nement programmÃ© dans le calendrier.";
     upcoming.appendChild(p);
   }
-  if (today.getFullYear() >= 2026 && today.getFullYear() <= 2027) {
-    agendaState.year = today.getFullYear();
-    agendaState.month = today.getMonth();
+  const firstYear = Number(entries[0].date.slice(0, 4));
+  const lastYear = Number(entries.at(-1).date.slice(0, 4));
+  const yearSelect = document.getElementById("agenda-year");
+  for (let year = firstYear; year <= lastYear; year++) {
+    const option = el("option", "", year);
+    option.value = year;
+    yearSelect.appendChild(option);
   }
+  agendaState.year = Math.max(firstYear, Math.min(lastYear, today.getFullYear()));
+  agendaState.month = today.getFullYear() === agendaState.year ? today.getMonth() : 0;
+  yearSelect.addEventListener("change", () => {
+    agendaState.year = Number(yearSelect.value);
+    agendaState.month = 0;
+    agendaState.day = null;
+    renderMonth();
+  });
 
   function renderMonth() {
     const year = agendaState.year, month = agendaState.month;
+    yearSelect.value = year;
+    document.getElementById("agenda-prev").disabled = year === firstYear && month === 0;
+    document.getElementById("agenda-next").disabled = year === lastYear && month === 11;
     label.textContent = AGENDA_MONTHS[month].replace(/^./,c=>c.toUpperCase()) + " " + year;
     grid.replaceChildren();
     ["Lun","Mar","Mer","Jeu","Ven","Sam","Dim"].forEach(w=>{
@@ -3654,27 +3261,31 @@ function initAgenda() {
     }
     for(let day=1;day<=max;day++) {
       const iso=[year,String(month+1).padStart(2,"0"),String(day).padStart(2,"0")].join("-");
-      const has = LDR_AGENDA.some(e=>e.date===iso);
+      const has = entries.some(e => e.date <= iso && (e.end || e.date) >= iso);
       const b=document.createElement("button");
       b.type="button";b.className="agenda-day";b.textContent=String(day);
       b.dataset.event=String(has);
       b.dataset.selected=String(agendaState.day===day);
-      b.setAttribute("aria-label",`${day} ${AGENDA_MONTHS[month]} ${year}${has ? ", événement" : ""}`);
+      b.setAttribute("aria-pressed", String(agendaState.day === day));
+      b.setAttribute("aria-label",`${day} ${AGENDA_MONTHS[month]} ${year}${has ? ", Ã©vÃ©nement" : ""}`);
       if(has) { const dot=document.createElement("span");dot.className="agenda-day-dot";b.appendChild(dot); }
-      b.addEventListener("click",()=>{ agendaState.day = agendaState.day===day ? null : day;renderMonth(); });
+      b.addEventListener("click",()=>{ agendaState.day = agendaState.day===day ? null : day;renderMonth(); grid.querySelectorAll(".agenda-day")[day - 1]?.focus(); });
       grid.appendChild(b);
     }
-    const selected = LDR_AGENDA.filter(e=>{
-      const date=agendaDisplayDate(e.date);
-      return date.getFullYear()===year && date.getMonth()===month && (agendaState.day===null || date.getDate()===agendaState.day);
-    });
+    const monthStart = year + "-" + String(month + 1).padStart(2, "0") + "-";
+    const firstDay = monthStart + String(agendaState.day || 1).padStart(2, "0");
+    const lastDay = monthStart + String(agendaState.day || max).padStart(2, "0");
+    const selected = entries.filter(e => e.date <= lastDay && (e.end || e.date) >= firstDay);
     monthly.replaceChildren();
     const heading=document.getElementById("agenda-month-events-heading");
-    heading.textContent=agendaState.day===null ? "Événements de " + AGENDA_MONTHS[month] : `Événements du ${agendaState.day} ${AGENDA_MONTHS[month]}`;
-    if(!selected.length) {const p=document.createElement("p");p.className="agenda-no-events";p.textContent="Aucun événement enregistré pour cette période.";monthly.appendChild(p);}
+    heading.textContent=agendaState.day===null ? "Ã‰vÃ©nements de " + AGENDA_MONTHS[month] : `Ã‰vÃ©nements du ${agendaState.day} ${AGENDA_MONTHS[month]}`;
+    if(!selected.length) {const p=document.createElement("p");p.className="agenda-no-events";p.textContent="Aucun Ã©vÃ©nement enregistrÃ© pour cette pÃ©riode.";monthly.appendChild(p);}
     selected.forEach(e=>{
-      const a=document.createElement("a");a.href=agendaNotionLink(e);a.target="_blank";a.rel="noopener noreferrer";
-      const time=document.createElement("time");time.dateTime=e.date;time.textContent=agendaDisplayDate(e.date).getDate()+" "+AGENDA_MONTHS[month];
+      const a=document.createElement("a");a.href=ficheLink(e);
+      const time = el("time");
+      time.dateTime = e.date;
+      time.textContent = agendaDisplayDate(e.date).toLocaleDateString("fr-FR", { day: "numeric", month: "long" });
+      if (e.end) time.textContent += " â€“ " + agendaDisplayDate(e.end).toLocaleDateString("fr-FR", { day: "numeric", month: "long" });
       const title=document.createElement("span");title.textContent=e.title;
       const place=document.createElement("small");place.textContent=e.place;
       a.append(time,title,place);monthly.appendChild(a);
@@ -3682,6 +3293,7 @@ function initAgenda() {
   }
   function moveMonth(delta) {
     const d = new Date(agendaState.year,agendaState.month+delta,1);
+    if (d.getFullYear() < firstYear || d.getFullYear() > lastYear) return;
     agendaState.year = d.getFullYear();agendaState.month=d.getMonth();agendaState.day=null;renderMonth();
   }
   document.getElementById("agenda-prev").addEventListener("click",()=>moveMonth(-1));
@@ -3694,14 +3306,33 @@ function initAgenda() {
 ======================================== */
 
 initPortail();
-initAgenda();
+const agendaReady = fetch("/data/agenda.json")
+  .then(response => {
+    if (!response.ok) throw new Error("Agenda indisponible");
+    return response.json();
+  })
+  .then(entries => {
+    if (!Array.isArray(entries) || !entries.length) throw new Error("Agenda vide");
+    entries.sort((a, b) => a.date.localeCompare(b.date) || a.title.localeCompare(b.title, "fr"));
+    for (const entry of entries) agendaEntries.set(entry.id, entry);
+    agendaStatus = "ready";
+    initAgenda(entries);
+    document.getElementById("agenda-status").textContent = entries.length + " Ã©vÃ©nements publiÃ©s. Les dates sont reprises du calendrier officiel.";
+
+    if (location.hash.startsWith("#fiche/")) navigate();
+  })
+  .catch(() => {
+    agendaStatus = "error";
+    document.getElementById("agenda-status").textContent = "Le calendrier est temporairement indisponible.";
+    if (location.hash.startsWith("#fiche/")) navigate();
+  });
 navigate();
 startEncyclopedia();
 
 </script>
 
 <!-- ========================================
-     BOUTON RETOUR EN HAUT — LDR.WORLD
+     BOUTON RETOUR EN HAUT â€” LDR.WORLD
 ======================================== -->
 
 <style>
@@ -3779,7 +3410,7 @@ startEncyclopedia();
   aria-label="Retour en haut de la page"
   title="Retour en haut"
 >
-  ↑
+  â†‘
 </button>
 
 <script>
