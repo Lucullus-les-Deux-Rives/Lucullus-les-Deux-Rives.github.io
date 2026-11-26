@@ -10,6 +10,7 @@ on:
     paths:
       - "index.html"
       - "scripts/**"
+      - "data/**"
       - "images/**"
       - ".github/workflows/sync.yml"
 
@@ -89,10 +90,13 @@ jobs:
           echo "Verification des fichiers"
           test -f _site/index.html
           test -f _site/data/notion.json
+          test -f _site/data/agenda.json
           test -f _site/images/catalogue.json
 
           python -m json.tool \
             _site/data/notion.json > /dev/null
+
+          python -m json.tool _site/data/agenda.json > /dev/null
 
           python -m json.tool \
             _site/images/catalogue.json > /dev/null
