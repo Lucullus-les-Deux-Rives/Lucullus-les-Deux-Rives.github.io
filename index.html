@@ -1249,8 +1249,8 @@ header { overflow: visible; }
         <div class="nav-submenu">
           <a href="#fiche/4229b1f3b04a81c5b0d8fc41f7340733">🧭 Vue d'ensemble</a>
           <a href="#geographie">🗺️ Territoires & géographie</a>
-          <a href="#fiche/4229b1f3b04a817cb406ed854612c0c2">📍 Lieux remarquables</a>
-          <a href="#fiche/4229b1f3b04a81ebb5edf3940f56deed">🌳 Nature & paysages</a>
+          <a href="#geographie-lieux">📍 Lieux remarquables</a>
+          <a href="#geographie-paysages">🌳 Nature & paysages</a>
         </div>
       </details>
 
@@ -2813,6 +2813,47 @@ function geographyBlocks(blocks = []) {
   });
 }
 
+const GEOGRAPHY_GUIDES = [
+  ["geographie-lieux", "Lieux remarquables", "4229b1f3b04a817cb406ed854612c0c2"],
+  ["geographie-paysages", "Nature et paysages", "4229b1f3b04a81ebb5edf3940f56deed"]
+];
+
+function addGeographyGuides(article) {
+  const links = el("nav", "agenda-jump-nav");
+  links.setAttribute("aria-label", "Rubriques de Géographie");
+
+  const sections = GEOGRAPHY_GUIDES.flatMap(([anchor, label, id]) => {
+    const page = getPage(id);
+    if (!page) return [];
+    const section = el("section");
+    section.id = anchor;
+    const heading = el("h2", "", label);
+    heading.id = anchor + "-titre";
+    section.setAttribute("aria-labelledby", heading.id);
+    section.appendChild(heading);
+    const blocks = (page.blocks || []).map(block => {
+      if (block.type === "heading_2") return { ...block, type: "heading_3" };
+      return block;
+    });
+    renderBlocks(blocks, section);
+    beautifyNotionLinks(section);
+    const shortcut = el("a", "", label);
+    shortcut.href = "#" + anchor;
+    links.appendChild(shortcut);
+    return [section];
+  });
+
+  const directory = article.querySelector(".encyclopedia-grid");
+  if (directory) {
+    directory.id = "geographie-territoires";
+    const shortcut = el("a", "", "Fiches des territoires");
+    shortcut.href = "#geographie-territoires";
+    links.prepend(shortcut);
+  }
+  if (links.childElementCount) article.prepend(links);
+  article.append(...sections);
+}
+
 function candidateName(text) {
   return normalize(text)
     .replace(/\([^)]*\)/g, "")
@@ -2901,6 +2942,7 @@ function renderSection(id, sectionId) {
   if(sectionId === 'elections') linkElectionProgrammes(article);
   addCuratedDirectory(page,article);
   addSubpages(page, article, renderedProjects);
+  if (sectionId === "geographie") addGeographyGuides(article);
 
   container.appendChild(article);
 }
@@ -2986,12 +3028,15 @@ function navigate() {
   if(hash==='agenda/palmares-competitions') hash='palmares-competitions';
   let active='accueil';
   const anchorSections=['agenda-a-venir','agenda-calendrier','agenda-traditions','palmares-competitions'];
+  const geographyAnchors = ['geographie-territoires', ...GEOGRAPHY_GUIDES.map(([anchor]) => anchor)];
   if(hash.startsWith('agenda/fete/')) {
     active='agenda';
     renderAgendaEventDetail(hash.slice('agenda/fete/'.length));
   } else if(hash.startsWith('fiche/')) {
     const page=getPage(hash.slice(6));
     if(page){renderDetail(page);active='fiche';}
+  } else if(geographyAnchors.includes(hash)) {
+    active='geographie';
   } else if(hash==='elections-programmes') {
     active='elections';
   } else if(anchorSections.includes(hash)) {
@@ -3005,7 +3050,7 @@ function navigate() {
     if(detail)detail.hidden=true;
   }
   document.querySelectorAll('.page').forEach(page=>page.classList.toggle('active',page.id===active));
-  if(anchorSections.includes(hash)||hash==='elections-programmes'){
+  if(anchorSections.includes(hash)||geographyAnchors.includes(hash)||hash==='elections-programmes'){
     window.requestAnimationFrame(()=>document.getElementById(hash)?.scrollIntoView({block:'start'}));
   } else if(hash.startsWith('agenda/fete/')){
     window.requestAnimationFrame(()=>document.getElementById('agenda-fete-detail')?.scrollIntoView({block:'start'}));
