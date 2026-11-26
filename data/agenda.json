@@ -1,33 +1,33 @@
 [
   {
     "id": "4239b1f3b04a8165a2a7dc05796dc16a",
-    "title": "Jour de lâ€™An",
+    "title": "Jour de l’An",
     "date": "2026-01-01",
-    "place": "Toute la PrincipautÃ©",
-    "kind": "FÃªte traditionnelle",
+    "place": "Toute la Principauté",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81edb2f5e4f91f27df13",
-    "title": "FÃªte des Trappeurs et de la Source",
+    "title": "Fête des Trappeurs et de la Source",
     "date": "2026-01-23",
-    "place": "Ruffiac-le-ChÃ¢teau",
-    "kind": "FÃªte traditionnelle",
+    "place": "Ruffiac-le-Château",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81c58c78fa289cac80ad",
     "title": "La Festa dei Due Cuori",
     "date": "2026-02-14",
-    "place": "Little Italy â€” Bella Riva, lac des Amoureux",
-    "kind": "FÃªte traditionnelle",
+    "place": "Little Italy — Bella Riva, lac des Amoureux",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a812f9418df87190c2a36",
-    "title": "Les Olympiades des Deux Rives â€” 100e Ã©dition",
+    "title": "Les Olympiades des Deux Rives — 100e édition",
     "date": "2026-02-20",
-    "place": "Quartier organisateur itinÃ©rant â€” Ã  dÃ©terminer",
+    "place": "Quartier organisateur itinérant — à déterminer",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
@@ -35,7 +35,7 @@
     "id": "4239b1f3b04a8106a294df02d8321033",
     "title": "La Guerre des Marmites",
     "date": "2026-02-27",
-    "place": "Quartier organisateur itinÃ©rant â€” Ã  dÃ©terminer",
+    "place": "Quartier organisateur itinérant — à déterminer",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
@@ -43,8 +43,8 @@
     "id": "4239b1f3b04a816cabcbea008b1d0a6f",
     "title": "La Nuit des Messages Perdus",
     "date": "2026-03-06",
-    "place": "Quartier hÃ´te itinÃ©rant â€” organisÃ© par LucuPoste",
-    "kind": "FÃªte traditionnelle",
+    "place": "Quartier hôte itinérant — organisé par LucuPoste",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -52,7 +52,7 @@
     "title": "La Jean-Guile",
     "date": "2026-03-13",
     "place": "Quartier de Chong-Chong",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -60,7 +60,7 @@
     "title": "La Festa dos Azulejos",
     "date": "2026-04-10",
     "place": "Azulejos",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -68,23 +68,23 @@
     "title": "La Fiera di a Triade",
     "date": "2026-04-11",
     "place": "Les trois villages de la Triade corse, dont Bona Furtuna",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a811e80fbcbeef4792d3d",
-    "title": "La JournÃ©e de Baboush IV",
+    "title": "La Journée de Baboush IV",
     "date": "2026-05-01",
-    "place": "ChÃ¢teau du Lucullus et Bab Al Baboush",
-    "kind": "CommÃ©moration",
+    "place": "Château du Lucullus et Bab Al Baboush",
+    "kind": "Commémoration",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81a1bccec0151d77cf28",
-    "title": "La Grande TablÃ©e du ClÃ©ment",
+    "title": "La Grande Tablée du Clément",
     "date": "2026-05-08",
-    "place": "Grand ClÃ©ment, Lucullus-les-Deux-Rives",
-    "kind": "FÃªte traditionnelle",
+    "place": "Grand Clément, Lucullus-les-Deux-Rives",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -92,7 +92,7 @@
     "title": "Le Bal des Gougouttes",
     "date": "2026-05-15",
     "place": "Gougouttes, Les Hauts de Lucetelle",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -107,16 +107,16 @@
     "id": "4239b1f3b04a813dbaefdd0c093fdccf",
     "title": "Le Festival des Trois Orients",
     "date": "2026-06-05",
-    "place": "Chong-Chong, Ryogan et TibÃ©bÃ©",
+    "place": "Chong-Chong, Ryogan et Tibébé",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a819c9aa3e5870106cdd3",
-    "title": "FÃªtes historiques de Ryogan",
+    "title": "Fêtes historiques de Ryogan",
     "date": "2026-06-12",
     "place": "Ryogan",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -124,47 +124,47 @@
     "title": "La Course des Chaises",
     "date": "2026-06-20",
     "place": "Centre-Ville de Lucullus-les-Deux-Rives",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a817b9761f1f44e259d0b",
     "title": "La Guerre du Cochonnet",
     "date": "2026-06-26",
-    "place": "Boulodromes Marius-Boulegan (Marcel Pagnol) et Fernand-Boulegan (Les BÃ©nÃ©dictins)",
-    "kind": "FÃªte traditionnelle",
+    "place": "Boulodromes Marius-Boulegan (Marcel Pagnol) et Fernand-Boulegan (Les Bénédictins)",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a8120a017dcd7d9fc849e",
     "title": "La Parade des Pistouilles",
     "date": "2026-07-03",
-    "place": "Les Pistouilles, Le CÅ“ur de Lucullus",
+    "place": "Les Pistouilles, Le Cœur de Lucullus",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a819397d8d0b6c3ac8371",
-    "title": "La Grande Trempette des BÃ©nÃ©dictins",
+    "title": "La Grande Trempette des Bénédictins",
     "date": "2026-07-10",
-    "place": "Piscine Carlo Ancelotti, Les BÃ©nÃ©dictins",
-    "kind": "FÃªte traditionnelle",
+    "place": "Piscine Carlo Ancelotti, Les Bénédictins",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81bd912cf37475cc7241",
-    "title": "FÃªte nationale de la PrincipautÃ©",
+    "title": "Fête nationale de la Principauté",
     "date": "2026-07-17",
     "place": "Lucullus-les-Deux-Rives",
-    "kind": "FÃªte nationale",
+    "kind": "Fête nationale",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81989791cf9816b21eda",
-    "title": "Le Grand DÃ©fi de la Butte",
+    "title": "Le Grand Défi de la Butte",
     "date": "2026-07-24",
     "place": "Butte Jambon",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -180,15 +180,15 @@
     "title": "La Sardinade des Caillettes",
     "date": "2026-08-14",
     "place": "Les Caillettes, littoral de Lucullus",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a816285a2ebb9c62cb1b5",
-    "title": "CommÃ©moration de la Grande Marche",
+    "title": "Commémoration de la Grande Marche",
     "date": "2026-08-28",
     "place": "Saint-David",
-    "kind": "CommÃ©moration",
+    "kind": "Commémoration",
     "recurrence": "Annuelle"
   },
   {
@@ -201,49 +201,49 @@
   },
   {
     "id": "4239b1f3b04a816dbd47d72d0099f934",
-    "title": "La JournÃ©e des Inventeurs",
+    "title": "La Journée des Inventeurs",
     "date": "2026-09-11",
-    "place": "DuchÃ© de Malmizer",
-    "kind": "FÃªte traditionnelle",
+    "place": "Duché de Malmizer",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81169cdfe5325d529cb6",
-    "title": "FÃªte de la fondation de Bab Al Baboush",
+    "title": "Fête de la fondation de Bab Al Baboush",
     "date": "2026-09-18",
     "place": "Bab Al Baboush",
-    "kind": "CommÃ©moration",
+    "kind": "Commémoration",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a810b817ac820d2ead62c",
-    "title": "La FÃªte du Grand Canal",
+    "title": "La Fête du Grand Canal",
     "date": "2026-09-25",
-    "place": "Lucullus-les-Deux-Rives â€” ensemble du fleuve et des canaux de la ville",
+    "place": "Lucullus-les-Deux-Rives — ensemble du fleuve et des canaux de la ville",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a8165a867eb841b829015",
-    "title": "Nuit des Ã‰toiles d'Or",
+    "title": "Nuit des Étoiles d'Or",
     "date": "2026-10-09",
-    "place": "AstÃ©roÃ¯de City",
-    "kind": "FÃªte traditionnelle",
+    "place": "Astéroïde City",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81a6aed6e849d0b88d0e",
     "title": "La Nuit des Brumes",
     "date": "2026-10-16",
-    "place": "ChÃ¢teau du Lucullus",
-    "kind": "FÃªte traditionnelle",
+    "place": "Château du Lucullus",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81de8b28db766fca55ce",
     "title": "Le Carnaval des Turluthes",
     "date": "2026-10-23",
-    "place": "Les Turluthes, Le CÅ“ur de Lucullus",
+    "place": "Les Turluthes, Le Cœur de Lucullus",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
@@ -252,102 +252,102 @@
     "title": "Les Treize Coups de Pateograd",
     "date": "2026-11-06",
     "place": "Pateograd",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81409700f7ad22c89a52",
-    "title": "La FÃªte du Grand Froid",
+    "title": "La Fête du Grand Froid",
     "date": "2026-11-13",
     "place": "Pateograd et Stakhanov",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a810ab164dbcc13f270c9",
-    "title": "Le Grand DÃ©filÃ© des Travailleurs",
+    "title": "Le Grand Défilé des Travailleurs",
     "date": "2026-11-20",
     "place": "Pateograd et Stakhanov",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81fa9179f7e459397cd3",
-    "title": "La Grande Grasse MatinÃ©e de Baboush V",
+    "title": "La Grande Grasse Matinée de Baboush V",
     "date": "2026-12-06",
-    "place": "Toute la PrincipautÃ©, particuliÃ¨rement le Domaine Princier",
-    "kind": "FÃªte traditionnelle",
+    "place": "Toute la Principauté, particulièrement le Domaine Princier",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81d7a65bfdbace7e0e8a",
     "title": "La Nuit des Cadeaux Anonymes",
     "date": "2026-12-11",
-    "place": "Toute la PrincipautÃ©",
-    "kind": "FÃªte traditionnelle",
+    "place": "Toute la Principauté",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a8150b213c1571ac699ea",
-    "title": "Le MarchÃ© des Sept Cloches",
+    "title": "Le Marché des Sept Cloches",
     "date": "2026-12-18",
     "place": "Bourg Lucullus",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4229b1f3b04a8158964dd948498fc2bd",
-    "title": "NoÃ«l",
+    "title": "Noël",
     "date": "2026-12-25",
-    "place": "Toute la PrincipautÃ©",
-    "kind": "FÃªte traditionnelle",
+    "place": "Toute la Principauté",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4229b1f3b04a8147831eccb9ba25b4f3",
-    "title": "Jour de lâ€™An",
+    "title": "Jour de l’An",
     "date": "2027-01-01",
-    "place": "Toute la PrincipautÃ©",
-    "kind": "FÃªte traditionnelle",
+    "place": "Toute la Principauté",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4229b1f3b04a8105be67cf7327bf674d",
-    "title": "FÃªte des Trappeurs et de la Source",
+    "title": "Fête des Trappeurs et de la Source",
     "date": "2027-01-23",
-    "place": "Ruffiac-le-ChÃ¢teau",
-    "kind": "FÃªte traditionnelle",
+    "place": "Ruffiac-le-Château",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4229b1f3b04a81908e29fe104c43bc31",
-    "title": "Ã‰lections parlementaires â€” 1er tour",
+    "title": "Élections parlementaires — 1er tour",
     "date": "2027-02-07",
-    "place": "PrincipautÃ© de Lucullus-les-Deux-Rives",
-    "kind": "Ã‰lections",
+    "place": "Principauté de Lucullus-les-Deux-Rives",
+    "kind": "Élections",
     "recurrence": "Ponctuelle"
   },
   {
     "id": "4239b1f3b04a810c9d98e34ade71bb65",
     "title": "La Festa dei Due Cuori",
     "date": "2027-02-14",
-    "place": "Little Italy â€” Bella Riva, lac des Amoureux",
-    "kind": "FÃªte traditionnelle",
+    "place": "Little Italy — Bella Riva, lac des Amoureux",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4229b1f3b04a819692d4e35a159d0b4e",
-    "title": "Ã‰lections parlementaires â€” 2nd tour",
+    "title": "Élections parlementaires — 2nd tour",
     "date": "2027-02-14",
-    "place": "PrincipautÃ© de Lucullus-les-Deux-Rives",
-    "kind": "Ã‰lections",
+    "place": "Principauté de Lucullus-les-Deux-Rives",
+    "kind": "Élections",
     "recurrence": "Ponctuelle"
   },
   {
     "id": "4239b1f3b04a81f2826ae6b759aba93b",
-    "title": "Les Olympiades des Deux Rives â€” 101e Ã©dition",
+    "title": "Les Olympiades des Deux Rives — 101e édition",
     "date": "2027-02-20",
-    "place": "Quartier organisateur itinÃ©rant â€” Ã  dÃ©terminer",
+    "place": "Quartier organisateur itinérant — à déterminer",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
@@ -355,7 +355,7 @@
     "id": "4239b1f3b04a8117bcdbefd200b75b45",
     "title": "La Guerre des Marmites",
     "date": "2027-02-27",
-    "place": "Quartier organisateur itinÃ©rant â€” Ã  dÃ©terminer",
+    "place": "Quartier organisateur itinérant — à déterminer",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
@@ -363,8 +363,8 @@
     "id": "4239b1f3b04a8184b22afbe702d078b8",
     "title": "La Nuit des Messages Perdus",
     "date": "2027-03-06",
-    "place": "Quartier hÃ´te itinÃ©rant â€” organisÃ© par LucuPoste",
-    "kind": "FÃªte traditionnelle",
+    "place": "Quartier hôte itinérant — organisé par LucuPoste",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -372,7 +372,7 @@
     "title": "La Jean-Guile",
     "date": "2027-03-13",
     "place": "Quartier de Chong-Chong",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -380,7 +380,7 @@
     "title": "La Festa dos Azulejos",
     "date": "2027-04-10",
     "place": "Azulejos",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -388,23 +388,23 @@
     "title": "La Fiera di a Triade",
     "date": "2027-04-11",
     "place": "Les trois villages de la Triade corse, dont Bona Furtuna",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81f5a0b4eaf9379c5dbb",
-    "title": "La JournÃ©e de Baboush IV",
+    "title": "La Journée de Baboush IV",
     "date": "2027-05-01",
-    "place": "ChÃ¢teau du Lucullus et Bab Al Baboush",
-    "kind": "CommÃ©moration",
+    "place": "Château du Lucullus et Bab Al Baboush",
+    "kind": "Commémoration",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a818eb966ed9f805830ee",
-    "title": "La Grande TablÃ©e du ClÃ©ment",
+    "title": "La Grande Tablée du Clément",
     "date": "2027-05-08",
-    "place": "Grand ClÃ©ment, Lucullus-les-Deux-Rives",
-    "kind": "FÃªte traditionnelle",
+    "place": "Grand Clément, Lucullus-les-Deux-Rives",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -412,7 +412,7 @@
     "title": "Le Bal des Gougouttes",
     "date": "2027-05-15",
     "place": "Gougouttes, Les Hauts de Lucetelle",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -427,16 +427,16 @@
     "id": "4239b1f3b04a81fb9746d57828b0ba66",
     "title": "Le Festival des Trois Orients",
     "date": "2027-06-05",
-    "place": "Chong-Chong, Ryogan et TibÃ©bÃ©",
+    "place": "Chong-Chong, Ryogan et Tibébé",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
   {
     "id": "4229b1f3b04a81378146e2018c37f5dc",
-    "title": "FÃªtes historiques de Ryogan",
+    "title": "Fêtes historiques de Ryogan",
     "date": "2027-06-12",
     "place": "Ryogan",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -444,47 +444,47 @@
     "title": "La Course des Chaises",
     "date": "2027-06-20",
     "place": "Centre-Ville de Lucullus-les-Deux-Rives",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a817bbafbe2334015df4d",
     "title": "La Guerre du Cochonnet",
     "date": "2027-06-26",
-    "place": "Boulodromes Marius-Boulegan (Marcel Pagnol) et Fernand-Boulegan (Les BÃ©nÃ©dictins)",
-    "kind": "FÃªte traditionnelle",
+    "place": "Boulodromes Marius-Boulegan (Marcel Pagnol) et Fernand-Boulegan (Les Bénédictins)",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a818584c2d26dddd74a1d",
     "title": "La Parade des Pistouilles",
     "date": "2027-07-03",
-    "place": "Les Pistouilles, Le CÅ“ur de Lucullus",
+    "place": "Les Pistouilles, Le Cœur de Lucullus",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a8112af9def7e97d67d7c",
-    "title": "La Grande Trempette des BÃ©nÃ©dictins",
+    "title": "La Grande Trempette des Bénédictins",
     "date": "2027-07-10",
-    "place": "Piscine Carlo Ancelotti, Les BÃ©nÃ©dictins",
-    "kind": "FÃªte traditionnelle",
+    "place": "Piscine Carlo Ancelotti, Les Bénédictins",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4229b1f3b04a810abd0ee7a8040b560c",
-    "title": "FÃªte nationale de la PrincipautÃ©",
+    "title": "Fête nationale de la Principauté",
     "date": "2027-07-17",
     "place": "Lucullus-les-Deux-Rives",
-    "kind": "FÃªte nationale",
+    "kind": "Fête nationale",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a818abd0ada769be6692c",
-    "title": "Le Grand DÃ©fi de la Butte",
+    "title": "Le Grand Défi de la Butte",
     "date": "2027-07-24",
     "place": "Butte Jambon",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
@@ -500,15 +500,15 @@
     "title": "La Sardinade des Caillettes",
     "date": "2027-08-14",
     "place": "Les Caillettes, littoral de Lucullus",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4229b1f3b04a8149a0f2cc8f3c122d54",
-    "title": "CommÃ©moration de la Grande Marche",
+    "title": "Commémoration de la Grande Marche",
     "date": "2027-08-28",
     "place": "Saint-David",
-    "kind": "CommÃ©moration",
+    "kind": "Commémoration",
     "recurrence": "Annuelle"
   },
   {
@@ -521,49 +521,49 @@
   },
   {
     "id": "4239b1f3b04a81c0aa39c6b6dd6fbe18",
-    "title": "La JournÃ©e des Inventeurs",
+    "title": "La Journée des Inventeurs",
     "date": "2027-09-11",
-    "place": "DuchÃ© de Malmizer",
-    "kind": "FÃªte traditionnelle",
+    "place": "Duché de Malmizer",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4229b1f3b04a81a9ae54de49fe9303f5",
-    "title": "FÃªte de la fondation de Bab Al Baboush",
+    "title": "Fête de la fondation de Bab Al Baboush",
     "date": "2027-09-18",
     "place": "Bab Al Baboush",
-    "kind": "CommÃ©moration",
+    "kind": "Commémoration",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81e893ede668bcad8887",
-    "title": "La FÃªte du Grand Canal",
+    "title": "La Fête du Grand Canal",
     "date": "2027-09-25",
-    "place": "Lucullus-les-Deux-Rives â€” ensemble du fleuve et des canaux de la ville",
+    "place": "Lucullus-les-Deux-Rives — ensemble du fleuve et des canaux de la ville",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
   {
     "id": "4229b1f3b04a81cab0b4ee84a1e960b4",
-    "title": "Nuit des Ã‰toiles d'Or",
+    "title": "Nuit des Étoiles d'Or",
     "date": "2027-10-09",
-    "place": "AstÃ©roÃ¯de City",
-    "kind": "FÃªte traditionnelle",
+    "place": "Astéroïde City",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a813ca462f12530e6a350",
     "title": "La Nuit des Brumes",
     "date": "2027-10-16",
-    "place": "ChÃ¢teau du Lucullus",
-    "kind": "FÃªte traditionnelle",
+    "place": "Château du Lucullus",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a810a97d8e3474a672c3b",
     "title": "Le Carnaval des Turluthes",
     "date": "2027-10-23",
-    "place": "Les Turluthes, Le CÅ“ur de Lucullus",
+    "place": "Les Turluthes, Le Cœur de Lucullus",
     "kind": "Festival",
     "recurrence": "Annuelle"
   },
@@ -572,55 +572,55 @@
     "title": "Les Treize Coups de Pateograd",
     "date": "2027-11-06",
     "place": "Pateograd",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81258a3eee7e36e4360a",
-    "title": "La FÃªte du Grand Froid",
+    "title": "La Fête du Grand Froid",
     "date": "2027-11-13",
     "place": "Pateograd et Stakhanov",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81fd83d5f9d91363d369",
-    "title": "Le Grand DÃ©filÃ© des Travailleurs",
+    "title": "Le Grand Défilé des Travailleurs",
     "date": "2027-11-20",
     "place": "Pateograd et Stakhanov",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81f4938cc229f6be6e81",
-    "title": "La Grande Grasse MatinÃ©e de Baboush V",
+    "title": "La Grande Grasse Matinée de Baboush V",
     "date": "2027-12-06",
-    "place": "Toute la PrincipautÃ©, particuliÃ¨rement le Domaine Princier",
-    "kind": "FÃªte traditionnelle",
+    "place": "Toute la Principauté, particulièrement le Domaine Princier",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a817db7b7c5dcb36267c5",
     "title": "La Nuit des Cadeaux Anonymes",
     "date": "2027-12-11",
-    "place": "Toute la PrincipautÃ©",
-    "kind": "FÃªte traditionnelle",
+    "place": "Toute la Principauté",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81ef95d8d46dac70b363",
-    "title": "Le MarchÃ© des Sept Cloches",
+    "title": "Le Marché des Sept Cloches",
     "date": "2027-12-18",
     "place": "Bourg Lucullus",
-    "kind": "FÃªte traditionnelle",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   },
   {
     "id": "4239b1f3b04a81118ffdfb524d43020e",
-    "title": "NoÃ«l",
+    "title": "Noël",
     "date": "2027-12-25",
-    "place": "Toute la PrincipautÃ©",
-    "kind": "FÃªte traditionnelle",
+    "place": "Toute la Principauté",
+    "kind": "Fête traditionnelle",
     "recurrence": "Annuelle"
   }
 ]
