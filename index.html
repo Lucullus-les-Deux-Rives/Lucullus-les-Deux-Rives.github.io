@@ -1354,6 +1354,15 @@ header { overflow: visible; }
 
     </div>
 
+    <nav class="agenda-jump-nav" aria-label="Accès rapides">
+      <a href="#geographie">Carte des territoires</a>
+      <a href="#fiche/4219b1f3b04a8186843dd8e12032e2a8">Personnages historiques</a>
+      <a href="#transports">Plans et lignes</a>
+      <a href="#agenda-calendrier">Calendrier</a>
+      <a href="#palmares-competitions">Palmarès 2026</a>
+      <a href="#elections-programmes">Programmes électoraux</a>
+    </nav>
+
     <!-- ÉLECTIONS -->
 
     <section>
@@ -1708,12 +1717,12 @@ header { overflow: visible; }
         <table class="palmares-table">
           <thead><tr><th>Compétition</th><th>Édition 2026</th><th>Vainqueur</th><th>Distinction</th></tr></thead>
           <tbody>
-            <tr><td>Olympiades des Deux Rives</td><td>100e, exclusivement sportive</td><td>Centre-Ville</td><td>Grand Écu des Deux Rives</td></tr>
-            <tr><td>Guerre des Marmites</td><td>27 février 2026</td><td>Le chef du Ptit Emile</td><td>Louche d’Or du meilleur plat pour « Le ptit qui trempe »</td></tr>
-            <tr><td>Course des Chaises</td><td>20 juin 2026</td><td>Renaud Taboureh</td><td>Une chaise brevetée Lucuchaise</td></tr>
-            <tr><td>Guerre du Cochonnet</td><td>26 juin 2026</td><td>L’équipe de Marcel Pagnol</td><td>Nanomètre d’Or, conservé par le quartier jusqu’à l’édition suivante</td></tr>
-            <tr><td>Grand Défi de la Butte</td><td>24 juillet 2026</td><td>Maurice Rognon</td><td>Jambon d’Or</td></tr>
-            <tr><td>Grand Défilé des Travailleurs — Concours des fanfares</td><td>20 novembre 2026</td><td>La fanfare de Stakhanov</td><td>Marteau d’Honneur et droit de conduire le défilé suivant</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a812f9418df87190c2a36">Olympiades des Deux Rives</a></td><td>100e, exclusivement sportive</td><td>Centre-Ville</td><td>Grand Écu des Deux Rives</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a8106a294df02d8321033">Guerre des Marmites</a></td><td>27 février 2026</td><td>Le chef du Ptit Emile</td><td>Louche d’Or du meilleur plat pour « Le ptit qui trempe »</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a81f6a1a0ff4e8e96468c">Course des Chaises</a></td><td>20 juin 2026</td><td>Renaud Taboureh</td><td>Une chaise brevetée Lucuchaise</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a817b9761f1f44e259d0b">Guerre du Cochonnet</a></td><td>26 juin 2026</td><td>L’équipe de Marcel Pagnol</td><td>Nanomètre d’Or, conservé par le quartier jusqu’à l’édition suivante</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a81989791cf9816b21eda">Grand Défi de la Butte</a></td><td>24 juillet 2026</td><td>Maurice Rognon</td><td>Jambon d’Or</td></tr>
+            <tr><td><a href="#fiche/4239b1f3b04a810ab164dbcc13f270c9">Grand Défilé des Travailleurs — Concours des fanfares</a></td><td>20 novembre 2026</td><td>La fanfare de Stakhanov</td><td>Marteau d’Honneur et droit de conduire le défilé suivant</td></tr>
           </tbody>
         </table>
       </div>
@@ -2055,6 +2064,12 @@ const LDR_SNCL_LINES = [
   ["TBL G","41c9b1f3b04a81a3b76ae8baaff54ca5"]
 ];
 const LDR_CURATED = {
+  "4219b1f3b04a81f29290d4f332defc6a": {title:"Personnages et lieux liés à Baboush IV",links:[
+    ["Ismaël Ier","4219b1f3b04a8186b3bddfdacbf2996f"],
+    ["Takemori Kuroda","4219b1f3b04a81d68fabdf2cc4ee4b0b"],
+    ["Aiko Kuroda","4219b1f3b04a818ea58fcbdb4fc78f6d"],
+    ["Bab Al Baboush","41f9b1f3b04a81c59dd1e611ba1c8360"],
+    ["Ryogan et le Pays de Boto","41f9b1f3b04a812a8d1cfd49b062b05a"]]},
   "4229b1f3b04a817cb406ed854612c0c2": {title:"Explorer les sites remarquables",links:[
     ["Mairie, château, gare et stade","41b9b1f3b04a8183b2d4ddf5fa2bd732"],
     ["Aqueduc, Opéra et Vieille Ville","41b9b1f3b04a818896daed1f87ebc3b3"],
@@ -2086,6 +2101,10 @@ function addNetworkLines(page, target) {
   if(id===cleanId("4229b1f3b04a81af930efbf359d3fe79")){lines=LDR_TRM_LINES;label="🚇 Lignes de métro M1 à M11";}
   if(id===cleanId("4229b1f3b04a81ce88bde0bf9296f68c")){lines=LDR_SNCL_LINES;label="🚆 Lignes TBL A à G";}
   if(!lines) return;
+  appendLineLinks(target, label, lines);
+}
+
+function appendLineLinks(target, label, lines) {
   const h=el("h2","",label); const grid=el("div","ldr-network-grid");
   for(const [number,lineId] of lines){ const p=getPage(lineId); if(!p) continue;
     const a=el("a","",p.title||number);a.href=ficheLink(p);grid.appendChild(a);
@@ -2103,6 +2122,8 @@ function addTransportHub(target){
   ];
   entries.forEach(([name,id])=>{const page=getPage(id);if(page){const a=el("a","",name);a.href=ficheLink(page);grid.appendChild(a);}});
   info.appendChild(grid);target.prepend(info);
+  appendLineLinks(target, "Lignes de métro M1 à M11", LDR_TRM_LINES);
+  appendLineLinks(target, "Lignes TBL A à G", LDR_SNCL_LINES);
 }
 function initMapViewer(){
   const modal=document.getElementById('ldr-map-modal');
@@ -2783,6 +2804,60 @@ function removeOutdatedGeographyNotice(root) {
   });
 }
 
+function candidateName(text) {
+  return normalize(text)
+    .replace(/\([^)]*\)/g, "")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
+function programmeForCandidate(page, name) {
+  const key = candidateName(name);
+  if (!key) return null;
+
+  let heading = "";
+  const matches = new Set();
+  for (const block of page?.blocks || []) {
+    if (block.type.startsWith("heading_")) heading = block.text || "";
+    if (block.type !== "pdf" || !/^\/assets\/notion\/[a-z0-9]+\.pdf$/i.test(block.src || "")) continue;
+    if ([heading, block.caption].some(label =>
+      (" " + candidateName(label) + " ").includes(" " + key + " ")
+    )) matches.add(block.src);
+  }
+  return matches.size === 1 ? [...matches][0] : null;
+}
+
+function linkElectionProgrammes(article) {
+  article.id = "elections-programmes";
+  for (const link of article.querySelectorAll("td a[href]")) {
+    if (!/programme\s+pdf/i.test(link.textContent)) continue;
+    const districtId = link.getAttribute("href").match(/#fiche\/([a-f0-9-]+)$/i)?.[1];
+    const district = districtId ? getPage(districtId) : null;
+    if (!district) continue;
+
+    let preceding = "";
+    for (let node = link.previousSibling; node && node.nodeName !== "A"; node = node.previousSibling) {
+      preceding = node.textContent + preceding;
+    }
+    const name = preceding.split(/\r?\n/).map(line => line.trim()).filter(Boolean).at(-1);
+    const pdf = programmeForCandidate(district, name || "");
+    if (pdf) {
+      link.href = pdf;
+      link.target = "_blank";
+      link.rel = "noopener noreferrer";
+      link.classList.add("programme-link");
+    }
+
+    const row = link.closest("tr");
+    const territory = row?.cells[1];
+    if (territory && !territory.querySelector("a")) {
+      const districtLink = el("a", "", territory.textContent);
+      districtLink.href = ficheLink(district);
+      territory.replaceChildren(districtLink);
+    }
+  }
+}
+
 function renderSection(id, sectionId) {
   const page = getPage(id);
   const section = document.getElementById(sectionId);
@@ -2817,6 +2892,7 @@ function renderSection(id, sectionId) {
   addGallery(page, article);
   if(sectionId === 'geographie') addZoomableGeoMap(article);
   if(sectionId === 'transports') addTransportHub(article);
+  if(sectionId === 'elections') linkElectionProgrammes(article);
   addCuratedDirectory(page,article);
   addSubpages(page, article, renderedProjects);
 
@@ -2901,6 +2977,7 @@ function renderDetail(page) {
 function navigate() {
   let hash='accueil';
   try { hash=decodeURIComponent(location.hash.slice(1))||'accueil'; } catch(e) { hash='accueil'; }
+  if(hash==='agenda/palmares-competitions') hash='palmares-competitions';
   let active='accueil';
   const anchorSections=['agenda-a-venir','agenda-calendrier','agenda-traditions','palmares-competitions'];
   if(hash.startsWith('agenda/fete/')) {
@@ -2909,6 +2986,8 @@ function navigate() {
   } else if(hash.startsWith('fiche/')) {
     const page=getPage(hash.slice(6));
     if(page){renderDetail(page);active='fiche';}
+  } else if(hash==='elections-programmes') {
+    active='elections';
   } else if(anchorSections.includes(hash)) {
     active='agenda';
   } else {
@@ -2920,7 +2999,7 @@ function navigate() {
     if(detail)detail.hidden=true;
   }
   document.querySelectorAll('.page').forEach(page=>page.classList.toggle('active',page.id===active));
-  if(anchorSections.includes(hash)){
+  if(anchorSections.includes(hash)||hash==='elections-programmes'){
     window.requestAnimationFrame(()=>document.getElementById(hash)?.scrollIntoView({block:'start'}));
   } else if(hash.startsWith('agenda/fete/')){
     window.requestAnimationFrame(()=>document.getElementById('agenda-fete-detail')?.scrollIntoView({block:'start'}));
