@@ -1177,6 +1177,18 @@ header { overflow: visible; }
 .ldr-curated-links { padding:10px 0 20px; }
 .ldr-curated-links .ldr-network-grid { margin-top:12px; }
 @media(max-width:600px){.ldr-map-hint { width:92%; }.traditions-directory { grid-template-columns:1fr; }}
+  .page-contents, .directory-filter { margin: 1.2rem 0; padding: 1rem; background: rgba(125,169,224,.10); border: 1px solid rgba(155,191,234,.25); border-radius: .8rem; }
+  .page-contents summary { cursor: pointer; font-weight: 750; }
+  .page-contents .agenda-jump-nav { margin: .75rem 0 0; }
+  .directory-filter { display: grid; grid-template-columns: minmax(0,2fr) minmax(0,1fr); gap: .65rem 1rem; }
+  .directory-filter label { display: block; font-weight: 700; margin-bottom: .35rem; }
+  .directory-filter input, .directory-filter select { width: 100%; min-height: 2.75rem; padding: .55rem .75rem; color: #142842; background: #edf4ff; border: 1px solid #aac2df; border-radius: .45rem; font: inherit; }
+  .directory-filter :focus-visible, .page-contents summary:focus-visible { outline: 3px solid #85c7ff; outline-offset: 3px; }
+  .directory-filter .filter-status { grid-column: 1 / -1; margin: 0; font-size: .9rem; }
+  .filter-target [hidden] { display: none !important; }
+  .grouped-content, #geographie-territoires, #histoire-recits { scroll-margin-top: 8rem; }
+  .grouped-content { margin-top: 2rem; }
+  @media (max-width: 700px) { .directory-filter { grid-template-columns: 1fr; } }
 </style>
 </head>
 
@@ -1259,7 +1271,8 @@ header { overflow: visible; }
         <div class="nav-submenu">
           <a href="#histoire">📜 Histoire générale & locale</a>
           <a href="#fiche/4229b1f3b04a81eabd9bf07346cbaffc">🏰 Lieux historiques</a>
-          <a href="#fiche/4229b1f3b04a81f79aa8d47c9b0fa1de">⏳ Chronologie & événements historiques</a>
+          <a href="#histoire-chronologie">⏳ Chronologie</a>
+          <a href="#histoire-personnages">👥 Personnages historiques</a>
           <a href="#fiche/4229b1f3b04a817cb348ea4a14c6b465">🎭 Culture & traditions</a>
         </div>
       </details>
@@ -1267,11 +1280,11 @@ header { overflow: visible; }
       <details class="nav-menu">
         <summary>Société</summary>
         <div class="nav-submenu">
-          <a href="#fiche/4229b1f3b04a813eaba6f419f6107f32">🏛️ Vue d'ensemble</a>
-          <a href="#institutions">⚖️ Institutions & politique</a>
-          <a href="#economie">💼 Économie & entreprises</a>
-          <a href="#urbanisme">🏗️ Urbanisme & projets</a>
-          <a href="#fiche/4229b1f3b04a814992fccff9b5511918">🏡 Vie quotidienne</a>
+          <a href="#societe">🏛️ Vue d’ensemble</a>
+          <a href="#societe-institutions">⚖️ Institutions & politique</a>
+          <a href="#societe-economie">💼 Économie & entreprises</a>
+          <a href="#societe-projets">🏗️ Urbanisme & projets</a>
+          <a href="#societe-vie-quotidienne">🏡 Vie quotidienne</a>
         </div>
       </details>
 
@@ -1279,9 +1292,9 @@ header { overflow: visible; }
         <summary>Transports</summary>
         <div class="nav-submenu">
           <a href="#transports">🚉 Vue d'ensemble & plans</a>
-          <a href="#fiche/4229b1f3b04a81af930efbf359d3fe79">🚇 TRM : Métro & VAL</a>
-          <a href="#fiche/4229b1f3b04a81ce88bde0bf9296f68c">🚆 SNCL : TBL & trains</a>
-          <a href="#fiche/4229b1f3b04a8134b9dffd2869be2680">🚠 Autres mobilités</a>
+          <a href="#transports-trm">🚇 TRM : Métro & VAL</a>
+          <a href="#transports-sncl">🚆 SNCL : TBL & trains</a>
+          <a href="#transports-autres">🚠 Autres mobilités</a>
         </div>
       </details>
 
@@ -1289,7 +1302,7 @@ header { overflow: visible; }
         <summary>Personnages</summary>
         <div class="nav-submenu">
           <a href="#personnages">👥 Répertoire des personnages</a>
-          <a href="#fiche/4219b1f3b04a8186843dd8e12032e2a8">📜 Figures historiques</a>
+          <a href="#histoire-personnages">📜 Figures historiques</a>
         </div>
       </details>
 
@@ -1356,7 +1369,7 @@ header { overflow: visible; }
 
     <nav class="agenda-jump-nav" aria-label="Accès rapides">
       <a href="#geographie">Carte des territoires</a>
-      <a href="#fiche/4219b1f3b04a8186843dd8e12032e2a8">Personnages historiques</a>
+      <a href="#histoire-personnages">Personnages historiques</a>
       <a href="#transports">Plans et lignes</a>
       <a href="#agenda-calendrier">Calendrier</a>
       <a href="#palmares-competitions">Palmarès 2026</a>
@@ -1468,7 +1481,7 @@ header { overflow: visible; }
           <p>TRM (métro & VAL), SNCL (TBL & trains).</p>
         </a>
 
-        <a class="card" href="#institutions">
+        <a class="card" href="#societe-institutions">
           <div class="emoji">🏛️</div>
           <h3>Institutions</h3>
           <p>La vie politique et communale.</p>
@@ -1492,13 +1505,13 @@ header { overflow: visible; }
           <p>Le scrutin parlementaire de 2027.</p>
         </a>
 
-        <a class="card" href="#economie">
+        <a class="card" href="#societe-economie">
           <div class="emoji">💼</div>
           <h3>Économie</h3>
           <p>Entreprises et activités.</p>
         </a>
 
-        <a class="card" href="#urbanisme">
+        <a class="card" href="#societe-projets">
           <div class="emoji">🏗️</div>
           <h3>Urbanisme</h3>
           <p>Les grands projets de demain.</p>
@@ -1605,6 +1618,15 @@ header { overflow: visible; }
 <!-- ========================================
      AUTRES RUBRIQUES
 ======================================== -->
+
+<div class="page" id="societe">
+  <div class="container">
+    <div class="page-title">
+      <h1>🏛️ Société</h1>
+      <p>Institutions, économie, vie quotidienne et projets de la Principauté.</p>
+    </div>
+  </div>
+</div>
 
 <div class="page" id="institutions">
   <div class="container">
@@ -1772,6 +1794,7 @@ const ROOT_ID =
 
 const SECTION_IDS = {
   geographie: "41b9b1f3-b04a-81c1-a142-d7cebf788f93",
+  societe: "4229b1f3-b04a-813e-aba6-f419f6107f32",
   histoire: "41b9b1f3-b04a-8122-ae28-e2911a35313e",
   transports: "41b9b1f3-b04a-814f-8ff3-f8027f008eba",
   institutions: "41b9b1f3-b04a-81ea-b256-db6bb20a15c8",
@@ -2111,20 +2134,34 @@ function appendLineLinks(target, label, lines) {
   }
   target.append(h,grid);
 }
-function addTransportHub(target){
-  const info=el("div","ldr-curated-links");
-  info.appendChild(el("h2","","Choisir un réseau"));
-  const grid=el("div","ldr-network-grid");
-  const entries=[
-    ["🚇 TRM · Métro & VAL","4229b1f3b04a81af930efbf359d3fe79"],
-    ["🚆 SNCL · TBL & trains","4229b1f3b04a81ce88bde0bf9296f68c"],
-    ["🚠 Autres mobilités","4229b1f3b04a8134b9dffd2869be2680"]
+function addTransportHub(page, article) {
+  const sections = [
+    ["TRM · Métro et VAL", "transports-trm", "4229b1f3b04a81af930efbf359d3fe79", LDR_TRM_LINES],
+    ["SNCL · TBL et trains", "transports-sncl", "4229b1f3b04a81ce88bde0bf9296f68c", LDR_SNCL_LINES],
+    ["Autres mobilités", "transports-autres", "4229b1f3b04a8134b9dffd2869be2680", []]
   ];
-  entries.forEach(([name,id])=>{const page=getPage(id);if(page){const a=el("a","",name);a.href=ficheLink(page);grid.appendChild(a);}});
-  info.appendChild(grid);target.prepend(info);
-  appendLineLinks(target, "Lignes de métro M1 à M11", LDR_TRM_LINES);
-  appendLineLinks(target, "Lignes TBL A à G", LDR_SNCL_LINES);
+  for (const [label, id, pageId, lines] of sections) {
+    const network = getPage(pageId);
+    if (!network) continue;
+    const section = sectionContent(article, id, label);
+    const operator = id === "transports-trm" ? "trm" : "sncl";
+    if (lines.length) {
+      const plan = (page.blocks || []).find(block => normalize(block.text).startsWith("plan " + operator));
+      if (plan) renderBlocks([plan], section);
+      appendLineLinks(section, "Fiches des lignes", lines);
+      if (operator === "trm") {
+        section.appendChild(el("p", "", "VAL : Pedroval, Ryoval et Aéroval sont indiqués sur le plan TRM."));
+      }
+      const detail = el("a", "", "Présentation du réseau");
+      detail.href = ficheLink(network);
+      section.appendChild(detail);
+    } else {
+      renderGroupedBlocks(network, section);
+    }
+  }
+  addPageContents(article, sections);
 }
+
 function initMapViewer(){
   const modal=document.getElementById('ldr-map-modal');
   const viewport=document.getElementById('ldr-map-viewport');
@@ -2850,8 +2887,222 @@ function addGeographyGuides(article) {
     shortcut.href = "#geographie-territoires";
     links.prepend(shortcut);
   }
-  if (links.childElementCount) article.prepend(links);
   article.append(...sections);
+  if (directory) addTerritoryFilter(article, directory);
+  addPageContents(article, [...links.children].map(link => [link.textContent, link.hash.slice(1)]));
+}
+
+const SECTION_ANCHORS = {
+  "histoire-chronologie": "histoire",
+  "histoire-recits": "histoire",
+  "histoire-personnages": "histoire",
+  "societe-institutions": "societe",
+  "societe-economie": "societe",
+  "societe-vie-quotidienne": "societe",
+  "societe-projets": "societe",
+  "transports-trm": "transports",
+  "transports-sncl": "transports",
+  "transports-autres": "transports"
+};
+
+function addPageContents(target, sections) {
+  const entries = sections.filter(([, id]) => target.querySelector("#" + id));
+  if (entries.length < 2) return;
+  const disclosure = el("details", "page-contents");
+  disclosure.open = window.matchMedia("(min-width: 701px)").matches;
+  disclosure.appendChild(el("summary", "", "Dans cette page"));
+  const links = el("nav", "agenda-jump-nav");
+  links.setAttribute("aria-label", "Dans cette page");
+  for (const [label, id] of entries) {
+    const link = el("a", "", label);
+    link.href = "#" + id;
+    links.appendChild(link);
+  }
+  disclosure.appendChild(links);
+  target.prepend(disclosure);
+}
+
+function sectionContent(parent, id, title) {
+  const section = el("section", "grouped-content");
+  section.id = id;
+  const heading = el("h2", "", title);
+  heading.id = id + "-title";
+  section.setAttribute("aria-labelledby", heading.id);
+  section.appendChild(heading);
+  parent.appendChild(section);
+  return section;
+}
+
+function renderGroupedBlocks(page, target, skipHeading = "") {
+  const blocks = (page.blocks || [])
+    .filter(block => block.type !== "child_page" && block.text !== skipHeading)
+    .map(block => block.type === "heading_2" ? { ...block, type: "heading_3" } : block);
+  renderBlocks(blocks, target);
+  beautifyNotionLinks(target);
+}
+
+function addTerritoryFilter(article, directory) {
+  const territories = [...directory.querySelectorAll(".encyclopedia-card")].flatMap(card => {
+    const number = card.textContent.match(/^(\d{2})\s*—/)?.[1];
+    if (!number) return [];
+    const n = Number(number);
+    return [{card, text: normalize(card.textContent), area: n < 25 ? "capitale" : n < 35 ? "metropole" : "vert-bois"}];
+  });
+  const filter = directoryFilter("territoire", "Rechercher un territoire", "Zone", [
+    ["capitale", "Capitale"], ["metropole", "Métropole extérieure"], ["vert-bois", "Vert-Bois-Rives"]
+  ], "Toutes les zones", (query, area) => {
+    let count = 0;
+    for (const {card, text, area: key} of territories) {
+      card.hidden = !text.includes(query) || (area !== "" && key !== area);
+      if (!card.hidden) count++;
+    }
+    return count + (count === 1 ? " territoire" : " territoires");
+  });
+  directory.classList.add("filter-target");
+  filter.id = directory.id;
+  directory.removeAttribute("id");
+  directory.before(filter);
+}
+
+function directoryFilter(id, searchLabel, selectLabel, options, allLabel, apply) {
+  const controls = el("div", "directory-filter");
+  const search = el("input");
+  search.type = "search";
+  search.id = id + "-recherche";
+  const select = el("select");
+  select.id = id + "-filtre";
+  for (const [value, label] of [["", allLabel], ...options]) {
+    const option = el("option", "", label);
+    option.value = value;
+    select.appendChild(option);
+  }
+  const status = el("p", "filter-status");
+  status.setAttribute("role", "status");
+  for (const [label, field] of [[searchLabel, search], [selectLabel, select]]) {
+    const wrapper = el("div");
+    const caption = el("label", "", label);
+    caption.htmlFor = field.id;
+    wrapper.append(caption, field);
+    controls.appendChild(wrapper);
+  }
+  controls.appendChild(status);
+  const refresh = () => { status.textContent = apply(normalize(search.value).trim(), select.value); };
+  search.addEventListener("input", refresh);
+  select.addEventListener("change", refresh);
+  refresh();
+  return controls;
+}
+
+function electionCandidates(cellText) {
+  const cleaned = cellText.replace(/(?:📄\s*)?Programme PDF|Programme à venir/gi, "");
+  return [...cleaned.matchAll(/(?:^|[\n;])\s*([^\n;]+?)\s*\(([A-Z]{2,7})\)/g)]
+    .map(([, name, party]) => ({name: normalize(name).trim(), party}));
+}
+
+function addElectionFilter(article) {
+  const rows = [...article.querySelectorAll("table tr")].flatMap(row => {
+    if (row.cells.length !== 4 || !/^\d{1,2}$/.test(row.cells[0].textContent.trim())) return [];
+    const place = normalize([...row.cells].slice(0, 3).map(cell => cell.textContent).join(" "));
+    return [{row, place, candidates: electionCandidates(row.cells[3].textContent)}];
+  });
+  if (!rows.length) return;
+  const parties = [...new Set(rows.flatMap(({candidates}) => candidates.map(({party}) => party)))].sort();
+  article.classList.add("filter-target");
+  const filter = directoryFilter("elections", "Rechercher un candidat ou une circonscription", "Parti",
+    parties.map(party => [party, party]), "Tous les partis", (query, party) => {
+      let count = 0;
+      for (const {row, place, candidates} of rows) {
+        const placeMatches = place.includes(query);
+        const matching = candidates.some(candidate =>
+          (!party || candidate.party === party) &&
+          (placeMatches || candidate.name.includes(query) || normalize(candidate.party) === query)
+        );
+        row.hidden = !matching && !(placeMatches && !party);
+        if (!row.hidden) count++;
+      }
+      return count + (count === 1 ? " circonscription" : " circonscriptions");
+    });
+  const firstTable = rows[0].row.closest(".notion-table-wrap");
+  firstTable.before(filter);
+}
+
+function addHistoryContents(article) {
+  const chronology = getPage("4229b1f3b04a81f79aa8d47c9b0fa1de");
+  const biographies = getPage("4219b1f3b04a8186843dd8e12032e2a8");
+  const stories = article.querySelector(".encyclopedia-grid");
+  if (stories) stories.id = "histoire-recits";
+  if (chronology) {
+    const section = sectionContent(article, "histoire-chronologie", "Chronologie et événements");
+    renderGroupedBlocks(chronology, section);
+  }
+  if (biographies) {
+    const section = sectionContent(article, "histoire-personnages", "Personnages historiques");
+    renderGroupedBlocks(biographies, section, "Toutes les fiches biographiques");
+  }
+  addPageContents(article, [
+    ["Histoires et récits", "histoire-recits"], ["Chronologie", "histoire-chronologie"],
+    ["Biographies", "histoire-personnages"]
+  ]);
+}
+
+function addSocietyContents(article) {
+  const sections = [
+    ["Institutions et politique", "societe-institutions", SECTION_IDS.institutions],
+    ["Économie et entreprises", "societe-economie", SECTION_IDS.economie],
+    ["Vie quotidienne", "societe-vie-quotidienne", "4229b1f3b04a814992fccff9b5511918"],
+    ["Urbanisme et projets", "societe-projets", SECTION_IDS.urbanisme]
+  ];
+  for (const [label, id, pageId] of sections) {
+    const page = getPage(pageId);
+    if (!page) continue;
+    const section = sectionContent(article, id, label);
+    if (id === "societe-projets") {
+      const shown = renderProjectBlocks(page, section);
+      addSubpages(page, section, shown);
+    } else {
+      renderGroupedBlocks(page, section);
+    }
+  }
+  addPageContents(article, sections);
+}
+
+function correspondenceCodes(value) {
+  const text = normalize(value);
+  const codes = [];
+  for (const [, number] of text.matchAll(/\b(?:m|metro(?:\s+ligne)?)\s*(1[01]|[1-9])\b/g)) codes.push("M" + number);
+  for (const [, letters] of text.matchAll(/\btbl\s*([a-g](?:\s*(?:,|et|\/|&)\s*[a-g]\b)*)\b/g)) {
+    for (const letter of letters.match(/\b[a-g]\b/g) || []) codes.push("TBL " + letter.toUpperCase());
+  }
+  return codes;
+}
+
+function addLineConnections(page, article) {
+  const allLines = [...LDR_TRM_LINES, ...LDR_SNCL_LINES];
+  if (!allLines.some(([, id]) => id === cleanId(page.id))) return;
+  const codes = new Set();
+  const val = new Set();
+  const cellText = cell => (cell || []).map(segment => segment.text || "").join("");
+  for (const table of (page.blocks || []).filter(block => block.type === "table")) {
+    const [header, ...rows] = table.children || [];
+    const column = header?.cells?.findIndex(cell => normalize(cellText(cell)).includes("correspondance")) ?? -1;
+    if (column < 0) continue;
+    for (const row of rows) {
+      const text = cellText(row.cells?.[column]);
+      for (const code of correspondenceCodes(text)) codes.add(code);
+      for (const name of ["Pedroval", "Ryoval", "Aéroval"]) {
+        if (normalize(text).includes(normalize(name))) val.add(name);
+      }
+    }
+  }
+  const connections = allLines.filter(([code, id]) => codes.has(code) && id !== cleanId(page.id) && getPage(id));
+  if (connections.length) appendLineLinks(article, "Lignes en correspondance", connections);
+  if (val.size) {
+    const paragraph = el("p", "", "VAL en correspondance : ");
+    const link = el("a", "", [...val].join(", "));
+    link.href = "#transports-trm";
+    paragraph.appendChild(link);
+    article.appendChild(paragraph);
+  }
 }
 
 function candidateName(text) {
@@ -2929,20 +3180,26 @@ function renderSection(id, sectionId) {
   );
 
   let renderedProjects;
-  if (sectionId === "urbanisme") {
+  if (sectionId === "societe") {
+    addSocietyContents(article);
+  } else if (sectionId === "urbanisme") {
     renderedProjects = renderProjectBlocks(page, article);
-  } else {
+  } else if (sectionId !== "transports") {
     const blocks = sectionId === "geographie" ? geographyBlocks(page.blocks) : page.blocks;
     renderBlocks(blocks, article);
   }
   beautifyNotionLinks(article);
   addGallery(page, article);
   if(sectionId === 'geographie') addZoomableGeoMap(article);
-  if(sectionId === 'transports') addTransportHub(article);
-  if(sectionId === 'elections') linkElectionProgrammes(article);
-  addCuratedDirectory(page,article);
-  addSubpages(page, article, renderedProjects);
+  if (sectionId === "transports") addTransportHub(page, article);
+  if (sectionId === "elections") {
+    linkElectionProgrammes(article);
+    addElectionFilter(article);
+  }
+  addCuratedDirectory(page, article);
+  if (sectionId !== "transports" && sectionId !== "societe") addSubpages(page, article, renderedProjects);
   if (sectionId === "geographie") addGeographyGuides(article);
+  if (sectionId === "histoire") addHistoryContents(article);
 
   container.appendChild(article);
 }
@@ -3013,6 +3270,7 @@ function renderDetail(page) {
   addGallery(page, article);
   addCuratedDirectory(page,article);
   addNetworkLines(page,article);
+  addLineConnections(page,article);
   addSubpages(page, article);
 
   box.appendChild(article);
@@ -3026,6 +3284,8 @@ function navigate() {
   let hash='accueil';
   try { hash=decodeURIComponent(location.hash.slice(1))||'accueil'; } catch(e) { hash='accueil'; }
   if(hash==='agenda/palmares-competitions') hash='palmares-competitions';
+  const legacySocietySections = { institutions: "societe-institutions", economie: "societe-economie", urbanisme: "societe-projets" };
+  if (Object.hasOwn(legacySocietySections, hash)) hash = legacySocietySections[hash];
   let active='accueil';
   const anchorSections=['agenda-a-venir','agenda-calendrier','agenda-traditions','palmares-competitions'];
   const geographyAnchors = ['geographie-territoires', ...GEOGRAPHY_GUIDES.map(([anchor]) => anchor)];
@@ -3037,6 +3297,8 @@ function navigate() {
     if(page){renderDetail(page);active='fiche';}
   } else if(geographyAnchors.includes(hash)) {
     active='geographie';
+  } else if(Object.hasOwn(SECTION_ANCHORS, hash)) {
+    active=SECTION_ANCHORS[hash];
   } else if(hash==='elections-programmes') {
     active='elections';
   } else if(anchorSections.includes(hash)) {
@@ -3050,7 +3312,7 @@ function navigate() {
     if(detail)detail.hidden=true;
   }
   document.querySelectorAll('.page').forEach(page=>page.classList.toggle('active',page.id===active));
-  if(anchorSections.includes(hash)||geographyAnchors.includes(hash)||hash==='elections-programmes'){
+  if(anchorSections.includes(hash)||geographyAnchors.includes(hash)||Object.hasOwn(SECTION_ANCHORS, hash)||hash==='elections-programmes'){
     window.requestAnimationFrame(()=>document.getElementById(hash)?.scrollIntoView({block:'start'}));
   } else if(hash.startsWith('agenda/fete/')){
     window.requestAnimationFrame(()=>document.getElementById('agenda-fete-detail')?.scrollIntoView({block:'start'}));
@@ -3238,16 +3500,7 @@ function initPortail() {
       "portail-actif"
     );
 
-    /*
-      L'entrée ouvre toujours l'accueil.
-      Les fiches restent accessibles ensuite.
-    */
-
-    if (location.hash !== "#accueil") {
-      location.hash = "#accueil";
-    } else {
-      navigate();
-    }
+    navigate();
 
     window.setTimeout(() => {
       portail.remove();
@@ -3298,7 +3551,7 @@ async function startEncyclopedia() {
       const [section, id]
       of Object.entries(SECTION_IDS)
     ) {
-      renderSection(id, section);
+      if (!["institutions", "economie", "urbanisme"].includes(section)) renderSection(id, section);
     }
 
     setupSearch();
