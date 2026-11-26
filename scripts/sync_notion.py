@@ -89,7 +89,7 @@ def api_request(path, method="GET", payload=None, params=None):
                 f"Notion API {error.code}: {path}"
             ) from error
 
-    raise RuntimeError(f"Ã‰chec API Notion : {path}")
+    raise RuntimeError(f"Échec API Notion : {path}")
 
 
 def paginate(path, method="GET", payload=None):
@@ -216,12 +216,12 @@ def download_media(media, block_id):
                 if guessed in valid:
                     destination = ASSETS / (identifier + guessed)
 
-            # Limite de sÃ©curitÃ© : 30 Mo par fichier.
+            # Limite de sécurité : 30 Mo par fichier.
             max_size = 30 * 1024 * 1024
             content = response.read(max_size + 1)
 
             if len(content) > max_size:
-                raise ValueError("Fichier supÃ©rieur Ã  30 Mo")
+                raise ValueError("Fichier supérieur à 30 Mo")
 
         destination.write_bytes(content)
         statistics["images"] += 1
@@ -230,9 +230,9 @@ def download_media(media, block_id):
 
     except Exception as error:
         statistics["errors"].append(
-            f"MÃ©dia {block_id}: {error}"
+            f"Média {block_id}: {error}"
         )
-        print(f"âš  MÃ©dia non tÃ©lÃ©chargÃ© : {block_id}")
+        print(f"⚠ Média non téléchargé : {block_id}")
         return None
 
 
@@ -247,7 +247,7 @@ MEDIA_TYPES = {
 
 def read_blocks(block_id, depth=0):
     if depth > 30:
-        raise RuntimeError("Profondeur de blocs dÃ©passÃ©e")
+        raise RuntimeError("Profondeur de blocs dépassée")
 
     raw_blocks = paginate(
         f"/blocks/{block_id}/children"
@@ -362,8 +362,8 @@ def calendar_entry(page):
     if not start:
         return None
 
-    category = properties.get("CatÃ©gorie", {}).get("select") or {}
-    recurrence = properties.get("RÃ©currence", {}).get("select") or {}
+    category = properties.get("Catégorie", {}).get("select") or {}
+    recurrence = properties.get("Récurrence", {}).get("select") or {}
     entry = {
         "id": page["id"].replace("-", ""),
         "title": page_title(page),
@@ -378,7 +378,7 @@ def calendar_entry(page):
 
 
 def read_database(database_id):
-    print(f"ðŸ“Š Base de donnÃ©es : {database_id}")
+    print(f"📊 Base de données : {database_id}")
 
     database = api_request(
         f"/databases/{database_id}"
@@ -427,7 +427,7 @@ def read_page(page_id):
 
     title = page_title(page)
 
-    print(f"ðŸ“– {title}")
+    print(f"📖 {title}")
     statistics["pages"] += 1
 
     blocks = read_blocks(page_id)
@@ -449,7 +449,7 @@ def read_page(page_id):
             statistics["errors"].append(
                 f"Base {database_id}: {error}"
             )
-            print(f"âš  Base inaccessible : {database_id}")
+            print(f"⚠ Base inaccessible : {database_id}")
 
     return {
         "id": page_id,
@@ -466,7 +466,7 @@ def read_page(page_id):
 # -----------------------------------
 
 def main():
-    print("ðŸ›ï¸ Synchronisation complÃ¨te de LDR.world")
+    print("🏛️ Synchronisation complète de LDR.world")
 
     root = read_page(ROOT_PAGE)
 
@@ -499,7 +499,7 @@ def main():
     print("----------------------------")
     print("Pages :", statistics["pages"])
     print("Blocs :", statistics["blocks"])
-    print("MÃ©dias :", statistics["images"])
+    print("Médias :", statistics["images"])
     print("Bases :", statistics["databases"])
     print("Erreurs :", len(statistics["errors"]))
     if calendar_entries:
@@ -509,9 +509,9 @@ def main():
     print("----------------------------")
 
     for error in statistics["errors"]:
-        print("âš ", error)
+        print("⚠", error)
 
-    print("âœ… Export Notion terminÃ©")
+    print("✅ Export Notion terminé")
 
 
 if __name__ == "__main__":
