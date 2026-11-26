@@ -1189,6 +1189,21 @@ header { overflow: visible; }
   .grouped-content, #geographie-territoires, #histoire-recits { scroll-margin-top: 8rem; }
   .grouped-content { margin-top: 2rem; }
   @media (max-width: 700px) { .directory-filter { grid-template-columns: 1fr; } }
+  .metropolis-map { position: relative; width: 100%; overflow: hidden; border-radius: inherit; }
+  .metropolis-map > img { display: block; width: 100%; height: auto; }
+  .metropolis-zone { position: absolute; inset: 0; width: 100%; height: 100%; border: none; padding: 0; border-radius: 0; background: rgba(105,201,255,.14); cursor: pointer; }
+  .metropolis-zone:hover, .metropolis-zone:focus-visible { background: rgba(130,220,255,.48); }
+  .metropolis-zone[aria-pressed="true"] { background: rgba(69,190,255,.51); }
+  .metropolis-marker { position: absolute; z-index: 2; transform: translate(-50%,-50%); pointer-events: none; padding: .15rem .38rem; border-radius: .28rem; background: #112642; color: #fff; font-size: clamp(.46rem, .83vw, .78rem); font-weight: 750; line-height: 1.2; white-space: nowrap; }
+  .metropolis-marker.is-selected { background: #dff5ff; color: #102642; }
+  .metropolis-controls { margin: 1rem 0; padding: 1rem; border: 1px solid #416287; background: #152944; border-radius: .8rem; }
+  .metropolis-controls label { display: block; font-weight: 750; margin-bottom: .35rem; }
+  .metropolis-controls select { width: 100%; max-width: 28rem; min-height: 2.7rem; background: #e9f3ff; color: #122944; border: 1px solid #8aaacf; border-radius: .4rem; padding: .4rem .6rem; font: inherit; }
+  .metropolis-panel:not(:empty) { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; padding-top: .85rem; }
+  .metropolis-panel h3, .metropolis-panel p { margin: .1rem 0; }
+  .metropolis-panel a { display: inline-block; margin: .35rem .75rem .1rem 0; }
+  .metropolis-panel img { width: min(100%, 13rem); max-height: 7rem; object-fit: cover; border-radius: .4rem; }
+  @media (max-width: 700px) { .metropolis-marker:not(.is-selected) { width: .47rem; height: .47rem; padding: 0; color: transparent; font-size: 0; background: #e6f6ff; box-shadow: 0 0 0 2px #17324d; border-radius: 50%; } }
 </style>
 </head>
 
@@ -2182,6 +2197,115 @@ function initMapViewer(){
   viewport.addEventListener('dblclick',()=>setZoom(scale*1.5));
   modal.addEventListener('click',e=>{if(e.target===modal)modal.close();});
 }
+
+const METROPOLIS_ZONES = [
+  ["Lucullus-les-Deux-Rives", "Capitale", "41b9b1f3b04a8183b2d4ddf5fa2bd732", "Le Cœur de Lucullus", [2048,1855], "1174,1970 1190,1932 1230,1910 1358,1900 1420,1956 1505,1955 1526,1880 1506,1790 1506,1645 1535,1622 1580,1648 1584,1568 1610,1510 1662,1470 1720,1476 1740,1458 1740,1402 1780,1362 1840,1340 1930,1325 1975,1305 1991,1210 2054,1191 2100,1205 2290,1215 2460,1206 2550,1220 2655,1243 2673,1264 2682,1315 2710,1372 2670,1450 2670,1530 2690,1580 2726,1665 2785,1674 2828,1690 2837,1750 2832,1789 2790,1815 2720,1864 2670,1880 2632,1870 2630,1925 2605,1970 2600,2010 2574,2035 2500,2030 2450,2050 2423,2108 2422,2204 2408,2351 2390,2390 2350,2409 2230,2424 1960,2424 1740,2412 1640,2385 1619,2330 1600,2180 1585,2145 1455,2131 1433,2177 1412,2190 1340,2200 1270,2175 1245,2140 1265,2100 1288,2040 1278,1990 1255,1976 1198,1995", "41b9b1f3b04a8183b2d4ddf5fa2bd732"],
+  ["Boto", "Pays de Boto", "41b9b1f3b04a81e08a25c544c69fb7b5", "Le Pays de Boto", [995,100], "881,140 896,80 924,34 973,8 1050,6 1157,17 1201,34 1240,63 1281,85 1288,120 1260,155 1220,180 1155,199 1111,210 1060,255 1035,263 964,264 916,240 892,206", "41f9b1f3b04a812a8d1cfd49b062b05a"],
+  ["Astéroïde City", "Les Confins de l’Ouest", "41b9b1f3b04a8113b028e78ff094b422", "Les Confins de l’Ouest", [1660,44], "1573,5 1768,4 1765,30 1749,58 1721,71 1667,82 1610,93 1572,78 1565,52", "4219b1f3b04a81bdaafbd017b63476e9"],
+  ["Saint-David", "Pays de Saint-David", "41b9b1f3b04a81059309fe0d5cd30a2c", "Le Pays de Saint-David", [90,1255], "29,1138 66,1153 110,1156 145,1150 170,1172 188,1230 181,1276 156,1353 111,1363 45,1358 11,1344 3,1315 2,1230 9,1186", "4229b1f3b04a80e5b304f7f52a80ce5f"],
+  ["Porto-Boustillano", "Triade Corse", "41b9b1f3b04a8156a4e9e10547eda74b", "La Triade Corse", [1483,1182], "1402,1191 1418,1150 1440,1120 1473,1115 1510,1142 1545,1164 1574,1181 1590,1221 1597,1255 1586,1280 1550,1275 1490,1249 1451,1251 1420,1228", "4249b1f3b04a808fa48ec11aae5102d9"],
+  ["Bona Fortuna", "Triade Corse", "41b9b1f3b04a8156a4e9e10547eda74b", "La Triade Corse", [1423,1368], "1390,1335 1407,1305 1437,1310 1460,1342 1478,1364 1470,1394 1460,1416 1427,1412 1398,1418 1379,1408 1377,1381"],
+  ["Saint-Pierre-des-Savignates", "Lieu historique du Pays Corse", "4249b1f3b04a808fa48ec11aae5102d9", "L’histoire du Pays Corse", [1650,1410], "1581,1394 1595,1371 1631,1358 1677,1368 1710,1388 1725,1426 1707,1453 1665,1461 1630,1482 1600,1465 1584,1436"],
+  ["Strada Longa", "Triade Corse", "41b9b1f3b04a8156a4e9e10547eda74b", "La Triade Corse", [1910,1267], "1866,1274 1881,1224 1898,1199 1926,1188 1953,1196 1972,1220 1977,1262 1953,1307 1930,1326 1890,1332 1860,1329"],
+  ["L’Isle-Baboush", "Terres Baboushides", "41b9b1f3b04a81a5ab56f5969f7b2e80", "Les Terres Baboushides", [1987,1155], "1950,1157 1959,1116 1972,1099 2000,1094 2024,1100 2040,1112 2039,1131 2027,1170 2014,1194 1986,1213 1966,1206 1951,1181"],
+  ["Kerlwenn", "Côte de Kerlwenn", "41b9b1f3b04a8146bc77cc0cca4d4507", "La Côte de Kerlwenn", [2543,1163], "2440,1190 2454,1147 2478,1110 2516,1096 2596,1095 2626,1111 2648,1149 2640,1166 2609,1184 2599,1223 2455,1213", "41e9b1f3b04a80759085f233eecb4e7d"],
+  ["Sappling City", "Pays de Sappling", "41b9b1f3b04a81deb3ccd27c7ac565d5", "Le Pays de Sappling", [2683,2000], "2644,1980 2699,1979 2712,1994 2711,2020 2691,2035 2662,2025 2642,2009"],
+  ["Bourg-Lucullus", "Grand Bourg-Lucullus", "41b9b1f3b04a8105918bdefff75e858c", "Le Grand Bourg-Lucullus", [2506,2092], "2442,2081 2468,2047 2511,2040 2540,2045 2563,2064 2581,2104 2579,2124 2550,2136 2494,2138 2451,2132 2431,2112"],
+  ["Ruffiac-le-Château", "Hautes Terres de Ruffiac", "41b9b1f3b04a8188bd36de153e50e2f9", "Les Hautes Terres de Ruffiac", [2542,2258], "2420,2240 2430,2178 2460,2147 2595,2143 2611,2161 2625,2224 2643,2297 2661,2251 2686,2245 2709,2266 2706,2320 2698,2420 2679,2447 2646,2461 2613,2449 2591,2418 2577,2428 2552,2441 2510,2437 2478,2419 2429,2351 2421,2328 2440,2317 2477,2349 2511,2359 2480,2332 2453,2310 2428,2303 2417,2278", "4219b1f3b04a809986abf498ee778c14"],
+  ["Vert-Bois-Rives", "Territoire autonome hors scrutin", "41b9b1f3b04a81e79199d9ec56ea912f", "Vert-Bois-Rives", [833,2352], "781,2334 796,2305 824,2300 858,2308 883,2331 888,2360 877,2391 849,2406 821,2403 790,2383 779,2362", "41f9b1f3b04a81c5bf24ccd804874217"],
+  ["El Camino", "Marches d’El Camino", "41b9b1f3b04a81f88dc7cf910cceac14", "Les Marches d’El Camino", [2554,3330], "2302,3315 2325,3253 2370,3218 2430,3207 2506,3187 2587,3191 2650,3170 2725,3120 2793,3075 2850,3060 2856,3160 2854,3400 2839,3468 2793,3526 2737,3544 2480,3538 2424,3535 2385,3487 2334,3418 2309,3382"]
+];
+
+function addMetropolisSelector(image) {
+  const figure = image.closest("figure");
+  if (!figure) return;
+  const map = el("div", "metropolis-map");
+  image.before(map);
+  map.appendChild(image);
+
+  const controls = el("div", "metropolis-controls");
+  const label = el("label", "", "Ville ou territoire");
+  label.htmlFor = "metropolis-zone";
+  const select = el("select");
+  select.id = label.htmlFor;
+  const empty = el("option", "", "Choisir sur la carte ou dans la liste");
+  empty.value = "";
+  select.appendChild(empty);
+  const panel = el("div", "metropolis-panel");
+  panel.setAttribute("aria-live", "polite");
+  controls.append(label, select, panel);
+  figure.before(controls);
+
+  const overlays = [];
+  function choose(index) {
+    select.value = index === null ? "" : String(index);
+    overlays.forEach(([button, marker], i) => {
+      button.setAttribute("aria-pressed", String(i === index));
+      marker.classList.toggle("is-selected", i === index);
+    });
+    panel.replaceChildren();
+    if (index === null) return;
+    const [name, territory, id, linkLabel, , , imagePage] = METROPOLIS_ZONES[index];
+    const detail = el("div");
+    detail.append(el("h3", "", name), el("p", "", territory));
+    if (getPage(id)) {
+      const link = el("a", "", "Voir " + linkLabel);
+      link.href = "#fiche/" + id;
+      detail.appendChild(link);
+    }
+    if (index === 0) {
+      const districts = el("a", "", "Tous les quartiers de la capitale");
+      districts.href = "#geographie-territoires";
+      districts.addEventListener("click", () => {
+        const area = document.getElementById("territoire-filtre");
+        const search = document.getElementById("territoire-recherche");
+        if (!area || !search) return;
+        search.value = "";
+        area.value = "capitale";
+        area.dispatchEvent(new Event("change"));
+      });
+      detail.appendChild(districts);
+    }
+    panel.appendChild(detail);
+    const illustration = getPage(imagePage || id)?.blocks?.find(block =>
+      block.type === "image" && /^\/assets\/notion\/[a-z0-9]+\.(png|jpe?g|webp)$/i.test(block.src || "")
+    );
+    if (illustration) {
+      const thumbnail = el("img");
+      thumbnail.src = illustration.src;
+      thumbnail.alt = illustration.caption || "";
+      thumbnail.loading = "lazy";
+      panel.appendChild(thumbnail);
+    }
+  }
+
+  for (const [index, [name, , , , [x, y], points]] of METROPOLIS_ZONES.entries()) {
+    const option = el("option", "", name);
+    option.value = String(index);
+    select.appendChild(option);
+    const button = el("button", "metropolis-zone");
+    button.type = "button";
+    button.title = name;
+    button.setAttribute("aria-label", name);
+    button.setAttribute("aria-pressed", "false");
+    button.style.clipPath = "polygon(" + points.split(" ").map(pair => {
+      const [px, py] = pair.split(",").map(Number);
+      return (px / 28.8).toFixed(3) + "% " + (py / 35.49).toFixed(3) + "%";
+    }).join(", ") + ")";
+    const marker = el("span", "metropolis-marker", name);
+    marker.setAttribute("aria-hidden", "true");
+    marker.style.left = x / 28.8 + "%";
+    marker.style.top = y / 35.49 + "%";
+    button.addEventListener("click", () => {
+      choose(index);
+      panel.scrollIntoView({block: "nearest"});
+    });
+    overlays.push([button, marker]);
+    map.append(button, marker);
+  }
+  select.addEventListener("change", () => choose(select.value === "" ? null : Number(select.value)));
+}
+
 function addZoomableGeoMap(article){
   const figs=Array.from(article.querySelectorAll('figure.notion-figure'));
   // La première illustration est le logo métropolitain, la deuxième est la carte officielle.
@@ -2198,6 +2322,7 @@ function addZoomableGeoMap(article){
   const btn=el('button','map-zoom-action','🔎 Agrandir et zoomer sur la carte');btn.type='button';
   btn.addEventListener('click',()=>window.ldrOpenMap(image.currentSrc||image.src));
   image.closest('figure').insertAdjacentElement('afterend',btn);
+  if (image.getAttribute("src")?.endsWith("/2b8c50483add1473b8e0.png")) addMetropolisSelector(image);
 }
 
 /* ========================================
