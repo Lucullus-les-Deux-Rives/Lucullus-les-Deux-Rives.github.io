@@ -20,6 +20,8 @@ ROOT_PAGE = "41b9b1f3b04a8103b749f86b0c758a2a"
 API = "https://api.notion.com/v1"
 
 OUTPUT = Path("data/notion.json")
+AGENDA_OUTPUT = Path("data/agenda.json")
+CALENDAR_DATABASE = "4229b1f3b04a8139ad6cd34545381e02"
 ASSETS = Path("assets/notion")
 
 HEADERS = {
@@ -34,6 +36,7 @@ if not TOKEN:
 ASSETS.mkdir(parents=True, exist_ok=True)
 
 visited = set()
+calendar_entries = {}
 statistics = {
     "pages": 0,
     "blocks": 0,
@@ -86,7 +89,7 @@ def api_request(path, method="GET", payload=None, params=None):
                 f"Notion API {error.code}: {path}"
             ) from error
 
-    raise RuntimeError(f"Échec API Notion : {path}")
+    raise RuntimeError(f"Ã‰chec API Notion : {path}")
 
 
 def paginate(path, method="GET", payload=None):
@@ -138,6 +141,11 @@ def rich_text(items):
     for item in items or []:
         annotations = item.get("annotations") or {}
         href = item.get("href")
+        mention = item.get("mention") or {}
+        if not href and mention.get("type") in ("page", "database"):
+            target = mention.get(mention["type"], {}).get("id")
+            if target:
+                href = "https://app.notion.com/p/" + target.replace("-", "")
 
         result.append({
             "text": item.get("plain_text", ""),
@@ -208,12 +216,12 @@ def download_media(media, block_id):
                 if guessed in valid:
                     destination = ASSETS / (identifier + guessed)
 
-            # Limite de sécurité : 30 Mo par fichier.
+            # Limite de sÃ©curitÃ© : 30 Mo par fichier.
             max_size = 30 * 1024 * 1024
             content = response.read(max_size + 1)
 
             if len(content) > max_size:
-                raise ValueError("Fichier supérieur à 30 Mo")
+                raise ValueError("Fichier supÃ©rieur Ã  30 Mo")
 
         destination.write_bytes(content)
         statistics["images"] += 1
@@ -222,9 +230,9 @@ def download_media(media, block_id):
 
     except Exception as error:
         statistics["errors"].append(
-            f"Média {block_id}: {error}"
+            f"MÃ©dia {block_id}: {error}"
         )
-        print(f"⚠ Média non téléchargé : {block_id}")
+        print(f"âš  MÃ©dia non tÃ©lÃ©chargÃ© : {block_id}")
         return None
 
 
@@ -239,7 +247,7 @@ MEDIA_TYPES = {
 
 def read_blocks(block_id, depth=0):
     if depth > 30:
-        raise RuntimeError("Profondeur de blocs dépassée")
+        raise RuntimeError("Profondeur de blocs dÃ©passÃ©e")
 
     raw_blocks = paginate(
         f"/blocks/{block_id}/children"
@@ -347,8 +355,30 @@ def find_subpages(blocks):
     return pages, databases
 
 
+def calendar_entry(page):
+    properties = page.get("properties", {})
+    date = properties.get("Date", {}).get("date") or {}
+    start = date.get("start")
+    if not start:
+        return None
+
+    category = properties.get("CatÃ©gorie", {}).get("select") or {}
+    recurrence = properties.get("RÃ©currence", {}).get("select") or {}
+    entry = {
+        "id": page["id"].replace("-", ""),
+        "title": page_title(page),
+        "date": start[:10],
+        "place": plain_text(properties.get("Lieu", {}).get("rich_text", [])),
+        "kind": category.get("name", ""),
+        "recurrence": recurrence.get("name", "")
+    }
+    if date.get("end"):
+        entry["end"] = date["end"][:10]
+    return entry
+
+
 def read_database(database_id):
-    print(f"📊 Base de données : {database_id}")
+    print(f"ðŸ“Š Base de donnÃ©es : {database_id}")
 
     database = api_request(
         f"/databases/{database_id}"
@@ -356,6 +386,8 @@ def read_database(database_id):
 
     statistics["databases"] += 1
     pages = []
+    events = {}
+    is_calendar = database_id.replace("-", "") == CALENDAR_DATABASE
 
     for source in database.get("data_sources", []):
         source_id = source["id"]
@@ -369,10 +401,17 @@ def read_database(database_id):
             if entry.get("object") != "page":
                 continue
 
+            if is_calendar and not entry.get("archived") and not entry.get("in_trash"):
+                event = calendar_entry(entry)
+                if event:
+                    events[event["id"]] = event
+
             page = read_page(entry["id"])
             if page:
                 pages.append(page)
 
+    if is_calendar:
+        calendar_entries.update(events)
     return pages
 
 
@@ -388,7 +427,7 @@ def read_page(page_id):
 
     title = page_title(page)
 
-    print(f"📖 {title}")
+    print(f"ðŸ“– {title}")
     statistics["pages"] += 1
 
     blocks = read_blocks(page_id)
@@ -410,7 +449,7 @@ def read_page(page_id):
             statistics["errors"].append(
                 f"Base {database_id}: {error}"
             )
-            print(f"⚠ Base inaccessible : {database_id}")
+            print(f"âš  Base inaccessible : {database_id}")
 
     return {
         "id": page_id,
@@ -427,7 +466,7 @@ def read_page(page_id):
 # -----------------------------------
 
 def main():
-    print("🏛️ Synchronisation complète de LDR.world")
+    print("ðŸ›ï¸ Synchronisation complÃ¨te de LDR.world")
 
     root = read_page(ROOT_PAGE)
 
@@ -453,18 +492,26 @@ def main():
         encoding="utf-8"
     )
 
+    if calendar_entries:
+        agenda = sorted(calendar_entries.values(), key=lambda event: (event["date"], event["title"]))
+        AGENDA_OUTPUT.write_text(json.dumps(agenda, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
     print("----------------------------")
     print("Pages :", statistics["pages"])
     print("Blocs :", statistics["blocks"])
-    print("Médias :", statistics["images"])
+    print("MÃ©dias :", statistics["images"])
     print("Bases :", statistics["databases"])
     print("Erreurs :", len(statistics["errors"]))
+    if calendar_entries:
+        agenda = sorted(calendar_entries.values(), key=lambda event: (event["date"], event["title"]))
+        AGENDA_OUTPUT.write_text(json.dumps(agenda, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
     print("----------------------------")
 
     for error in statistics["errors"]:
-        print("⚠", error)
+        print("âš ", error)
 
-    print("✅ Export Notion terminé")
+    print("âœ… Export Notion terminÃ©")
 
 
 if __name__ == "__main__":
