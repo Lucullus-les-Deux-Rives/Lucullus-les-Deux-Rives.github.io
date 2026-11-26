@@ -2776,7 +2776,7 @@ function addSubpages(page, container, excluded = new Set()) {
 ======================================== */
 
 function removeOutdatedGeographyNotice(root) {
-  const obsoleteNotice = /^(?:les\s+)?premiers programmes publies[.!…\s]*$/i;
+  const obsoleteNotice = /^(?:les\s+)?premiers programmes publies(?:\s*[—–-].*)?[.!…\s]*$/i;
   root.querySelectorAll("p,h2,h3,h4,h5,li,blockquote,.notion-note,.notion-check,figcaption").forEach(node => {
     const text = normalize(node.textContent).replace(/\s+/g, " ").trim();
     if (obsoleteNotice.test(text)) node.remove();
