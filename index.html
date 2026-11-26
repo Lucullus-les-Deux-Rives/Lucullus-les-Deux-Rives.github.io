@@ -2385,13 +2385,13 @@ function addZoomableGeoMap(article){
   mapEnd.after(section);
   const capitalMap = el("figure", "notion-figure capital-map");
   const capitalImage = el("img");
-  capitalImage.src = "/images/carte-circonscriptions-ldr.svg";
-  capitalImage.alt = "Carte de Lucullus-les-Deux-Rives avec les limites des circonscriptions 1 à 24";
+  capitalImage.src = "/images/carte-circonscriptions-ldr-sans-contours.svg";
+  capitalImage.alt = "Vue aérienne de Lucullus-les-Deux-Rives";
   capitalImage.width = 2820;
   capitalImage.height = 1860;
   capitalImage.loading = "lazy";
   capitalMap.appendChild(capitalImage);
-  section.appendChild(capitalMap);
+  section.append(el("p", "", "Clique sur la carte ou choisis une circonscription dans la liste pour voir ses limites et accéder à sa fiche."), capitalMap);
   addTerritoryMap(capitalImage, {
     zones: CAPITAL_ZONES, selectId: "capital-zone", selectLabel: "Circonscription",
     width: 2820, height: 1860
