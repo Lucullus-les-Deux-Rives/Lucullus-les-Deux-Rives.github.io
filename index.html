@@ -2745,6 +2745,10 @@ function addSubpages(page, container, excluded = new Set()) {
   const seen = new Set(excluded);
   const subpages = (page.subpages || []).filter(child => {
     const id = cleanId(child.id);
+    if (cleanId(page.id) === cleanId(SECTION_IDS.geographie) &&
+        normalize(child.title).trim() === "carte generale — vue plein ecran") {
+      return false;
+    }
     if (cleanId(page.id) === cleanId(SECTION_IDS.transports) &&
         (LDR_TRM_LINES.some(([,line])=>cleanId(line)===id) || LDR_SNCL_LINES.some(([,line])=>cleanId(line)===id))) return false;
     if (seen.has(id)) {
