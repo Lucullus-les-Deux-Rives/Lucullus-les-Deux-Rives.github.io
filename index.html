@@ -2305,6 +2305,14 @@ function addTerritoryMap(image, {zones, selectId, selectLabel, width, height}) {
       historyLink.href = ficheLink(history);
       detail.appendChild(historyLink);
     }
+    if (id === "41b9b1f3b04a81e79199d9ec56ea912f") {
+      const tradition = getPage("4239b1f3b04a8114be1ef681de89f8f7");
+      if (tradition) {
+        const link = el("a", "", "Découvrir la Saint-Chapeau");
+        link.href = ficheLink(tradition);
+        detail.appendChild(link);
+      }
+    }
     if (zones === METROPOLIS_ZONES && index === 0) {
       const mapLink = el("a", "", "Carte des circonscriptions de LDR");
       mapLink.href = "#geographie-circonscriptions";
