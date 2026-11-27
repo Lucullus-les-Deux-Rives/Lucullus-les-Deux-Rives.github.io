@@ -3438,26 +3438,49 @@ function findSection(id) {
    FICHES DÉTAILLÉES
 ======================================== */
 
-const CORE_DISTRICT_ID = "41b9b1f3b04a8183b2d4ddf5fa2bd732";
-
-function renderCoreDistrict(page, article) {
+function renderDistrict(page, article, number, city) {
   const blocks = page.blocks || [];
   const portrait = blocks.findIndex(block => block.type === "heading_2" && block.text === "Portrait");
   const facts = blocks.findIndex(block => block.type === "heading_2" && block.text === "En bref");
-  const firstSection = blocks.findIndex((block, index) => index > facts && block.type === "heading_2");
-  if (portrait < 0 || facts <= portrait || firstSection < 0) {
-    renderBlocks(blocks, article);
-    return;
-  }
+  const custom = portrait >= 0 && facts > portrait;
+  const firstSection = blocks.findIndex((block, index) => index > (custom ? facts : -1) && block.type === "heading_2");
+  const bodyStart = firstSection < 0 ? blocks.length : firstSection;
 
   const overview = el("div", "district-overview");
   const intro = el("div");
-  renderBlocks(blocks.slice(portrait + 1, facts), intro);
   const sidebar = el("aside", "district-facts");
-  renderBlocks(blocks.slice(facts, firstSection), sidebar);
+  if (custom) {
+    renderBlocks(blocks.slice(portrait + 1, facts), intro);
+    renderBlocks(blocks.slice(facts, bodyStart), sidebar);
+  } else {
+    const name = page.title.split(" — ").slice(1).join(" — ");
+    const capital = Number(number) <= 24;
+    intro.appendChild(el("p", "", capital
+      ? name + " fait partie de Lucullus-les-Deux-Rives."
+      : city + " fait partie de la métropole de Lucullus-les-Deux-Rives."));
+    renderBlocks(blocks.slice(0, bodyStart).filter(block =>
+      !block.text?.startsWith("Circonscription " + number + " ·")
+    ), intro);
+    sidebar.appendChild(el("h2", "", "En bref"));
+    const list = el("ul");
+    list.appendChild(el("li", "", "Circonscription — " + number + " · " + name));
+    if (capital) {
+      list.appendChild(el("li", "", "Ville — Lucullus-les-Deux-Rives"));
+      const mayor = getPage("4229b1f3b04a80f38d53f3540093334b");
+      if (mayor) {
+        const detail = el("li", "", "Maire de la ville — ");
+        const link = el("a", "", mayor.title.split(" (")[0]);
+        link.href = ficheLink(mayor);
+        detail.appendChild(link);
+        list.appendChild(detail);
+      }
+    }
+    sidebar.appendChild(list);
+  }
   overview.append(intro, sidebar);
   article.appendChild(overview);
 
+  if (bodyStart === blocks.length) return;
   const contents = el("nav", "district-contents");
   contents.setAttribute("aria-label", "Sommaire de la fiche");
   contents.appendChild(el("h2", "", "Sommaire"));
@@ -3465,13 +3488,22 @@ function renderCoreDistrict(page, article) {
 
   let section;
   let sectionBlocks = [];
-  for (const block of blocks.slice(firstSection)) {
-    if (block.type === "heading_2" && !/^Programme de /i.test(block.text)) {
+  let electionSection;
+  let inProgramme = false;
+  const programmes = [];
+  for (const block of blocks.slice(bodyStart)) {
+    if (block.type === "heading_2") inProgramme = Boolean(electionSection && /^Programme de /i.test(block.text));
+    if (inProgramme) {
+      programmes.push(block.type === "heading_2" ? {...block, type: "heading_3"} : block);
+      continue;
+    }
+    if (block.type === "heading_2") {
       if (section) renderBlocks(sectionBlocks, section);
       sectionBlocks = [];
       const id = "district-section-" + contents.children.length;
       const target = sectionContent(article, id, block.text);
       section = target;
+      if (/^Candidatures aux élections/i.test(block.text)) electionSection = target;
       target.tabIndex = -1;
       const shortcut = el("button", "", block.text);
       shortcut.type = "button";
@@ -3485,6 +3517,7 @@ function renderCoreDistrict(page, article) {
     }
   }
   if (section) renderBlocks(sectionBlocks, section);
+  if (programmes.length) renderBlocks(programmes, electionSection);
 }
 
 function renderDetail(page) {
@@ -3510,10 +3543,17 @@ function renderDetail(page) {
   back.href = "#" + section;
   box.appendChild(back);
 
+  const id = cleanId(page.id);
+  const territory = CAPITAL_ZONES.some(zone => cleanId(zone[2]) === id);
+  const places = METROPOLIS_ZONES.slice(1).filter(zone => cleanId(zone[2]) === id);
+  const number = territory || places.length ? page.title?.match(/^(0[1-9]|[12]\d|3[0-4]) — /)?.[1] : null;
+  const city = places.length === 1 ? places[0][0] : null;
+  const title = number && city ? city : page.title || "Fiche";
+
   addCover(page, box);
 
   box.appendChild(
-    el("h1", "", page.title || "Fiche")
+    el("h1", "", title)
   );
 
   const article = el(
@@ -3521,7 +3561,7 @@ function renderDetail(page) {
     "notion-content"
   );
 
-  if (cleanId(page.id) === CORE_DISTRICT_ID) renderCoreDistrict(page, article);
+  if (number) renderDistrict(page, article, number, city || title.split(" — ").slice(1).join(" — "));
   else renderBlocks(page.blocks, article);
   beautifyNotionLinks(article);
   addGallery(page, article);
