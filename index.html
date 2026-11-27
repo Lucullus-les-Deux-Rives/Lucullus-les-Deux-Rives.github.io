@@ -2299,6 +2299,12 @@ function addTerritoryMap(image, {zones, selectId, selectLabel, width, height}) {
       link.href = "#fiche/" + id;
       detail.appendChild(link);
     }
+    const history = imagePage && getPage(imagePage);
+    if (zones === METROPOLIS_ZONES && history && /^Histoire/i.test(history.title)) {
+      const historyLink = el("a", "", "Lire l’histoire");
+      historyLink.href = ficheLink(history);
+      detail.appendChild(historyLink);
+    }
     if (zones === METROPOLIS_ZONES && index === 0) {
       const mapLink = el("a", "", "Carte des circonscriptions de LDR");
       mapLink.href = "#geographie-circonscriptions";
