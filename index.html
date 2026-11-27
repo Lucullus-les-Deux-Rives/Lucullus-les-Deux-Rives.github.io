@@ -1192,9 +1192,7 @@ header { overflow: visible; }
   .district-overview { display: grid; grid-template-columns: minmax(0, 1fr) minmax(15rem, 20rem); gap: 1.5rem; align-items: start; }
   .district-facts, .district-contents { border: 1px solid #416287; background: #152944; border-radius: .65rem; padding: 1rem; margin: 0 0 1rem; }
   .district-facts h2, .district-contents h2 { margin: 0 0 .5rem; font-size: 1.15rem; }
-  .district-facts dl { display: grid; grid-template-columns: auto 1fr; gap: .45rem .85rem; margin: 0; }
-  .district-facts dt { font-weight: 750; }
-  .district-facts dd { margin: 0; }
+  .district-facts ul { margin: 0; padding-inline-start: 1.15rem; }
   .district-contents button { border: 0; background: transparent; color: #dceeff; text-decoration: underline; font: inherit; cursor: pointer; padding: .4rem .8rem .4rem 0; }
   @media (max-width: 700px) { .district-overview { grid-template-columns: 1fr; gap: .7rem; } }
   .metropolis-map { position: relative; width: 100%; overflow: hidden; border-radius: inherit; }
@@ -3443,35 +3441,21 @@ function findSection(id) {
 const CORE_DISTRICT_ID = "41b9b1f3b04a8183b2d4ddf5fa2bd732";
 
 function renderCoreDistrict(page, article) {
-  function reference(id, label) {
-    const target = getPage(id);
-    if (!target) return document.createTextNode(label);
-    const link = el("a", "", label);
-    link.href = ficheLink(target);
-    return link;
+  const blocks = page.blocks || [];
+  const portrait = blocks.findIndex(block => block.type === "heading_2" && block.text === "Portrait");
+  const facts = blocks.findIndex(block => block.type === "heading_2" && block.text === "En bref");
+  const firstSection = blocks.findIndex((block, index) => index > facts && block.type === "heading_2");
+  if (portrait < 0 || facts <= portrait || firstSection < 0) {
+    renderBlocks(blocks, article);
+    return;
   }
 
   const overview = el("div", "district-overview");
   const intro = el("div");
-  intro.append(
-    el("p", "", "Le Cœur de Lucullus est la première circonscription de Lucullus-les-Deux-Rives. Elle comprend le Centre-Ville, où se trouvent la mairie et le Château du Lucullus, ainsi que Nouvelle Amsterdam, les Pistouilles et les Turluthes."),
-    el("p", "", "La gare Lucetelle et le stade Émile Boutrouille, enceinte du Lucin FC, comptent parmi ses principaux équipements. Le Tribunal de Lucullus-les-Deux-Rives jouxte la prison du Tartare.")
-  );
-  const facts = el("aside", "district-facts");
-  facts.appendChild(el("h2", "", "En bref"));
-  const list = el("dl");
-  for (const [key, value] of [
-    ["Ville", "Lucullus-les-Deux-Rives"],
-    ["Circonscription", "01"],
-    ["Maire de la ville", reference("4229b1f3b04a80f38d53f3540093334b", "Klems Bougnat")],
-    ["Population", "À renseigner"],
-  ]) {
-    const detail = el("dd");
-    detail.append(value);
-    list.append(el("dt", "", key), detail);
-  }
-  facts.appendChild(list);
-  overview.append(intro, facts);
+  renderBlocks(blocks.slice(portrait + 1, facts), intro);
+  const sidebar = el("aside", "district-facts");
+  renderBlocks(blocks.slice(facts, firstSection), sidebar);
+  overview.append(intro, sidebar);
   article.appendChild(overview);
 
   const contents = el("nav", "district-contents");
@@ -3479,42 +3463,28 @@ function renderCoreDistrict(page, article) {
   contents.appendChild(el("h2", "", "Sommaire"));
   article.appendChild(contents);
 
-  function section(id, title) {
-    const block = sectionContent(article, id, title);
-    block.tabIndex = -1;
-    const shortcut = el("button", "", title);
-    shortcut.type = "button";
-    shortcut.addEventListener("click", () => {
-      block.focus({preventScroll: true});
-      block.scrollIntoView({block: "start"});
-    });
-    contents.appendChild(shortcut);
-    return block;
+  let section;
+  let sectionBlocks = [];
+  for (const block of blocks.slice(firstSection)) {
+    if (block.type === "heading_2" && !/^Programme de /i.test(block.text)) {
+      if (section) renderBlocks(sectionBlocks, section);
+      sectionBlocks = [];
+      const id = "district-section-" + contents.children.length;
+      const target = sectionContent(article, id, block.text);
+      section = target;
+      target.tabIndex = -1;
+      const shortcut = el("button", "", block.text);
+      shortcut.type = "button";
+      shortcut.addEventListener("click", () => {
+        target.focus({preventScroll: true});
+        target.scrollIntoView({block: "start"});
+      });
+      contents.appendChild(shortcut);
+    } else {
+      sectionBlocks.push(block.type === "heading_2" ? {...block, type: "heading_3"} : block);
+    }
   }
-
-  const heritage = section("district-quartiers", "Quartiers et patrimoine");
-  heritage.appendChild(el("p", "", "Le Centre-Ville accueille la mairie et le Château du Lucullus. Le patrimoine de la circonscription comprend aussi le Tribunal et le Tartare, dont la construction est attribuée à Baboush VI dans l’histoire générale de la ville."));
-  const life = section("district-vie-locale", "Vie locale");
-  const festivals = el("p");
-  festivals.append("À Nouvelle Amsterdam, ", reference("4239b1f3b04a8108b90bc47655c6abd0", "le Festival des Cent Parapluies"), " se tient le 22 mai. Le 3 juillet, les Pistouilles accueillent ", reference("4239b1f3b04a818584c2d26dddd74a1d", "la Parade des Pistouilles"), ".");
-  life.append(festivals, el("p", "", "Les commerces et les figures locales restent à recenser."));
-
-  const blocks = page.blocks || [];
-  const imageStart = blocks.findIndex(block => block.type === "heading_2" && block.text === "Le Cœur de Lucullus en images");
-  const electionStart = blocks.findIndex(block => block.type === "heading_2" && block.text === "Candidatures aux élections de 2027");
-  const indexEnd = imageStart < 0 ? (electionStart < 0 ? blocks.length : electionStart) : imageStart;
-  renderBlocks(blocks.slice(1, indexEnd).filter(block => !(block.type === "paragraph" && block.text?.trim() === "Élections")), heritage);
-  if (imageStart >= 0) {
-    const gallery = section("district-images", "Le Cœur de Lucullus en images");
-    renderBlocks(blocks.slice(imageStart + 1, electionStart < 0 ? undefined : electionStart), gallery);
-  }
-  if (electionStart >= 0) {
-    const elections = section("district-elections", "Élections parlementaires de 2027");
-    const electionGuide = el("a", "", "Consulter le dossier des élections 2027");
-    electionGuide.href = "#elections";
-    elections.appendChild(electionGuide);
-    renderBlocks(blocks.slice(electionStart + 1).map(block => block.type === "heading_2" ? {...block, type: "heading_3"} : block), elections);
-  }
+  if (section) renderBlocks(sectionBlocks, section);
 }
 
 function renderDetail(page) {
